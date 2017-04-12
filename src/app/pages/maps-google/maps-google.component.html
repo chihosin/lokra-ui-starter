@@ -1,0 +1,22 @@
+<md-toolbar color="primary">
+  <md-toolbar-row>
+    <h1 class="page-card-flexible-title">Google Maps
+      <small><a class="badge" href="https://angular-maps.com/docs/api/latest/ts">Official Documentation</a></small>
+    </h1>
+  </md-toolbar-row>
+  <md-toolbar-row></md-toolbar-row>
+</md-toolbar>
+<md-card class="page-card page-card-flexible-tabs" fxFlexOffset="15" fxFlex="70">
+  <md-tab-group>
+    <md-tab label="Overview">
+      <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="zm">
+        <sebm-google-map-marker
+          [latitude]="mlat"
+          [longitude]="mlng"
+          [label]="mlabel"
+          [markerDraggable]="mdraggable">
+        </sebm-google-map-marker>
+      </sebm-google-map>
+    </md-tab>
+  </md-tab-group>
+</md-card>

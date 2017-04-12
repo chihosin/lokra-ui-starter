@@ -1,0 +1,21 @@
+pre code{
+  color: #268bd2;
+}
+.example-md-item *{
+  line-height: 22px;
+}
+.example-md-item h5{
+  //color: rgba(38, 41, 50, 0.77);
+  font-weight: 200;
+}
+.example-md-item h4{
+  font-size: 14px;
+  //color: rgb(38, 41, 50) !important;
+  font-weight: 300;
+}
+.example-md-item p{
+  margin: 5px;
+  font-size: 13px;
+  //color: rgba(0,0,0,.54)!important;
+  font-weight: 400;
+};

@@ -1,0 +1,161 @@
+<md-tab-group>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title>Validation Forms</md-card-title>
+        <md-card-subtitle>Basic forms elements with validation</md-card-subtitle>
+        <md-card-content>
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
+            <div class="card-form-input" fxflex>
+              <md-input-container>
+                <input mdInput placeholder="First name" type="text"
+                       [(ngModel)]="forms.firstName" name="firstName" #firstName="ngModel" required>
+              </md-input-container>
+              <p class="text-danger" *ngIf="firstName.errors?.required">You must include a first name.</p>
+            </div>
+            <div class="card-form-input" fxflex>
+              <md-input-container>
+                <input mdInput placeholder="Last name" type="text"
+                       [(ngModel)]="forms.lastName" name="lastName" #lastName="ngModel" required>
+              </md-input-container>
+              <p class="text-danger" *ngIf="lastName.errors?.required">You must include a last name.</p>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
+            <div class="card-form-input" fxflex>
+              <section class="card-form-section">
+                <md-radio-group>
+                  <md-radio-button value="man">
+                    Man
+                  </md-radio-button>
+                  <md-radio-button value="woman">
+                    Woman
+                  </md-radio-button>
+                  <md-radio-button value="none">
+                    None
+                  </md-radio-button>
+                </md-radio-group>
+              </section>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
+            <div class="card-form-input" fxflex>
+              <md-input-container>
+                <input mdInput placeholder="Password" type="password"
+                       [(ngModel)]="forms.password" name="password" #password="ngModel" [rangeLength]="[8, 32]"
+                       required>
+              </md-input-container>
+              <p class="text-danger" *ngIf="password.errors?.rangeLength">The password length is 8 to 32.</p>
+              <p class="text-danger" *ngIf="password?.errors?.required">You must include a password.</p>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
+            <div class="card-form-input" fxflex>
+              <md-input-container>
+                <input mdInput placeholder="Certain password" type="password"
+                       [(ngModel)]="forms.certainPassword" name="certainPassword" #certainPassword="ngModel" required
+                       [equalTo]="password">
+              </md-input-container>
+              <p class="text-danger" *ngIf="certainPassword?.errors?.required">You must include a certain password.</p>
+              <p class="text-danger" *ngIf="certainPassword?.errors?.equalTo">Passwords do not math.</p>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
+            <div class="card-form-input" fxflex>
+              <md2-datepicker type="date"
+                              placeholder="Birthday"
+                              format="YYYY/MM/DD">
+              </md2-datepicker>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+            <md-icon class="card-form-input-icon" fxflex>language</md-icon>
+            <div class="card-form-input" fxflex>
+              <md-input-container>
+                <input mdInput placeholder="Web site" type="text"
+                       [(ngModel)]="forms.url" name="url" #url="ngModel" url>
+              </md-input-container>
+              <p class="text-danger" *ngIf="url?.errors?.url">You must include a web site url.</p>
+            </div>
+          </div>
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+            <md-icon class="card-form-input-icon" fxflex>label_outline</md-icon>
+            <div class="card-form-input" fxflex="30" fxLayout="column">
+              <md-input-container>
+                <input mdInput placeholder="code" type="text"
+                       [(ngModel)]="forms.code" name="code" #code="ngModel" digits>
+              </md-input-container>
+              <p class="text-danger" *ngIf="code?.errors?.digits">You must include a code in digits.</p>
+            </div>
+            <md-icon class="card-form-input-icon" fxflex>home</md-icon>
+            <div class="card-form-input" fxflex="70" fxLayout="column">
+              <md-input-container>
+                <input mdInput placeholder="Address" type="text"
+                       [(ngModel)]="forms.addr" name="addr" #addr="ngModel">
+              </md-input-container>
+            </div>
+          </div>
+          <br>
+          <h5>Personal Note</h5>
+          <quill-editor></quill-editor>
+          <br>
+          <br>
+          <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+            <div class="card-form-input" fxflex="30" fxLayout="column">
+              <md-checkbox>Notify new products message</md-checkbox>
+              <md-checkbox>Accept agreement</md-checkbox>
+            </div>
+          </div>
+        </md-card-content>
+        <md-card-actions>
+          <button md-raised-button disabled>SUBMIT</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="Validation">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title>
+          Ng2 Validation
+          <a class="badge" href="https://github.com/yuyang041060120/ng2-validation">Official Documentation</a>
+        </md-card-title>
+        <md-card-subtitle>Angular2 custom validation, inspired by jQuery validation</md-card-subtitle>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>angular2 built-in validators</h2>
+            <ul>
+              <li>required</li>
+              <li>minlength</li>
+              <li>maxlength</li>
+              <li>pattern</li>
+            </ul>
+            <h2>extend validators</h2>
+            <ul>
+              <li>rangeLength</li>
+              <li>min</li>
+              <li>max</li>
+              <li>range</li>
+              <li>digits</li>
+              <li>number</li>
+              <li>url</li>
+              <li>email</li>
+              <li>date</li>
+              <li>minDate</li>
+              <li>maxDate</li>
+              <li>dateISO</li>
+              <li>creditCard</li>
+              <li>json</li>
+              <li>base64</li>
+              <li>phone</li>
+              <li>uuid</li>
+              <li>equal</li>
+              <li>equalTo</li>
+            </ul>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>
+

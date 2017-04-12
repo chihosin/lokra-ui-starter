@@ -1,0 +1,69 @@
+<div class="page-content">
+  <md-card class="page-card">
+    <md-card-title>Form Tree
+      <a class="badge" href="https://github.com/500tech/angular2-tree-component">Official Documentation</a>
+    </md-card-title>
+  </md-card>
+  <md-card class="page-card">
+    <md-card-content>
+      <form>
+        <input md-in #filter (keyup)="filterNodes(filter.value, tree)" placeholder="filter nodes"/>
+      </form>
+      <Tree
+        #tree
+        [nodes]="nodes"
+        [focused]="true"
+        [options]="customTemplateStringOptions"
+        (onEvent)="onEvent($event)">
+        <template #treeNodeTemplate let-node>
+          <span title="{{node.data.subTitle}}">{{ node.data.name }}</span>
+          &nbsp;&nbsp;&nbsp;<span class="badge pull-right">{{ childrenCount(node) }}</span>
+        </template>
+        <template #loadingTemplate>Loading, please hold....</template>
+      </Tree>
+    </md-card-content>
+  </md-card>
+  <md-card class="page-card">
+    <md-card-content>
+      <p>Keys:</p>
+      down | up | left | right | space | enter
+      <p>Mouse:</p>
+      click to select | shift+click to select multi
+      <p>API:</p>
+      <button md-raised-button (click)="tree.treeModel.focusNextNode()">next node</button>
+      <button md-raised-button (click)="tree.treeModel.focusPreviousNode()">previous node</button>
+      <button md-raised-button (click)="tree.treeModel.focusDrillDown()">drill down</button>
+      <button md-raised-button (click)="tree.treeModel.focusDrillUp()">drill up</button>
+      <button md-raised-button (click)="customTemplateStringOptions.allowDrag = true">allowDrag</button>
+      <p></p>
+      <button
+        md-raised-button
+        [disabled]="!tree.treeModel.getFocusedNode()"
+        (click)="tree.treeModel.getFocusedNode().toggleActivated()">
+        {{ tree.treeModel.getFocusedNode()?.isActive ? 'deactivate' : 'activate' }}
+      </button>
+      <button
+        md-raised-button
+        [disabled]="!tree.treeModel.getFocusedNode()"
+        (click)="tree.treeModel.getFocusedNode().toggleExpanded()">
+        {{ tree.treeModel.getFocusedNode()?.isExpanded ? 'collapse' : 'expand' }}
+      </button>
+      <button
+        md-raised-button
+        [disabled]="!tree.treeModel.getFocusedNode()"
+        (click)="tree.treeModel.getFocusedNode().blur()">
+        blur
+      </button>
+      <button
+        md-raised-button
+        (click)="addNode(tree)">
+        Add Node
+      </button>
+      <button
+        md-raised-button
+        (click)="activateSubSub(tree)">
+        Activate inner node
+      </button>
+    </md-card-content>
+  </md-card>
+</div>

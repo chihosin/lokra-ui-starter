@@ -1,0 +1,179 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Grid list</md-card-title>
+          <md-card-subtitle>Default material grid list</md-card-subtitle>
+
+          <md-card-content>
+            <md-grid-list cols="4" rowHeight="{{rowHeight}}" gutterSize="{{gutterSize}}">
+              <md-grid-tile
+                *ngFor="let tile of tiles"
+                [colspan]="tile.cols"
+                [rowspan]="tile.rows"
+                [style.background]="tile.color">
+                <md-grid-tile-header>
+                  header
+                </md-grid-tile-header>
+                <md-grid-tile-footer>
+                  footer
+                </md-grid-tile-footer>
+                {{tile.text}}
+              </md-grid-tile>
+            </md-grid-list>
+            <br>
+            <md-grid-list cols="4" rowHeight="{{rowHeight}}" gutterSize="{{gutterSize}}">
+              <md-grid-tile
+                *ngFor="let tile of tiles"
+                [colspan]="tile.cols"
+                [rowspan]="tile.rows"
+                [style.background]="tile.color">
+                {{tile.text}}
+              </md-grid-tile>
+            </md-grid-list>
+            <br>
+            <md-input-container class="example-select">
+              <input mdInput  placeholder="RowHeight(px)" [(ngModel)]="rowHeight">
+            </md-input-container>
+            <md-input-container class="example-select">
+              <input mdInput  placeholder="GutterSize(px)" [(ngModel)]="gutterSize">
+            </md-input-container>
+
+          </md-card-content>
+
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdGridListModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/grid-list">Official Documentation</a>
+
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>
+              <code>md-grid-list</code> is a two-dimensional list view that arranges cells into grid-based layout. See
+              Material Design spec <a href="https://www.google.com/design/spec/components/grid-lists.html">here</a>.
+            </p>
+            <h3>Setting the number of columns</h3>
+            <p>
+              The height of the rows in a grid list can be set via the rowHeight attribute. Row height for the list can
+              be calculated in three ways:
+            </p>
+            <ol>
+              <li><p><strong>Fixed height</strong>: The height can be in <code>px</code>, <code>em</code>, or
+                <code>rem</code>. If no units are specified, <code>px</code>
+                units are assumed (e.g. <code>100px</code>, <code>5em</code>, <code>250</code>).</p>
+              </li>
+              <li><p><strong>Ratio</strong>: This ratio is column-width:row-height, and must be passed in with a colon,
+                not a
+                decimal (e.g. <code>4:3</code>).</p>
+              </li>
+              <li><p><strong>Fit</strong>: Setting <code>rowHeight</code> to <code>fit</code> This mode automatically
+                divides the available height by
+                the number of rows. Please note the height of the grid-list or its container must be set. </p>
+              </li>
+            </ol>
+            <p>
+              If rowHeight is not specified, it defaults to a 1:1 ratio of width:height.
+            </p>
+            <h3>Setting the gutter size</h3>
+            <p>
+              The gutter size can be set to any px, em, or rem value with the gutterSize property. If no units are
+              specified, px units are assumed. By default the gutter size is 1px.
+            </p>
+            <h3>Adding tiles that span multiple rows or columns</h3>
+            <p>
+              It is possible to set the rowspan and colspan of each md-grid-tile individually, using the rowspan and
+              colspan properties. If not set, they both default to 1. The colspan must not exceed the number of cols in
+              the <code>md-grid-list</code>. There is no such restriction on the rowspan however, more rows will simply
+              be added for it the tile to fill.
+            </p>
+            <h3>Tile headers and footers</h3>
+            <p>
+              A header and footer can be added to an <code>md-grid-tile</code> using the
+              <code>md-grid-tile-header</code> and <code>md-grid-tile-footer</code> elements respectively.
+            </p>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdGridListModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdGridList</h3>
+            <p class="docs-api-class-description"></p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    cols
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Amount of columns in the grid list.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    gutterSize
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Size of the grid list&#39;s gutter in pixels.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    rowHeight
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Set internal representation of row height from the
+                  user-provided value.
+                </td>
+              </tr>
+
+
+            </table>
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

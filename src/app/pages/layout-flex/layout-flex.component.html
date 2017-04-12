@@ -1,0 +1,165 @@
+<div class="page-content">
+  <md-card class="page-card">
+    <md-card-title>Flex Layout
+      <a class="badge" href="https://github.com/angular/flex-layout">Official Documentation</a></md-card-title>
+  </md-card>
+  <md-card class="page-card">
+    <md-card-title>Responsive Flex Directives</md-card-title>
+    <md-card-subtitle>Use the show hide APIs to responsively show or hide elements:</md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div fxLayout="row" class="coloredContainerX box">
+          <div fxFlex.gt-sm="67" fxFlex="33"> flex 33% on mobile, <br>and 66% on gt-sm devices.</div>
+          <div fxFlex.gt-sm="33" fxFlex="67"> flex 67% on mobile, <br>and 33% on gt-sm devices.</div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card class="page-card">
+    <md-card-title>Responsive Flex Ordering</md-card-title>
+    <md-card-subtitle>Add the flex-order directive to a layout child to set its order position within the layout
+      container:
+    </md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div fxLayout="row" class="coloredContainerX box">
+          <div fxFlex fxFlexOrder="-1">
+            <p>[flex-order="-1"]</p>
+          </div>
+          <div fxFlex fxFlexOrder="1" fxFlexOrder.gt-md="3">
+            <p fxHide="false" fxHide.gt-md> [flex-order="1"] </p>
+            <p fxShow="false" fxShow.gt-md> [flex-order.gt-md="3"] </p>
+          </div>
+          <div fxFlex fxFlexOrder="2">
+            <p>[flex-order="2"]</p>
+          </div>
+          <div fxFlex fxFlexOrder="3" fxFlexOrder.gt-md="1">
+            <p fxHide="false" fxHide.gt-md> [flex-order="3"] </p>
+            <p fxShow="false" fxShow.gt-md> [flex-order.gt-md="1"] </p>
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card class="page-card">
+    <md-card-title>Responsive Layout Directions</md-card-title>
+    <md-card-subtitle>Layout direction changes to 'column' for 'xs' or 'sm' viewport sizes:</md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex class="coloredContainerX box">
+          <div fxFlex> I'm above on mobile, and to the left on larger devices.</div>
+          <div fxFlex> I'm below on mobile, and to the right on larger devices.</div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card class="page-card">
+    <md-card-title>Multiple Responsive Columns</md-card-title>
+    <md-card-subtitle>Simple row with nested layout containers. Note: the 1st column is responsive.</md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+
+        <div class="colorNested box" fxLayout="row" *ngIf="isVisible">
+          <div [fxLayout]="firstCol"
+               [fxLayout.xs]="firstColXs"
+               [fxLayout.md]="firstColMd"
+               [fxLayout.lg]="firstColLg"
+               [fxLayout.gt-lg]="firstColGtLg"
+               fxFlex="50%"
+               fxFlex.gt-sm="25"
+               fxShow="true"
+               fxShow.md="false"
+               (click)="toggleLayoutFor(1)" style="cursor: pointer;">
+            <div fxFlex>Col #1: First item in row</div>
+            <div fxFlex>Col #1: Second item in row</div>
+          </div>
+          <div [fxLayout]="secondCol" fxFlex (click)="toggleLayoutFor(2)" style="cursor: pointer;">
+            <div fxFlex>Col #2: First item in column</div>
+            <div fxFlex>Col #2: Second item in column</div>
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card class="page-card">
+    <md-card-title>Show & Hide Directives</md-card-title>
+    <md-card-subtitle>Use the show hide APIs to responsively show or hide elements:</md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div fxLayout="row" class="coloredContainerX box">
+          <div fxFlex fxHide="false" fxHide.gt-sm> Shown on small device size.<br> Hidden on gt-sm devices.</div>
+          <div fxFlex fxHide="false" fxHide.gt-md> Shown on small and medium size devices.<br> Hidden on gt-md devices.
+          </div>
+          <div fxFlex fxShow="false" fxShow.gt-sm> Only show on gt-sm devices.</div>
+          <div fxFlex fxShow="false" fxShow.md> Shown on medium size devices only.</div>
+          <div fxFlex fxShow="false" fxShow.gt-lg> Shown on devices larger than 1200px wide only.</div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card class="page-card">
+    <md-card-title>Flex with Align-Self</md-card-title>
+    <md-card-subtitle>Click on 'target' to explore how 'flex-align' can change the alignment for a single element
+      only.
+    </md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div class="box" style="height:200px;">
+          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="5px" style="height:100%;padding: 5px;">
+            <div fxFlex class="black one"> 1</div>
+            <div fxFlex class="black two_h target" [fxFlexAlign]="alignTo" (click)="toggleAlignment()"> target</div>
+            <div fxFlex class="black three"> 3</div>
+            <div fxFlex class="black four_h"> 4</div>
+            <div fxFlex class="black fives"> 5</div>
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card class="page-card">
+    <md-card-title>Flex Offset Values</md-card-title>
+    <md-card-subtitle>Explore impact of values for the 'flex-offset' API:</md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div fxLayout="row" class="colored box nopad">
+          <div fxFlex="66" fxFlexOffset="15"> [flex="66"] [flex-offset="15"]</div>
+          <div fxFlex> [flex]</div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card class="page-card" (click)="toggleDirection()">
+    <md-card-title>'Flex' with Layout-Wrap</md-card-title>
+    <md-card-subtitle>Using "layout-wrap" to wrap positioned items within a layout container</md-card-subtitle>
+    <md-card-content>
+      <div class="containerX">
+        <div [fxLayout]="direction" fxLayoutWrap class="colored wrapped box" (click)="toggleDirection()"
+             style="cursor: pointer;">
+
+          <div fxFlex="30"> fxFlex="30"</div>
+          <div fxFlex="45"> fxFlex="45"</div>
+          <div fxFlex="19"> fxFlex="19"</div>
+          <div fxFlex="33"> fxFlex="33"</div>
+          <div fxFlex="67"> fxFlex="67"</div>
+          <div fxFlex="50"> fxFlex="50"</div>
+          <div fxFlex> fxFlex</div>
+
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+  <md-card class="page-card widget-table">
+    <md-card-title>Layout Fill</md-card-title>
+    <md-card-subtitle>Using 'fxFill' to fill available width and height of parent container.</md-card-subtitle>
+    <md-card-content class="large">
+      <div class="containerX">
+        <div fxLayout="column" fxFill>
+          <div fxLayout fxFlex>
+            <div class="one" fxFlex="20" fxLayoutAlign="center center"> A</div>
+            <div class="two" fxFlex="80" fxLayoutAlign="center center"> B</div>
+          </div>
+        </div>
+      </div>
+    </md-card-content>
+  </md-card>
+</div>

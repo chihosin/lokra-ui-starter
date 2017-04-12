@@ -1,0 +1,177 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Material Date Picker
+          </md-card-title>
+          <md-card-subtitle>Default material date picker
+          </md-card-subtitle>
+          <md-card-content>
+            <div class="example-date-picker-container">
+              <h4>Date Picker</h4>
+              <div>
+                <md2-datepicker type="date"
+                                placeholder="Date"
+                                format="DD/MM/YYYY">
+                </md2-datepicker>
+                <md2-datepicker [(ngModel)]="date"
+                                type="date"
+                                placeholder="Date"
+                                format="DD/MM/YYYY"
+                                required>
+                </md2-datepicker>
+              </div>
+              <h4>Disabled</h4>
+              <div>
+                <md2-datepicker [(ngModel)]="date"
+                                type="date"
+                                [disabled]="disabled"
+                                placeholder="Date"
+                                format="DD/MM/YYYY">
+                </md2-datepicker>
+              </div>
+              <h4>Min/Max Date</h4>
+              <div>
+                <md2-datepicker [(ngModel)]="date"
+                                type="date"
+                                [min]="minDate"
+                                [max]="maxDate"
+                                placeholder="Date Time"
+                                format="DD/MM/YYYY">
+                </md2-datepicker>
+              </div>
+              <h4>Time Picker</h4>
+              <div>
+                <md2-datepicker [(ngModel)]="time"
+                                type="time"
+                                placeholder="Time"
+                                format="HH:mm">
+                </md2-datepicker>
+              </div>
+              <h4>Date Time Picker</h4>
+              <div>
+                <md2-datepicker [(ngModel)]="datetime"
+                                type="datetime"
+                                placeholder="Date Time"
+                                format="DD/MM/YYYY HH:mm">
+                </md2-datepicker>
+              </div>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>Md2Datepicker</code>
+          <a class="badge" href="https://github.com/Promact/md2/tree/master/src/lib/datepicker">Official
+            Documentation</a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>Datepicker allow the user to select date and time.</p>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>Md2Datepicker</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h3>Properties</h3>
+            <table>
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><code>type</code></td>
+                <td><code>'date' | 'time' | 'datetime'</code></td>
+                <td>The type of the datepicker</td>
+              </tr>
+              <tr>
+                <td><code>readonly</code></td>
+                <td><code>boolean</code></td>
+                <td>Whether or not the datepicker is readonly</td>
+              </tr>
+              <tr>
+                <td><code>required</code></td>
+                <td><code>boolean</code></td>
+                <td>Whether or not the datepicker is required</td>
+              </tr>
+              <tr>
+                <td><code>disabled</code></td>
+                <td><code>boolean</code></td>
+                <td>Whether or not the datepicker is disabled</td>
+              </tr>
+              <tr>
+                <td><code>name</code></td>
+                <td><code>number</code></td>
+                <td>Datepicker name.</td>
+              </tr>
+              <tr>
+                <td><code>id</code></td>
+                <td><code>number</code></td>
+                <td>The unique ID of this datepicker.</td>
+              </tr>
+              <tr>
+                <td><code>min</code></td>
+                <td><code>number</code></td>
+                <td>The min date of Datepicker.</td>
+              </tr>
+              <tr>
+                <td><code>max</code></td>
+                <td><code>number</code></td>
+                <td>The max date of Datepicker.</td>
+              </tr>
+              <tr>
+                <td><code>placeholder</code></td>
+                <td><code>number</code></td>
+                <td>Datepicker placeholder label</td>
+              </tr>
+              <tr>
+                <td><code>format</code></td>
+                <td><code>number</code></td>
+                <td>The date format of datepicker</td>
+              </tr>
+              <tr>
+                <td><code>tabindex</code></td>
+                <td><code>number</code></td>
+                <td>The tabIndex of the datepicker.</td>
+              </tr>
+              </tbody>
+            </table>
+            <h3>Events</h3>
+            <table>
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><code>change</code></td>
+                <td><code>Event</code></td>
+                <td>Fired when change date</td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

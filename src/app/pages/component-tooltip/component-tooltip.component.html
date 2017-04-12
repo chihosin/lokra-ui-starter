@@ -1,0 +1,271 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Tooltip</md-card-title>
+          <md-card-subtitle>Default material tooltip</md-card-subtitle>
+          <md-card-content>
+            <div class="example-tooltip-host" mdTooltip="{{tooltip}}" [mdTooltipPosition]="position">
+              <span>Show tooltip</span>
+            </div>
+
+            <br>
+            <md-select class="example-select" placeholder="Position" [(ngModel)]="position">
+
+              <md-option value="before">Before</md-option>
+              <md-option value="after">After</md-option>
+              <md-option value="above">Above</md-option>
+              <md-option value="below">Below</md-option>
+              <md-option value="left">Left</md-option>
+              <md-option value="right">Right</md-option>
+            </md-select>
+            <br>
+
+            <md-input-container class="example-select">
+              <input mdInput  placeholder="Message" [(ngModel)]="tooltip">
+            </md-input-container>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdTooltipModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/tooltip">Official Documentation
+          </a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>
+              The Angular Material tooltip provides a text label that is displayed with the user hovers over or
+              longpresses an element.
+            </p>
+            <h3>Positioning</h3>
+            <p>
+              The tooltip will be displayed below the element but this can be configured using the mdTooltipPosition
+              input. The tooltip can be displayed above, below, left, or right of the element. By default the position
+              will be below. If the tooltip should switch left/right positions in an RTL layout direction, then the
+              positions before and after should be used instead of left and right, respectively.
+            </p>
+
+            <table>
+              <thead>
+              <tr>
+                <th>Position</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>above</td>
+                <td>Always display above the element</td>
+              </tr>
+              <tr>
+                <td>below</td>
+                <td>Always display beneath the element</td>
+              </tr>
+              <tr>
+                <td>left</td>
+                <td>Always display to the left of the element</td>
+              </tr>
+              <tr>
+                <td>right</td>
+                <td>Always display to the right of the element</td>
+              </tr>
+              <tr>
+                <td>before</td>
+                <td>Display to the left in left-to-right layout and to the right in right-to-left layout</td>
+              </tr>
+              <tr>
+                <td>after</td>
+                <td>Display to the right in left-to-right layout and to the right in right-to-left layout</td>
+              </tr>
+              </tbody>
+            </table>
+            <h3>Showing and hiding</h3>
+            <p>
+              The tooltip is immediately shown when the user's mouse hovers over the element and immediately hides when
+              the user's mouse leaves. A delay in showing or hiding the tooltip can be added through the inputs
+              mdTooltipShowDelay and mdTooltipHideDelay.
+            </p>
+            <p>
+              On mobile, the tooltip is displayed when the user longpresses the element and hides after a delay of
+              1500ms. The longpress behavior requires HammerJS to be loaded on the page.
+            </p>
+            <p>
+              The tooltip can also be shown and hidden through the show and hide directive methods, which both accept a
+              number in milliseconds to delay before applying the display change.
+            </p>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdTooltipModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdTooltip</h3>
+            <p class="docs-api-class-description">Directive that attaches a material design tooltip to the host element.
+              Animates the showing and
+              hiding of a tooltip provided position (defaults to below the element).
+
+              https://material.google.com/components/tooltips.html
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">@Input(<span class="docs-api-input-alias">&#39;mdTooltipPosition&#39;</span>)
+                  </div>
+                  <p class="docs-api-property-name">
+                    position
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Allows the user to define the position of the tooltip relative
+                  to the parent element
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">@Input(<span class="docs-api-input-alias">&#39;mdTooltipShowDelay&#39;</span>)
+                  </div>
+                  <p class="docs-api-property-name">
+                    showDelay
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The default delay in ms before showing the tooltip after show
+                  is called
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">@Input(<span class="docs-api-input-alias">&#39;mdTooltipHideDelay&#39;</span>)
+                  </div>
+                  <p class="docs-api-property-name">
+                    hideDelay
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The default delay in ms before hiding the tooltip after hide
+                  is called
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">@Input(<span
+                    class="docs-api-input-alias">&#39;mdTooltip&#39;</span>)
+                  </div>
+                  <p class="docs-api-property-name">
+                    message
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The message to be displayed in the tooltip
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">show</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Shows the tooltip after the delay in ms,
+                  defaults to tooltip-delay-show or 0ms if no input
+                </td>
+              </tr>
+              <tr class="docs-api-method-parameters-header-row">
+                <th colspan="2" class="docs-api-method-parameters-header-cell">Parameters</th>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    delay<span class="docs-api-method-parameter-optional-marker">?</span></p>
+                  <code class="docs-api-method-parameter-type">number</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description"></p>
+                </td>
+              </tr>
+            </table>
+
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">hide</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Hides the tooltip after the delay in ms,
+                  defaults to tooltip-delay-hide or 0ms if no input
+                </td>
+              </tr>
+              <tr class="docs-api-method-parameters-header-row">
+                <th colspan="2" class="docs-api-method-parameters-header-cell">Parameters</th>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    delay<span class="docs-api-method-parameter-optional-marker">?</span></p>
+                  <code class="docs-api-method-parameter-type">number</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description"></p>
+                </td>
+              </tr>
+            </table>
+
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">toggle</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Shows/hides the tooltip
+                </td>
+              </tr>
+            </table>
+
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

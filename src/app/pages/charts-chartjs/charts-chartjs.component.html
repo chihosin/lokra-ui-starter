@@ -1,0 +1,69 @@
+<md-tab-group>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card class="page-card" fxFlex>
+          <md-card-title>Line Chart</md-card-title>
+          <md-card-content>
+            <lk-chart-js [type]="mock.line.type" [options]="" [data]="mock.line.data"
+                         [height]="320"></lk-chart-js>
+          </md-card-content>
+        </md-card>
+        <md-card class="page-card" fxFlex>
+          <md-card-title>Bar Chart</md-card-title>
+          <md-card-content>
+            <lk-chart-js [type]="mock.bar.type" [options]="mock.bar.options" [data]="mock.bar.data"
+                         [height]="320"></lk-chart-js>
+          </md-card-content>
+        </md-card>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card class="page-card" fxFlex>
+          <md-card-title>Radar Chart</md-card-title>
+          <md-card-content>
+            <lk-chart-js [type]="mock.radar.type" [options]="mock.radar.options" [data]="mock.radar.data"
+                         [height]="320"></lk-chart-js>
+          </md-card-content>
+        </md-card>
+        <md-card class="page-card" fxFlex>
+          <md-card-title>Polar Area Chart</md-card-title>
+          <md-card-content>
+            <lk-chart-js [type]="mock.polarArea.type" [options]="mock.polarArea.options" [data]="mock.polarArea.data"
+                         [height]="320"></lk-chart-js>
+          </md-card-content>
+        </md-card>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card class="page-card" fxFlex>
+          <md-card-title>Pie Chart</md-card-title>
+          <md-card-content>
+            <lk-chart-js [type]="mock.pieChart.type" [options]="mock.pieChart.options" [data]="mock.pieChart.data"
+                         [height]="320"></lk-chart-js>
+          </md-card-content>
+        </md-card>
+        <md-card class="page-card" fxFlex>
+          <md-card-title>Donut Chart</md-card-title>
+          <md-card-content>
+            <lk-chart-js [type]="mock.donutChart.type" [options]="mock.donutChart.options" [data]="mock.donutChart.data"
+                         [height]="320"></lk-chart-js>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Usage">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title>Chart.js
+          <a class="badge" href="http://www.chartjs.org/">Official Documentation</a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>You can using chart by tag <code>lk-chart-js</code></p>
+            <code>&lt;lk-chart-js [options]="options" [data]="data" type="type"&gt;&lt;/lk-chart-js&gt;</code>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

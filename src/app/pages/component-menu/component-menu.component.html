@@ -1,0 +1,417 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Menu</md-card-title>
+          <md-card-subtitle>Default material menu</md-card-subtitle>
+          <md-card-content>
+            <md-card class="example-md-menu">
+              <div class="example-menu-title">
+                <p>Basic menu</p>
+              </div>
+              <div class="example-menu-content">
+                <button md-button [mdMenuTriggerFor]="basic">Menu</button>
+                <md-menu #basic="mdMenu">
+                  <button md-menu-item>Item 1</button>
+                  <button md-menu-item>Item 2</button>
+                  <button md-menu-item>Item 3</button>
+                </md-menu>
+              </div>
+
+            </md-card>
+
+          </md-card-content>
+        </md-card>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+
+          <md-card-content>
+            <md-card class="example-md-menu">
+              <div class="example-menu-title">
+                <p>Food</p>
+
+                <md-menu #food="mdMenu">
+                  <button md-menu-item> Pizza </button>
+                  <button md-menu-item> Steak </button>
+                </md-menu>
+
+                <button md-icon-button [mdMenuTriggerFor]="food" class="example-md-button">
+                  <md-icon>more_vert</md-icon>
+                </button>
+              </div>
+              <div class="example-menu-content">
+                <p>This is a Menu</p>
+              </div>
+
+            </md-card>
+            <br>
+
+          </md-card-content>
+        </md-card>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+
+          <md-card-content>
+
+            <md-card class="example-md-menu">
+              <div class="example-menu-title">
+                <p>Home</p>
+                <button md-icon-button [mdMenuTriggerFor]="menu"  class="example-md-button">
+                  <md-icon>more_vert</md-icon>
+                </button>
+                <md-menu #menu="mdMenu">
+                  <button md-menu-item>
+                    <md-icon>home</md-icon>
+                    <span>Home</span>
+                  </button>
+                  <button md-menu-item>
+                    <md-icon>refresh</md-icon>
+                    <span>Refresh</span>
+                  </button>
+                  <button md-menu-item>
+                    <md-icon>feedback</md-icon>
+                    <span>Feedback</span>
+                  </button>
+
+                </md-menu>
+              </div>
+              <div class="example-menu-content">
+                <p>
+                  This is a Menu
+                </p>
+              </div>
+
+            </md-card>
+
+          </md-card-content>
+        </md-card>
+      </div>
+
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdMenuModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/menu">Official Documentation
+          </a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>
+              <code>&lt;md-menu&gt;</code> is a floating panel containing list of options.
+            </p>
+            <p>
+              By itself, the <code>&lt;md-menu&gt;</code> element does not render anything.
+              The menu is attached to and opened via application of the mdMenuTriggerFor directive:
+            </p>
+            <pre>
+<code>&lt;md-menu &#35;appMenu="mdMenu"&gt;</code>
+  <code>&lt;button md-menu-item&gt;</code> Settings <code>&lt;/button&gt;</code>
+  <code>&lt;button md-menu-item&gt;</code> Help <code>&lt;/button&gt;</code>
+<code>&lt;/md-menu&gt;</code>
+
+<code>&lt;button md-icon-button &#91;mdMenuTriggerFor&#93;="appMenu"&gt;</code>
+   <code>&lt;md-icon&gt;</code>more_vert<code>&lt;/md-icon&gt;</code>
+<code>&lt;/button&gt;</code>
+            </pre>
+            <h3>Toggling the menu programmatically</h3>
+            <p>
+              The menu exposes an API to open/close programmatically.
+              Please note that in this case, an mdMenuTriggerFor directive is still necessary
+              to attach the menu to a trigger element in the DOM.
+
+            </p>
+            <pre>
+              <code>
+class MyComponent &#123;
+  @ViewChild(MdMenuTrigger) trigger: MdMenuTrigger;
+
+  someMethod() &#123;
+    this.trigger.openMenu();
+  &#125;
+&#125;
+              </code>
+            </pre>
+            <h3>Icons</h3>
+            <p>
+              Menus support displaying md-icon elements before the menu item text.
+            </p>
+            <p>my-comp.html</p>
+            <pre>
+<code>&lt;md-menu #menu="mdMenu"&gt;</code>
+  <code>&lt;button md-menu-item&gt;</code>
+    <code>&lt;md-icon&gt;</code> dialpad <code>&lt;/md-icon&gt;</code>
+    <code>&lt;span&gt;</code> Redial <code>&lt;/span&gt;</code>
+  <code>&lt;/button&gt;</code>
+  <code>&lt;button md-menu-item disabled&gt;</code>
+    <code>&lt;md-icon&gt;</code> voicemail <code>&lt;/md-icon&gt;</code>
+    <code>&lt;span&gt;</code> Check voicemail <code>&lt;/span&gt;</code>
+  <code>&lt;/button&gt;</code>
+  <code>&lt;button md-menu-item&gt;</code>
+    <code>&lt;md-icon&gt;</code> notifications_off <code>&lt;/md-icon&gt;</code>
+    <code>&lt;span&gt;</code> Disable alerts <code>&lt;/span&gt;</code>
+  <code>&lt;/button&gt;</code>
+<code>&lt;/md-menu&gt;</code>
+            </pre>
+            <h3>Customizing menu position</h3>
+            <p>
+              By default, the menu will display after and below its trigger.
+              The position can be changed using the x-position (before | after)
+              and y-position (above | below) attributes.
+            </p>
+            <h3>Keyboard interaction</h3>
+            <ul>
+              <li><kbd>DOWN_ARROW</kbd>: Focuses the next menu item</li>
+              <li><kbd>UP_ARROW</kbd>: Focuses previous menu item</li>
+              <li><kbd>ENTER</kbd>: Activates the focused menu item</li>
+            </ul>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdMenuModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdChipList</h3>
+            <p class="docs-api-class-description">A material design chips
+              component (named ChipList for it&#39;s similarity to the List component).
+
+              Example:
+
+              &lt;md-chip-list&gt;
+              &lt;md-chip&gt;Chip 1&lt;md-chip&gt;
+              &lt;md-chip&gt;Chip 2&lt;md-chip&gt;
+              &lt;/md-chip-list&gt;
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  chips
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The chip components contained within this chip list.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    selectable
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether or not this chip is selectable.
+                  When a chip is not selectable,
+                  it&#39;s selected state is always ignored.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">focus</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Programmatically focus the chip list.
+                  This in turn focuses the first
+                  non-disabled chip in this chip list.
+                </td>
+              </tr>
+            </table>
+
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdChip</h3>
+            <p class="docs-api-class-description">Material design styled Chip component.
+              Used inside the MdChipList component.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  onFocus
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">Emitted when the chip is focused.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    select
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Emitted when the chip is selected.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    deselect
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Emitted when the chip is deselected.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    destroy
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Emitted when the chip is destroyed.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    disabled
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether or not the chip is disabled.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    selected
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether or not this chip is selected.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    color
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The color of the chip.
+                  Can be `primary`, `accent`, or `warn`.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">toggleSelected</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Toggles the current selected
+                  state of this chip.
+                </td>
+              </tr>
+              <tr class="docs-api-method-returns-header-row">
+                <th colspan="2" class="docs-api-method-returns-header-cell">Returns</th>
+              </tr>
+              <tr>
+                <td class="docs-api-method-returns-type-cell">
+                  <code class="docs-api-method-returns-type">boolean</code>
+                </td>
+                <td class="docs-api-method-returns-description-cell">
+                  <p class="docs-api-method-returns-description">Whether the chip is selected.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">focus</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Allows for programmatic focusing of the chip.
+                </td>
+              </tr>
+            </table>
+
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

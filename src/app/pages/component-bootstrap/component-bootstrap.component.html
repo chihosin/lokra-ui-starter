@@ -1,0 +1,691 @@
+<md-toolbar color="primary">
+  <md-toolbar-row>
+    <h1 class="page-card-flexible-title">Bootstrap 4
+      <a class="badge" href="https://v4-alpha.getbootstrap.com/layout/overview/">Official Documentation</a>
+    </h1>
+  </md-toolbar-row>
+  <md-toolbar-row>
+  </md-toolbar-row>
+</md-toolbar>
+<md-card class="page-card page-card-flexible-tabs" fxFlexOffset="15" fxFlex="70">
+  <md-card-title style="padding: 24px">Compatible Component
+    <br>
+    <h5>
+      <small>Based on Material Compatibility Design Bootstrap 4, compile with Material 2 Library.</small>
+    </h5>
+  </md-card-title>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Alert</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <p>Alerts are available for any length of text, as well as an optional dismiss button. For proper styling, use one
+        of the four <strong>required</strong> contextual classes (e.g., <code
+          class="highlighter-rouge">.alert-success</code>). For inline dismissal.</p>
+      <div class="bd-example" data-example-id="">
+        <div class="alert alert-success" role="alert">
+          <strong>Well done!</strong> You successfully read this important alert message.
+        </div>
+        <div class="alert alert-info" role="alert">
+          <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+        </div>
+        <div class="alert alert-warning" role="alert">
+          <strong>Warning!</strong> Better check yourself, you're not looking too good.
+        </div>
+        <div class="alert alert-danger" role="alert">
+          <strong>Oh snap!</strong> Change a few things up and try submitting again.
+        </div>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Badges</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <p>Badges scale to match the size of the immediate parent element by using relative font sizing and <code
+        class="highlighter-rouge">em</code> units.</p>
+      <div class="bd-example" data-example-id="">
+        <h1>Example heading <span class="badge badge-default">New</span></h1>
+        <h2>Example heading <span class="badge badge-default">New</span></h2>
+        <h3>Example heading <span class="badge badge-default">New</span></h3>
+        <h4>Example heading <span class="badge badge-default">New</span></h4>
+        <h5>Example heading <span class="badge badge-default">New</span></h5>
+        <h6>Example heading <span class="badge badge-default">New</span></h6>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Breadcrumb</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <p>Indicate the current page’s location within a navigational hierarchy. Separators are automatically added in
+        CSS through <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::before"><code class="highlighter-rouge">::before</code></a>
+        and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/content"><code
+          class="highlighter-rouge">content</code></a>.</p>
+      <div class="bd-example" data-example-id="">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Home</li>
+        </ol>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Library</li>
+        </ol>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Library</a></li>
+          <li class="breadcrumb-item active">Data</li>
+        </ol>
+      </div>
+      <p>Similar to our navigation components, breadcrumbs work fine with or without the usage of list markup.</p>
+      <div class="bd-example" data-example-id="">
+        <nav class="breadcrumb">
+          <a class="breadcrumb-item" href="#">Home</a>
+          <a class="breadcrumb-item" href="#">Library</a>
+          <a class="breadcrumb-item" href="#">Data</a>
+          <span class="breadcrumb-item active">Bootstrap</span>
+        </nav>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Buttons</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <div>
+        <p>Use Bootstrap’s custom button styles for actions in forms, dialogs, and more. Includes support for a handful
+          of contextual variations, sizes, states, and more.</p>
+
+        <h2>Examples</h2>
+
+        <p>Bootstrap includes six predefined button styles, each serving its own semantic purpose.</p>
+
+        <div class="bd-example" data-example-id="">
+          <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
+          <button type="button" class="btn btn-primary">Primary</button>
+
+          <!-- Secondary, outline button -->
+          <button type="button" class="btn btn-secondary">Secondary</button>
+
+          <!-- Indicates a successful or positive action -->
+          <button type="button" class="btn btn-success">Success</button>
+
+          <!-- Contextual button for informational alert messages -->
+          <button type="button" class="btn btn-info">Info</button>
+
+          <!-- Indicates caution should be taken with this action -->
+          <button type="button" class="btn btn-warning">Warning</button>
+
+          <!-- Indicates a dangerous or potentially negative action -->
+          <button type="button" class="btn btn-danger">Danger</button>
+
+          <!-- Deemphasize a button by making it look like a link while maintaining button behavior -->
+          <button type="button" class="btn btn-link">Link</button>
+        </div>
+        <div class="bd-callout bd-callout-warning">
+          <h3 id="conveying-meaning-to-assistive-technologies">Conveying meaning to assistive technologies</h3>
+
+          <p>Using color to add meaning only provides a visual indication, which will not be conveyed to users of
+            assistive technologies – such as screen readers. Ensure that information denoted by the color is either
+            obvious from the content itself (e.g. the visible text), or is included through alternative means, such as
+            additional text hidden with the <code class="highlighter-rouge">.sr-only</code> class.</p>
+        </div>
+
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Button group</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <div>
+        <p>Group a series of buttons together on a single line with the button group.</p>
+
+        <h2 id="basic-example">Basic example</h2>
+
+        <p>Wrap a series of buttons with <code class="highlighter-rouge">.btn</code> in <code class="highlighter-rouge">.btn-group</code>.
+        </p>
+
+        <div class="bd-example" data-example-id="">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary">Left</button>
+            <button type="button" class="btn btn-secondary">Middle</button>
+            <button type="button" class="btn btn-secondary">Right</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Cards</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <div class="bd-content mb-xl">
+        <p>A <strong>card</strong> is a flexible and extensible content container. It includes options for headers and
+          footers, a wide variety of content, contextual background colors, and powerful display options.</p>
+
+        <p>If you’re familiar with Bootstrap 3, cards replace our old panels, wells, and thumbnails. Similar
+          functionality to those components is available as modifier classes for cards.</p>
+
+        <h2 id="example">Example</h2>
+
+        <p>Cards are built with as little markup and styles as possible, but still manage to deliver a ton of control
+          and customization. Built with flexbox, they offer easy alignment and mix well with other Bootstrap
+          components.</p>
+
+        <p>Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start,
+          so they’ll naturally fill the full width of its parent element.</p>
+
+        <div class="bd-example" data-example-id="">
+          <div class="card" style="width: 20rem;">
+            <img class="card-img-top" data-src="holder.js/100px180/" alt="100%x180"
+                 src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22320%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_159d0068a19%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.7)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_159d0068a19%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23757575%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22119.0859375%22%20y%3D%2297.2%22%3E320x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+                 data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Carousel</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <div class="bd-content mb-xl">
+        <p>The carousel is a slideshow for cycling through a series of content, built with CSS 3D transforms and a bit
+          of JavaScript. It works with a series of images, text, or custom markup. It also includes support for
+          previous/next controls and indicators.</p>
+
+        <p>In browsers where the <a href="https://www.w3.org/TR/page-visibility/">Page Visibility API</a> is supported,
+          the carousel will avoid sliding when the webpage is not visible to the user (such as when the browser tab is
+          inactive, the browser window is minimized, etc.).</p>
+
+        <p>Please be aware that nested carousels are not supported, and carousels are generally not compliant with
+          accessibility standards.</p>
+
+        <h2>Example</h2>
+
+        <p>Carousels don’t automatically normalize slide dimensions. As such, you may need to use additional utilities
+          or custom styles to appropriately size content. While carousels support previous/next controls and indicators,
+          they’re not explicitly required. Add and customize as you see fit.</p>
+
+        <p>Be sure to set a unique id on the <code class="highlighter-rouge">.carousel</code> for optional controls,
+          especially if you’re using multiple carousels on a single page.</p>
+
+        <h3 id="slides-only">Slides only</h3>
+
+        <p>Here’s a carousel with slides only. Note the presence of the <code class="highlighter-rouge">.d-block</code>
+          and <code class="highlighter-rouge">.img-fluid</code> on carousel images to prevent browser default image
+          alignment.</p>
+
+        <div class="carousel-item active">
+          <img class="d-block img-fluid"
+               data-src="holder.js/800x400?auto=yes&amp;bg=555&amp;fg=333&amp;text=Third slide"
+               alt="Third slide [800x400]"
+               src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_159d02c6010%20text%20%7B%20fill%3A%23333%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A40pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_159d02c6010%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23555%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22277%22%20y%3D%22218.3%22%3EThird%20slide%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+               data-holder-rendered="true">
+        </div>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Dropdowns</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <div class="bd-content mb-xl">
+        <p>Dropdowns are toggleable, contextual overlays for displaying lists of links and more. They’re made
+          interactive with the included Bootstrap dropdown JavaScript plugin. They’re toggled by clicking, not by
+          hovering; this is <a href="http://markdotto.com/2012/02/27/bootstrap-explained-dropdowns/">an intentional
+            design decision.</a></p>
+
+        <h2>Examples</h2>
+
+        <p>Wrap the dropdown’s toggle (your button or link) and the dropdown menu within <code
+          class="highlighter-rouge">.dropdown</code>, or another element that declares <code class="highlighter-rouge">position:
+          relative;</code>. Dropdowns can be triggered from <code class="highlighter-rouge">&lt;a&gt;</code> or <code
+          class="highlighter-rouge">&lt;button&gt;</code> elements to better fit your potential needs.</p>
+
+        <h3 id="single-button-dropdowns">Single button dropdowns</h3>
+
+        <p>Any single <code class="highlighter-rouge">.btn</code> can be turned into a dropdown toggle with some markup
+          changes. Here’s how you can put them to work with either <code class="highlighter-rouge">&lt;button&gt;</code>
+          elements:</p>
+
+        <div class="bd-example" data-example-id="">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+
+        <p>And with <code class="highlighter-rouge">&lt;a&gt;</code> elements:</p>
+
+        <div class="bd-example" data-example-id="">
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="https://example.com" id="dropdownMenuLink"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div>
+        </div>
+
+        <p>The best part is you can do this with any button variant, too:</p>
+
+        <div class="bd-example">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Primary
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Secondary
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Success
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Info
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Warning
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">Danger
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+        </div>
+
+
+        <h3 id="split-button-dropdowns">Split button dropdowns</h3>
+
+        <p>Similarly, create split button dropdowns with virtually the same markup as single button dropdowns, but with
+          the addition of <code class="highlighter-rouge">.dropdown-toggle-split</code> for proper spacing around the
+          dropdown caret.</p>
+
+        <p>We use this extra class to reduce the horizontal <code class="highlighter-rouge">padding</code> on either
+          side of the caret by 25% and remove the <code class="highlighter-rouge">margin-left</code> that’s added for
+          regular button dropdowns. Those extra changes keep the caret centered in the split button and provide a more
+          appropriately sized hit area next to the main button.</p>
+
+        <div class="bd-example">
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary">Secondary</button>
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-success">Success</button>
+            <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-warning">Warning</button>
+            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-danger">Danger</button>
+            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Separated link</a>
+            </div>
+          </div><!-- /btn-group -->
+        </div>
+
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Forms</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <p>Bootstrap provides several form control styles, layout options, and custom components for creating a wide
+        variety of forms.</p>
+      <h2 id="form-controls">Form controls</h2>
+      <p>Bootstrap’s form controls expand on <a href="/content/reboot/#forms">our Rebooted form styles</a> with classes.
+        Use these classes to opt into their customized displays for a more consistent rendering across browsers and
+        devices. The example form below demonstrates common HTML form elements that receive updated styles from
+        Bootstrap with additional classes.</p>
+      <p>Remember, since Bootstrap utilizes the HTML5 doctype, <strong>all inputs must have a <code
+        class="highlighter-rouge">type</code> attribute</strong>.</p>
+      <div class="bd-example" data-example-id="">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="exampleSelect1">Example select</label>
+            <select class="form-control" id="exampleSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleSelect2">Example multiple select</label>
+            <select multiple="" class="form-control" id="exampleSelect2">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea">Example textarea</label>
+            <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the
+              above input. It's a bit lighter and easily wraps to a new line.
+            </small>
+          </div>
+          <fieldset class="form-group">
+            <legend>Radio buttons</legend>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1"
+                       checked="">
+                Option one is this and that—be sure to include why it's great
+              </label>
+            </div>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+                Option two can be something else and selecting it will deselect option one
+              </label>
+            </div>
+            <div class="form-check disabled">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios3" value="option3"
+                       disabled="">
+                Option three is disabled
+              </label>
+            </div>
+          </fieldset>
+          <div class="form-check">
+            <label class="form-check-label">
+              <input type="checkbox" class="form-check-input">
+              Check me out
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Input group</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <p>Easily extend form controls by adding text, buttons, or button groups on either side of textual <code
+        class="highlighter-rouge">&lt;input&gt;</code>s.</p>
+      <h2>Basic example</h2>
+      <p>Place one add-on or button on either side of an input. You may also place one on both sides of an input.
+        <strong>We do not support multiple form-controls in a single input group.</strong></p>
+      <div class="bd-example" data-example-id="">
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon1">@</span>
+          <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+        </div>
+        <br>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Recipient's username" aria-describedby="basic-addon2">
+          <span class="input-group-addon" id="basic-addon2">@example.com</span>
+        </div>
+        <br>
+        <label for="basic-url">Your vanity URL</label>
+        <div class="input-group">
+          <span class="input-group-addon" id="basic-addon3">https://example.com/users/</span>
+          <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+        <br>
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+          <span class="input-group-addon">.00</span>
+        </div>
+        <br>
+        <div class="input-group">
+          <span class="input-group-addon">$</span>
+          <span class="input-group-addon">0.00</span>
+          <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+        </div>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>List group</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <p>List groups are a flexible and powerful component for displaying a series of content. List group items can be
+        modified and extended to support just about any content within. They can also be used as navigation with the
+        right modifier class.</p>
+      <h2>Basic example</h2>
+      <p>The most basic list group is an unordered list with list items and the proper classes. Build upon it with the
+        options that follow, or with your own CSS as needed.</p>
+      <div class="bd-example" data-example-id="">
+        <ul class="list-group">
+          <li class="list-group-item">Cras justo odio</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Morbi leo risus</li>
+          <li class="list-group-item">Porta ac consectetur ac</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Navs</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <p>Navigation available in Bootstrap share general markup and styles, from the base <code
+        class="highlighter-rouge">.nav</code> class to the active and disabled states. Swap modifier classes to switch
+        between each style.</p>
+      <h2 id="base-nav">Base nav</h2>
+      <p>The base <code class="highlighter-rouge">.nav</code> component is built with flexbox and provide a strong
+        foundation for building all types of navigation components. It includes some style overrides (for working with
+        lists), some link padding for larger hit areas, and basic disabled styling. No active states are included in the
+        base nav.</p>
+      <div class="bd-example" data-example-id="">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>
+<md-card class="page-card" fxFlexOffset="15" fxFlex="70">
+  <md-card-title>Pagination</md-card-title>
+  <md-card-content>
+    <section class="bs">
+      <p>Pagination links indicate a series of related content exists across multiple pages. Typically these are used
+        where a multi-page approach to long lists of content improves general performance, such as in search results or
+        inboxes.</p>
+      <h2 id="overview">Overview</h2>
+      <p>We use a large block of connected links for our pagination, making links hard to miss and easily scalable—all
+        while providing large hit areas. Pagination is built with list HTML elements so screen readers can announce the
+        number of available links. Use a wrapping <code class="highlighter-rouge">&lt;nav&gt;</code> element to identify
+        it as a navigation section to screen readers and other assistive technologies.</p>
+      <p>In addition, as pages likely have more than one such navigation section, it’s advisable to provide a
+        descriptive <code class="highlighter-rouge">aria-label</code> for the <code class="highlighter-rouge">&lt;nav&gt;</code>
+        to reflect its purpose. For example, if the pagination component is used to navigate between a set of search
+        results, an appropriate label could be <code class="highlighter-rouge">aria-label="Search results pages"</code>.
+      </p>
+      <div class="bd-example" data-example-id="">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </md-card-content>
+</md-card>

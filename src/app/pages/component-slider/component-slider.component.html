@@ -1,0 +1,529 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Slider</md-card-title>
+          <md-card-subtitle>Default material slider</md-card-subtitle>
+          <md-card-content>
+            <md-input-container>
+              <input mdInput type="number" placeholder="Value" [(ngModel)]="value">
+            </md-input-container>
+            <md-input-container>
+              <input mdInput type="number" placeholder="Min value" [(ngModel)]="min">
+            </md-input-container>
+            <md-input-container>
+              <input mdInput type="number" placeholder="Max value" [(ngModel)]="max">
+            </md-input-container>
+            <md-input-container>
+              <input mdInput type="number" placeholder="Step size" [(ngModel)]="step">
+            </md-input-container>
+            <br>
+            <md-slider
+              [max]="max"
+              [min]="min"
+              [step]="step"
+              [thumb-label]="true"
+              [value]="value">
+            </md-slider>
+            <md-card-subtitle>Set tick interval</md-card-subtitle>
+            <md-input-container>
+              <input mdInput type="number" placeholder="Tick interval" [(ngModel)]="tickInterval">
+            </md-input-container>
+            <br>
+            <md-slider
+              [invert]="true"
+              [tick-interval]="tickInterval"></md-slider>
+            <br>
+            <md-card-subtitle>Disabled slider</md-card-subtitle>
+            <md-slider
+              [disabled]="true"></md-slider>
+            <md-card-subtitle>Invert slider</md-card-subtitle>
+            <md-slider
+              [invert]="true"></md-slider>
+            <br>
+            <md-card-subtitle>Vertical slider</md-card-subtitle>
+            <md-slider
+              [vertical]="true"></md-slider>
+            <md-card-subtitle>Vertical invert slider</md-card-subtitle>
+            <br>
+            <md-slider
+              [vertical]="true"
+              [invert]="true"
+              [tick-interval]="tickInterval"></md-slider>
+
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdSliderModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/slider">Official Documentation
+          </a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>
+              <code>&lt;md-slider&gt;</code> allows for the selection of a value from a range via mouse, touch,
+              or keyboard, similar to <code>&lt;input type="range"&gt;</code>.
+            </p>
+            <p>
+              Note: the sliding behavior for this component requires that HammerJS is loaded on the page.
+            </p>
+            <h3>Selecting a value</h3>
+            <p>
+              By default the minimum value of the slider is 0, the maximum value is 100,
+              and the thumb moves in increments of 1. These values can be changed by setting the min,
+              max, and step attributes respectively.
+              The initial value is set to the minimum value unless otherwise specified.
+            </p>
+            <p>
+              <code>&lt;md-slider min="1" max="5" step="0.5" value="1.5"&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <h3>Orientation</h3>
+            <p>
+              By default sliders are horizontal with the minimum value on the left and the maximum value on the right.
+              The vertical attribute can be added to a slider to make it vertical with the minimum value on bottom
+              and the maximum value on top.
+            </p>
+            <p>
+              <code>&lt;md-slider vertical&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <p>
+              An invert attribute is also available which can be specified to flip the axis that the thumb moves along.
+              An inverted horizontal slider will have the minimum value on the right and the maximum value on the left,
+              while an inverted vertical slider will have the minimum value on top and the maximum value on bottom.
+            </p>
+            <p>
+              <code>&lt;md-slider invert&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <h3>
+              Thumb label
+            </h3>
+            <p>
+              By default, the exact selected value of a slider is not visible to the user. However,
+              this value can be added to the thumb by adding the thumbLabel attribute.
+
+            </p>
+            <p>
+              The Material Design spec recommends using the thumbLabel attribute (along with tickInterval="1")
+              only for sliders that are used to display a discrete value (such as a 1-5 rating).
+            </p>
+            <p>
+              <code>&lt;md-slider thumbLabel tickInterval="1"&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <h3>Tick marks</h3>
+            <p>
+              By default, sliders do not show tick marks along the thumb track.
+              This can be enabled using the tickInterval attribute. The value of tickInterval
+              should be a number representing the number of steps between between ticks.
+              For example a tickInterval of 3 with a step of 4 will draw tick marks at every 3 steps,
+              which is the same as every 12 values.
+            </p>
+            <p>
+              <code>&lt;md-slider step="4" tickInterval="3"&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <p>
+              The tickInterval can also be set to auto which will automatically choose the number of
+              steps such that there is at least 30px of space between ticks.
+            </p>
+            <p>
+              <code>&lt;md-slider tickInterval="auto"&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <p>
+              The slider will always show a tick at the beginning and end of the track.
+              If the remaining space doesn't add up perfectly the last interval will be shortened or
+              lengthened so that the tick can be shown at the end of the track.
+            </p>
+            <p>
+              The Material Design spec recommends using the tickInterval attribute (set to 1 along with the thumbLabel
+              attribute) only for sliders that are used to display a discrete value (such as a 1-5 rating).
+            </p>
+            <h3>Keyboard interaction</h3>
+            <p>
+              The slider has the following keyboard bindings:
+            </p>
+            <table>
+              <thead>
+              <tr>
+                <th>Key</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Right arrow</td>
+                <td>Increment the slider value by one step (decrements in RTL).</td>
+              </tr>
+              <tr>
+                <td>Up arrow</td>
+                <td>Increment the slider value by one step.</td>
+              </tr>
+              <tr>
+                <td>Left arrow</td>
+                <td>Decrement the slider value by one step (increments in RTL).</td>
+              </tr>
+              <tr>
+                <td>Down arrow</td>
+                <td>Decrement the slider value by one step.</td>
+              </tr>
+              <tr>
+                <td>Page up</td>
+                <td>Increment the slider value by 10 steps.</td>
+              </tr>
+              <tr>
+                <td>Page down</td>
+                <td>Decrement the slider value by 10 steps.</td>
+              </tr>
+              <tr>
+                <td>End</td>
+                <td>Set the value to the maximum possible.</td>
+              </tr>
+              <tr>
+                <td>Home</td>
+                <td>Set the value to the minimum possible.</td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdSliderModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdSlider</h3>
+            <p class="docs-api-class-description">Allows users to select from a range of values by moving the slider
+              thumb. It is similar in
+              behavior to the native `&lt;input type=&quot;range&quot;&gt;` element.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    disabled
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether or not the slider is disabled.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">@Input(<span
+                    class="docs-api-input-alias">&#39;thumbLabel&#39;</span>)
+                  </div>
+                  <p class="docs-api-property-name">
+                    thumbLabel
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether or not to show the thumb label.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  onTouched
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">onTouch function registered via registerOnTouch
+                  (ControlValueAccessor).
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    step
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The values at which the thumb will snap.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    tickInterval
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">How often to show ticks. Relative to the step so that a tick
+                  always appears on a step.
+                  Ex: Tick interval of 4 with a step of 3 will draw a tick every 4 steps (every 12 values).
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  tickIntervalPercent
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The size of a tick interval as a percentage of the size of the
+                  track.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  percent
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The percentage of the slider that coincides with the value.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    value
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Value of the slider.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    min
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The miniumum value that the slider can have.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    max
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The maximum value that the slider can have.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    invert
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the slider is inverted.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    vertical
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the slider is vertical.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  invertAxis
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the axis of the slider is inverted.
+                  (i.e. whether moving the thumb in the positive x or y direction decreases the slider&#39;s value).
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  invertMouseCoords
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether mouse events should be converted to a slider position
+                  by calculating their distance
+                  from the right or bottom edge of the slider as opposed to the top or left.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  trackFillStyles
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">CSS styles for the track fill element.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  ticksContainerStyles
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">CSS styles for the ticks container element.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  ticksStyles
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">CSS styles for the ticks element.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  thumbContainerStyles
+                </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  direction
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The language direction for this slider element.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    change
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Event emitted when the slider value has changed.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h2>Additional classes</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdSliderChange</h3>
+            <p class="docs-api-class-description">A simple change event emitted by the MdSlider component.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  source
+                </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  value
+                </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+            </table>
+
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

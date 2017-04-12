@@ -1,0 +1,329 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Progress bar
+          </md-card-title>
+          <md-card-subtitle>Default material progress bar
+          </md-card-subtitle>
+          <md-card-content>
+            <h4>
+              <small>Determinate</small>
+            </h4>
+            <md-progress-bar mode="determinate" [value]="70"></md-progress-bar>
+            <h4>
+              <small>Indeterminate</small>
+            </h4>
+            <md-progress-bar mode="indeterminate"></md-progress-bar>
+            <h4>
+              <small>Buffer</small>
+            </h4>
+            <md-progress-bar mode="buffer" [value]="50" [bufferValue]="70"></md-progress-bar>
+            <h4>
+              <small>Query</small>
+            </h4>
+            <md-progress-bar mode="query"></md-progress-bar>
+          </md-card-content>
+        </md-card>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Progress spinner</md-card-title>
+          <md-card-subtitle>Default material progress spinner, see
+            <a href="https://material.angular.io/components/component/progress-spinner">Official Documentation</a>
+          </md-card-subtitle>
+          <md-card-content>
+            <h4>
+              <small>Determinate & Indeterminate</small>
+            </h4>
+            <div class="example-md-progress">
+              <md-progress-spinner mode="determinate" [value]="70" style="display: inline-block"></md-progress-spinner>
+              <md-progress-spinner mode="indeterminate" style="display: inline-block"></md-progress-spinner>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdProgressBarModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/progress-bar">Official Documentation
+          </a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p><code>&lt;md-progress-bar&gt;</code> is a horizontal progress-bar for indicating progress and activity.
+            </p>
+            <div material-docs-example="button-overview"></div>
+            <h3 id="progress-bar-mode">Progress mode</h3>
+            <p>The progress-bar supports four modes.</p>
+
+            <table>
+              <thead>
+              <tr>
+                <th>Mode</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><code>determinate</code></td>
+                <td>Standard progress bar, fills from 0% to 100%</td>
+              </tr>
+              <tr>
+                <td><code>indeterminate</code></td>
+                <td>Indicates that something is happening without conveying a discrete progress</td>
+              </tr>
+              <tr>
+                <td><code>buffer</code></td>
+                <td>Dual-progress mode, typically showing both video download and playback progress</td>
+              </tr>
+              <tr>
+                <td><code>query</code></td>
+                <td>Dual-stage mode, typically showing sending a request and downloading a response</td>
+              </tr>
+              </tbody>
+            </table>
+            <p>The default mode is <code>determinat</code>. In this mode, the progress is set via the value property,
+              which can be a whole number between 0 and 100.
+            </p>
+            <p>In <code>buffer</code> mode, value determines the progress of the primary bar
+              while the bufferValue is used to show the additional buffering progress.
+            </p>
+            <p>In <code>query</code> mode, the progress-bar renders as an inverted <code>indeterminate</code> bar.
+              Once the response progress is available,
+              the mode should be changed to determinate to convey the progress.
+            </p>
+            <p>In both <code>indeterminate</code> and <code>query</code> modes, the value property is ignored.
+            </p>
+            <h3 id="theming-bar">Theming</h3>
+            <p>The color of a progress-bar can be changed by using the color property.
+              By default, progress-bars use the theme's primary color.
+              This can be changed to <code>accent</code> or <code>warn</code>.</p>
+          </div>
+        </md-card-content>
+      </md-card>
+      <md-card class="page-card">
+        <md-card-title><code>MdProgressSpinnerModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/progress-spinner">Official
+            Documentation</a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p><code>&lt;md-progress-spinner&gt;</code> and <code>&lt;md-spinner&gt;</code>
+              are a circular indicators of progress and activity.
+            </p>
+            <h3 id="progress-sinner-mode">Progress mode</h3>
+            <p>The progress-spinner supports two modes, <code>determinate</code> and <code>indeterminate</code>.
+              The <code>&lt;md-spinner&gt;</code> component is an alias for
+              <code>&lt;md-progress-spinner mode="indeterminate"&gt;</code>
+            </p>
+
+            <table>
+              <thead>
+              <tr>
+                <th>Mode</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><code>determinate</code></td>
+                <td>Standard progress bar, fills from 0% to 100%</td>
+              </tr>
+              <tr>
+                <td><code>indeterminate</code></td>
+                <td>Indicates that something is happening without conveying a discrete progress</td>
+              </tr>
+              <tr>
+              </tbody>
+            </table>
+
+          <p>The default mode is <code>determinate</code>. In this mode, the progress is set via the value property,
+            which can be a whole number between 0 and 100.
+          </p>
+            <p>In <code>indeterminate</code> mode, the value property is ignored.
+            </p>
+            <h3 id="Theming-spinner">Theming</h3>
+            <p>The color of a progress-spinner can be changed by using the color property. By default,
+              progress-spinners use the theme's primary color. This can be changed to <code>accent</code>
+              or <code>warn</code>.
+            </p>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdProgressBarModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdProgressBar</h3>
+            <p class="docs-api-class-description">&lt;md-progress-bar&gt; component.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><div class="docs-api-input-marker">
+                  @Input()</div><p class="docs-api-property-name">
+                  color
+                </p>
+                </td>
+                <td class="docs-api-property-description">Color of the progress bar.
+                </td>
+              </tr>
+
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><div class="docs-api-input-marker">
+                  @Input()</div><p class="docs-api-property-name">
+                  value
+                </p>
+                </td>
+                <td class="docs-api-property-description">Value of the progressbar. Defaults to zero. Mirrored to aria-valuenow.
+                </td>
+              </tr>
+
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><div class="docs-api-input-marker">
+                  @Input()</div><p class="docs-api-property-name">
+                  bufferValue
+                </p>
+                </td>
+                <td class="docs-api-property-description">Buffer value of the progress bar. Defaults to zero.
+                </td>
+              </tr>
+
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><div class="docs-api-input-marker">
+                  @Input()</div><p class="docs-api-property-name">
+                  mode
+                </p>
+                </td>
+                <td class="docs-api-property-description">Mode of the progress bar.
+
+                  Input must be one of these values: determinate, indeterminate, buffer, query, defaults to
+                  &#39;determinate&#39;.
+                  Mirrored to mode attribute.
+                </td>
+              </tr>
+
+
+
+            </table>
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+      <md-card class="page-card">
+        <md-card-title><code>MdProgressSpinnerModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+
+            <h3>Directives</h3>
+
+            <h4>MdProgressCircle</h4>
+            <p> &lt;md-progress-spinner&gt; component.
+            </p>
+            <h5> Properties </h5>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+
+              <tr>
+                <td><p>@Input</p><p>value</p>
+                </td>
+                <td> </td>
+              </tr>
+
+              <tr>
+                <td><p>@Input</p><p>mode</p>
+                </td>
+                <td> Mode of the progress circle
+
+                  Input must be one of the values from ProgressMode, defaults to 'determinate'.
+                  mode is bound to the host as the attribute host.
+                </td>
+              </tr>
+
+              <tr>
+                <td><p>@Input</p><p>color</p>
+                </td>
+                <td> </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4>MdProgressSpinner</h4>
+            <p> &lt;md-progress-spinner&gt; component.
+            </p>
+            <h5> Properties </h5>
+            <table>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+
+              <tr>
+                <td><p>@Input</p><p>value</p>
+                </td>
+                <td> </td>
+              </tr>
+
+              <tr>
+                <td><p>@Input</p><p>mode</p>
+                </td>
+                <td> Mode of the progress circle
+
+                  Input must be one of the values from ProgressMode, defaults to 'determinate'.
+                  mode is bound to the host as the attribute host.
+                </td>
+              </tr>
+
+              <tr>
+                <td><p>@Input</p><p>color</p>
+                </td>
+                <td> </td>
+              </tr>
+
+
+            </table>
+            <h4>MdSpinner</h4>
+            <p> &lt;md-spinner&gt; component.
+
+              This is a component definition to be used as a convenience reference to create an
+              indeterminate &lt;md-progress-circle&gt; instance.
+            </p>
+
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+
+    </div>
+  </md-tab>
+</md-tab-group>

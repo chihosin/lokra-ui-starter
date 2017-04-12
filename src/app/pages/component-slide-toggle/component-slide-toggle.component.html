@@ -1,0 +1,452 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Slide-toggle</md-card-title>
+          <md-card-subtitle>Default material slide-toggle</md-card-subtitle>
+          <md-card-content>
+            <md-card-subtitle>Color:</md-card-subtitle>
+            <md-slide-toggle
+              [color]="'primary'"
+              [checked]="true">
+              Primary
+            </md-slide-toggle>
+            <md-slide-toggle
+              [color]="'accent'"
+              [checked]="true">
+              Accent
+            </md-slide-toggle>
+            <md-slide-toggle
+              [color]="'warn'"
+              [checked]="true">
+              Warn
+            </md-slide-toggle>
+            <md-card-subtitle>Slide-toggle is required</md-card-subtitle>
+            <md-slide-toggle
+              [required]="true"
+              [checked]="true">
+              Slide me
+            </md-slide-toggle>
+            <md-card-subtitle>Disabled</md-card-subtitle>
+            <md-slide-toggle
+              [disabled]="true"
+              [checked]="true">
+              Slide
+            </md-slide-toggle>
+
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdSlideToggleModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/slide-toggle">Official Documentation
+          </a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>
+              <code>&lt;md-slide-toggle&gt;</code> is an on/off control that can be toggled via clicking or dragging.
+            </p>
+            <p>
+              The slide-toggle behaves similarly to a checkbox, though it does not support
+              an indeterminate state like <code>&lt;md-checkbox&gt;</code>.
+            </p>
+            <p>
+              Note: the sliding behavior for this component requires that HammerJS is loaded on the page.
+            </p>
+            <h3>Slide-toggle label</h3>
+            <p>
+              The slide-toggle label is provided as the content to the <code>&lt;md-slide-toggle&gt;</code> element.
+            </p>
+            <p>
+              If you don't want the label to appear next to the slide-toggle,
+              you can use <code>aria-label</code> or <code>aria-labelledby</code> to specify an appropriate label.
+            </p>
+            <h3>Use with @angular/forms</h3>
+            <p>
+              <code>&lt;md-slide-toggle&gt;</code> is compatible with @angular/forms and supports both FormsModule
+              and ReactiveFormsModule.
+            </p>
+            <h3>Theming</h3>
+            <p>
+              The color of a <code>&lt;md-slide-toggle&gt;</code> can be changed by using the color property.
+              By default, slide-toggles use the theme's accent color. This can be changed to 'primary' or 'warn'.
+            </p>
+
+
+            <p>
+              <code>&lt;md-slider&gt;</code> allows for the selection of a value from a range via mouse, touch,
+              or keyboard, similar to <code>&lt;input type="range"&gt;</code>.
+            </p>
+            <p>
+              Note: the sliding behavior for this component requires that HammerJS is loaded on the page.
+            </p>
+            <h3>Selecting a value</h3>
+            <p>
+              By default the minimum value of the slider is 0, the maximum value is 100,
+              and the thumb moves in increments of 1. These values can be changed by setting the min,
+              max, and step attributes respectively.
+              The initial value is set to the minimum value unless otherwise specified.
+            </p>
+            <p>
+              <code>&lt;md-slider min="1" max="5" step="0.5" value="1.5"&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <h3>Orientation</h3>
+            <p>
+              By default sliders are horizontal with the minimum value on the left and the maximum value on the right.
+              The vertical attribute can be added to a slider to make it vertical with the minimum value on bottom
+              and the maximum value on top.
+            </p>
+            <p>
+              <code>&lt;md-slider vertical&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <p>
+              An invert attribute is also available which can be specified to flip the axis that the thumb moves along.
+              An inverted horizontal slider will have the minimum value on the right and the maximum value on the left,
+              while an inverted vertical slider will have the minimum value on top and the maximum value on bottom.
+            </p>
+            <p>
+              <code>&lt;md-slider invert&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <h3>
+              Thumb label
+            </h3>
+            <p>
+              By default, the exact selected value of a slider is not visible to the user. However,
+              this value can be added to the thumb by adding the thumbLabel attribute.
+
+            </p>
+            <p>
+              The Material Design spec recommends using the thumbLabel attribute (along with tickInterval="1")
+              only for sliders that are used to display a discrete value (such as a 1-5 rating).
+            </p>
+            <p>
+              <code>&lt;md-slider thumbLabel tickInterval="1"&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <h3>Tick marks</h3>
+            <p>
+              By default, sliders do not show tick marks along the thumb track.
+              This can be enabled using the tickInterval attribute. The value of tickInterval
+              should be a number representing the number of steps between between ticks.
+              For example a tickInterval of 3 with a step of 4 will draw tick marks at every 3 steps,
+              which is the same as every 12 values.
+            </p>
+            <p>
+              <code>&lt;md-slider step="4" tickInterval="3"&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <p>
+              The tickInterval can also be set to auto which will automatically choose the number of
+              steps such that there is at least 30px of space between ticks.
+            </p>
+            <p>
+              <code>&lt;md-slider tickInterval="auto"&gt;</code><code>&lt;/md-slider&gt;</code>
+            </p>
+            <p>
+              The slider will always show a tick at the beginning and end of the track.
+              If the remaining space doesn't add up perfectly the last interval will be shortened or
+              lengthened so that the tick can be shown at the end of the track.
+            </p>
+            <p>
+              The Material Design spec recommends using the tickInterval attribute (set to 1 along with the thumbLabel
+              attribute) only for sliders that are used to display a discrete value (such as a 1-5 rating).
+            </p>
+            <h3>Keyboard interaction</h3>
+            <p>
+              The slider has the following keyboard bindings:
+            </p>
+            <table>
+              <thead>
+              <tr>
+                <th>Key</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>Right arrow</td>
+                <td>Increment the slider value by one step (decrements in RTL).</td>
+              </tr>
+              <tr>
+                <td>Up arrow</td>
+                <td>Increment the slider value by one step.</td>
+              </tr>
+              <tr>
+                <td>Left arrow</td>
+                <td>Decrement the slider value by one step (increments in RTL).</td>
+              </tr>
+              <tr>
+                <td>Down arrow</td>
+                <td>Decrement the slider value by one step.</td>
+              </tr>
+              <tr>
+                <td>Page up</td>
+                <td>Increment the slider value by 10 steps.</td>
+              </tr>
+              <tr>
+                <td>Page down</td>
+                <td>Decrement the slider value by 10 steps.</td>
+              </tr>
+              <tr>
+                <td>End</td>
+                <td>Set the value to the maximum possible.</td>
+              </tr>
+              <tr>
+                <td>Home</td>
+                <td>Set the value to the minimum possible.</td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdSlideToggleModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdSlideToggle</h3>
+            <p class="docs-api-class-description">Two-state control, which can be also called `switch`.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    name
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Name value will be applied to the input element if present
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    id
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">A unique id for the slide-toggle input. If none is supplied,
+                  it will be auto-generated.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    ariaLabel
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Used to set the aria-label attribute on the underlying input
+                  element.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    ariaLabelledby
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Used to set the aria-labelledby attribute on the underlying
+                  input element.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    disabled
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the slide-toggle is disabled.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    required
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the slide-toggle is required.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    change
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">An event will be dispatched each time the slide-toggle changes
+                  its value.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  inputId
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">Returns the unique id for the visual hidden input.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    checked
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the slide-toggle is checked.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    color
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The color of the slide-toggle. Can be primary, accent, or
+                  warn.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">focus</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Focuses the slide-toggle.
+                </td>
+              </tr>
+            </table>
+
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">toggle</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Toggles the checked state of the slide-toggle.
+                </td>
+              </tr>
+            </table>
+
+
+            <h2>Additional classes</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdSlideToggleChange</h3>
+            <p class="docs-api-class-description"></p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  source
+                </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  checked
+                </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+            </table>
+
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

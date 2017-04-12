@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Lokra UI Starter - Documentation</title>
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
+</head>
+<body>
+<div class="docs-wrapper">
+    <div class="docs-content">
+        <div>
+            <img src="assets/img/logo.svg" style="padding-bottom: 30%;">
+            <h1>Hello!</h1>
+            <p><b>Lokra UI Starter</b> is admin template ready for mobile & desktop application, based on the Angular2
+                framework.</p>
+            <p>This document will help you setup this starter kit and find a guide about the functionality,
+                components, structure, workflow.</p>
+            <h2>Setup</h2>
+            <p>Prerequisites:</p>
+            <ul>
+                <li><a href="https://nodejs.org">Node.js</a></li>
+                <li>NPM</li>
+                <li><a href="https://github.com/angular/angular-cli">angular-cli</a></li>
+            </ul>
+            <div class="code-panel">
+                <div class="code-panel__heading"><span>Command</span></div>
+                <div class="code-panel__content">
+<pre class="prettyprint lang-html">
+# Development server
+npm start
+
+# Build developer package
+npm run "build:dev-aot"
+
+# Build production package
+npm run "build:prod-aot"
+
+# Build developer package without AOT
+npm run "build:dev"
+
+# Build production package without AOT
+npm run "build:prod"
+
+# Get some help
+ng help
+</pre>
+                </div>
+            </div>
+            <h3>Further help</h3>
+            <p>To get more help on the `angular-cli` use `ng --help` or go check out <a
+                    href="https://github.com/angular/angular-cli">Angular CLI</a></p>
+            <h3>Layout Engine</h3>
+            <p>For the layout, the template uses @angular/flex-layout angular 2 component layout engine which uses
+                flexbox css. For detailed usage information you can read the docs over at <a
+                        href="https://github.com/angular/flex-layout">flex-layout</a></p>
+            <h3>Theming</h3>
+            <p>For detailed custom theming guide you can read the offical <a
+                    href="https://material.angular.io/guide/theming">material 2 docs</a></p>
+          <h1>Structure</h1>
+          <p>Template file structure is base on angular-cli generate project.</p>
+          <pre>
+- ui-starter                          # project root folder.
+  |- docs                             # documents folder.
+  |- src                              # source code folder.
+     |- app                           # application root.
+        |- pages ...                  # template page component folder ...
+        |- shared                     # common function or common component with 3rd party
+         - app.component.html         # main container template
+         - app.component.scss         # main container style sheet
+         - app.component.spec.ts      # main unit test
+         - app.component.ts           # bootstrap component
+         - app.module.ts              # bootstrap module
+         - app.routes.ts              # global routes
+         - app.service.ts             # global state service
+         - app.theme.bootstrap.scss   # bootstrap 4 style sheet
+         - app.theme.material.scss    # material 2 style sheet
+         - app.theme.custom.scss      # customize style sheet
+         - app.theme.scss             # style sheet mixin
+     |- assets                        # static resources
+     |- electron                      # electron support file
+     |- environments                  # build environment configurations
+      - favicon.ico                   # icon
+      - index.html                    # bootstrap index page, manage by webpack
+      - main.ts                       # angular import configuration
+      - polyfills.ts                  # angular dependencies import configuration
+      - styles.scss                   # global style sheet configuration
+      - test.ts                       # unit test configuration
+      - tsconfig.json                 # typescript compile configuration
+      - typings.d.ts                  # typescript definitions configuration
+   - .editorconfig                    # IDE edit support
+   - .gitignore                       # git ignore file
+   - angular-cli.json                 # angular-cli global configuration
+   - config.xml                       # cordova configuration
+   - karma.conf.js                    # unit test global configuration
+   - package.json                     # npm dependencies manage
+   - protractor.conf.js               # e2e test global configuration
+   - tslint.json                      # typescript code lint configuration
+</pre>
+
+          <h1>CSS Framework</h1>
+            <p>This starter kit is composed of several different style frameworks:</p>
+
+            <ul>
+                <li><a href="http://getbootstrap.com/">Bootstrap 3</a></li>
+                <li><a href="https://github.com/FezVrasta/bootstrap-material-design">Bootstrap Material Design</a></li>
+                <li><a href="https://material.angular.io/">Angular Material Library</a></li>
+            </ul>
+
+            <p>We have modified the style frame for the Material style, and you can mix and match the style properties
+                of the different frames.</p>
+
+
+            <h1>3rd Party</h1>
+            <div class="code-panel">
+                <div class="code-panel__heading"><span>Command</span></div>
+                <div class="code-panel__content">
+<pre class="prettyprint lang-html">
+"dependencies": {
+    "@angular/common": "^2.3.1",
+    "@angular/compiler": "^2.3.1",
+    "@angular/core": "^2.3.1",
+    "@angular/flex-layout": "^2.0.0-beta.1",
+    "@angular/forms": "^2.3.1",
+    "@angular/http": "^2.3.1",
+    "@angular/material": "^2.0.0-beta.1",
+    "@angular/platform-browser": "^2.3.1",
+    "@angular/platform-browser-dynamic": "^2.3.1",
+    "@angular/router": "^3.3.1",
+    "@swimlane/ngx-datatable": "^4.1.0",
+    "angular2-google-maps": "^0.17.0",
+    "angular2-tree-component": "^2.7.0",
+    "bootstrap-material-design": "^0.5.10",
+    "bootstrap-sass": "^3.3.7",
+    "chart.js": "^2.4.0",
+    "clappr": "^0.2.64",
+    "core-js": "^2.4.1",
+    "font-awesome": "^4.7.0",
+    "fullcalendar": "^3.1.0",
+    "hammerjs": "^2.0.8",
+    "jquery": "^3.1.1",
+    "jqvmap": "^1.5.1",
+    "material-design-icon-fonts": "^3.0.1",
+    "md2": "0.0.13",
+    "moment": "^2.17.1",
+    "ng2-file-upload": "^1.1.4-2",
+    "ng2-validation": "^3.1.3",
+    "ngx-quill": "^0.1.1",
+    "peity": "^3.2.1",
+    "quill": "^1.1.9",
+    "rxjs": "^5.0.1",
+    "ts-helpers": "^1.1.1",
+    "zone.js": "^0.7.2"
+  }
+</pre>
+                    <br/>
+                    <p>The API documents is contained in template page.</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1>Support</h1>
+            <p>We are here to assist you, thank you for report any bug/issue to our email
+                <b><a href="mailto:design-support@lokra.org">design-support@lokra.org</a></b>.
+            </p>
+            <p>What support includes?</p>
+            <ul>
+                <li>Availability to answer questions</li>
+                <li>Answering technical questions about item's features</li>
+                <li>Assistance with reported bugs and issues</li>
+                <li>Help with included 3rd party assets</li>
+            </ul>
+            <p>What support doesn't include:</p>
+            <ul>
+                <li>Customization services</li>
+                <li>Installation services</li>
+            </ul>
+            <p>If you already read the documentation and you still need assistance, please send us your questions to
+                <b><a href="mailto:design-support@lokra.org">design-support@lokra.org</a></b></p>
+        </div>
+        <div>
+            <h1>Changelog</h1>
+          <p>Version 1.2.8 – 12 Feb 2017</p>
+          <pre>- Updated flex-layout.
+</pre>
+          <p>Version 1.2.7 – 8 Feb 2017</p>
+          <pre>- Added right side messages panel.
+- Updated Angular cli.
+</pre>
+          <p>Version 1.2.6 – 2 Feb 2017</p>
+          <pre>- Updated source code structure (More clear structure).
+- Updated structure documents.
+- Fixed page footer show state.
+- Fixed side nav bar on Firefox.
+</pre>
+          <p>Version 1.2.5 – 1 Feb 2017</p>
+          <pre>- Fixed Flex-Layout build error.
+</pre>
+          <p>Version 1.2.4 – 26 Jan 2017</p>
+          <pre>- Added Cordova mobile platform support.
+- Fixed Electron package script on Windows.
+</pre>
+          <p>Version 1.2.3 – 25 Jan 2017</p>
+          <pre>- Added Collapse Side nav menu.
+- Fixed font family wrong on Safari.
+</pre>
+          <p>Version 1.2.2 – 24 Jan 2017</p>
+          <pre>- Added Bootstrap 4 Support.
+- Rebuild Style Sheet for dynamic theme mode.
+- Added Widget Profile Card.
+</pre>
+          <p>Version 1.2.1 – 23 Jan 2017</p> 
+          <pre>- Fixed Dark theme style.
+- Fixed style bundle too large problem.
+</pre>
+          <p>Version 1.2 – 22 Jan 2017</p> 
+          <pre>- Added i18n Support.
+- Added Edge Dashboard.
+- Added Theme Selector (Beta).
+- Added Fullscreen Support.
+- Reformat Code, make it clear.
+- Rebuild Style Sheet ready for dynamic theme.
+- Repack Widget Tile (More widget will be package).
+</pre>
+          <p>Version 1.1.2 – 20 Jan 2017</p> 
+          <pre>- Added Electron Support.</pre>
+          <p>Version 1.1 – 19 Jan 2017</p>
+          <pre>- Updated packages version.
+- Fixed global scroll bar.
+- Fixed calendar flex layout.
+- Added weather card widget.</pre>
+          <p>Version 1.0 – 1 Jan 2017</p>
+          <pre>- Initial release.</pre>
+        </div>
+    </div>
+</div>
+</body>
+</html>

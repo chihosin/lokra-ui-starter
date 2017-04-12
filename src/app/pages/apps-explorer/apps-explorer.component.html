@@ -1,0 +1,400 @@
+<md-toolbar color="primary">
+  <md-toolbar-row></md-toolbar-row>
+  <md-toolbar-row>
+    <div class="md-toolbar-nav md-toolbar-nav-with-fab">
+      <button md-fab class="md-toolbar-nav-fab">
+        <md-icon>add</md-icon>
+      </button>
+      <span class="md-toolbar-nav-title">My Files</span>
+      <span class="md-toolbar-nav-icon"><i class="material-icons">chevron_right</i></span>
+      <span class="md-toolbar-nav-title">Photos</span>
+      <span class="md-toolbar-nav-icon"><i class="material-icons">chevron_right</i></span>
+      <span class="md-toolbar-nav-title">Family</span>
+    </div>
+    <span class="toolbar-filler"></span>
+    <button md-icon-button *ngIf="viewType === 'list'" (click)="viewType = 'grid'">
+      <md-icon>view_list</md-icon>
+    </button>
+    <button md-icon-button *ngIf="viewType === 'grid'" (click)="viewType = 'list'">
+      <md-icon>view_module</md-icon>
+    </button>
+    <button md-icon-button>
+      <md-icon>refresh</md-icon>
+    </button>
+    <button md-icon-button>
+      <md-icon>file_download</md-icon>
+    </button>
+  </md-toolbar-row>
+</md-toolbar>
+<div class="page-toolbar-content" *ngIf="viewType === 'grid'">
+  <md-grid-list cols="5" rowHeight="260px">
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img1.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>1</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img2.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>2</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img3.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>3</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img4.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>4</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img5.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>5</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img6.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>6</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img7.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>7</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img8.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>8</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img9.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>9</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img10.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>10</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img11.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>11</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+    <md-grid-tile
+      [colspan]="1"
+      [rowspan]="1"
+    >
+      <img src="assets/img/gallery/img12.jpg">
+      <md-grid-tile-footer>
+        <h3 md-line>12</h3>
+        <span md-line>Jun 5, 2016</span>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+</div>
+<div class=" page-toolbar-content page-toolbar-left-content" *ngIf="viewType === 'list'">
+  <md-card>
+    <md-list class="md-list-with-fab">
+      <h3 md-subheader></h3>
+      <h3 md-subheader>Photos</h3>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <p md-line>1.jpg</p>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>2.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>3.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>4.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>5.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>6.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>7.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>8.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>9.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>10.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>11.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_photo</md-icon>
+        <h4 md-line>12.jpg</h4>
+        <p md-line>Image</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+      <md-divider></md-divider>
+      <h3 md-subheader>Files</h3>
+      <md-list-item>
+        <md-icon md-list-avatar>insert_drive_file</md-icon>
+        <h4 md-line>lokra.doc</h4>
+        <p md-line>Word Document</p>
+        <button md-icon-button>
+          <md-icon>favorite</md-icon>
+        </button>
+        <button md-icon-button>
+          <md-icon>more_vert</md-icon>
+        </button>
+      </md-list-item>
+    </md-list>
+  </md-card>
+</div>
+<div class=" page-toolbar-content page-toolbar-right-content" *ngIf="viewType === 'list'">
+  <div class="info-content">
+    <img class="view" src="assets/img/gallery/img1.jpg">
+    <md-list>
+      <md-list-item>
+        <h4 md-line>Available Offline</h4>
+        <h4 md-line>
+          <small>Check out local</small>
+        </h4>
+        <md-slide-toggle></md-slide-toggle>
+      </md-list-item>
+      <md-divider></md-divider>
+      <h3 md-subheader>info</h3>
+      <md-list-item>
+        <h3 md-line>1.jpg</h3>
+        <p md-line>Jun 1, 2016</p>
+        <button md-icon-button>
+          <md-icon>share</md-icon>
+        </button>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>

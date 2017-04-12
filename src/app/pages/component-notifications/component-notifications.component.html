@@ -1,0 +1,412 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Snack Bar
+          </md-card-title>
+          <md-card-subtitle>
+            For displaying snack-bar notifications
+          </md-card-subtitle>
+          <md-card-content>
+
+            <md-input-container>
+              <input mdInput value="What is the color?" placeholder="Message" #message>
+            </md-input-container>
+
+            <md-input-container>
+              <input mdInput value="Yellow" placeholder="Action" #action>
+            </md-input-container>
+            <md-input-container>
+              <input mdInput type="number" placeholder="Duration" [(ngModel)]="time">
+            </md-input-container>
+            <br>
+            <button md-button (click)="openSnackBar(message.value, action.value)">Show Snack-bar</button>
+            <br>
+            <button md-button (click)="openNotify()">Launch Notify</button>
+            <button md-button (click)="closeNotify()">Dismissed</button>
+
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>Notifications</code>
+          <a class="badge" href="https://material.angular.io/components/component/snack-bar">Official Documentation
+          </a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>
+              MdSnackBar is a service for displaying snack-bar notifications.
+            </p>
+            <h3>Opening a snack-bar</h3>
+            <p>
+              A snack-bar can contain either a string message or a given component.
+            </p>
+            <pre>
+// Simple message.
+let snackBarRef &#61; snackBar.open('Message archived');
+
+// Simple message with an action.
+let snackBarRef &#61; snackBar.open('Message archived', 'Undo');
+
+// Load the given component into the snack-bar.
+let snackBarRef &#61; snackbar.openFromComponent(MessageArchivedComponent);
+            </pre>
+            <p>
+              In either case, an MdSnackBarRef is returned. This can be used to dismiss the snack-bar or to recieve
+              notification of when the snack-bar is dismissed. For simple messages with an action, the MdSnackBarRef
+              exposes an observable for when the action is triggered.
+            </p>
+            <pre>
+snackBarRef.afterDismissed().subscribe(() &#61;&gt; &#123;
+  console.log('The snack-bar was dismissed');
+&#125;);
+
+
+snackBarRef.onAction().subscribe(() &#61;&gt; &#123;
+  console.log('The snack-bar action was triggered!');
+&#125;);
+
+snackBarRef.dismiss();
+            </pre>
+            <h3>Dismissal</h3>
+            <p>
+              A snack-bar can be dismissed manually by calling the dismiss method on the MdSnackBarRef returned from the
+              call to open.
+            </p>
+            <p>
+              Only one snack-bar can ever be opened at one time. If a new snackbar is opened while a previous message is
+              still showing, the older message will be automatically dismissed.
+            </p>
+            <p>
+              A snack-bar can also be given a duration via the optional configuration object:
+            </p>
+            <pre>
+snackbar.open('Message archived', 'Undo', &#123;
+  duration: 3000
+&#125;);
+            </pre>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>Notifications</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2 class="docs-api-h2">Services</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdSnackBar</h3>
+            <p class="docs-api-class-description">Service to dispatch Material Design snack bar messages.
+            </p>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">openFromComponent</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Creates and dispatches a snack bar with a
+                  custom component for the content, removing any
+                  currently opened snack bars.
+                </td>
+              </tr>
+              <tr class="docs-api-method-parameters-header-row">
+                <th colspan="2" class="docs-api-method-parameters-header-cell">Parameters</th>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    component</p>
+                  <code class="docs-api-method-parameter-type">ComponentType&lt;T&gt;</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description">Component to be instantiated.</p>
+                </td>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    config<span class="docs-api-method-parameter-optional-marker">?</span></p>
+                  <code class="docs-api-method-parameter-type">MdSnackBarConfig</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description">Extra configuration for the snack bar.
+                  </p>
+                </td>
+              </tr>
+              <tr class="docs-api-method-returns-header-row">
+                <th colspan="2" class="docs-api-method-returns-header-cell">Returns</th>
+              </tr>
+              <tr>
+                <td class="docs-api-method-returns-type-cell">
+                  <code class="docs-api-method-returns-type">MdSnackBarRef&lt;T&gt;</code>
+                </td>
+                <td class="docs-api-method-returns-description-cell">
+
+                </td>
+              </tr>
+            </table>
+
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">open</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Opens a snackbar with a message and an optional
+                  action.
+                </td>
+              </tr>
+              <tr class="docs-api-method-parameters-header-row">
+                <th colspan="2" class="docs-api-method-parameters-header-cell">Parameters</th>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    message</p>
+                  <code class="docs-api-method-parameter-type">string</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description">The message to show in the snackbar.</p>
+                </td>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    action<span class="docs-api-method-parameter-optional-marker">?</span></p>
+                  <code class="docs-api-method-parameter-type">any</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description">The label for the snackbar action.</p>
+                </td>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    config<span class="docs-api-method-parameter-optional-marker">?</span></p>
+                  <code class="docs-api-method-parameter-type">MdSnackBarConfig</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description">Additional configuration options for the snackbar.
+                  </p>
+                </td>
+              </tr>
+              <tr class="docs-api-method-returns-header-row">
+                <th colspan="2" class="docs-api-method-returns-header-cell">Returns</th>
+              </tr>
+              <tr>
+                <td class="docs-api-method-returns-type-cell">
+                  <code class="docs-api-method-returns-type">MdSnackBarRef&lt;SimpleSnackBar&gt;</code>
+                </td>
+                <td class="docs-api-method-returns-description-cell">
+
+                </td>
+              </tr>
+            </table>
+
+
+            <h2>Additional classes</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdSnackBarConfig</h3>
+            <p class="docs-api-class-description">Configuration used when opening a snack-bar.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  politeness
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The politeness level for the MdAriaLiveAnnouncer announcement.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  announcementMessage
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">Message to be announced by the MdAriaLiveAnnouncer
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  viewContainerRef
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The view container to place the overlay for the snack bar
+                  into.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  duration
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The length of time in milliseconds to wait before
+                  automatically dismissing the snack bar.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdSnackBarRef</h3>
+            <p class="docs-api-class-description">Reference to a snack bar dispatched from the snack bar service.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  instance
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The instance of the component making up the content of the
+                  snack bar.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">dismiss</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Dismisses the snack bar.
+                </td>
+              </tr>
+            </table>
+
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">afterDismissed</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Gets an observable that is notified when the
+                  snack bar is finished closing.
+                </td>
+              </tr>
+              <tr class="docs-api-method-returns-header-row">
+                <th colspan="2" class="docs-api-method-returns-header-cell">Returns</th>
+              </tr>
+              <tr>
+                <td class="docs-api-method-returns-type-cell">
+                  <code class="docs-api-method-returns-type">Observable&lt;void&gt;</code>
+                </td>
+                <td class="docs-api-method-returns-description-cell">
+
+                </td>
+              </tr>
+            </table>
+
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">afterOpened</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Gets an observable that is notified when the
+                  snack bar has opened and appeared.
+                </td>
+              </tr>
+              <tr class="docs-api-method-returns-header-row">
+                <th colspan="2" class="docs-api-method-returns-header-cell">Returns</th>
+              </tr>
+              <tr>
+                <td class="docs-api-method-returns-type-cell">
+                  <code class="docs-api-method-returns-type">Observable&lt;void&gt;</code>
+                </td>
+                <td class="docs-api-method-returns-description-cell">
+
+                </td>
+              </tr>
+            </table>
+
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">onAction</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Gets an observable that is notified when the
+                  snack bar action is called.
+                </td>
+              </tr>
+              <tr class="docs-api-method-returns-header-row">
+                <th colspan="2" class="docs-api-method-returns-header-cell">Returns</th>
+              </tr>
+              <tr>
+                <td class="docs-api-method-returns-type-cell">
+                  <code class="docs-api-method-returns-type">Observable&lt;void&gt;</code>
+                </td>
+                <td class="docs-api-method-returns-description-cell">
+
+                </td>
+              </tr>
+            </table>
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

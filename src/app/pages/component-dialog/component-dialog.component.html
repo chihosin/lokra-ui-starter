@@ -1,0 +1,384 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>
+            Dialog
+          </md-card-title>
+          <md-card-subtitle>
+            Modal dialogs with Material Design styling and animations.
+          </md-card-subtitle>
+          <md-card-content>
+            <div class="example-md-dialog">
+              <button md-button (click)="openDialog()">Launch dialog</button>
+            </div>
+            <br/>
+            <div class="example-md-dialog">
+              <p><span class="label label-primary" *ngIf="selectedOption">{{selectedOption}}</span></p>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdDialogModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/dialog">Official Documentation
+          </a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>
+              The MdDialog service can be used to open modal dialogs with Material Design styling and animations.
+            </p>
+            <p>
+              A dialog is opened by calling the open method with a component to be loaded and an optional config object.
+              The open method will return an instance of MdDialogRef:
+            </p>
+            <pre><code>
+
+let dialogRef = dialog.open(UserProfileComponent, &#123;
+  height: '400px',
+  width: '600px',
+&#125;);
+                </code>
+            </pre>
+            <p>
+              The MdDialogRef provides a handle on the opened dialog. It can be used to close the dialog and to
+              recieve notification when the dialog has been closed.
+            </p>
+            <pre>
+              <code>
+dialogRef.afterClosed.then(result => &#123;
+  console.log(`Dialog result: $&#123;result&#125;`); // Pizza!
+&#125;);
+
+dialogRef.close('Pizza!');
+              </code>
+            </pre>
+            <p>
+              Components created via MdDialog can inject MdDialogRef and use it to close the dialog
+              in which they are contained. When closing, an optional result value can be provided.
+              This result value is forwarded as the result of the afterClosed promise.
+            </p>
+            <h3>Dialog content</h3>
+            <p>
+              Several directives are available to make it easier to structure your dialog content:
+            </p>
+            <table>
+              <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><code>&lt;md-dialog-title&gt;</code></td>
+                <td><code>[Attr]</code> Dialog title, applied to a heading element (e.g., <code>&lt;h1&gt;</code>,
+                  <code>&lt;h2&gt;</code>)
+                </td>
+              </tr>
+              <tr>
+                <td><code>&lt;md-dialog-content&gt;</code></td>
+                <td>Primary scrollable content of the dialog</td>
+              </tr>
+              <tr>
+                <td><code>&lt;md-dialog-actions&gt;</code></td>
+                <td>Container for action buttons at the bottom of the dialog</td>
+              </tr>
+              <tr>
+                <td><code><code>&lt;md-dialog-close&gt;</code></code></td>
+                <td><code>[Attr]</code> Added to a <code>&lt;button&gt;</code>,
+                  makes the button close the dialog on click
+                </td>
+              </tr>
+              <tr>
+              </tbody>
+            </table>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdDialogModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+
+            <h2 class="docs-api-h2">
+              Module: <code>MdDialogModule</code>
+            </h2>
+            <h2 class="docs-api-h2">Services</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdDialog</h3>
+            <p class="docs-api-class-description">Service to open Material Design modal dialogs.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">open</th>
+              </tr>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Opens a modal dialog containing the given
+                  component.
+                </td>
+              </tr>
+              <tr class="docs-api-method-parameters-header-row">
+                <th colspan="2" class="docs-api-method-parameters-header-cell">Parameters</th>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    component</p>
+                  <code class="docs-api-method-parameter-type">ComponentType&lt;T&gt;</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description">Type of the component to load into the load.</p>
+                </td>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    config<span class="docs-api-method-parameter-optional-marker">?</span></p>
+                  <code class="docs-api-method-parameter-type">MdDialogConfig</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description">Extra configuration options.</p>
+                </td>
+              </tr>
+              <tr class="docs-api-method-returns-header-row">
+                <th colspan="2" class="docs-api-method-returns-header-cell">Returns</th>
+              </tr>
+              <tr>
+                <td class="docs-api-method-returns-type-cell">
+                  <code class="docs-api-method-returns-type">MdDialogRef&lt;T&gt;</code>
+                </td>
+                <td class="docs-api-method-returns-description-cell">
+                  <p class="docs-api-method-returns-description">Reference to the newly-opened dialog.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">closeAll</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Closes all of the currently-open dialogs.
+                </td>
+              </tr>
+            </table>
+
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdDialogClose</h3>
+            <p class="docs-api-class-description">Button that will close the current dialog.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">@Input(<span
+                    class="docs-api-input-alias">&#39;aria-label&#39;</span>)
+                  </div>
+                  <p class="docs-api-property-name">
+                    ariaLabel
+                  </p>
+                </td>
+                <td class="docs-api-property-description">Screenreader label for the button.
+                </td>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  dialogRef
+                </p>
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+            </table>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdDialogTitle</h3>
+            <p class="docs-api-class-description">Title of a dialog element. Stays fixed to the top of
+              the dialog when scrolling.
+            </p>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdDialogContent</h3>
+            <p class="docs-api-class-description">Scrollable content container of a dialog.
+            </p>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdDialogActions</h3>
+            <p class="docs-api-class-description">Container for the bottom action buttons in a dialog.
+              Stays fixed to the bottom when scrolling.
+            </p>
+
+            <h2>Additional classes</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdDialogConfig</h3>
+            <p class="docs-api-class-description">Configuration for opening a modal dialog with the MdDialog service.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  viewContainerRef
+                </p>
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  role
+                </p>
+                </td>
+                <td class="docs-api-property-description">The ARIA role of the dialog element.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  disableClose
+                </p>
+                </td>
+                <td class="docs-api-property-description">Whether the user can use escape or
+                  clicking outside to close a modal.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  width
+                </p>
+                </td>
+                <td class="docs-api-property-description">Width of the dialog.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  height
+                </p>
+                </td>
+                <td class="docs-api-property-description">Height of the dialog.
+                </td>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  position
+                </p>
+                </td>
+                <td class="docs-api-property-description">Position overrides.
+                </td>
+              </tr>
+
+            </table>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdDialogRef</h3>
+            <p class="docs-api-class-description">Reference to a dialog opened via the MdDialog service.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  componentInstance
+                </p>
+                </td>
+                <td class="docs-api-property-description">The instance of component opened into the dialog.
+                </td>
+              </tr>
+
+            </table>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">close</th>
+              </tr>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Close the dialog.</td>
+              </tr>
+              <tr class="docs-api-method-parameters-header-row">
+                <th colspan="2" class="docs-api-method-parameters-header-cell">Parameters</th>
+              </tr>
+
+              <tr class="docs-api-method-parameter-row">
+                <td class="docs-api-method-parameter-cell">
+                  <p class="docs-api-method-parameter-name">
+                    dialogResult<span class="docs-api-method-parameter-optional-marker">?</span></p>
+                  <code class="docs-api-method-parameter-type">any</code>
+                </td>
+                <td class="docs-api-method-parameter-description-cell">
+                  <p class="docs-api-method-parameter-description">Optional result to return to the dialog opener.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <table class="docs-api-method-table">
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">afterClosed</th>
+              </tr>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Gets an observable that is notified when the
+                  dialog is finished closing.
+                </td>
+              </tr>
+              <tr class="docs-api-method-returns-header-row">
+                <th colspan="2" class="docs-api-method-returns-header-cell">Returns</th>
+              </tr>
+              <tr>
+                <td class="docs-api-method-returns-type-cell">
+                  <code class="docs-api-method-returns-type">Observable&lt;any&gt;</code>
+                </td>
+                <td class="docs-api-method-returns-description-cell">
+                  <p class="docs-api-method-returns-description"></p>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

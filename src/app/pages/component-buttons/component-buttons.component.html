@@ -1,0 +1,660 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Material Buttons
+          </md-card-title>
+          <md-card-subtitle>Default material buttons style
+          </md-card-subtitle>
+          <md-card-content>
+            <div class="example-md-buttons">
+              <button md-button>Flat button</button>
+              <button md-raised-button>Raised button</button>
+              <button md-fab>
+                <md-icon>check</md-icon>
+              </button>
+              <button md-mini-fab>
+                <md-icon>check</md-icon>
+              </button>
+            </div>
+          </md-card-content>
+        </md-card>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Buttons color</md-card-title>
+          <md-card-subtitle>Default material buttons color</md-card-subtitle>
+          <md-card-content>
+            <div class="example-md-buttons">
+              <button md-raised-button>Default</button>
+              <button md-raised-button color="primary">Primary</button>
+              <button md-raised-button color="accent">Accent</button>
+              <button md-raised-button color="warn">Warn</button>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Button disabled</md-card-title>
+          <md-card-subtitle>Default material buttons disabled</md-card-subtitle>
+          <md-card-content>
+            <div class="example-md-buttons">
+              <button md-button disabled>Flat button</button>
+              <button md-raised-button disabled>Raised button</button>
+              <button md-fab disabled>
+                <md-icon>check</md-icon>
+              </button>
+              <button md-mini-fab disabled>
+                <md-icon>check</md-icon>
+              </button>
+            </div>
+          </md-card-content>
+        </md-card>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Icon Button</md-card-title>
+          <md-card-subtitle>Different icon buttons</md-card-subtitle>
+          <md-card-content>
+            <div class="example-md-buttons">
+              <button md-icon-button>
+                <md-icon>face</md-icon>
+              </button>
+              <button md-icon-button>
+                <md-icon>alarm_on</md-icon>
+              </button>
+              <button md-icon-button>
+                <md-icon>backup</md-icon>
+              </button>
+              <button md-icon-button>
+                <md-icon>search</md-icon>
+              </button>
+              <button md-icon-button>
+                <md-icon>timeline</md-icon>
+              </button>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Button Toggle</md-card-title>
+          <md-card-subtitle>Default material buttons toggle</md-card-subtitle>
+          <md-card-content>
+            <div class="example-md-buttons">
+              <md-button-toggle-group>
+                <md-button-toggle value="left">
+                  <md-icon>format_align_left</md-icon>
+                </md-button-toggle>
+                <md-button-toggle value="center">
+                  <md-icon>format_align_center</md-icon>
+                </md-button-toggle>
+                <md-button-toggle value="right">
+                  <md-icon>format_align_right</md-icon>
+                </md-button-toggle>
+                <md-button-toggle value="justify" disabled>
+                  <md-icon>format_align_justify</md-icon>
+                </md-button-toggle>
+              </md-button-toggle-group>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdButtonModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/button">Official Documentation</a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>Angular Material buttons are native <code>&lt;button&gt;</code> or <code>&lt;a&gt;</code> elements
+              enhanced with Material Design
+              styling and ink ripples.</p>
+            <div material-docs-example="button-overview"></div>
+            <p>Native <code>&lt;button&gt;</code> and <code>&lt;a&gt;</code> elements are always used in order to
+              provide the most straightforward
+              and accessible experience for users. A <code>&lt;button&gt;</code> element should be used whenever some
+              <em>action</em>
+              is performed. An <code>&lt;a&gt;</code> element should be used whenever the user will <em>navigate</em> to
+              another view.</p>
+            <p>There are five button variants, each applied as an attribute:</p>
+            <table>
+              <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><code>md-button</code></td>
+                <td>Rectangular button w/ no elevation.</td>
+              </tr>
+              <tr>
+                <td><code>md-raised-button</code></td>
+                <td>Rectangular button w/ elevation</td>
+              </tr>
+              <tr>
+                <td><code>md-icon-button</code></td>
+                <td>Circular button with a transparent background, meant to contain an icon</td>
+              </tr>
+              <tr>
+                <td><code>md-fab</code></td>
+                <td>Circular button w/ elevation, defaults to theme&#39;s accent color</td>
+              </tr>
+              <tr>
+                <td><code>md-mini-fab</code></td>
+                <td>Same as <code>md-fab</code> but smaller</td>
+              </tr>
+              </tbody>
+            </table>
+            <h3 id="theming">Theming</h3>
+            <p>Buttons can be colored in terms of the current theme using the <code>color</code> property to set the
+              background color to <code>primary</code>, <code>accent</code>, or <code>warn</code>. By default, only FABs
+              are colored; the default
+              background color for <code>md-button</code> and <code>md-raised-button</code> matches the theme&#39;s
+              background color. </p>
+          </div>
+        </md-card-content>
+      </md-card>
+      <md-card class="page-card">
+        <md-card-title><code>MdButtonToggleModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/button-toggle">Official
+            Documentation</a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p><code>&lt;md-button-toggle&gt;</code> are on/off toggles with the appearance of a button. These toggles
+              can be
+              configured to behave as either radio-buttons or checkboxes. While they can be standalone, they are
+              typically part of a <code>md-button-toggle-group</code>.</p>
+            <div material-docs-example="button-toggle-overview"></div>
+            <h3 id="exclusive-selection-vs-multiple-selection">Exclusive selection vs. multiple selection</h3>
+            <p>By default, <code>md-button-toggle-group</code> acts like a radio-button group- only one item can be
+              selected.
+              In this mode, the <code>value</code> of the <code>md-button-toggle-group</code> will reflect the value of
+              the selected
+              button and <code>ngModel</code> is supported. </p>
+            <p>Adding the <code>multiple</code> attribute allows multiple items to be selected (checkbox behavior). In
+              this
+              mode the values of the the toggles are not used, the <code>md-button-toggle-group</code> does not have a
+              value,
+              and <code>ngModel</code> is not supported.</p>
+            <h3 id="accessibility">Accessibility</h3>
+            <p>The button-toggles will present themselves as either checkboxes or radio-buttons based on the
+              presence of the <code>multiple</code> attribute. </p>
+            <h3 id="orientation">Orientation</h3>
+            <p>The button-toggles can be rendered in a vertical orientation by adding the <code>vertical</code>
+              attribute.</p>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdButtonModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>Directives</h2>
+            <h3 class="docs-api-h3 docs-api-class-name">MdButton</h3>
+            <p class="docs-api-class-description">Material design button.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    disableRipple
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the ripple effect for this button is disabled.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    disabled
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the button is disabled.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    color
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The color of the button. Can be `primary`, `accent`, or
+                  `warn`.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">focus</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Focuses the button.
+                </td>
+              </tr>
+            </table>
+
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdAnchor</h3>
+            <p class="docs-api-class-description">Raised Material design button.
+            </p>
+          </div>
+
+        </md-card-content>
+      </md-card>
+      <md-card class="page-card">
+        <md-card-title><code>MdButtonToggleModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+
+
+            <h2 class="docs-api-h2">
+              Module: <code>MdButtonToggleModule</code>
+            </h2>
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdButtonToggleGroup</h3>
+            <p class="docs-api-class-description">Exclusive selection button toggle group that behaves like a
+              radio-button group.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  onTouched
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">onTouch function registered via registerOnTouch
+                  (ControlValueAccessor).
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    change
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    name
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">`name` attribute for the underlying `input` element.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    disabled
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the toggle group is disabled.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    vertical
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the toggle group is vertical.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    value
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Value of the toggle group.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    selected
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the toggle group is selected.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdButtonToggleGroupMultiple</h3>
+            <p class="docs-api-class-description">Multiple selection button-toggle group. `ngModel` is not supported in
+              this mode.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    disabled
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the toggle group is disabled.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    vertical
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the toggle group is vertical.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdButtonToggle</h3>
+            <p class="docs-api-class-description">Single button inside of a toggle group.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    id
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The unique ID for this button toggle.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    name
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">HTML&#39;s &#39;name&#39; attribute used to group radios for
+                  unique selection.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  buttonToggleGroup
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The parent button toggle group (exclusive selection).
+                  Optional.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  buttonToggleGroupMultiple
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The parent button toggle group (multiple selection). Optional.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    change
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  buttonToggleDispatcher
+                </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  inputId
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">Unique ID for the underlying `input` element.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    checked
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the button is checked.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    value
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">MdButtonToggleGroup reads this to assign its own value.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    disabled
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether the button is disabled.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">focus</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Focuses the button.
+                </td>
+              </tr>
+            </table>
+
+
+            <h2>Additional classes</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdButtonToggleChange</h3>
+            <p class="docs-api-class-description">Change event object emitted by MdButtonToggle.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  source
+                </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  value
+                </p>
+
+                </td>
+                <td class="docs-api-property-description"></td>
+              </tr>
+
+
+            </table>
+
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

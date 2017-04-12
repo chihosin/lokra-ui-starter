@@ -1,0 +1,26 @@
+.error-container {
+  text-align: center;
+  margin-top: 100px;
+  .error-background {
+    position: fixed;
+    margin-top: -200px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.038;
+    background: url('/assets/img/logo-full-dark-noborder.svg') no-repeat center;
+  }
+  .error-number {
+    display: block;
+    font-size: 150px;
+    font-weight: 700;
+    line-height: 240px;
+    margin-bottom: 30px;
+    max-height: 240px;
+  }
+  .error-description {
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 32px;
+    margin-bottom: 30px;
+  }
+}

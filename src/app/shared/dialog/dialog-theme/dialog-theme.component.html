@@ -1,0 +1,23 @@
+<h1 md-dialog-title>Theme</h1>
+<div md-dialog-content>
+  <md-slide-toggle
+    [color]="'primary'"
+    [checked]="collapseSidenavChecked"
+    (change)="toggleCollapseSidenav()">Collapse Sidenav
+  </md-slide-toggle>
+  <br>
+  <md-select placeholder="Theme" [(ngModel)]="appService.getState().darkMode" (change)="toggleTheme()"
+             style="width: 100%;">
+    <md-option [value]="false">Light</md-option>
+    <md-option [value]="true">Dark</md-option>
+  </md-select>
+  <br>
+  <br>
+  <br>
+  <md-select placeholder="Language" [(ngModel)]="appService.getState().defaultLang" (change)="toggleLang()"
+             style="width: 100%;">
+    <md-option [value]="'en'">en</md-option>
+    <md-option [value]="'zh-cn'">zh-cn</md-option>
+  </md-select>
+  <br>
+</div>

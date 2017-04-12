@@ -1,0 +1,2288 @@
+@import "app.theme";
+//----------------------------------------------------------------------------------------------------------------------
+// Mixin light theme
+//----------------------------------------------------------------------------------------------------------------------
+body.light {
+  section.bs {
+    $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
+    @import "~daemonite-material/assets/sass/mixins";
+    @mixin _assert-ascending($map, $map-name) {
+      $prev-key: null;
+      $prev-num: null;
+
+      @each $key, $num in $map {
+        @if $prev-num == null {
+          // do nothing
+        } @else if not comparable($num, $prev-num) {
+          @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}'!";
+        } @else if $num <= $prev-num {
+          @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}'!";
+        }
+
+        $prev-key: $key;
+        $prev-num: $num;
+      }
+    }
+    @mixin _assert-starts-at-zero($map) {
+      $first-value: nth(map-values($map), 1);
+
+      @if $first-value != 0 {
+        @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+      }
+    }
+    // sass option
+    $enable-grid-classes: true !default;
+    $enable-hover-media-query: false !default;
+    $enable-print-styles: true !default;
+    // the following bootstrap options are not supported in material
+    // this is because these features are required by material design guidelines
+    // $enable-gradients:         true !default;
+    // $enable-rounded:           true !default;
+    // $enable-shadows:           true !default;
+    // $enable-transitions:       true !default;
+    @import "~daemonite-material/assets/sass/variables/animation";
+    //******************************************************************************************************************
+    //* Color
+    //******************************************************************************************************************
+    //
+    // basic colour
+    // based on https://material.google.com/style/color.html#color-color-palette
+    //
+    $palette-amber-050: #fff8e1 !default;
+    $palette-amber-100: #ffecb3 !default;
+    $palette-amber-200: #ffe082 !default;
+    $palette-amber-300: #ffd54f !default;
+    $palette-amber-400: #ffca28 !default;
+    $palette-amber-500: #ffc107 !default;
+    $palette-amber-600: #ffb300 !default;
+    $palette-amber-700: #ffa000 !default;
+    $palette-amber-800: #ff8f00 !default;
+    $palette-amber-900: #ff6f00 !default;
+    $palette-amber-a100: #ffe57f !default;
+    $palette-amber-a200: #ffd740 !default;
+    $palette-amber-a400: #ffc400 !default;
+    $palette-amber-a700: #ffab00 !default;
+
+    $palette-blue-050: #e3f2fd !default;
+    $palette-blue-100: #bbdefb !default;
+    $palette-blue-200: #90caf9 !default;
+    $palette-blue-300: #64b5f6 !default;
+    $palette-blue-400: #42a5f5 !default;
+    $palette-blue-500: #2196f3 !default;
+    $palette-blue-600: #1e88e5 !default;
+    $palette-blue-700: #1976d2 !default;
+    $palette-blue-800: #1565c0 !default;
+    $palette-blue-900: #0d47a1 !default;
+    $palette-blue-a100: #82b1ff !default;
+    $palette-blue-a200: #448aff !default;
+    $palette-blue-a400: #2979ff !default;
+    $palette-blue-a700: #2962ff !default;
+
+    $palette-blue-grey-050: #eceff1 !default;
+    $palette-blue-grey-100: #cfd8dc !default;
+    $palette-blue-grey-200: #b0bec5 !default;
+    $palette-blue-grey-300: #90a4ae !default;
+    $palette-blue-grey-400: #78909c !default;
+    $palette-blue-grey-500: #607d8b !default;
+    $palette-blue-grey-600: #546e7a !default;
+    $palette-blue-grey-700: #455a64 !default;
+    $palette-blue-grey-800: #37474f !default;
+    $palette-blue-grey-900: #263238 !default;
+
+    $palette-brown-050: #efebe9 !default;
+    $palette-brown-100: #d7ccc8 !default;
+    $palette-brown-200: #bcaaa4 !default;
+    $palette-brown-300: #a1887f !default;
+    $palette-brown-400: #8d6e63 !default;
+    $palette-brown-500: #795548 !default;
+    $palette-brown-600: #6d4c41 !default;
+    $palette-brown-700: #5d4037 !default;
+    $palette-brown-800: #4e342e !default;
+    $palette-brown-900: #3e2723 !default;
+
+    $palette-cyan-050: #e0f7fa !default;
+    $palette-cyan-100: #b2ebf2 !default;
+    $palette-cyan-200: #80deea !default;
+    $palette-cyan-300: #4dd0e1 !default;
+    $palette-cyan-400: #26c6da !default;
+    $palette-cyan-500: #00bcd4 !default;
+    $palette-cyan-600: #00acc1 !default;
+    $palette-cyan-700: #0097a7 !default;
+    $palette-cyan-800: #00838f !default;
+    $palette-cyan-900: #006064 !default;
+    $palette-cyan-a100: #84ffff !default;
+    $palette-cyan-a200: #18ffff !default;
+    $palette-cyan-a400: #00e5ff !default;
+    $palette-cyan-a700: #00b8d4 !default;
+
+    $palette-deep-orange-050: #fbe9e7 !default;
+    $palette-deep-orange-100: #ffccbc !default;
+    $palette-deep-orange-200: #ffab91 !default;
+    $palette-deep-orange-300: #ff8a65 !default;
+    $palette-deep-orange-400: #ff7043 !default;
+    $palette-deep-orange-500: #ff5722 !default;
+    $palette-deep-orange-600: #f4511e !default;
+    $palette-deep-orange-700: #e64a19 !default;
+    $palette-deep-orange-800: #d84315 !default;
+    $palette-deep-orange-900: #bf360c !default;
+    $palette-deep-orange-a100: #ff9e80 !default;
+    $palette-deep-orange-a200: #ff6e40 !default;
+    $palette-deep-orange-a400: #ff3d00 !default;
+    $palette-deep-orange-a700: #ee2c00 !default;
+
+    $palette-deep-purple-050: #ede7f6 !default;
+    $palette-deep-purple-100: #d1c4e9 !default;
+    $palette-deep-purple-200: #b39ddb !default;
+    $palette-deep-purple-300: #9575cd !default;
+    $palette-deep-purple-400: #7e57c2 !default;
+    $palette-deep-purple-500: #673ab7 !default;
+    $palette-deep-purple-600: #5e35b1 !default;
+    $palette-deep-purple-700: #512da8 !default;
+    $palette-deep-purple-800: #4527a0 !default;
+    $palette-deep-purple-900: #311b92 !default;
+    $palette-deep-purple-a100: #b388ff !default;
+    $palette-deep-purple-a200: #7c4dff !default;
+    $palette-deep-purple-a400: #651fff !default;
+    $palette-deep-purple-a700: #6200ea !default;
+
+    $palette-green-050: #e8f5e9 !default;
+    $palette-green-100: #c8e6c9 !default;
+    $palette-green-200: #a5d6a7 !default;
+    $palette-green-300: #81c784 !default;
+    $palette-green-400: #66bb6a !default;
+    $palette-green-500: #4caf50 !default;
+    $palette-green-600: #43a047 !default;
+    $palette-green-700: #388e3c !default;
+    $palette-green-800: #2e7d32 !default;
+    $palette-green-900: #1b5e20 !default;
+    $palette-green-a100: #b9f6ca !default;
+    $palette-green-a200: #69f0ae !default;
+    $palette-green-a400: #00e676 !default;
+    $palette-green-a700: #00c853 !default;
+
+    $palette-grey-050: #fafafa !default;
+    $palette-grey-100: #f5f5f5 !default;
+    $palette-grey-200: #eeeeee !default;
+    $palette-grey-300: #e0e0e0 !default;
+    $palette-grey-400: #bdbdbd !default;
+    $palette-grey-500: #9e9e9e !default;
+    $palette-grey-600: #757575 !default;
+    $palette-grey-700: #616161 !default;
+    $palette-grey-800: #424242 !default;
+    $palette-grey-900: #212121 !default;
+
+    $palette-indigo-050: #e8eaf6 !default;
+    $palette-indigo-100: #c5cae9 !default;
+    $palette-indigo-200: #9fa8da !default;
+    $palette-indigo-300: #7986cb !default;
+    $palette-indigo-400: #5c6bc0 !default;
+    $palette-indigo-500: #3f51b5 !default;
+    $palette-indigo-600: #3949ab !default;
+    $palette-indigo-700: #303f9f !default;
+    $palette-indigo-800: #283593 !default;
+    $palette-indigo-900: #1a237e !default;
+    $palette-indigo-a100: #8c9eff !default;
+    $palette-indigo-a200: #536dfe !default;
+    $palette-indigo-a400: #3d5afe !default;
+    $palette-indigo-a700: #304ffe !default;
+
+    $palette-light-blue-050: #e1f5fe !default;
+    $palette-light-blue-100: #b3e5fc !default;
+    $palette-light-blue-200: #81d4fa !default;
+    $palette-light-blue-300: #4fc3f7 !default;
+    $palette-light-blue-400: #29b6f6 !default;
+    $palette-light-blue-500: #03a9f4 !default;
+    $palette-light-blue-600: #039be5 !default;
+    $palette-light-blue-700: #0288d1 !default;
+    $palette-light-blue-800: #0277bd !default;
+    $palette-light-blue-900: #01579b !default;
+    $palette-light-blue-a100: #80d8ff !default;
+    $palette-light-blue-a200: #40c4ff !default;
+    $palette-light-blue-a400: #00b0ff !default;
+    $palette-light-blue-a700: #0091ea !default;
+
+    $palette-light-green-050: #f1f8e9 !default;
+    $palette-light-green-100: #dcedc8 !default;
+    $palette-light-green-200: #c5e1a5 !default;
+    $palette-light-green-300: #aed581 !default;
+    $palette-light-green-400: #9ccc65 !default;
+    $palette-light-green-500: #8bc34a !default;
+    $palette-light-green-600: #7cb342 !default;
+    $palette-light-green-700: #689f38 !default;
+    $palette-light-green-800: #558b2f !default;
+    $palette-light-green-900: #33691e !default;
+    $palette-light-green-a100: #ccff90 !default;
+    $palette-light-green-a200: #b2ff59 !default;
+    $palette-light-green-a400: #76ff03 !default;
+    $palette-light-green-a700: #64dd17 !default;
+
+    $palette-lime-050: #f9fbe7 !default;
+    $palette-lime-100: #f0f4c3 !default;
+    $palette-lime-200: #e6ee9c !default;
+    $palette-lime-300: #dce775 !default;
+    $palette-lime-400: #d4e157 !default;
+    $palette-lime-500: #cddc39 !default;
+    $palette-lime-600: #c0ca33 !default;
+    $palette-lime-700: #afb42b !default;
+    $palette-lime-800: #9e9d24 !default;
+    $palette-lime-900: #827717 !default;
+    $palette-lime-a100: #f4ff81 !default;
+    $palette-lime-a200: #eeff41 !default;
+    $palette-lime-a400: #c6ff00 !default;
+    $palette-lime-a700: #aeea00 !default;
+
+    $palette-orange-050: #fff3e0 !default;
+    $palette-orange-100: #ffe0b2 !default;
+    $palette-orange-200: #ffcc80 !default;
+    $palette-orange-300: #ffb74d !default;
+    $palette-orange-400: #ffa726 !default;
+    $palette-orange-500: #ff9800 !default;
+    $palette-orange-600: #fb8c00 !default;
+    $palette-orange-700: #f57c00 !default;
+    $palette-orange-800: #ef6c00 !default;
+    $palette-orange-900: #e65100 !default;
+    $palette-orange-a100: #ffd180 !default;
+    $palette-orange-a200: #ffab40 !default;
+    $palette-orange-a400: #ff9100 !default;
+    $palette-orange-a700: #ff6d00 !default;
+
+    $palette-pink-050: #fce4ec !default;
+    $palette-pink-100: #f8bbd0 !default;
+    $palette-pink-200: #f48fb1 !default;
+    $palette-pink-300: #f06292 !default;
+    $palette-pink-400: #ec407a !default;
+    $palette-pink-500: #e91e63 !default;
+    $palette-pink-600: #d81b60 !default;
+    $palette-pink-700: #c2185b !default;
+    $palette-pink-800: #ad1457 !default;
+    $palette-pink-900: #880e4f !default;
+    $palette-pink-a100: #ff80ab !default;
+    $palette-pink-a200: #ff4081 !default;
+    $palette-pink-a400: #f50057 !default;
+    $palette-pink-a700: #c51162 !default;
+
+    $palette-purple-050: #f3e5f5 !default;
+    $palette-purple-100: #e1bee7 !default;
+    $palette-purple-200: #ce93d8 !default;
+    $palette-purple-300: #ba68c8 !default;
+    $palette-purple-400: #ab47bc !default;
+    $palette-purple-500: #9c27b0 !default;
+    $palette-purple-600: #8e24aa !default;
+    $palette-purple-700: #7b1fa2 !default;
+    $palette-purple-800: #6a1b9a !default;
+    $palette-purple-900: #4a148c !default;
+    $palette-purple-a100: #ea80fc !default;
+    $palette-purple-a200: #e040fb !default;
+    $palette-purple-a400: #d500f9 !default;
+    $palette-purple-a700: #aa00ff !default;
+
+    $palette-red-050: #ffebee !default;
+    $palette-red-100: #ffcdd2 !default;
+    $palette-red-200: #ef9a9a !default;
+    $palette-red-300: #e57373 !default;
+    $palette-red-400: #ef5350 !default;
+    $palette-red-500: #f44336 !default;
+    $palette-red-600: #e53935 !default;
+    $palette-red-700: #d32f2f !default;
+    $palette-red-800: #c62828 !default;
+    $palette-red-900: #b71c1c !default;
+    $palette-red-a100: #ff8a80 !default;
+    $palette-red-a200: #ff5252 !default;
+    $palette-red-a400: #ff1744 !default;
+    $palette-red-a700: #d50000 !default;
+
+    $palette-teal-050: #e0f2f1 !default;
+    $palette-teal-100: #b2dfdb !default;
+    $palette-teal-200: #80cbc4 !default;
+    $palette-teal-300: #4db6ac !default;
+    $palette-teal-400: #26a69a !default;
+    $palette-teal-500: #009688 !default;
+    $palette-teal-600: #00897b !default;
+    $palette-teal-700: #00796b !default;
+    $palette-teal-800: #00695c !default;
+    $palette-teal-900: #004d40 !default;
+    $palette-teal-a100: #a7ffeb !default;
+    $palette-teal-a200: #64ffda !default;
+    $palette-teal-a400: #1de9b6 !default;
+    $palette-teal-a700: #00bfa5 !default;
+
+    $palette-yellow-050: #fffde7 !default;
+    $palette-yellow-100: #fff9c4 !default;
+    $palette-yellow-200: #fff59d !default;
+    $palette-yellow-300: #fff176 !default;
+    $palette-yellow-400: #ffee58 !default;
+    $palette-yellow-500: #ffeb3b !default;
+    $palette-yellow-600: #fdd835 !default;
+    $palette-yellow-700: #fbc02d !default;
+    $palette-yellow-800: #f9a825 !default;
+    $palette-yellow-900: #f57f17 !default;
+    $palette-yellow-a100: #ffff8d !default;
+    $palette-yellow-a200: #ffff00 !default;
+    $palette-yellow-a400: #ffea00 !default;
+    $palette-yellow-a700: #ffd600 !default;
+
+    //
+    // black and white
+    // based on https://material.google.com/style/color.html#color-text-background-colors
+    //
+    $black: #000000 !default;
+    $black-primary: rgba(red($black), green($black), blue($black), 0.87) !default;
+    $black-secondary: rgba(red($black), green($black), blue($black), 0.54) !default;
+    $black-hint: rgba(red($black), green($black), blue($black), 0.38) !default;
+    $black-divider: rgba(red($black), green($black), blue($black), 0.12) !default;
+    $black-primary-solid: #212121 !default;
+    $black-secondary-solid: #757575 !default;
+    $black-hint-solid: #9e9e9e !default;
+    $black-divider-solid: #e1e1e1 !default;
+
+    $white: #ffffff !default;
+    $white-primary: rgba(red($white), green($white), blue($white), 1.00) !default;
+    $white-secondary: rgba(red($white), green($white), blue($white), 0.70) !default;
+    $white-hint: rgba(red($white), green($white), blue($white), 0.50) !default;
+    $white-divider: rgba(red($white), green($white), blue($white), 0.12) !default;
+
+    //
+    // offwhite
+    // based on https://material.google.com/style/color.html#color-themes
+    //
+    $offwhite: $palette-grey-100 !default;
+    $offwhite-dark: $palette-grey-300 !default;
+    $offwhite-light: $palette-grey-050 !default;
+
+    //
+    // palette
+    // based on https://material.google.com/style/color.html#color-color-schemes
+    // change these values to customise colour palettes
+    //
+    $brand-color: mat-color($primary) !default;
+    $brand-color-dark: mat-color($primary, A700) !default;
+    $brand-color-light: mat-color($primary, A100) !default;
+    $brand-text-color: mat-color($foreground, text) !default;
+    $brand-text-color-dark: mat-color($foreground, text) !default;
+    $brand-text-color-light: mat-color($foreground, text) !default;
+
+    $brand-color-accent: mat-color($accent) !default;
+    $brand-color-accent-dark: mat-color($accent, A400) !default;
+    $brand-color-accent-light: mat-color($accent, A100) !default;
+    $brand-text-color-accent: mat-color($foreground, text) !default;
+    $brand-text-color-accent-dark: mat-color($foreground, text) !default;
+    $brand-text-color-accent-light: mat-color($foreground, text) !default;
+
+    // change the following lists to add, edit, or remove colours used throughout material css
+    $palettes: (
+      "primary",
+        // "primary" inherits brand colour, so that the naming is in line with Bootstrap 4
+      "secondary",
+        // "secondary" inherits brand accent colour, so that the naming is in line with Bootstrap 4
+      "danger",
+      "info",
+      "success",
+      "warning"
+    ) !default;
+
+    $palettes-color: (
+      $brand-color,
+      $brand-color-accent,
+      $palette-red-500,
+      $palette-blue-500,
+      $palette-green-500,
+      $palette-orange-500
+    ) !default;
+
+    $palettes-color-dark: (
+      $brand-color-dark,
+      $brand-color-accent-dark,
+      $palette-red-700,
+      $palette-blue-700,
+      $palette-green-700,
+      $palette-orange-700
+    ) !default;
+
+    $palettes-color-light: (
+      $brand-color-light,
+      $brand-color-accent-light,
+      $palette-red-300,
+      $palette-blue-300,
+      $palette-green-300,
+      $palette-orange-300
+    ) !default;
+
+    $palettes-text-color: (
+      $brand-text-color,
+      $brand-text-color-accent,
+      $white-primary,
+      $white-primary,
+      $black-primary,
+      $black-primary
+    ) !default;
+
+    $palettes-text-color-dark: (
+      $brand-text-color-dark,
+      $brand-text-color-accent-dark,
+      $white-primary,
+      $white-primary,
+      $white-primary,
+      $black-primary
+    ) !default;
+
+    $palettes-text-color-light: (
+      $brand-text-color-light,
+      $brand-text-color-accent-light,
+      $black-primary,
+      $black-primary,
+      $black-primary,
+      $black-primary
+    ) !default;
+    @import "~daemonite-material/assets/sass/variables/elevation-shadow";
+    @import "~daemonite-material/assets/sass/variables/grid";
+    @import "~daemonite-material/assets/sass/variables/spacer";
+    @import "~daemonite-material/assets/sass/variables/typography";
+    //******************************************************************************************************************
+    //* Bootstrap variables
+    //******************************************************************************************************************
+    // alert
+    $alert-link-font-weight: $font-weight-medium !default;
+
+    // body
+    $body-bg: map-get($background, background) !default;
+    $body-color: map-get($foreground, text) !default;
+    $body-border-color: map-get($foreground, divider) !default;
+    $body-secondary-text-color: map-get($foreground, secondary-text);
+    $body-hint-text: map-get($foreground, hint-text);
+
+    // breadcrumb
+    $breadcrumb-bg: $offwhite !default;
+    $breadcrumb-divider: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $breadcrumb-height: 3.5rem !default;
+    $breadcrumb-item-color: $black-secondary !default;
+    $breadcrumb-item-color-active: $black-primary !default;
+    $breadcrumb-item-padding: $spacer-sm-x !default;
+    $breadcrumb-margin-bottom: $spacer-md-y !default;
+    $breadcrumb-padding-x: $spacer-md-x !default;
+    $breadcrumb-padding-y: 0.625rem !default;
+
+    // button group
+    $btn-group-bg: $body-hint-text !default;
+    $btn-group-padding-x: $spacer-sm-x !default;
+    $btn-group-padding-y: $spacer-sm-y !default;
+    $btn-toolbar-divider-bg: $body-border-color !default;
+
+    // caret
+    $caret-bg: "data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E" !default;
+    $caret-bg-inverse: "data:image/svg+xml;charset=utf8,%3Csvg fill='#ffffff' fill-opacity='0.7' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E" !default;
+    $caret-width: 0.4em !default;
+
+    // carousel
+    $carousel-caption-color: $body-color !default;
+    $carousel-caption-width: 50% !default;
+    $carousel-control-icon-opacity: 0.38 !default;
+    $carousel-control-next-icon-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $carousel-control-prev-icon-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $carousel-indicator-color: $body-border-color !default;
+    $carousel-indicator-size: 0.5rem !default;
+
+    // close
+    $close-color: $body-color !default;
+    $close-color-active: $body-color !default;
+    $close-font-size: $material-icon-size !default;
+
+    // code
+    $code-bg: $body-bg !default;
+    $code-color: #bd4147 !default;
+    $code-font-size: 87.5% !default;
+    $code-padding: 0.2rem 0.4rem !default;
+
+    $kbd-bg: $body-bg !default;
+    $kbd-color: $body-color !default;
+
+    $pre-bg: $body-bg !default;
+    $pre-color: $body-color !default;
+    $pre-margin-bottom: $spacer-md-y !default;
+    $pre-scrollable-max-height: 340px !default;
+
+    // cursor
+    $cursor-disabled: not-allowed !default;
+
+    // form
+    $custom-file-button-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 12.5C2 9.46 4.46 7 7.5 7H18c2.21 0 4 1.79 4 4s-1.79 4-4 4H9.5C8.12 15 7 13.88 7 12.5S8.12 10 9.5 10H17v2H9.41c-.55 0-.55 1 0 1H18c1.1 0 2-.9 2-2s-.9-2-2-2H7.5C5.57 9 4 10.57 4 12.5S5.57 16 7.5 16H17v2H7.5C4.46 18 2 15.54 2 12.5z'/%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3C/svg%3E") !default;
+    $custom-file-button-opacity: 0.38 !default;
+    $custom-file-button-opacity-visible: 0.54 !default;
+    $custom-file-width: 14rem !default;
+    $custom-file-text: (en: "Choose file...") !default;
+
+    $form-check-inline-margin-x: $spacer-sm-x !default;
+    $form-check-input-margin-x: $spacer-xs-x !default;
+
+    $form-group-label-font-size: $font-size-caption !default;
+    $form-group-margin-bottom: $spacer-lg-y !default;
+
+    $input-group-addon-margin-x: $spacer-md-x !default;
+
+    // jumbotron
+    $jumbotron-bg: $brand-color !default;
+    $jumbotron-color: $body-bg !default;
+
+    // link
+    $link-color: mat-color($foreground, text) !default;
+    $link-color-active: mat-color($foreground, text) !default;
+    $link-decoration: none !default;
+    $link-decoration-active: none !default;
+
+    // media
+    $media-alignment-padding-x: $spacer-md-x !default;
+    $media-heading-margin-bottom: $spacer-xs-y !default;
+    $media-margin-bottom: $spacer-md-y !default;
+
+    // misc
+    $abbr-border-color: $body-border-color !default;
+
+    $dt-font-weight: $font-weight-medium !default;
+
+    $figure-caption-color: $body-hint-text !default;
+    $figure-img-margin-bottom: $spacer-sm-y !default;
+
+    $headings-color: inherit !default;
+    $headings-font-family: inherit !default;
+    $headings-margin-bottom: $spacer-sm-y !default;
+
+    $hr-border-color: $body-border-color !default;
+    $hr-border-width: 1px !default;
+
+    $list-inline-item-spacer: $spacer-sm-x !default;
+
+    $mark-bg: $palette-yellow-500 !default;
+    $mark-padding: 0.2em !default;
+
+    $small-font-size: 80% !default;
+
+    $table-caption-color: $body-hint-text !default;
+
+    $thumbnail-box-shadow: $shadow-2dp !default;
+
+    // nav
+    $nav-inline-item-spacer: $spacer-md-x !default;
+    $nav-link-bg-active: $body-border-color !default;
+    $nav-link-color: $body-secondary-text-color !default;
+    $nav-link-color-active: $body-color !default;
+    $nav-link-color-disabled: $body-hint-text !default;
+    $nav-link-padding: $spacer-sm-y $spacer-md-x !default;
+
+    // pagination
+    $pagination-bg: $btn-group-bg !default;
+    $pagination-padding-x: $btn-group-padding-x !default;
+    $pagination-padding-y: $btn-group-padding-y !default;
+
+    // typography
+    $blockquote-border-color: $brand-color !default;
+    $blockquote-border-width: 0.3125rem !default;
+    $blockquote-small-color: $black-hint !default;
+
+    $text-muted: $body-hint-text !default;
+    $text-muted-active: $body-secondary-text-color !default;
+
+    //********************************************************************************************************************
+    //* Material variables
+    //********************************************************************************************************************
+    //
+    // appbar / toolbar (navbar)
+    // based on https://material.google.com/components/toolbars.html#toolbars-usage
+    //
+    $toolbar-color-dark: $black-primary !default;
+    $toolbar-color-light: $white-primary !default;
+    $toolbar-element-bg-dark: $black-divider !default;
+    $toolbar-element-bg-light: $white-divider !default;
+    $toolbar-elevation-shadow: $elevation-shadow-4dp !default;
+    $toolbar-height: 3.5rem !default;
+    $toolbar-link-font-size: 1rem !default;
+    $toolbar-link-height: 2.25rem !default;
+    $toolbar-link-opacity: 0.7 !default;
+    $toolbar-link-opacity-active: 1 !default;
+    $toolbar-link-padding-x: $spacer-md-x !default;
+    $toolbar-link-padding-y: (($toolbar-link-height - $toolbar-link-font-size) / 2) !default;
+    $toolbar-padding-x: $spacer-md-x !default;
+    $toolbar-padding-y: (($toolbar-height - $toolbar-link-height) / 2) !default;
+    $toolbar-toggler-bg-dark: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.87' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
+    $toolbar-toggler-bg-light: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
+    $toolbar-waterfall-bg: $brand-color !default;
+
+    //
+    // button
+    // based on https://material.google.com/components/buttons.html#buttons-style
+    // n.b. material design guideline only specifies specs for default button (.btn) and dense button (.btn-sm)
+    //
+    $btn-bg: transparent !default;
+    $btn-bg-active: rgba(153, 153, 153, 0.40) !default;
+    $btn-bg-disabled: $body-border-color !default;
+    $btn-block-spacer: $spacer-xs-y !default;
+    $btn-color: $body-color !default;
+    $btn-color-disabled: rgba(0, 0, 0, 0.26) !default;
+    $btn-elevation-shadow: $elevation-shadow-2dp !default;
+    $btn-elevation-shadow-active: $elevation-shadow-8dp !default;
+    $btn-focus-overlay: $body-border-color !default;
+    $btn-font-weight: $font-weight-medium !default;
+    $btn-min-width: 5.5rem !default;
+
+    // inverse
+    $btn-bg-inverse-disabled: $white-divider !default;
+    $btn-bg-inverse-active: rgba(204, 204, 204, 0.25) !default;
+    $btn-color-inverse: $body-bg !default;
+    $btn-color-inverse-disabled: rgba(255, 255, 255, 0.30) !default;
+
+    // size
+    $btn-font-size: 0.875rem !default;
+    $btn-font-size-lg: 0.9375rem !default;
+    $btn-font-size-sm: 0.8125rem !default;
+    $btn-height: 2.25rem !default;
+    $btn-height-lg: 2.5rem !default;
+    $btn-height-sm: 2rem !default;
+    $btn-padding-x: $spacer-md-x !default;
+    $btn-padding-x-lg: $btn-padding-x !default;
+    $btn-padding-x-sm: $btn-padding-x !default;
+    $btn-padding-y: (($btn-height - $btn-font-size) / 2) !default;
+    $btn-padding-y-lg: (($btn-height-lg - $btn-font-size-lg) / 2) !default;
+    $btn-padding-y-sm: (($btn-height-sm - $btn-font-size-sm) / 2) !default;
+
+    //
+    // button: flat button
+    // based on https://material.google.com/components/buttons.html#buttons-flat-buttons
+    //
+    $btn-flat-bg-opacity: 0.4 !default;
+    $btn-flat-focus-overlay-inverse: rgba(204, 204, 204, 0.12) !default;
+    $btn-flat-focus-overlay-opacity: 0.12 !default;
+
+    //
+    // button: floating action button
+    // based on https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-floating-action-button
+    //
+    $btn-float-elevation-shadow: $elevation-shadow-6dp !default;
+    $btn-float-elevation-shadow-active: $elevation-shadow-12dp !default;
+    $btn-float-font-size: ($material-icon-size / $font-size-root * 1rem) !default;
+
+    // size
+    $btn-float-size: 3.5rem !default;
+    $btn-float-size-sm: 2.5rem !default;
+
+    //
+    // card
+    // based on https://material.google.com/components/cards.html#cards-usage
+    //
+    $card-action-spacer-x: $spacer-sm-x !default;
+    $card-action-spacer-y: $spacer-sm-y !default;
+    $card-bg: $body-bg !default;
+    $card-bg-inverse: $body-secondary-text-color !default;
+    $card-border-color: $body-border-color !default;
+    $card-border-width: $border-width !default;
+    $card-color: $body-color !default;
+    $card-color-inverse: $body-bg !default;
+    $card-elevation-shadow: $elevation-shadow-2dp !default;
+    $card-elevation-shadow-active: $elevation-shadow-8dp !default;
+    $card-margin-bottom: $spacer-md-y !default;
+    $card-spacer-inner-x: $spacer-md-x !default;
+    $card-spacer-inner-y: $spacer-md-y !default;
+    $card-spacer-outer-x: $spacer-sm-x !default;
+    $card-spacer-outer-y: $spacer-sm-y !default;
+
+    //
+    // chip (label)
+    // based on https://material.google.com/components/chips.html#chips-specs
+    //
+    $chip-active-overlay: $body-border-color !default;
+    $chip-bg: $body-border-color !default;
+    $chip-bg-inverse: $white-divider !default;
+    $chip-color: $body-color !default;
+    $chip-color-inverse: $body-color !default;
+    $chip-elevation-shadow-active: $elevation-shadow-2dp !default;
+    $chip-font-size: 0.8125rem !default;
+    $chip-font-weight: $font-weight-regular !default;
+    $chip-height: 2rem !default;
+    $chip-padding-x: 0.75rem !default;
+    $chip-padding-y: (($chip-height - $chip-font-size) / 2) !default;
+
+    //
+    // colour theme
+    // based on https://material.google.com/style/color.html#color-themes
+    //
+    $dark-theme-1: $black !default;
+    $dark-theme-2: $palette-grey-900 !default;
+    $dark-theme-3: #303030 !default;
+    $dark-theme-4: $palette-grey-800 !default;
+
+    $light-theme-1: $palette-grey-300 !default;
+    $light-theme-2: $palette-grey-100 !default;
+    $light-theme-3: $palette-grey-050 !default;
+    $light-theme-4: $white !default;
+
+    //
+    // data table (table)
+    // based on https://material.google.com/components/data-tables.html#data-tables-structure
+    //
+    $table-bg: transparent !default;
+    $table-bg-accent: $body-bg !default;
+    $table-bg-hover: map-get($background, hover) !default;
+    $table-border-color: $body-border-color !default;
+    $table-border-width: $border-width !default;
+    $table-cell-padding-x: 1.75rem !default;
+    $table-cell-padding-x-alt: $spacer-lg-x !default;
+    $table-elevation-shadow: $elevation-shadow-2dp !default;
+    $table-margin-bottom: $spacer-md-y !default;
+
+    $table-tbody-cell-height: 3rem !default;
+    $table-tbody-color: $body-color !default;
+    $table-tbody-font-size: 0.8125rem !default;
+    $table-tbody-font-weight: $font-weight-regular !default;
+    $table-tbody-padding-y: (($table-tbody-cell-height - $table-tbody-font-size * $line-height-base) / 2) !default;
+
+    $table-tfoot-cell-height: 3.5rem !default;
+    $table-tfoot-color: $body-secondary-text-color !default;
+    $table-tfoot-font-size: 0.75rem !default;
+    $table-tfoot-font-weight: $font-weight-regular !default;
+    $table-tfoot-padding-y: (($table-tfoot-cell-height - $table-tfoot-font-size * $line-height-base) / 2) !default;
+
+    $table-thead-cell-height: $table-tfoot-cell-height !default;
+    $table-thead-color: $body-color !default;
+    $table-thead-font-size: $table-tfoot-font-size !default;
+    $table-thead-font-weight: $font-weight-medium !default;
+    $table-thead-padding-y: (($table-thead-cell-height - $table-thead-font-size * $line-height-base) / 2) !default;
+
+    //
+    // dialog (modal)
+    // based on https://material.google.com/components/dialogs.html#dialogs-specs
+    //
+    $dialog-backdrop-bg: $black-hint !default;
+    $dialog-content-bg: $white-primary !default;
+    $dialog-elevation-shadow: $elevation-shadow-24dp !default;
+    $dialog-footer-btn-min-width: 4rem !default;
+    $dialog-footer-spacer-x: $spacer-sm-x !default;
+    $dialog-footer-spacer-y: $spacer-sm-y !default;
+    $dialog-inner-padding: 1.25rem $spacer-lg-x !default;
+    $dialog-margin-x: $spacer-lg-x !default;
+    $dialog-margin-y: $spacer-lg-y !default;
+    $dialog-width: 35rem !default;
+    $dialog-width-lg: 52.5rem !default;
+    $dialog-width-sm: 17.5rem !default;
+
+    //
+    // expansion panel (list group)
+    // based on https://material.google.com/components/expansion-panels.html#expansion-panels-specs
+    //
+    $expansion-panel-bg: $body-bg !default;
+    $expansion-panel-bg-active: $body-hint-text !default;
+    $expansion-panel-bg-disabled: $expansion-panel-bg !default;
+    $expansion-panel-border-color: $body-border-color !default;
+    $expansion-panel-border-width: $border-width !default;
+    $expansion-panel-color: $body-color !default;
+    $expansion-panel-color-active: $expansion-panel-color !default;
+    $expansion-panel-color-disabled: $body-hint-text !default;
+    $expansion-panel-elevation-shadow: $elevation-shadow-2dp !default;
+    $expansion-panel-font-size: 0.9375rem !default;
+    $expansion-panel-font-size-secondary: 0.75rem !default;
+    $expansion-panel-height: 3rem !default;
+    $expansion-panel-inner-spacer-x: $spacer-lg-x !default;
+    $expansion-panel-inner-spacer-y: ($expansion-panel-inner-spacer-x / 2) !default;
+
+    //
+    // menu (dropdown)
+    // based on https://material.google.com/components/menus.html#menus-specs
+    //
+    $menu-bg: $body-bg !default;
+    $menu-divider-bg: $body-border-color !default;
+    $menu-font-size: 1rem !default;
+    $menu-font-size-cascading: 0.9375rem !default;
+    $menu-elevation-shadow: $elevation-shadow-8dp !default;
+    $menu-line-height: 1.5rem !default;
+    $menu-line-height-cascading: $menu-line-height !default;
+    $menu-link-bg: transparent !default;
+    $menu-link-bg-active: $body-hint-text !default;
+    $menu-link-color: $body-color !default;
+    $menu-link-color-disabled: $body-hint-text !default;
+    $menu-link-height: 3rem !default;
+    $menu-link-height-cascading: 2rem !default;
+    $menu-link-padding: (($menu-link-height - $menu-line-height) / 2) $spacer-md-x !default;
+    $menu-link-padding-cascading: (($menu-link-height-cascading - $menu-line-height-cascading) / 2) $spacer-lg-x !default;
+    $menu-min-width: 7rem !default;
+    $menu-min-width-cascading: 20rem !default;
+    $menu-padding-y: $spacer-sm-y !default;
+    $menu-padding-y-cascading: $spacer-md-y !default;
+
+    //
+    // navigation drawer
+    // based on https://material.google.com/patterns/navigation-drawer.html#navigation-drawer-specs
+    //
+    $navdrawer-backdrop-bg: $body-bg !default;
+    $navdrawer-border-color: $body-border-color !default;
+    $navdrawer-border-width: $border-width !default;
+    $navdrawer-content-bg: $dialog-content-bg !default;
+    $navdrawer-divider-bg: $body-border-color !default;
+    $navdrawer-elevation-shadow: $elevation-shadow-16dp !default;
+    $navdrawer-gutter-width: $toolbar-height !default;
+    $navdrawer-header-bg: $border-color !default;
+    $navdrawer-header-border-color: $border-color !default;
+    $navdrawer-header-border-width: $border-width !default;
+    $navdrawer-inner-spacer-x: $spacer-md-x !default;
+    $navdrawer-inner-spacer-y: $spacer-sm-y !default;
+    $navdrawer-nav-icon-color: $body-hint-text !default;
+    $navdrawer-nav-icon-width: $toolbar-height !default;
+    $navdrawer-nav-link-bg-active: $body-border-color !default;
+    $navdrawer-nav-link-color: $body-secondary-text-color !default;
+    $navdrawer-nav-link-color-active: $brand-color !default;
+    $navdrawer-nav-link-color-disabled: $body-hint-text !default;
+    $navdrawer-nav-link-font-size: 0.875rem !default;
+    $navdrawer-nav-link-font-weight: $font-weight-medium !default;
+    $navdrawer-nav-link-height: 3rem !default;
+    $navdrawer-subheader-color: $body-hint-text !default;
+    $navdrawer-subheader-font-size: 0.875rem !default;
+    $navdrawer-subheader-font-weight: $font-weight-medium !default;
+    $navdrawer-subheader-height: 3rem !default;
+    $navdrawer-width-mobile: 17.5rem !default;
+    $navdrawer-width-tablet: 20rem !default;
+
+    //
+    // picker
+    // based on https://material.google.com/components/pickers.html#pickers-date-pickers
+    //
+    $picker-cell-size: 2.5rem !default;
+    $picker-content-bg: $dialog-content-bg !default;
+    $picker-day-bg-selected: $brand-color !default;
+    $picker-day-color-disabled: $body-hint-text !default;
+    $picker-day-color-selected: $body-secondary-text-color !default;
+    $picker-day-color-today: $brand-color !default;
+    $picker-elevation-shadow: $dialog-elevation-shadow !default;
+    $picker-header-bg: $brand-color !default;
+    $picker-header-color: $body-bg !default;
+    $picker-header-padding: $spacer-md-y $spacer-lg-x !default;
+    $picker-holder-bg: $dialog-backdrop-bg !default;
+    $picker-inner-spacer-x: $spacer-sm-x !default;
+    $picker-inner-spacer-y: $spacer-sm-y !default;
+    $picker-margin-x: $dialog-margin-x !default;
+    $picker-margin-y: $dialog-margin-y !default;
+    $picker-nav-next-icon: "keyboard_arrow_right" !default;
+    $picker-nav-prev-icon: "keyboard_arrow_left" !default;
+    $picker-weekday-color: $body-hint-text !default;
+
+    //
+    // progress
+    // based on https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators
+    //
+    $progress-bar-bg: $body-bg !default;
+    $progress-bar-mask: $body-secondary-text-color !default;
+    $progress-height: 0.25rem !default;
+
+    // circular
+    $progress-circular-bg: $body-bg !default;
+    $progress-circular-height: 2.5rem !default;
+    $progress-circular-spinner-width: 0.25rem !default;
+
+    //
+    // selection control
+    // based on https://material.google.com/components/selection-controls.html
+    //
+    $selection-control-checkbox-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-checkbox-bg-checked: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#{$brand-color-accent}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E") !default;
+    $selection-control-checkbox-bg-disabled: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-checkbox-bg-disabled-checked: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E") !default;
+    $selection-control-checkbox-bg-indeterminate: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M0 0h24v24H0z' id='a'/%3E%3C/defs%3E%3CclipPath id='b'%3E%3Cuse overflow='visible' xlink:href='#a'/%3E%3C/clipPath%3E%3Cpath clip-path='url(#b)' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z'/%3E%3C/svg%3E") !default;
+    $selection-control-color: $body-color !default;
+    $selection-control-color-active: $body-color !default;
+    $selection-control-color-disabled: rgba(0, 0, 0, 0.26) !default;
+    $selection-control-indicator-size: $material-icon-size !default;
+    $selection-control-radial-bg: $body-bg !default;
+    $selection-control-radio-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-radio-bg-checked: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#{$brand-color-accent}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-radio-bg-disabled: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-radio-bg-disabled-checked: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-spacer-x: ($material-icon-size / $font-size-root / 2 * 1rem) !default;
+    $selection-control-spacer-y: ($material-icon-size / $font-size-root / 2 * 1rem) !default;
+    $selection-control-thumb-bg: $body-bg !default;
+    $selection-control-thumb-bg-disabled: $body-border-color !default;
+    $selection-control-thumb-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6) !default;
+    $selection-control-track-bg: $body-bg !default;
+    $selection-control-track-bg-disabled: $body-bg !default;
+    $selection-control-track-height: $font-size-root !default;
+    $selection-control-track-width: ($selection-control-indicator-size * 2) !default;
+
+    //
+    // stepper
+    // based on https://material.google.com/components/steppers.html#steppers-specs
+    //
+    $stepper-bg: $body-bg !default;
+    $stepper-border-color: $body-border-color !default;
+    $stepper-border-width: $border-width !default;
+    $stepper-icon-bg: $body-color !default;
+    $stepper-icon-bg-active: $body-bg !default;
+    $stepper-icon-color: $body-secondary-text-color !default;
+    $stepper-icon-color-active: $body-color !default;
+    $stepper-icon-font-size: 0.75rem !default;
+    $stepper-icon-font-weight: $font-weight-regular !default;
+    $stepper-icon-height: ($material-icon-size / $font-size-root * 1rem) !default;
+    $stepper-inner-spacer: $spacer-sm !default;
+    $stepper-padding-x: $spacer-lg-x !default;
+    $stepper-padding-y: $spacer-lg-y !default;
+    $stepper-text-color: $body-color !default;
+    $stepper-text-color-active: $body-color !default;
+    $stepper-text-font-size: 0.875rem !default;
+    $stepper-text-font-weight: $font-weight-regular !default;
+
+    //
+    // tab (nav-tab)
+    // based on https://material.google.com/components/tabs.html#tabs-specs
+    //
+    $nav-tab-border-color: $body-color !default;
+    $nav-tab-indicator-bg: $body-bg !default;
+    $nav-tab-indicator-height: 2px !default;
+    $nav-tab-link-font-size: 0.875rem !default;
+    $nav-tab-link-font-weight: $font-weight-medium !default;
+    $nav-tab-link-height: 3rem !default;
+    $nav-tab-link-opacity: 0.7 !default;
+    $nav-tab-link-opacity-visible: 1 !default;
+    $nav-tab-link-max-width: 16.5rem !default;
+    $nav-tab-link-min-width: 4.5rem !default;
+    $nav-tab-link-min-width-lg: 10rem !default;
+    $nav-tab-link-padding-x: 0.75rem !default;
+    $nav-tab-link-padding-x-lg: 1.5rem !default;
+
+    //
+    // text field (form)
+    // based on https://material.google.com/components/text-fields.html#text-fields-single-line-text-field
+    //
+    $textfield-border-color: $body-border-color !default;
+    $textfield-border-color-focus: $body-border-color !default;
+    $textfield-border-width: $border-width !default;
+    $textfield-color: $body-color !default;
+    $textfield-color-disabled: $body-hint-text !default;
+    $textfield-hint-color: $body-hint-text !default;
+
+    // size
+    $textfield-font-size: 1rem !default;
+    $textfield-font-size-lg: 2.125rem !default;
+    $textfield-font-size-sm: 0.8125rem !default;
+    $textfield-height: 2.25rem !default;
+    $textfield-height-lg: 3.75rem !default;
+    $textfield-height-sm: 2rem !default;
+    $textfield-margin-bottom: 0.5rem !default;
+    $textfield-margin-bottom-lg: 0.75rem !default;
+    $textfield-margin-bottom-sm: 0.25rem !default;
+    $textfield-padding-bottom: 0.5rem !default;
+    $textfield-padding-bottom-lg: 0.5rem !default;
+    $textfield-padding-bottom-sm: 0.5rem !default;
+    $textfield-padding-top: 0.5rem !default;
+    $textfield-padding-top-lg: 0.5rem !default;
+    $textfield-padding-top-sm: 0.25rem !default;
+
+    //
+    // text field: floating label (form: floating label)
+    // based on https://material.google.com/components/text-fields.html#text-fields-labels
+    //
+    $floating-label-color: $textfield-hint-color !default;
+    $floating-label-color-focus: $body-secondary-text-color !default;
+    $floating-label-font-size-focus: 0.75rem !default;
+
+    // size
+    $floating-label-divider-padding: 0.5rem !default;
+    $floating-label-divider-padding-lg: 0.75rem !default;
+    $floating-label-divider-padding-sm: 0.25rem !default;
+    $floating-label-height: 4rem !default;
+    $floating-label-height-lg: 5.25rem !default;
+    $floating-label-height-sm: 3.5rem !default;
+    $floating-label-padding-top: 1rem !default;
+    $floating-label-padding-top-lg: 1.25rem !default;
+    $floating-label-padding-top-sm: 0.75rem !default;
+
+    //
+    // tooltip
+    // based on https://material.google.com/components/tooltips.html#tooltips-tooltips-desktop
+    //
+    $tooltip-bg: $body-bg !default;
+    $tooltip-color: $body-color !default;
+    $tooltip-font-size: 0.875rem !default;
+    $tooltip-font-size-md-up: 0.625rem !default;
+    $tooltip-height: 2rem !default;
+    $tooltip-height-md-up: 1.375rem !default;
+    $tooltip-margin: $spacer-lg-y !default;
+    $tooltip-margin-md-up: 0.875rem !default;
+    $tooltip-opacity: 0.9 !default;
+    $tooltip-padding-x: $spacer-md-x !default;
+    $tooltip-padding-x-md-up: $spacer-sm-x !default;
+    $tooltip-padding-y: (($tooltip-height - $line-height-base * $tooltip-font-size) / 2) !default;
+    $tooltip-padding-y-md-up: (($tooltip-height-md-up - $line-height-base * $tooltip-font-size-md-up) / 2) !default;
+    $tooltip-zindex: $elevation-24dp !default;
+
+    //
+    // waves
+    //
+    $waves-bg: $body-bg !default;
+    $waves-bg-light: $body-hint-text !default;
+    $waves-size: 4rem !default;
+    //********************************************************************************************************************
+    //* Style sheet
+    //********************************************************************************************************************
+    //
+    // base css
+    //
+    @import "~daemonite-material/assets/sass/base/base";
+    @import "~daemonite-material/assets/sass/base/grid";
+    @import "~daemonite-material/assets/sass/base/typography";
+
+    //
+    // bootstrap components
+    // components covered in bootstrap's (v4.0.0-alpha.6) css but not in material design guidelines
+    //
+    @import "~daemonite-material/assets/sass/bootstrap/alert";
+    @import "~daemonite-material/assets/sass/bootstrap/breadcrumb";
+    @import "~daemonite-material/assets/sass/bootstrap/button-group";
+    @import "~daemonite-material/assets/sass/bootstrap/carousel";
+    @import "~daemonite-material/assets/sass/bootstrap/close";
+    @import "~daemonite-material/assets/sass/bootstrap/code";
+    @import "~daemonite-material/assets/sass/bootstrap/custom-form";
+    @import "~daemonite-material/assets/sass/bootstrap/form";
+    @import "~daemonite-material/assets/sass/bootstrap/image";
+    @import "~daemonite-material/assets/sass/bootstrap/jumbotron";
+    @import "~daemonite-material/assets/sass/bootstrap/media";
+    @import "~daemonite-material/assets/sass/bootstrap/nav";
+    @import "~daemonite-material/assets/sass/bootstrap/pagination";
+    @import "~daemonite-material/assets/sass/bootstrap/popover";
+    @import "~daemonite-material/assets/sass/bootstrap/responsive-embed";
+    @import "~daemonite-material/assets/sass/bootstrap/transition";
+
+    //
+    // material components
+    // components covered in material design guidelines https://material.google.com/components
+    //
+    @import "~daemonite-material/assets/sass/material/button";
+    @import "~daemonite-material/assets/sass/material/button-flat";
+    @import "~daemonite-material/assets/sass/material/button-float";
+    @import "~daemonite-material/assets/sass/material/card";
+    @import "~daemonite-material/assets/sass/material/chip";
+    @import "~daemonite-material/assets/sass/material/data-table";
+    @import "~daemonite-material/assets/sass/material/dialog";
+    @import "~daemonite-material/assets/sass/material/expansion-panel";
+    @import "~daemonite-material/assets/sass/material/menu";
+    @import "~daemonite-material/assets/sass/material/navdrawer";
+    @import "~daemonite-material/assets/sass/material/picker";
+    @import "~daemonite-material/assets/sass/material/progress";
+    @import "~daemonite-material/assets/sass/material/progress-circular";
+    @import "~daemonite-material/assets/sass/material/selection-control";
+    @import "~daemonite-material/assets/sass/material/stepper";
+    @import "~daemonite-material/assets/sass/material/tab";
+    @import "~daemonite-material/assets/sass/material/text-field";
+    @import "~daemonite-material/assets/sass/material/text-field-floating-label";
+    @import "~daemonite-material/assets/sass/material/text-field-input-group";
+    @import "~daemonite-material/assets/sass/material/text-field-textarea";
+    @import "~daemonite-material/assets/sass/material/toolbar";
+    @import "~daemonite-material/assets/sass/material/tooltip";
+
+    //
+    // utilities
+    //
+    @import "~daemonite-material/assets/sass/utilities";
+    //------------------------------------------------------------------------------------------------------------------
+    // Bootstrap & Material compatibility
+    //------------------------------------------------------------------------------------------------------------------
+    .table {
+      margin-bottom: 0;
+    }
+    a, a:hover {
+      color: inherit;
+    }
+    .pager li > a, .pager li > span {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 15px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .table tbody tr td.cell-detail .cell-detail-description {
+      display: block;
+      font-size: 11px;
+    }
+    .table tbody tr td.cell-avatar span {
+      padding-left: 48px;
+      display: block;
+    }
+    .table tbody tr td.cell-detail span {
+      display: block;
+    }
+    .table tbody tr td.cell-detail img {
+      float: left;
+    }
+    td.user-avatar {
+      img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+    .material-icons {
+      font-size: 24px;
+      line-height: inherit;
+      vertical-align: inherit;
+    }
+    button {
+      padding: 12px;
+    }
+    .alert {
+      margin-bottom: 4px;
+    }
+    .bg-primary {
+      background-color: mat-color($primary);
+    }
+
+    .bg-accent {
+      background-color: mat-color($accent);
+    }
+
+    .bg-warn {
+      background-color: mat-color($warn);
+    }
+  }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Mixin dark theme
+//----------------------------------------------------------------------------------------------------------------------
+body.dark {
+  section.bs {
+    $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+
+    @import "~daemonite-material/assets/sass/mixins";
+    @mixin _assert-ascending($map, $map-name) {
+      $prev-key: null;
+      $prev-num: null;
+
+      @each $key, $num in $map {
+        @if $prev-num == null {
+          // do nothing
+        } @else if not comparable($num, $prev-num) {
+          @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}'!";
+        } @else if $num <= $prev-num {
+          @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}'!";
+        }
+
+        $prev-key: $key;
+        $prev-num: $num;
+      }
+    }
+    @mixin _assert-starts-at-zero($map) {
+      $first-value: nth(map-values($map), 1);
+
+      @if $first-value != 0 {
+        @warn "First breakpoint in `$grid-breakpoints` must start at 0, but starts at #{$first-value}.";
+      }
+    }
+    // sass option
+    $enable-grid-classes: true !default;
+    $enable-hover-media-query: false !default;
+    $enable-print-styles: true !default;
+    // the following bootstrap options are not supported in material
+    // this is because these features are required by material design guidelines
+    // $enable-gradients:         true !default;
+    // $enable-rounded:           true !default;
+    // $enable-shadows:           true !default;
+    // $enable-transitions:       true !default;
+    @import "~daemonite-material/assets/sass/variables/animation";
+    //******************************************************************************************************************
+    //* Color
+    //******************************************************************************************************************
+    //
+    // basic colour
+    // based on https://material.google.com/style/color.html#color-color-palette
+    //
+    $palette-amber-050: #fff8e1 !default;
+    $palette-amber-100: #ffecb3 !default;
+    $palette-amber-200: #ffe082 !default;
+    $palette-amber-300: #ffd54f !default;
+    $palette-amber-400: #ffca28 !default;
+    $palette-amber-500: #ffc107 !default;
+    $palette-amber-600: #ffb300 !default;
+    $palette-amber-700: #ffa000 !default;
+    $palette-amber-800: #ff8f00 !default;
+    $palette-amber-900: #ff6f00 !default;
+    $palette-amber-a100: #ffe57f !default;
+    $palette-amber-a200: #ffd740 !default;
+    $palette-amber-a400: #ffc400 !default;
+    $palette-amber-a700: #ffab00 !default;
+
+    $palette-blue-050: #e3f2fd !default;
+    $palette-blue-100: #bbdefb !default;
+    $palette-blue-200: #90caf9 !default;
+    $palette-blue-300: #64b5f6 !default;
+    $palette-blue-400: #42a5f5 !default;
+    $palette-blue-500: #2196f3 !default;
+    $palette-blue-600: #1e88e5 !default;
+    $palette-blue-700: #1976d2 !default;
+    $palette-blue-800: #1565c0 !default;
+    $palette-blue-900: #0d47a1 !default;
+    $palette-blue-a100: #82b1ff !default;
+    $palette-blue-a200: #448aff !default;
+    $palette-blue-a400: #2979ff !default;
+    $palette-blue-a700: #2962ff !default;
+
+    $palette-blue-grey-050: #eceff1 !default;
+    $palette-blue-grey-100: #cfd8dc !default;
+    $palette-blue-grey-200: #b0bec5 !default;
+    $palette-blue-grey-300: #90a4ae !default;
+    $palette-blue-grey-400: #78909c !default;
+    $palette-blue-grey-500: #607d8b !default;
+    $palette-blue-grey-600: #546e7a !default;
+    $palette-blue-grey-700: #455a64 !default;
+    $palette-blue-grey-800: #37474f !default;
+    $palette-blue-grey-900: #263238 !default;
+
+    $palette-brown-050: #efebe9 !default;
+    $palette-brown-100: #d7ccc8 !default;
+    $palette-brown-200: #bcaaa4 !default;
+    $palette-brown-300: #a1887f !default;
+    $palette-brown-400: #8d6e63 !default;
+    $palette-brown-500: #795548 !default;
+    $palette-brown-600: #6d4c41 !default;
+    $palette-brown-700: #5d4037 !default;
+    $palette-brown-800: #4e342e !default;
+    $palette-brown-900: #3e2723 !default;
+
+    $palette-cyan-050: #e0f7fa !default;
+    $palette-cyan-100: #b2ebf2 !default;
+    $palette-cyan-200: #80deea !default;
+    $palette-cyan-300: #4dd0e1 !default;
+    $palette-cyan-400: #26c6da !default;
+    $palette-cyan-500: #00bcd4 !default;
+    $palette-cyan-600: #00acc1 !default;
+    $palette-cyan-700: #0097a7 !default;
+    $palette-cyan-800: #00838f !default;
+    $palette-cyan-900: #006064 !default;
+    $palette-cyan-a100: #84ffff !default;
+    $palette-cyan-a200: #18ffff !default;
+    $palette-cyan-a400: #00e5ff !default;
+    $palette-cyan-a700: #00b8d4 !default;
+
+    $palette-deep-orange-050: #fbe9e7 !default;
+    $palette-deep-orange-100: #ffccbc !default;
+    $palette-deep-orange-200: #ffab91 !default;
+    $palette-deep-orange-300: #ff8a65 !default;
+    $palette-deep-orange-400: #ff7043 !default;
+    $palette-deep-orange-500: #ff5722 !default;
+    $palette-deep-orange-600: #f4511e !default;
+    $palette-deep-orange-700: #e64a19 !default;
+    $palette-deep-orange-800: #d84315 !default;
+    $palette-deep-orange-900: #bf360c !default;
+    $palette-deep-orange-a100: #ff9e80 !default;
+    $palette-deep-orange-a200: #ff6e40 !default;
+    $palette-deep-orange-a400: #ff3d00 !default;
+    $palette-deep-orange-a700: #ee2c00 !default;
+
+    $palette-deep-purple-050: #ede7f6 !default;
+    $palette-deep-purple-100: #d1c4e9 !default;
+    $palette-deep-purple-200: #b39ddb !default;
+    $palette-deep-purple-300: #9575cd !default;
+    $palette-deep-purple-400: #7e57c2 !default;
+    $palette-deep-purple-500: #673ab7 !default;
+    $palette-deep-purple-600: #5e35b1 !default;
+    $palette-deep-purple-700: #512da8 !default;
+    $palette-deep-purple-800: #4527a0 !default;
+    $palette-deep-purple-900: #311b92 !default;
+    $palette-deep-purple-a100: #b388ff !default;
+    $palette-deep-purple-a200: #7c4dff !default;
+    $palette-deep-purple-a400: #651fff !default;
+    $palette-deep-purple-a700: #6200ea !default;
+
+    $palette-green-050: #e8f5e9 !default;
+    $palette-green-100: #c8e6c9 !default;
+    $palette-green-200: #a5d6a7 !default;
+    $palette-green-300: #81c784 !default;
+    $palette-green-400: #66bb6a !default;
+    $palette-green-500: #4caf50 !default;
+    $palette-green-600: #43a047 !default;
+    $palette-green-700: #388e3c !default;
+    $palette-green-800: #2e7d32 !default;
+    $palette-green-900: #1b5e20 !default;
+    $palette-green-a100: #b9f6ca !default;
+    $palette-green-a200: #69f0ae !default;
+    $palette-green-a400: #00e676 !default;
+    $palette-green-a700: #00c853 !default;
+
+    $palette-grey-050: #fafafa !default;
+    $palette-grey-100: #f5f5f5 !default;
+    $palette-grey-200: #eeeeee !default;
+    $palette-grey-300: #e0e0e0 !default;
+    $palette-grey-400: #bdbdbd !default;
+    $palette-grey-500: #9e9e9e !default;
+    $palette-grey-600: #757575 !default;
+    $palette-grey-700: #616161 !default;
+    $palette-grey-800: #424242 !default;
+    $palette-grey-900: #212121 !default;
+
+    $palette-indigo-050: #e8eaf6 !default;
+    $palette-indigo-100: #c5cae9 !default;
+    $palette-indigo-200: #9fa8da !default;
+    $palette-indigo-300: #7986cb !default;
+    $palette-indigo-400: #5c6bc0 !default;
+    $palette-indigo-500: #3f51b5 !default;
+    $palette-indigo-600: #3949ab !default;
+    $palette-indigo-700: #303f9f !default;
+    $palette-indigo-800: #283593 !default;
+    $palette-indigo-900: #1a237e !default;
+    $palette-indigo-a100: #8c9eff !default;
+    $palette-indigo-a200: #536dfe !default;
+    $palette-indigo-a400: #3d5afe !default;
+    $palette-indigo-a700: #304ffe !default;
+
+    $palette-light-blue-050: #e1f5fe !default;
+    $palette-light-blue-100: #b3e5fc !default;
+    $palette-light-blue-200: #81d4fa !default;
+    $palette-light-blue-300: #4fc3f7 !default;
+    $palette-light-blue-400: #29b6f6 !default;
+    $palette-light-blue-500: #03a9f4 !default;
+    $palette-light-blue-600: #039be5 !default;
+    $palette-light-blue-700: #0288d1 !default;
+    $palette-light-blue-800: #0277bd !default;
+    $palette-light-blue-900: #01579b !default;
+    $palette-light-blue-a100: #80d8ff !default;
+    $palette-light-blue-a200: #40c4ff !default;
+    $palette-light-blue-a400: #00b0ff !default;
+    $palette-light-blue-a700: #0091ea !default;
+
+    $palette-light-green-050: #f1f8e9 !default;
+    $palette-light-green-100: #dcedc8 !default;
+    $palette-light-green-200: #c5e1a5 !default;
+    $palette-light-green-300: #aed581 !default;
+    $palette-light-green-400: #9ccc65 !default;
+    $palette-light-green-500: #8bc34a !default;
+    $palette-light-green-600: #7cb342 !default;
+    $palette-light-green-700: #689f38 !default;
+    $palette-light-green-800: #558b2f !default;
+    $palette-light-green-900: #33691e !default;
+    $palette-light-green-a100: #ccff90 !default;
+    $palette-light-green-a200: #b2ff59 !default;
+    $palette-light-green-a400: #76ff03 !default;
+    $palette-light-green-a700: #64dd17 !default;
+
+    $palette-lime-050: #f9fbe7 !default;
+    $palette-lime-100: #f0f4c3 !default;
+    $palette-lime-200: #e6ee9c !default;
+    $palette-lime-300: #dce775 !default;
+    $palette-lime-400: #d4e157 !default;
+    $palette-lime-500: #cddc39 !default;
+    $palette-lime-600: #c0ca33 !default;
+    $palette-lime-700: #afb42b !default;
+    $palette-lime-800: #9e9d24 !default;
+    $palette-lime-900: #827717 !default;
+    $palette-lime-a100: #f4ff81 !default;
+    $palette-lime-a200: #eeff41 !default;
+    $palette-lime-a400: #c6ff00 !default;
+    $palette-lime-a700: #aeea00 !default;
+
+    $palette-orange-050: #fff3e0 !default;
+    $palette-orange-100: #ffe0b2 !default;
+    $palette-orange-200: #ffcc80 !default;
+    $palette-orange-300: #ffb74d !default;
+    $palette-orange-400: #ffa726 !default;
+    $palette-orange-500: #ff9800 !default;
+    $palette-orange-600: #fb8c00 !default;
+    $palette-orange-700: #f57c00 !default;
+    $palette-orange-800: #ef6c00 !default;
+    $palette-orange-900: #e65100 !default;
+    $palette-orange-a100: #ffd180 !default;
+    $palette-orange-a200: #ffab40 !default;
+    $palette-orange-a400: #ff9100 !default;
+    $palette-orange-a700: #ff6d00 !default;
+
+    $palette-pink-050: #fce4ec !default;
+    $palette-pink-100: #f8bbd0 !default;
+    $palette-pink-200: #f48fb1 !default;
+    $palette-pink-300: #f06292 !default;
+    $palette-pink-400: #ec407a !default;
+    $palette-pink-500: #e91e63 !default;
+    $palette-pink-600: #d81b60 !default;
+    $palette-pink-700: #c2185b !default;
+    $palette-pink-800: #ad1457 !default;
+    $palette-pink-900: #880e4f !default;
+    $palette-pink-a100: #ff80ab !default;
+    $palette-pink-a200: #ff4081 !default;
+    $palette-pink-a400: #f50057 !default;
+    $palette-pink-a700: #c51162 !default;
+
+    $palette-purple-050: #f3e5f5 !default;
+    $palette-purple-100: #e1bee7 !default;
+    $palette-purple-200: #ce93d8 !default;
+    $palette-purple-300: #ba68c8 !default;
+    $palette-purple-400: #ab47bc !default;
+    $palette-purple-500: #9c27b0 !default;
+    $palette-purple-600: #8e24aa !default;
+    $palette-purple-700: #7b1fa2 !default;
+    $palette-purple-800: #6a1b9a !default;
+    $palette-purple-900: #4a148c !default;
+    $palette-purple-a100: #ea80fc !default;
+    $palette-purple-a200: #e040fb !default;
+    $palette-purple-a400: #d500f9 !default;
+    $palette-purple-a700: #aa00ff !default;
+
+    $palette-red-050: #ffebee !default;
+    $palette-red-100: #ffcdd2 !default;
+    $palette-red-200: #ef9a9a !default;
+    $palette-red-300: #e57373 !default;
+    $palette-red-400: #ef5350 !default;
+    $palette-red-500: #f44336 !default;
+    $palette-red-600: #e53935 !default;
+    $palette-red-700: #d32f2f !default;
+    $palette-red-800: #c62828 !default;
+    $palette-red-900: #b71c1c !default;
+    $palette-red-a100: #ff8a80 !default;
+    $palette-red-a200: #ff5252 !default;
+    $palette-red-a400: #ff1744 !default;
+    $palette-red-a700: #d50000 !default;
+
+    $palette-teal-050: #e0f2f1 !default;
+    $palette-teal-100: #b2dfdb !default;
+    $palette-teal-200: #80cbc4 !default;
+    $palette-teal-300: #4db6ac !default;
+    $palette-teal-400: #26a69a !default;
+    $palette-teal-500: #009688 !default;
+    $palette-teal-600: #00897b !default;
+    $palette-teal-700: #00796b !default;
+    $palette-teal-800: #00695c !default;
+    $palette-teal-900: #004d40 !default;
+    $palette-teal-a100: #a7ffeb !default;
+    $palette-teal-a200: #64ffda !default;
+    $palette-teal-a400: #1de9b6 !default;
+    $palette-teal-a700: #00bfa5 !default;
+
+    $palette-yellow-050: #fffde7 !default;
+    $palette-yellow-100: #fff9c4 !default;
+    $palette-yellow-200: #fff59d !default;
+    $palette-yellow-300: #fff176 !default;
+    $palette-yellow-400: #ffee58 !default;
+    $palette-yellow-500: #ffeb3b !default;
+    $palette-yellow-600: #fdd835 !default;
+    $palette-yellow-700: #fbc02d !default;
+    $palette-yellow-800: #f9a825 !default;
+    $palette-yellow-900: #f57f17 !default;
+    $palette-yellow-a100: #ffff8d !default;
+    $palette-yellow-a200: #ffff00 !default;
+    $palette-yellow-a400: #ffea00 !default;
+    $palette-yellow-a700: #ffd600 !default;
+
+    //
+    // black and white
+    // based on https://material.google.com/style/color.html#color-text-background-colors
+    //
+    $black: #000000 !default;
+    $black-primary: rgba(red($black), green($black), blue($black), 0.87) !default;
+    $black-secondary: rgba(red($black), green($black), blue($black), 0.54) !default;
+    $black-hint: rgba(red($black), green($black), blue($black), 0.38) !default;
+    $black-divider: rgba(red($black), green($black), blue($black), 0.12) !default;
+    $black-primary-solid: #212121 !default;
+    $black-secondary-solid: #757575 !default;
+    $black-hint-solid: #9e9e9e !default;
+    $black-divider-solid: #e1e1e1 !default;
+
+    $white: #ffffff !default;
+    $white-primary: rgba(red($white), green($white), blue($white), 1.00) !default;
+    $white-secondary: rgba(red($white), green($white), blue($white), 0.70) !default;
+    $white-hint: rgba(red($white), green($white), blue($white), 0.50) !default;
+    $white-divider: rgba(red($white), green($white), blue($white), 0.12) !default;
+
+    //
+    // offwhite
+    // based on https://material.google.com/style/color.html#color-themes
+    //
+    $offwhite: $palette-grey-100 !default;
+    $offwhite-dark: $palette-grey-300 !default;
+    $offwhite-light: $palette-grey-050 !default;
+
+    //
+    // palette
+    // based on https://material.google.com/style/color.html#color-color-schemes
+    // change these values to customise colour palettes
+    //
+    $brand-color: mat-color($primary) !default;
+    $brand-color-dark: mat-color($primary, A700) !default;
+    $brand-color-light: mat-color($primary, A100) !default;
+    $brand-text-color: mat-color($foreground, text) !default;
+    $brand-text-color-dark: mat-color($foreground, text) !default;
+    $brand-text-color-light: mat-color($foreground, text) !default;
+
+    $brand-color-accent: mat-color($accent) !default;
+    $brand-color-accent-dark: mat-color($accent, A400) !default;
+    $brand-color-accent-light: mat-color($accent, A100) !default;
+    $brand-text-color-accent: mat-color($foreground, text) !default;
+    $brand-text-color-accent-dark: mat-color($foreground, text) !default;
+    $brand-text-color-accent-light: mat-color($foreground, text) !default;
+
+    // change the following lists to add, edit, or remove colours used throughout material css
+    $palettes: (
+      "primary",
+        // "primary" inherits brand colour, so that the naming is in line with Bootstrap 4
+      "secondary",
+        // "secondary" inherits brand accent colour, so that the naming is in line with Bootstrap 4
+      "danger",
+      "info",
+      "success",
+      "warning"
+    ) !default;
+
+    $palettes-color: (
+      $brand-color,
+      $brand-color-accent,
+      $palette-red-500,
+      $palette-blue-500,
+      $palette-green-500,
+      $palette-orange-500
+    ) !default;
+
+    $palettes-color-dark: (
+      $brand-color-dark,
+      $brand-color-accent-dark,
+      $palette-red-700,
+      $palette-blue-700,
+      $palette-green-700,
+      $palette-orange-700
+    ) !default;
+
+    $palettes-color-light: (
+      $brand-color-light,
+      $brand-color-accent-light,
+      $palette-red-300,
+      $palette-blue-300,
+      $palette-green-300,
+      $palette-orange-300
+    ) !default;
+
+    $palettes-text-color: (
+      $brand-text-color,
+      $brand-text-color-accent,
+      $white-primary,
+      $white-primary,
+      $black-primary,
+      $black-primary
+    ) !default;
+
+    $palettes-text-color-dark: (
+      $brand-text-color-dark,
+      $brand-text-color-accent-dark,
+      $white-primary,
+      $white-primary,
+      $white-primary,
+      $black-primary
+    ) !default;
+
+    $palettes-text-color-light: (
+      $brand-text-color-light,
+      $brand-text-color-accent-light,
+      $black-primary,
+      $black-primary,
+      $black-primary,
+      $black-primary
+    ) !default;
+    @import "~daemonite-material/assets/sass/variables/elevation-shadow";
+    @import "~daemonite-material/assets/sass/variables/grid";
+    @import "~daemonite-material/assets/sass/variables/spacer";
+    @import "~daemonite-material/assets/sass/variables/typography";
+    //******************************************************************************************************************
+    //* Bootstrap variables
+    //******************************************************************************************************************
+    // alert
+    $alert-link-font-weight: $font-weight-medium !default;
+
+    // body
+    $body-bg: map-get($background, background) !default;
+    $body-color: map-get($foreground, text) !default;
+    $body-border-color: map-get($foreground, divider) !default;
+    $body-secondary-text-color: map-get($foreground, secondary-text);
+    $body-hint-text: map-get($foreground, hint-text);
+
+    // breadcrumb
+    $breadcrumb-bg: $offwhite !default;
+    $breadcrumb-divider: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $breadcrumb-height: 3.5rem !default;
+    $breadcrumb-item-color: $black-secondary !default;
+    $breadcrumb-item-color-active: $black-primary !default;
+    $breadcrumb-item-padding: $spacer-sm-x !default;
+    $breadcrumb-margin-bottom: $spacer-md-y !default;
+    $breadcrumb-padding-x: $spacer-md-x !default;
+    $breadcrumb-padding-y: 0.625rem !default;
+
+    // button group
+    $btn-group-bg: $body-hint-text !default;
+    $btn-group-padding-x: $spacer-sm-x !default;
+    $btn-group-padding-y: $spacer-sm-y !default;
+    $btn-toolbar-divider-bg: $body-border-color !default;
+
+    // caret
+    $caret-bg: "data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E" !default;
+    $caret-bg-inverse: "data:image/svg+xml;charset=utf8,%3Csvg fill='#ffffff' fill-opacity='0.7' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E" !default;
+    $caret-width: 0.4em !default;
+
+    // carousel
+    $carousel-caption-color: $body-color !default;
+    $carousel-caption-width: 50% !default;
+    $carousel-control-icon-opacity: 0.38 !default;
+    $carousel-control-next-icon-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $carousel-control-prev-icon-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $carousel-indicator-color: $body-border-color !default;
+    $carousel-indicator-size: 0.5rem !default;
+
+    // close
+    $close-color: $body-color !default;
+    $close-color-active: $body-color !default;
+    $close-font-size: $material-icon-size !default;
+
+    // code
+    $code-bg: $body-bg !default;
+    $code-color: #bd4147 !default;
+    $code-font-size: 87.5% !default;
+    $code-padding: 0.2rem 0.4rem !default;
+
+    $kbd-bg: $body-bg !default;
+    $kbd-color: $body-color !default;
+
+    $pre-bg: $body-bg !default;
+    $pre-color: $body-color !default;
+    $pre-margin-bottom: $spacer-md-y !default;
+    $pre-scrollable-max-height: 340px !default;
+
+    // cursor
+    $cursor-disabled: not-allowed !default;
+
+    // form
+    $custom-file-button-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 12.5C2 9.46 4.46 7 7.5 7H18c2.21 0 4 1.79 4 4s-1.79 4-4 4H9.5C8.12 15 7 13.88 7 12.5S8.12 10 9.5 10H17v2H9.41c-.55 0-.55 1 0 1H18c1.1 0 2-.9 2-2s-.9-2-2-2H7.5C5.57 9 4 10.57 4 12.5S5.57 16 7.5 16H17v2H7.5C4.46 18 2 15.54 2 12.5z'/%3E%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3E%3C/svg%3E") !default;
+    $custom-file-button-opacity: 0.38 !default;
+    $custom-file-button-opacity-visible: 0.54 !default;
+    $custom-file-width: 14rem !default;
+    $custom-file-text: (en: "Choose file...") !default;
+
+    $form-check-inline-margin-x: $spacer-sm-x !default;
+    $form-check-input-margin-x: $spacer-xs-x !default;
+
+    $form-group-label-font-size: $font-size-caption !default;
+    $form-group-margin-bottom: $spacer-lg-y !default;
+
+    $input-group-addon-margin-x: $spacer-md-x !default;
+
+    // jumbotron
+    $jumbotron-bg: $brand-color !default;
+    $jumbotron-color: $body-bg !default;
+
+    // link
+    $link-color: mat-color($foreground, text) !default;
+    $link-color-active: mat-color($foreground, text) !default;
+    $link-decoration: none !default;
+    $link-decoration-active: none !default;
+
+    // media
+    $media-alignment-padding-x: $spacer-md-x !default;
+    $media-heading-margin-bottom: $spacer-xs-y !default;
+    $media-margin-bottom: $spacer-md-y !default;
+
+    // misc
+    $abbr-border-color: $body-border-color !default;
+
+    $dt-font-weight: $font-weight-medium !default;
+
+    $figure-caption-color: $body-hint-text !default;
+    $figure-img-margin-bottom: $spacer-sm-y !default;
+
+    $headings-color: inherit !default;
+    $headings-font-family: inherit !default;
+    $headings-margin-bottom: $spacer-sm-y !default;
+
+    $hr-border-color: $body-border-color !default;
+    $hr-border-width: 1px !default;
+
+    $list-inline-item-spacer: $spacer-sm-x !default;
+
+    $mark-bg: $palette-yellow-500 !default;
+    $mark-padding: 0.2em !default;
+
+    $small-font-size: 80% !default;
+
+    $table-caption-color: $body-hint-text !default;
+
+    $thumbnail-box-shadow: $shadow-2dp !default;
+
+    // nav
+    $nav-inline-item-spacer: $spacer-md-x !default;
+    $nav-link-bg-active: $body-border-color !default;
+    $nav-link-color: $body-secondary-text-color !default;
+    $nav-link-color-active: $body-color !default;
+    $nav-link-color-disabled: $body-hint-text !default;
+    $nav-link-padding: $spacer-sm-y $spacer-md-x !default;
+
+    // pagination
+    $pagination-bg: $btn-group-bg !default;
+    $pagination-padding-x: $btn-group-padding-x !default;
+    $pagination-padding-y: $btn-group-padding-y !default;
+
+    // typography
+    $blockquote-border-color: $brand-color !default;
+    $blockquote-border-width: 0.3125rem !default;
+    $blockquote-small-color: $black-hint !default;
+
+    $text-muted: $body-hint-text !default;
+    $text-muted-active: $body-secondary-text-color !default;
+
+    //********************************************************************************************************************
+    //* Material variables
+    //********************************************************************************************************************
+    //
+    // appbar / toolbar (navbar)
+    // based on https://material.google.com/components/toolbars.html#toolbars-usage
+    //
+    $toolbar-color-dark: $black-primary !default;
+    $toolbar-color-light: $white-primary !default;
+    $toolbar-element-bg-dark: $black-divider !default;
+    $toolbar-element-bg-light: $white-divider !default;
+    $toolbar-elevation-shadow: $elevation-shadow-4dp !default;
+    $toolbar-height: 3.5rem !default;
+    $toolbar-link-font-size: 1rem !default;
+    $toolbar-link-height: 2.25rem !default;
+    $toolbar-link-opacity: 0.7 !default;
+    $toolbar-link-opacity-active: 1 !default;
+    $toolbar-link-padding-x: $spacer-md-x !default;
+    $toolbar-link-padding-y: (($toolbar-link-height - $toolbar-link-font-size) / 2) !default;
+    $toolbar-padding-x: $spacer-md-x !default;
+    $toolbar-padding-y: (($toolbar-height - $toolbar-link-height) / 2) !default;
+    $toolbar-toggler-bg-dark: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.87' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
+    $toolbar-toggler-bg-light: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#ffffff' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z'/%3E%3C/svg%3E") !default;
+    $toolbar-waterfall-bg: $brand-color !default;
+
+    //
+    // button
+    // based on https://material.google.com/components/buttons.html#buttons-style
+    // n.b. material design guideline only specifies specs for default button (.btn) and dense button (.btn-sm)
+    //
+    $btn-bg: transparent !default;
+    $btn-bg-active: rgba(153, 153, 153, 0.40) !default;
+    $btn-bg-disabled: $body-border-color !default;
+    $btn-block-spacer: $spacer-xs-y !default;
+    $btn-color: $body-color !default;
+    $btn-color-disabled: rgba(0, 0, 0, 0.26) !default;
+    $btn-elevation-shadow: $elevation-shadow-2dp !default;
+    $btn-elevation-shadow-active: $elevation-shadow-8dp !default;
+    $btn-focus-overlay: $body-border-color !default;
+    $btn-font-weight: $font-weight-medium !default;
+    $btn-min-width: 5.5rem !default;
+
+    // inverse
+    $btn-bg-inverse-disabled: $white-divider !default;
+    $btn-bg-inverse-active: rgba(204, 204, 204, 0.25) !default;
+    $btn-color-inverse: $body-bg !default;
+    $btn-color-inverse-disabled: rgba(255, 255, 255, 0.30) !default;
+
+    // size
+    $btn-font-size: 0.875rem !default;
+    $btn-font-size-lg: 0.9375rem !default;
+    $btn-font-size-sm: 0.8125rem !default;
+    $btn-height: 2.25rem !default;
+    $btn-height-lg: 2.5rem !default;
+    $btn-height-sm: 2rem !default;
+    $btn-padding-x: $spacer-md-x !default;
+    $btn-padding-x-lg: $btn-padding-x !default;
+    $btn-padding-x-sm: $btn-padding-x !default;
+    $btn-padding-y: (($btn-height - $btn-font-size) / 2) !default;
+    $btn-padding-y-lg: (($btn-height-lg - $btn-font-size-lg) / 2) !default;
+    $btn-padding-y-sm: (($btn-height-sm - $btn-font-size-sm) / 2) !default;
+
+    //
+    // button: flat button
+    // based on https://material.google.com/components/buttons.html#buttons-flat-buttons
+    //
+    $btn-flat-bg-opacity: 0.4 !default;
+    $btn-flat-focus-overlay-inverse: rgba(204, 204, 204, 0.12) !default;
+    $btn-flat-focus-overlay-opacity: 0.12 !default;
+
+    //
+    // button: floating action button
+    // based on https://material.google.com/components/buttons-floating-action-button.html#buttons-floating-action-button-floating-action-button
+    //
+    $btn-float-elevation-shadow: $elevation-shadow-6dp !default;
+    $btn-float-elevation-shadow-active: $elevation-shadow-12dp !default;
+    $btn-float-font-size: ($material-icon-size / $font-size-root * 1rem) !default;
+
+    // size
+    $btn-float-size: 3.5rem !default;
+    $btn-float-size-sm: 2.5rem !default;
+
+    //
+    // card
+    // based on https://material.google.com/components/cards.html#cards-usage
+    //
+    $card-action-spacer-x: $spacer-sm-x !default;
+    $card-action-spacer-y: $spacer-sm-y !default;
+    $card-bg: $body-bg !default;
+    $card-bg-inverse: $body-secondary-text-color !default;
+    $card-border-color: $body-border-color !default;
+    $card-border-width: $border-width !default;
+    $card-color: $body-color !default;
+    $card-color-inverse: $body-bg !default;
+    $card-elevation-shadow: $elevation-shadow-2dp !default;
+    $card-elevation-shadow-active: $elevation-shadow-8dp !default;
+    $card-margin-bottom: $spacer-md-y !default;
+    $card-spacer-inner-x: $spacer-md-x !default;
+    $card-spacer-inner-y: $spacer-md-y !default;
+    $card-spacer-outer-x: $spacer-sm-x !default;
+    $card-spacer-outer-y: $spacer-sm-y !default;
+
+    //
+    // chip (label)
+    // based on https://material.google.com/components/chips.html#chips-specs
+    //
+    $chip-active-overlay: $body-border-color !default;
+    $chip-bg: $body-border-color !default;
+    $chip-bg-inverse: $white-divider !default;
+    $chip-color: $body-color !default;
+    $chip-color-inverse: $body-color !default;
+    $chip-elevation-shadow-active: $elevation-shadow-2dp !default;
+    $chip-font-size: 0.8125rem !default;
+    $chip-font-weight: $font-weight-regular !default;
+    $chip-height: 2rem !default;
+    $chip-padding-x: 0.75rem !default;
+    $chip-padding-y: (($chip-height - $chip-font-size) / 2) !default;
+
+    //
+    // colour theme
+    // based on https://material.google.com/style/color.html#color-themes
+    //
+    $dark-theme-1: $black !default;
+    $dark-theme-2: $palette-grey-900 !default;
+    $dark-theme-3: #303030 !default;
+    $dark-theme-4: $palette-grey-800 !default;
+
+    $light-theme-1: $palette-grey-300 !default;
+    $light-theme-2: $palette-grey-100 !default;
+    $light-theme-3: $palette-grey-050 !default;
+    $light-theme-4: $white !default;
+
+    //
+    // data table (table)
+    // based on https://material.google.com/components/data-tables.html#data-tables-structure
+    //
+    $table-bg: transparent !default;
+    $table-bg-accent: $body-bg !default;
+    $table-bg-hover: map-get($background, hover) !default;
+    $table-border-color: $body-border-color !default;
+    $table-border-width: $border-width !default;
+    $table-cell-padding-x: 1.75rem !default;
+    $table-cell-padding-x-alt: $spacer-lg-x !default;
+    $table-elevation-shadow: $elevation-shadow-2dp !default;
+    $table-margin-bottom: $spacer-md-y !default;
+
+    $table-tbody-cell-height: 3rem !default;
+    $table-tbody-color: $body-color !default;
+    $table-tbody-font-size: 0.8125rem !default;
+    $table-tbody-font-weight: $font-weight-regular !default;
+    $table-tbody-padding-y: (($table-tbody-cell-height - $table-tbody-font-size * $line-height-base) / 2) !default;
+
+    $table-tfoot-cell-height: 3.5rem !default;
+    $table-tfoot-color: $body-secondary-text-color !default;
+    $table-tfoot-font-size: 0.75rem !default;
+    $table-tfoot-font-weight: $font-weight-regular !default;
+    $table-tfoot-padding-y: (($table-tfoot-cell-height - $table-tfoot-font-size * $line-height-base) / 2) !default;
+
+    $table-thead-cell-height: $table-tfoot-cell-height !default;
+    $table-thead-color: $body-color !default;
+    $table-thead-font-size: $table-tfoot-font-size !default;
+    $table-thead-font-weight: $font-weight-medium !default;
+    $table-thead-padding-y: (($table-thead-cell-height - $table-thead-font-size * $line-height-base) / 2) !default;
+
+    //
+    // dialog (modal)
+    // based on https://material.google.com/components/dialogs.html#dialogs-specs
+    //
+    $dialog-backdrop-bg: $black-hint !default;
+    $dialog-content-bg: $white-primary !default;
+    $dialog-elevation-shadow: $elevation-shadow-24dp !default;
+    $dialog-footer-btn-min-width: 4rem !default;
+    $dialog-footer-spacer-x: $spacer-sm-x !default;
+    $dialog-footer-spacer-y: $spacer-sm-y !default;
+    $dialog-inner-padding: 1.25rem $spacer-lg-x !default;
+    $dialog-margin-x: $spacer-lg-x !default;
+    $dialog-margin-y: $spacer-lg-y !default;
+    $dialog-width: 35rem !default;
+    $dialog-width-lg: 52.5rem !default;
+    $dialog-width-sm: 17.5rem !default;
+
+    //
+    // expansion panel (list group)
+    // based on https://material.google.com/components/expansion-panels.html#expansion-panels-specs
+    //
+    $expansion-panel-bg: $body-bg !default;
+    $expansion-panel-bg-active: $body-hint-text !default;
+    $expansion-panel-bg-disabled: $expansion-panel-bg !default;
+    $expansion-panel-border-color: $body-border-color !default;
+    $expansion-panel-border-width: $border-width !default;
+    $expansion-panel-color: $body-color !default;
+    $expansion-panel-color-active: $expansion-panel-color !default;
+    $expansion-panel-color-disabled: $body-hint-text !default;
+    $expansion-panel-elevation-shadow: $elevation-shadow-2dp !default;
+    $expansion-panel-font-size: 0.9375rem !default;
+    $expansion-panel-font-size-secondary: 0.75rem !default;
+    $expansion-panel-height: 3rem !default;
+    $expansion-panel-inner-spacer-x: $spacer-lg-x !default;
+    $expansion-panel-inner-spacer-y: ($expansion-panel-inner-spacer-x / 2) !default;
+
+    //
+    // menu (dropdown)
+    // based on https://material.google.com/components/menus.html#menus-specs
+    //
+    $menu-bg: $body-bg !default;
+    $menu-divider-bg: $body-border-color !default;
+    $menu-font-size: 1rem !default;
+    $menu-font-size-cascading: 0.9375rem !default;
+    $menu-elevation-shadow: $elevation-shadow-8dp !default;
+    $menu-line-height: 1.5rem !default;
+    $menu-line-height-cascading: $menu-line-height !default;
+    $menu-link-bg: transparent !default;
+    $menu-link-bg-active: $body-hint-text !default;
+    $menu-link-color: $body-color !default;
+    $menu-link-color-disabled: $body-hint-text !default;
+    $menu-link-height: 3rem !default;
+    $menu-link-height-cascading: 2rem !default;
+    $menu-link-padding: (($menu-link-height - $menu-line-height) / 2) $spacer-md-x !default;
+    $menu-link-padding-cascading: (($menu-link-height-cascading - $menu-line-height-cascading) / 2) $spacer-lg-x !default;
+    $menu-min-width: 7rem !default;
+    $menu-min-width-cascading: 20rem !default;
+    $menu-padding-y: $spacer-sm-y !default;
+    $menu-padding-y-cascading: $spacer-md-y !default;
+
+    //
+    // navigation drawer
+    // based on https://material.google.com/patterns/navigation-drawer.html#navigation-drawer-specs
+    //
+    $navdrawer-backdrop-bg: $body-bg !default;
+    $navdrawer-border-color: $body-border-color !default;
+    $navdrawer-border-width: $border-width !default;
+    $navdrawer-content-bg: $dialog-content-bg !default;
+    $navdrawer-divider-bg: $body-border-color !default;
+    $navdrawer-elevation-shadow: $elevation-shadow-16dp !default;
+    $navdrawer-gutter-width: $toolbar-height !default;
+    $navdrawer-header-bg: $border-color !default;
+    $navdrawer-header-border-color: $border-color !default;
+    $navdrawer-header-border-width: $border-width !default;
+    $navdrawer-inner-spacer-x: $spacer-md-x !default;
+    $navdrawer-inner-spacer-y: $spacer-sm-y !default;
+    $navdrawer-nav-icon-color: $body-hint-text !default;
+    $navdrawer-nav-icon-width: $toolbar-height !default;
+    $navdrawer-nav-link-bg-active: $body-border-color !default;
+    $navdrawer-nav-link-color: $body-secondary-text-color !default;
+    $navdrawer-nav-link-color-active: $brand-color !default;
+    $navdrawer-nav-link-color-disabled: $body-hint-text !default;
+    $navdrawer-nav-link-font-size: 0.875rem !default;
+    $navdrawer-nav-link-font-weight: $font-weight-medium !default;
+    $navdrawer-nav-link-height: 3rem !default;
+    $navdrawer-subheader-color: $body-hint-text !default;
+    $navdrawer-subheader-font-size: 0.875rem !default;
+    $navdrawer-subheader-font-weight: $font-weight-medium !default;
+    $navdrawer-subheader-height: 3rem !default;
+    $navdrawer-width-mobile: 17.5rem !default;
+    $navdrawer-width-tablet: 20rem !default;
+
+    //
+    // picker
+    // based on https://material.google.com/components/pickers.html#pickers-date-pickers
+    //
+    $picker-cell-size: 2.5rem !default;
+    $picker-content-bg: $dialog-content-bg !default;
+    $picker-day-bg-selected: $brand-color !default;
+    $picker-day-color-disabled: $body-hint-text !default;
+    $picker-day-color-selected: $body-secondary-text-color !default;
+    $picker-day-color-today: $brand-color !default;
+    $picker-elevation-shadow: $dialog-elevation-shadow !default;
+    $picker-header-bg: $brand-color !default;
+    $picker-header-color: $body-bg !default;
+    $picker-header-padding: $spacer-md-y $spacer-lg-x !default;
+    $picker-holder-bg: $dialog-backdrop-bg !default;
+    $picker-inner-spacer-x: $spacer-sm-x !default;
+    $picker-inner-spacer-y: $spacer-sm-y !default;
+    $picker-margin-x: $dialog-margin-x !default;
+    $picker-margin-y: $dialog-margin-y !default;
+    $picker-nav-next-icon: "keyboard_arrow_right" !default;
+    $picker-nav-prev-icon: "keyboard_arrow_left" !default;
+    $picker-weekday-color: $body-hint-text !default;
+
+    //
+    // progress
+    // based on https://material.google.com/components/progress-activity.html#progress-activity-types-of-indicators
+    //
+    $progress-bar-bg: $body-bg !default;
+    $progress-bar-mask: $body-secondary-text-color !default;
+    $progress-height: 0.25rem !default;
+
+    // circular
+    $progress-circular-bg: $body-bg !default;
+    $progress-circular-height: 2.5rem !default;
+    $progress-circular-spinner-width: 0.25rem !default;
+
+    //
+    // selection control
+    // based on https://material.google.com/components/selection-controls.html
+    //
+    $selection-control-checkbox-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-checkbox-bg-checked: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#{$brand-color-accent}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E") !default;
+    $selection-control-checkbox-bg-disabled: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-checkbox-bg-disabled-checked: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E") !default;
+    $selection-control-checkbox-bg-indeterminate: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath d='M0 0h24v24H0z' id='a'/%3E%3C/defs%3E%3CclipPath id='b'%3E%3Cuse overflow='visible' xlink:href='#a'/%3E%3C/clipPath%3E%3Cpath clip-path='url(#b)' d='M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z'/%3E%3C/svg%3E") !default;
+    $selection-control-color: $body-color !default;
+    $selection-control-color-active: $body-color !default;
+    $selection-control-color-disabled: rgba(0, 0, 0, 0.26) !default;
+    $selection-control-indicator-size: $material-icon-size !default;
+    $selection-control-radial-bg: $body-bg !default;
+    $selection-control-radio-bg: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.54' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-radio-bg-checked: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#{$brand-color-accent}' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-radio-bg-disabled: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-radio-bg-disabled-checked: url("data:image/svg+xml;charset=utf8,%3Csvg fill='#000000' fill-opacity='0.26' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E") !default;
+    $selection-control-spacer-x: ($material-icon-size / $font-size-root / 2 * 1rem) !default;
+    $selection-control-spacer-y: ($material-icon-size / $font-size-root / 2 * 1rem) !default;
+    $selection-control-thumb-bg: $body-bg !default;
+    $selection-control-thumb-bg-disabled: $body-border-color !default;
+    $selection-control-thumb-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.6) !default;
+    $selection-control-track-bg: $body-bg !default;
+    $selection-control-track-bg-disabled: $body-bg !default;
+    $selection-control-track-height: $font-size-root !default;
+    $selection-control-track-width: ($selection-control-indicator-size * 2) !default;
+
+    //
+    // stepper
+    // based on https://material.google.com/components/steppers.html#steppers-specs
+    //
+    $stepper-bg: $body-bg !default;
+    $stepper-border-color: $body-border-color !default;
+    $stepper-border-width: $border-width !default;
+    $stepper-icon-bg: $body-color !default;
+    $stepper-icon-bg-active: $body-bg !default;
+    $stepper-icon-color: $body-secondary-text-color !default;
+    $stepper-icon-color-active: $body-color !default;
+    $stepper-icon-font-size: 0.75rem !default;
+    $stepper-icon-font-weight: $font-weight-regular !default;
+    $stepper-icon-height: ($material-icon-size / $font-size-root * 1rem) !default;
+    $stepper-inner-spacer: $spacer-sm !default;
+    $stepper-padding-x: $spacer-lg-x !default;
+    $stepper-padding-y: $spacer-lg-y !default;
+    $stepper-text-color: $body-color !default;
+    $stepper-text-color-active: $body-color !default;
+    $stepper-text-font-size: 0.875rem !default;
+    $stepper-text-font-weight: $font-weight-regular !default;
+
+    //
+    // tab (nav-tab)
+    // based on https://material.google.com/components/tabs.html#tabs-specs
+    //
+    $nav-tab-border-color: $body-color !default;
+    $nav-tab-indicator-bg: $body-bg !default;
+    $nav-tab-indicator-height: 2px !default;
+    $nav-tab-link-font-size: 0.875rem !default;
+    $nav-tab-link-font-weight: $font-weight-medium !default;
+    $nav-tab-link-height: 3rem !default;
+    $nav-tab-link-opacity: 0.7 !default;
+    $nav-tab-link-opacity-visible: 1 !default;
+    $nav-tab-link-max-width: 16.5rem !default;
+    $nav-tab-link-min-width: 4.5rem !default;
+    $nav-tab-link-min-width-lg: 10rem !default;
+    $nav-tab-link-padding-x: 0.75rem !default;
+    $nav-tab-link-padding-x-lg: 1.5rem !default;
+
+    //
+    // text field (form)
+    // based on https://material.google.com/components/text-fields.html#text-fields-single-line-text-field
+    //
+    $textfield-border-color: $body-border-color !default;
+    $textfield-border-color-focus: $body-border-color !default;
+    $textfield-border-width: $border-width !default;
+    $textfield-color: $body-color !default;
+    $textfield-color-disabled: $body-hint-text !default;
+    $textfield-hint-color: $body-hint-text !default;
+
+    // size
+    $textfield-font-size: 1rem !default;
+    $textfield-font-size-lg: 2.125rem !default;
+    $textfield-font-size-sm: 0.8125rem !default;
+    $textfield-height: 2.25rem !default;
+    $textfield-height-lg: 3.75rem !default;
+    $textfield-height-sm: 2rem !default;
+    $textfield-margin-bottom: 0.5rem !default;
+    $textfield-margin-bottom-lg: 0.75rem !default;
+    $textfield-margin-bottom-sm: 0.25rem !default;
+    $textfield-padding-bottom: 0.5rem !default;
+    $textfield-padding-bottom-lg: 0.5rem !default;
+    $textfield-padding-bottom-sm: 0.5rem !default;
+    $textfield-padding-top: 0.5rem !default;
+    $textfield-padding-top-lg: 0.5rem !default;
+    $textfield-padding-top-sm: 0.25rem !default;
+
+    //
+    // text field: floating label (form: floating label)
+    // based on https://material.google.com/components/text-fields.html#text-fields-labels
+    //
+    $floating-label-color: $textfield-hint-color !default;
+    $floating-label-color-focus: $body-secondary-text-color !default;
+    $floating-label-font-size-focus: 0.75rem !default;
+
+    // size
+    $floating-label-divider-padding: 0.5rem !default;
+    $floating-label-divider-padding-lg: 0.75rem !default;
+    $floating-label-divider-padding-sm: 0.25rem !default;
+    $floating-label-height: 4rem !default;
+    $floating-label-height-lg: 5.25rem !default;
+    $floating-label-height-sm: 3.5rem !default;
+    $floating-label-padding-top: 1rem !default;
+    $floating-label-padding-top-lg: 1.25rem !default;
+    $floating-label-padding-top-sm: 0.75rem !default;
+
+    //
+    // tooltip
+    // based on https://material.google.com/components/tooltips.html#tooltips-tooltips-desktop
+    //
+    $tooltip-bg: $body-bg !default;
+    $tooltip-color: $body-color !default;
+    $tooltip-font-size: 0.875rem !default;
+    $tooltip-font-size-md-up: 0.625rem !default;
+    $tooltip-height: 2rem !default;
+    $tooltip-height-md-up: 1.375rem !default;
+    $tooltip-margin: $spacer-lg-y !default;
+    $tooltip-margin-md-up: 0.875rem !default;
+    $tooltip-opacity: 0.9 !default;
+    $tooltip-padding-x: $spacer-md-x !default;
+    $tooltip-padding-x-md-up: $spacer-sm-x !default;
+    $tooltip-padding-y: (($tooltip-height - $line-height-base * $tooltip-font-size) / 2) !default;
+    $tooltip-padding-y-md-up: (($tooltip-height-md-up - $line-height-base * $tooltip-font-size-md-up) / 2) !default;
+    $tooltip-zindex: $elevation-24dp !default;
+
+    //
+    // waves
+    //
+    $waves-bg: $body-bg !default;
+    $waves-bg-light: $body-hint-text !default;
+    $waves-size: 4rem !default;
+    //********************************************************************************************************************
+    //* Style sheet
+    //********************************************************************************************************************
+    //
+    // base css
+    //
+    @import "~daemonite-material/assets/sass/base/base";
+    @import "~daemonite-material/assets/sass/base/grid";
+    @import "~daemonite-material/assets/sass/base/typography";
+
+    //
+    // bootstrap components
+    // components covered in bootstrap's (v4.0.0-alpha.6) css but not in material design guidelines
+    //
+    @import "~daemonite-material/assets/sass/bootstrap/alert";
+    @import "~daemonite-material/assets/sass/bootstrap/breadcrumb";
+    @import "~daemonite-material/assets/sass/bootstrap/button-group";
+    @import "~daemonite-material/assets/sass/bootstrap/carousel";
+    @import "~daemonite-material/assets/sass/bootstrap/close";
+    @import "~daemonite-material/assets/sass/bootstrap/code";
+    @import "~daemonite-material/assets/sass/bootstrap/custom-form";
+    @import "~daemonite-material/assets/sass/bootstrap/form";
+    @import "~daemonite-material/assets/sass/bootstrap/image";
+    @import "~daemonite-material/assets/sass/bootstrap/jumbotron";
+    @import "~daemonite-material/assets/sass/bootstrap/media";
+    @import "~daemonite-material/assets/sass/bootstrap/nav";
+    @import "~daemonite-material/assets/sass/bootstrap/pagination";
+    @import "~daemonite-material/assets/sass/bootstrap/popover";
+    @import "~daemonite-material/assets/sass/bootstrap/responsive-embed";
+    @import "~daemonite-material/assets/sass/bootstrap/transition";
+
+    //
+    // material components
+    // components covered in material design guidelines https://material.google.com/components
+    //
+    @import "~daemonite-material/assets/sass/material/button";
+    @import "~daemonite-material/assets/sass/material/button-flat";
+    @import "~daemonite-material/assets/sass/material/button-float";
+    @import "~daemonite-material/assets/sass/material/card";
+    @import "~daemonite-material/assets/sass/material/chip";
+    @import "~daemonite-material/assets/sass/material/data-table";
+    @import "~daemonite-material/assets/sass/material/dialog";
+    @import "~daemonite-material/assets/sass/material/expansion-panel";
+    @import "~daemonite-material/assets/sass/material/menu";
+    @import "~daemonite-material/assets/sass/material/navdrawer";
+    @import "~daemonite-material/assets/sass/material/picker";
+    @import "~daemonite-material/assets/sass/material/progress";
+    @import "~daemonite-material/assets/sass/material/progress-circular";
+    @import "~daemonite-material/assets/sass/material/selection-control";
+    @import "~daemonite-material/assets/sass/material/stepper";
+    @import "~daemonite-material/assets/sass/material/tab";
+    @import "~daemonite-material/assets/sass/material/text-field";
+    @import "~daemonite-material/assets/sass/material/text-field-floating-label";
+    @import "~daemonite-material/assets/sass/material/text-field-input-group";
+    @import "~daemonite-material/assets/sass/material/text-field-textarea";
+    @import "~daemonite-material/assets/sass/material/toolbar";
+    @import "~daemonite-material/assets/sass/material/tooltip";
+
+    //
+    // utilities
+    //
+    @import "~daemonite-material/assets/sass/utilities";
+    //------------------------------------------------------------------------------------------------------------------
+    // Bootstrap & Material compatibility
+    //------------------------------------------------------------------------------------------------------------------
+    .table {
+      margin-bottom: 0;
+    }
+    a, a:hover {
+      color: inherit;
+    }
+    .pager li > a, .pager li > span {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 15px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .table tbody tr td.cell-detail .cell-detail-description {
+      display: block;
+      font-size: 11px;
+    }
+    .table tbody tr td.cell-avatar span {
+      padding-left: 48px;
+      display: block;
+    }
+    .table tbody tr td.cell-detail span {
+      display: block;
+    }
+    .table tbody tr td.cell-detail img {
+      float: left;
+    }
+    td.user-avatar {
+      img {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+    .material-icons {
+      font-size: 24px;
+      line-height: inherit;
+      vertical-align: inherit;
+    }
+    button {
+      padding: 12px;
+    }
+    .alert {
+      margin-bottom: 4px;
+    }
+    .bg-primary {
+      background-color: mat-color($primary);
+    }
+
+    .bg-accent {
+      background-color: mat-color($accent);
+    }
+
+    .bg-warn {
+      background-color: mat-color($warn);
+    }
+  }
+}

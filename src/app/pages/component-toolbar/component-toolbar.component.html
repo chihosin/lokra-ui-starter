@@ -1,0 +1,187 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Toolbar</md-card-title>
+          <md-card-subtitle>Default material toolbar</md-card-subtitle>
+
+          <md-card-content>
+
+            <md-toolbar color="primary">
+              <span>App</span>
+              <span class="example-spacer"></span>
+              <md-icon class="example-icon">search</md-icon>
+              <md-icon class="example-icon">notifications</md-icon>
+              <md-icon class="example-icon">apps</md-icon>
+              <md-icon class="example-icon">account_circle</md-icon>
+            </md-toolbar>
+            <br>
+
+            <md-toolbar color="accent">
+              <span>Home</span>
+              <span class="example-spacer"></span>
+              <md-icon class="example-icon">favorite</md-icon>
+              <md-icon class="example-icon">account_circle</md-icon>
+              <md-divider></md-divider>
+              <md-toolbar-row>
+                <span>Tabs</span>
+              </md-toolbar-row>
+            </md-toolbar>
+            <br>
+
+            <md-toolbar color="primary">
+              <md-icon class="example-icon">menu</md-icon>
+              <span style="margin-left: 20px">Home</span>
+              <span class="example-spacer"></span>
+              <md-icon class="example-icon">search</md-icon>
+            </md-toolbar>
+            <br>
+
+            <md-toolbar color="accent">
+              <span>App</span>
+              <span class="example-spacer"></span>
+              <md-icon class="example-icon">search</md-icon>
+              <md-icon class="example-icon">notifications</md-icon>
+              <md-icon class="example-icon">apps</md-icon>
+              <md-icon class="example-icon">account_circle</md-icon>
+            </md-toolbar>
+            <br>
+
+            <md-toolbar color="accent">
+              <md-icon class="example-icon">menu</md-icon>
+              <span style="margin-left: 20px">Home</span>
+              <span class="example-spacer"></span>
+              <md-icon class="example-icon">search</md-icon>
+            </md-toolbar>
+            <br>
+
+            <md-toolbar>
+              <span>WeChat</span>
+              <span class="example-spacer"></span>
+              <md-icon class="example-icon">search</md-icon>
+              <md-icon class="example-icon">add</md-icon>
+            </md-toolbar>
+
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdToolbarModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/toolbar">Official Documentation
+          </a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>
+              <code>&lt;md-toolbar&gt;</code> is a container for headers, titles, or actions.
+            </p>
+            <h3>Multiple rows</h3>
+            <p>
+              Toolbars can have multiple rows using <code>&lt;md-toolbar-row&gt;</code> elements.
+              Any content outside of an <code>&lt;md-toolbar-row&gt;</code> element are automatically placed inside of
+              one at the begining of the toolbar. Each toolbar row is a display: flex container.
+            </p>
+            <pre>
+<code>&lt;md-toolbar&gt;</code>
+  <code>&lt;span&gt;</code>First Row<code>&lt;/span&gt;</code>
+
+  <code>&lt;md-toolbar-row&gt;</code>
+    <code>&lt;span&gt;</code>Second Row<code>&lt;/span&gt;</code>
+  <code>&lt;/md-toolbar-row&gt;</code>
+
+  <code>&lt;md-toolbar-row&gt;</code>
+    <code>&lt;span&gt;</code>Third Row<code>&lt;/span&gt;</code>
+  <code>&lt;/md-toolbar-row&gt;</code>
+<code>&lt;/md-toolbar&gt;</code>
+
+            </pre>
+            <h3>Positioning toolbar content</h3>
+            <p>
+              The toolbar does not perform any positioning of its content. This gives the user full power to position
+              the content as it suits their application.
+            </p>
+            <p>
+              A common pattern is to position a title on the left with some actions on the right. This can be easily
+              accomplished with display: flex:
+            </p>
+            <pre>
+<code>&lt;md-toolbar color="primary"&gt;</code>
+  <code>&lt;span&gt;</code>Application Title<code>&lt;/span&gt;</code>
+
+              <!-- This fills the remaining space of the current row -->
+  <code>&lt;span class="example-fill-remaining-space"&gt;</code><code>&lt;/span&gt;</code>
+
+  <code>&lt;span&gt;</code>Right Aligned Text<code>&lt;/span&gt;</code>
+<code>&lt;/md-toolbar&gt;</code>
+.example-fill-remaining-space  &#123;
+  // This fills the remaining space, by using flexbox.
+  // Every toolbar row uses a flexbox row layout.
+  flex: 1 1 auto;
+ &#125;
+
+            </pre>
+            <h3>
+              Theming
+            </h3>
+            <p>
+              The color of a <code>md-toolbar&gt;</code> can be changed by using the color property.
+              By default, toolbars use a neutral background color based on the current theme (light or dark).
+              This can be changed to <code>primary</code>, <code>accent</code>, or <code>warn</code>.
+            </p>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdToolbarModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdToolbarRow</h3>
+            <p class="docs-api-class-description"></p>
+
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdToolbar</h3>
+            <p class="docs-api-class-description"></p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    color
+                  </p>
+                </td>
+                <td class="docs-api-property-description">The color of the toolbar. Can be primary, accent, or warn.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

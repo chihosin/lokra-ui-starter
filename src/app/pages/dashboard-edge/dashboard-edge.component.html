@@ -1,0 +1,506 @@
+<md-toolbar color="primary">
+  <md-toolbar-row>
+    <h1 class="page-card-flexible-title">Edge
+    </h1>
+    <span class="toolbar-filler"></span>
+    <button md-icon-button>
+      <md-icon>view_list</md-icon>
+    </button>
+    <button md-icon-button>
+      <md-icon>refresh</md-icon>
+    </button>
+    <button md-icon-button>
+      <md-icon>file_download</md-icon>
+    </button>
+  </md-toolbar-row>
+  <md-toolbar-row></md-toolbar-row>
+</md-toolbar>
+<div class="page-card page-card-flexible-tabs" fxFlexOffset="15" fxFlex="70">
+  <div class="page-content">
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" fxFlex>
+      <lk-chart-tile
+        [title]="'New Users'"
+        [value]="'678'"
+        [valueTrending]="'up'"
+        [color]="'#46be8a'"
+        [chartType]="'line'"
+        [chartData]="[5,3,4,6,5,4,7,3,5,9]"
+        [chartOptions]="{fill: ['none'],stroke: '#46be8a',strokeWidth: 2,height: 52, width: 86}"
+        fxFlex="25"
+      ></lk-chart-tile>
+      <lk-chart-tile
+        [title]="'Downloads'"
+        [value]="'82.3k'"
+        [valueTrending]="'down'"
+        [color]="'#ffd740'"
+        [chartType]="'bar'"
+        [chartData]="[5,3,9,6,5,9,7,3,5,2]"
+        [chartOptions]="{fill: ['#ffd740']}"
+        fxFlex="25"
+      ></lk-chart-tile>
+      <lk-info-tile
+        [title]="'Database'"
+        [description]="'Backup Now'"
+        [iconClass]="'fa fa-database'"
+        [backgroundStyle]="'linear-gradient(45deg, rgb(161, 89, 255) 0px, rgb(34, 121, 255) 100%)'"
+        fxFlex="25"
+      ></lk-info-tile>
+      <lk-info-tile
+        [title]="'Chats'"
+        [description]="'32 Waiting'"
+        [iconClass]="'fa fa-comments-o'"
+        [backgroundStyle]="'linear-gradient(45deg, rgb(216, 88, 88) 0px, rgb(255, 153, 153) 100%)'"
+        fxFlex="25"
+      ></lk-info-tile>
+    </div>
+    <div class="page-content">
+      <section class="bs">
+        <div class="alert bg-primary alert-dismissible">
+          <strong>Great Job!</strong> {{ 'DASHBOARD.ALERT' | translate }}
+          <a class="alert-link"
+             href="https://themeforest.net/item/lokra-angular-2-admin-template-with-material-design/19294993">Buy Now!</a>.
+        </div>
+      </section>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" fxFlex>
+      <md-card class="page-card card-content-full" fxFlex="70">
+        <md-card-title>
+          <span>{{ 'DASHBOARD.CHART-TITLE-1' | translate }}</span>
+          <span class="card-title-filler"></span>
+          <md-chip-list>
+            <md-chip>Week</md-chip>
+            <md-chip>Month</md-chip>
+            <md-chip color="accent" selected="true">Year</md-chip>
+            <md-chip>Today</md-chip>
+          </md-chip-list>
+          <a class="card-title-menu" md-ripple [md-menu-trigger-for]="clusterLoadMenu">
+            <i class="material-icons">more_vert</i>
+          </a>
+          <md-menu #clusterLoadMenu="mdMenu">
+            <button md-menu-item>Pause</button>
+            <button md-menu-item>Refresh</button>
+          </md-menu>
+        </md-card-title>
+        <md-card-subtitle>
+          <div class="counter-group">
+            <div class="counter">
+              <div class="value">27%</div>
+              <div class="desc"><i class="fa fa-circle" style="color: rgba(0, 121, 107, 0.66);"></i> CPU TIME</div>
+            </div>
+            <div class="counter">
+              <div class="value">58%</div>
+              <div class="desc"><i class="fa fa-circle" style="color: rgba(25, 118, 210, 0.66);"></i> MEMORY</div>
+            </div>
+            <div class="counter">
+              <div class="value">81%</div>
+              <div class="desc"><i class="fa fa-circle" style="color: rgba(211, 47, 47, 0.66);"></i> NETWORK</div>
+            </div>
+          </div>
+        </md-card-subtitle>
+        <lk-chart-js
+          [type]="clusterLoadChartType"
+          [data]="clusterLoadChartData"
+          [options]="clusterLoadChartOptions"
+          [syncData]="clusterLoadChartSyncData"
+          [height]="280"
+        ></lk-chart-js>
+      </md-card>
+      <md-card class="page-card card-content-full" fxFlex="30">
+        <md-card-title class="text-center">
+          <span>{{ 'DASHBOARD.CHART-TITLE-2' | translate }}</span>
+          <span class="card-title-filler"></span>
+          <a class="card-title-menu" md-ripple [md-menu-trigger-for]="cardTitleMenu">
+            <i class="material-icons">more_vert</i>
+          </a>
+          <md-menu #cardTitleMenu="mdMenu">
+            <button md-menu-item>Item</button>
+            <button md-menu-item>Item</button>
+            <button md-menu-item>Item</button>
+          </md-menu>
+        </md-card-title>
+        <md-card-subtitle>
+          <h4 class="text-center">
+            <small>LVM /dev/sda1</small>
+          </h4>
+        </md-card-subtitle>
+        <lk-chart-js
+          [type]="storageChart.type"
+          [data]="storageChart.data"
+          [options]="storageChart.options"
+          [height]="180"
+        ></lk-chart-js>
+        <div class="counter-group counter-group-bottom">
+          <div class="counter-label">
+            <p>Total <i class="fa fa-circle" style="color: rgba(0, 150, 136,0.3);"></i></p>
+            <p>Cached <i class="fa fa-circle" style="color: rgba(0, 150, 136,0.5);"></i></p>
+            <p>Used <i class="fa fa-circle" style="color: rgba(0, 150, 136,0.7);"></i></p>
+          </div>
+          <div class="counter-value">
+            <p>10 TB</p>
+            <p>63.6 GB</p>
+            <p>3.2 GB</p>
+          </div>
+        </div>
+      </md-card>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" fxFlex>
+      <md-card class="page-card card-content-full card-content-tabs" fxFlex>
+        <md-tab-group>
+          <md-tab label="Progress">
+            <md-list>
+              <md-list-item>
+                <h3 md-line>Current Project</h3>
+                <p md-line>
+                  <small>60%</small>
+                </p>
+                <p md-line>
+                  <md-progress-bar
+                    [mode]="'buffer'"
+                    [value]="30"
+                    [bufferValue]="60">
+                  </md-progress-bar>
+                </p>
+              </md-list-item>
+              <md-list-item>
+                <h3 md-line>Sever Task</h3>
+                <p md-line>
+                  <small>70%</small>
+                </p>
+                <p md-line>
+                  <md-progress-bar
+                    [mode]="'determinate'"
+                    [value]="70">
+                  </md-progress-bar>
+                </p>
+              </md-list-item>
+              <md-list-item>
+                <h3 md-line>Database Backup</h3>
+                <p md-line>
+                  <small>Waiting</small>
+                </p>
+                <p md-line>
+                  <md-progress-bar
+                    [mode]="'indeterminate'">
+                  </md-progress-bar>
+                </p>
+              </md-list-item>
+            </md-list>
+          </md-tab>
+          <md-tab label="Member">
+            <md-list>
+              <md-list-item>
+                <img md-list-avatar src="assets/img/avatar3.png" alt="...">
+                <h3 md-line> Tim Max <span class="pull-right"> <small>just now</small></span></h3>
+                <p md-line>
+                  <span> <small>Make some fun tonight?</small></span>
+                </p>
+              </md-list-item>
+              <md-list-item>
+                <img md-list-avatar src="assets/img/avatar.jpg" alt="...">
+                <h3 md-line> Chiho Sin <span class="pull-right"> <small>2 min ago</small></span></h3>
+                <p md-line>
+                  <span> <small>Hello!</small></span>
+                </p>
+              </md-list-item>
+              <md-list-item>
+                <img md-list-avatar src="assets/img/avatar1.png" alt="...">
+                <h3 md-line> Alex Chan <span class="pull-right"> <small>8 min ago</small></span></h3>
+                <p md-line>
+                  <span> <small>I'm finish my job!</small></span>
+                </p>
+              </md-list-item>
+            </md-list>
+          </md-tab>
+        </md-tab-group>
+      </md-card>
+      <md-card class="page-card card-content-full widget-weather"
+               style="background-image: url(assets/img/gallery/img11.jpg);background-size: cover;"
+               fxFlex>
+        <md-card-title>
+          New York
+          <p>
+            Thursday 12:00 PM
+          </p>
+          <p>
+            Partly Cloudy
+          </p>
+        </md-card-title>
+        <md-card-content>
+          <div class="weather-background">
+            <div class="weather-background-mask"></div>
+          </div>
+          <div class="weather-main"><i class="wi wi-cloudy-windy"></i>
+            <p>22
+              <small>°C</small>
+            </p>
+            <span>Precipitation 0%</span>
+            <span>Humidity 90%</span>
+            <span>Wind 5 km/h</span>
+          </div>
+          <div class="weather-forecast" fxFlex fxLayout="row">
+            <div class="weather-forecast-info" fxFlex>
+              <p>Thu</p>
+              <i class="wi wi-smog"></i>
+              <p><span>13°C</span><span>11°C</span></p>
+            </div>
+            <div class="weather-forecast-info" fxFlex>
+              <p>Fri</p>
+              <i class="wi wi-sandstorm"></i>
+              <p><span>11°C</span><span>9°C</span></p>
+            </div>
+            <div class="weather-forecast-info" fxFlex>
+              <p>Sat</p>
+              <i class="wi wi-day-rain"></i>
+              <p><span>13°C</span><span>10°C</span></p>
+            </div>
+            <div class="weather-forecast-info" fxFlex>
+              <p>Sun</p>
+              <i class="wi wi-rain"></i>
+              <p><span>12°C</span><span>11°C</span></p>
+            </div>
+            <div class="weather-forecast-info" fxFlex>
+              <p>Mon</p>
+              <i class="wi wi-rain-mix"></i>
+              <p><span>9°C</span><span>7°C</span></p>
+            </div>
+            <div class="weather-forecast-info" fxFlex>
+              <p>Tue</p>
+              <i class="wi wi-rain-wind"></i>
+              <p><span>8°C</span><span>5°C</span></p>
+            </div>
+            <div class="weather-forecast-info" fxFlex>
+              <p>Wed</p>
+              <i class="wi wi-snow-wind"></i>
+              <p><span>7°C</span><span>6°C</span></p>
+            </div>
+            <div class="weather-forecast-info" fxFlex>
+              <p>Thu</p>
+              <i class="wi wi-snow"></i>
+              <p><span>8°C</span><span>7°C</span></p>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" fxFlex>
+      <md-card class="page-card card-content-full widget-table" fxFlex>
+        <md-card-title><span md-line>Project</span>
+          <span class="card-title-fillers"></span>
+          <button class="card-title-menu" md-icon-button>
+            <md-icon>more_vert</md-icon>
+          </button>
+        </md-card-title>
+        <md-card-subtitle>Git milestone</md-card-subtitle>
+        <section class="bs">
+          <table class="table table-striped table-hover table-card">
+            <thead>
+            <tr>
+              <th style="width:20%;">User</th>
+              <th style="width:15%;">Milestone</th>
+              <th style="width:10%;">Branch</th>
+              <th style="width:10%;">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td class="user-avatar cell-detail cell-avatar">
+                <img src="assets/img/avatar.jpg">
+                <span>Benji Harper</span><span
+                class="cell-detail-description">Designer</span></td>
+              <td>
+                <span class="completed">22 / 30</span>
+                <div class="progress">
+                  <div style="width: 75%" class="progress-bar bg-warning"></div>
+                </div>
+              </td>
+              <td class="cell-detail"><span>develop</span><span class="cell-detail-description">4cc1bc2</span></td>
+              <td class="cell-detail"><span>April 22, 2016</span><span class="cell-detail-description">14:45</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="user-avatar cell-detail cell-avatar">
+                <img src="assets/img/avatar1.png">
+                <span>Alex Chan</span><span
+                class="cell-detail-description">Developer</span></td>
+              <td>
+                <span class="completed">8 / 15</span>
+                <div class="progress">
+                  <div style="width: 25%" class="progress-bar bg-warning"></div>
+                </div>
+              </td>
+              <td class="cell-detail"><span>develop</span><span class="cell-detail-description">63e8ec3</span></td>
+              <td class="cell-detail"><span>April 22, 2016</span><span class="cell-detail-description">14:45</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="user-avatar cell-detail cell-avatar">
+                <img src="assets/img/avatar2.png">
+                <span>Justine Clifford</span><span
+                class="cell-detail-description">Designer</span></td>
+              <td>
+                <span class="completed">1/ 12</span>
+                <div class="progress">
+                  <div style="width: 12%" class="progress-bar bg-warning"></div>
+                </div>
+              </td>
+              <td class="cell-detail"><span>master</span><span class="cell-detail-description">8cb98ec</span></td>
+              <td class="cell-detail"><span>April 22, 2016</span><span class="cell-detail-description">13:02</span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </section>
+      </md-card>
+    </div>
+    <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" fxFlex>
+      <div fxLayout="column" fxFlex="70" fxFlexAlign="start">
+        <md-card class="page-card card-content-full" fxFlex>
+          <md-card-title><span md-line>Lokra Studio</span>
+            <span class="card-title-fillers"></span>
+            <button class="card-title-menu" md-icon-button>
+              <md-icon>location_searching</md-icon>
+            </button>
+          </md-card-title>
+          <md-card-subtitle>Tianhe SQ. Guangzhou GD, China</md-card-subtitle>
+          <sebm-google-map [latitude]="23.1221926" [longitude]="113.4048019" [zoom]="13" style="height: 320px">
+          </sebm-google-map>
+        </md-card>
+        <md-card class="page-card card-content-full" fxFlex>
+          <md-card-title>
+            <span>Commit</span>
+            <span class="card-title-filler"></span>
+            <a class="card-title-menu" md-ripple [md-menu-trigger-for]="cardTitleMenu">
+              <i class="material-icons">more_vert</i>
+            </a>
+            <md-menu #cardTitleMenu="mdMenu">
+              <button md-menu-item>Item</button>
+              <button md-menu-item>Item</button>
+              <button md-menu-item>Item</button>
+            </md-menu>
+          </md-card-title>
+          <lk-chart-js
+            [type]="parjectChart.type"
+            [data]="parjectChart.data"
+            [options]="parjectChart.options"
+            [height]="100"
+          ></lk-chart-js>
+          <section class="bs">
+            <table class="table table-striped table-hover table-card">
+              <thead>
+              <tr>
+                <th style="width:20%;">User</th>
+                <th style="width:15%;">Milestone</th>
+                <th style="width:10%;">Branch</th>
+                <th style="width:10%;">Date</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td class="user-avatar cell-detail cell-avatar">
+                  <img src="assets/img/avatar1.png">
+                  <span>Benji Harper</span><span
+                  class="cell-detail-description">Designer</span></td>
+                <td>
+                  <span class="completed">22 / 30</span>
+                  <div class="progress">
+                    <div style="width: 75%" class="progress-bar progress-bar-primary"></div>
+                  </div>
+                </td>
+                <td class="cell-detail"><span>develop</span><span class="cell-detail-description">4cc1bc2</span></td>
+                <td class="cell-detail"><span>April 22, 2016</span><span class="cell-detail-description">14:45</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="user-avatar cell-detail cell-avatar">
+                  <img src="assets/img/avatar2.png">
+                  <span>Alex Chan</span><span
+                  class="cell-detail-description">Developer</span></td>
+                <td>
+                  <span class="completed">8 / 15</span>
+                  <div class="progress">
+                    <div style="width: 25%" class="progress-bar progress-bar-primary"></div>
+                  </div>
+                </td>
+                <td class="cell-detail"><span>develop</span><span class="cell-detail-description">63e8ec3</span></td>
+                <td class="cell-detail"><span>April 22, 2016</span><span class="cell-detail-description">14:45</span>
+                </td>
+              </tr>
+              <tr>
+                <td class="user-avatar cell-detail cell-avatar">
+                  <img src="assets/img/avatar.jpg">
+                  <span>Justine Clifford</span><span
+                  class="cell-detail-description">Designer</span></td>
+                <td>
+                  <span class="completed">1/ 12</span>
+                  <div class="progress">
+                    <div style="width: 12%" class="progress-bar progress-bar-primary"></div>
+                  </div>
+                </td>
+                <td class="cell-detail"><span>master</span><span class="cell-detail-description">8cb98ec</span></td>
+                <td class="cell-detail"><span>April 22, 2016</span><span class="cell-detail-description">13:02</span>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </section>
+        </md-card>
+      </div>
+      <div fxLayout="column" fxFlex="30" fxFlexAlign="start">
+        <md-card class="page-card" fxFlex>
+          <md-card-content>
+            <div fxLayout="row" fxFlex>
+              <div fxFlex="50">
+                <h3>Chiho Sin</h3>
+                <span md-line>Guang dong, China</span>
+                <span md-line>Software Engineer</span>
+                <p md-line>
+                  <button md-raised-button color="primary">Follow</button>
+                </p>
+              </div>
+              <div fxFlex="50" style="text-align: right;margin: auto;">
+                <img src="assets/img/avatar.jpg" height="96" width="96" style="border-radius: 50%;">
+              </div>
+            </div>
+          </md-card-content>
+          <hr>
+          <div class="bottom-block" fxLayout="row" fxFlex>
+            <div class="bottom-content" fxFlex>
+              <p>54</p>
+              <span>POST</span>
+            </div>
+            <div class="bottom-content" fxFlex>
+              <p>4235</p>
+              <span>FOLLOWERS</span>
+            </div>
+            <div class="bottom-content" fxFlex>
+              <p>892</p>
+              <span>WATCH</span>
+            </div>
+          </div>
+        </md-card>
+        <md-card class="page-card" fxFlex>
+          <md-card-header>
+            <div md-card-avatar
+                 style="background-image: url('assets/img/avatar.jpg');
+             background-size: cover;">
+            </div>
+            <md-card-title>Chiho Sin</md-card-title>
+            <md-card-subtitle>Developer</md-card-subtitle>
+          </md-card-header>
+          <img md-card-image src="assets/img/gallery/img3.jpg" height="160">
+          <md-card-content>
+            <p>
+              The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+              A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+              bred for hunting.
+            </p>
+          </md-card-content>
+          <md-card-actions>
+            <button md-button>LIKE</button>
+            <button md-button>SHARE</button>
+          </md-card-actions>
+        </md-card>
+      </div>
+    </div>
+  </div>
+</div>

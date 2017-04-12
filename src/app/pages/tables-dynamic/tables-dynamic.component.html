@@ -1,0 +1,78 @@
+<div class="page-content">
+  <md-card class="page-card">
+    <md-card-title>Dynamic Table
+      <a class="badge" href="https://github.com/swimlane/ngx-datatable">Official Documentation</a>
+    </md-card-title>
+    <md-card-subtitle>
+      <p><code>ngx-datatable</code>
+        is an Angular2 and beyond component for presenting large and complex data. It has all the features you would
+        expect from any other table but in a light package with <em>no external dependencies</em>. The table was
+        designed to be extremely flexible and light; it doesn't make any assumptions about your data or how you: filter,
+        sort or page it.</p>
+    </md-card-subtitle>
+    <md-card-content>
+        <input
+          type='text'
+          style='padding:8px;margin:15px auto;width:30%;'
+          placeholder='Type to filter the name column...'
+          (keyup)='updateFilter($event)'>
+        <ngx-datatable
+          #mydatatable
+          class="material fullscreen"
+          [headerHeight]="50"
+          [limit]="20"
+          [sortType]="'multi'"
+          [columnMode]="'force'"
+          [footerHeight]="50"
+          [rowHeight]="'auto'"
+          [rows]="rows">
+          <ngx-datatable-column name="Name">
+            <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+            <span
+              title="Double click to edit"
+              (dblclick)="editing[row.$$index + '-name'] = true"
+              *ngIf="!editing[row.$$index + '-name']">
+              {{value}}
+            </span>
+              <input
+                autofocus
+                (blur)="updateValue($event, 'name', value, row)"
+                *ngIf="editing[row.$$index + '-name']"
+                type="text"
+                [value]="value"
+              />
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Gender">
+            <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+             <span
+               title="Double click to edit"
+               (dblclick)="editing[row.$$index + '-gender'] = true"
+               *ngIf="!editing[row.$$index + '-gender']">
+              {{value}}
+            </span>
+              <select
+                *ngIf="editing[row.$$index + '-gender']"
+                (change)="updateValue($event, 'gender', value, row)"
+                [value]="value">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Company">
+            <ng-template ngx-datatable-cell-template let-value="value">
+              {{value}}
+            </ng-template>
+          </ngx-datatable-column>
+          <ngx-datatable-column name="Age">
+            <ng-template let-value="value" ngx-datatable-cell-ng-template>
+              <div style="border:solid 1px #ddd;margin:5px;padding:3px">
+                <div style="background:#999;height:10px" [style.width]="value + '%'"></div>
+              </div>
+            </ng-template>
+          </ngx-datatable-column>
+        </ngx-datatable>
+    </md-card-content>
+  </md-card>
+</div>

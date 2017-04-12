@@ -1,0 +1,35 @@
+@import "app.theme";
+//----------------------------------------------------------------------------------------------------------------------
+// Custom style sheet
+//----------------------------------------------------------------------------------------------------------------------
+@mixin custom-theme($theme) {
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  // Custom your theme here with material palette.
+
+  //body {
+  //  background-color: mat-color($background, background);
+  //  color: mat-color($primary);
+  //}
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Mixin light theme
+//----------------------------------------------------------------------------------------------------------------------
+body.light {
+  $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+  @include custom-theme($theme);
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Mixin dark theme
+//----------------------------------------------------------------------------------------------------------------------
+body.dark {
+  $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
+  @include custom-theme($theme);
+}

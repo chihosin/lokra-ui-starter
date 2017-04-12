@@ -1,0 +1,34 @@
+pre code {
+  color: #268bd2;
+}
+
+.example-md-menu {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.example-md-menu h3 {
+  background: #f2f2f2;
+}
+
+.example-menu-title {
+  width: 100%;
+  display: block;
+  padding: 24px
+}
+
+.example-menu-title p {
+  //color: rgba(0, 0, 0, .54);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.example-menu-content {
+  width: 100%;
+  display: block;
+  padding: 24px
+}
+
+.example-menu-content * {
+  //color: rgba(0, 0, 0, .54);
+}

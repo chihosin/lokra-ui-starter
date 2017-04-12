@@ -1,0 +1,345 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
+        <md-card fxFlex class="page-card">
+          <md-card-title>Chips</md-card-title>
+          <md-card-content>
+            <section class="example-section">
+              <md-chip-list class="md-chip-list-stacked">
+                <md-chip class="chip-short" *ngFor="let chipColor of availableColors"
+                         selected="true"
+                         color="{{chipColor.color}}">
+                  {{chipColor.name}}
+                </md-chip>
+              </md-chip-list>
+            </section>
+
+            <section>
+              <md-chip-list class="md-chip-list-stacked">
+                <md-chip *ngFor="let chipColor of availableColors"
+                         selected="true"
+                         color="{{chipColor.color}}">
+                  {{chipColor.name}}
+                </md-chip>
+              </md-chip-list>
+            </section>
+
+            <section class="example-section">
+              <md-chip-list>
+                <md-chip>Default</md-chip>
+                <md-chip color="primary" selected="true">Primary</md-chip>
+                <md-chip color="accent" selected="true">Accent</md-chip>
+                <md-chip color="warn" selected="true">Warn</md-chip>
+
+              </md-chip-list>
+            </section>
+
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdChipsModule</code>
+          <a class="badge" href="https://material.angular.io/components/component/chips">Official Documentation
+          </a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>
+              <code>&lt;md-chip-list&gt;</code> displays a list of values as individual, keyboard accessible, chips.
+            </p>
+            <p>
+              Note: chips are still early in their development and more features are being actively worked on.
+            </p>
+            <pre>
+  <code>&lt;md-chip-list&gt;</code>
+    <code>&lt;md-chip&gt;</code>Papadum<code>&lt;/md-chip&gt;</code>
+    <code>&lt;md-chip&gt;</code>Naan<code>&lt;/md-chip&gt;</code>
+    <code>&lt;md-chip&gt;</code>Dal<code>&lt;/md-chip&gt;</code>
+  <code>&lt;/md-chip-list&gt;</code>
+</pre>
+            <h3>Unstyled chips</h3>
+            <p>
+              By default, <code>&lt;md-chip</code> has Material Design styles applied. For a chip with no styles
+              applied,
+              use <code>&lt;md-basic-chip&gt;</code>. You can then customize the chip appearance by adding your own CSS.
+            </p>
+            <p>
+              Hint: <code>&lt;md-basic-chip&gt;</code> receives the md-basic-chip CSS class in addition to the md-chip
+              class.
+            </p>
+            <h3>Selection</h3>
+            <p>
+              Chips can be selected via the selected property.
+              Selection can be disabled by setting selectable to false on the <code>&lt;md-chip-list&gt;</code>.
+            </p>
+            <p>
+              Selection emits the (select) output while deselecting emits the (deselect) output.
+              Both outputs receive a ChipEvent object with a structure of <code>&#123; chip: alteredChip &#125;</code>.
+            </p>
+            <h3>Disabled chips</h3>
+            <p>
+              Individual chips may be disabled by applying the disabled attribute to the chip.
+              When disabled, chips are neither selectable nor focusable.
+              Currently, disabled chips receive no special styling.
+            </p>
+            <h3>Keyboard interaction</h3>
+            <p>
+              Users can move through the chips using the arrow keys and select/deselect them with the space.
+              Chips also gain focus when clicked, ensuring keyboard navigation starts at the appropriate chip.
+            </p>
+            <h3>Theming</h3>
+            <p>
+              The selected color of an <code>&lt;md-chip&gt;</code> can be changed by using the color property.
+              By default, chips use a neutral background color based on the current theme (light or dark).
+              This can be changed to <code>primary</code>, <code>accent</code>, or <code>warn</code>.
+            </p>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>MdChipsModule</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <h2>Directives</h2>
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdChipList</h3>
+            <p class="docs-api-class-description">A material design chips component (named ChipList for
+              it&#39;s similarity to the List component).
+
+              Example:
+
+              &lt;md-chip-list&gt;
+              &lt;md-chip&gt;Chip 1&lt;md-chip&gt;
+              &lt;md-chip&gt;Chip 2&lt;md-chip&gt;
+              &lt;/md-chip-list&gt;
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  chips
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">The chip components contained within this chip list.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    selectable
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether or not this chip is selectable.
+                  When a chip is not selectable,
+                  it&#39;s selected state is always ignored.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">focus</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Programmatically focus the chip list.
+                  This in turn focuses the first
+                  non-disabled chip in this chip list.
+                </td>
+              </tr>
+            </table>
+
+
+            <h3 class="docs-api-h3 docs-api-class-name">MdChip</h3>
+            <p class="docs-api-class-description">Material design styled Chip component.
+              Used inside the MdChipList component.
+            </p>
+
+            <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
+            <table class="docs-api-properties-table">
+              <tr class="docs-api-properties-header-row">
+                <th class="docs-api-properties-th">Name</th>
+                <th class="docs-api-properties-th">Description</th>
+              </tr>
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell"><p class="docs-api-property-name">
+                  onFocus
+                </p>
+
+                </td>
+                <td class="docs-api-property-description">Emitted when the chip is focused.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    select
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Emitted when the chip is selected.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    deselect
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Emitted when the chip is deselected.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-output-marker">
+                    @Output()
+                  </div>
+                  <p class="docs-api-property-name">
+                    destroy
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Emitted when the chip is destroyed.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    disabled
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether or not the chip is disabled.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    selected
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">Whether or not this chip is selected.
+                </td>
+              </tr>
+
+
+              <tr class="docs-api-properties-row">
+                <td class="docs-api-properties-name-cell">
+                  <div class="docs-api-input-marker">
+                    @Input()
+                  </div>
+                  <p class="docs-api-property-name">
+                    color
+                  </p>
+
+                </td>
+                <td class="docs-api-property-description">The color of the chip. Can be `primary`, `accent`, or `warn`.
+                </td>
+              </tr>
+
+
+            </table>
+
+
+            <h4 class="docs-api-h4 docs-api-method-header">Methods</h4>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">toggleSelected</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Toggles the current selected
+                  state of this chip.
+                </td>
+              </tr>
+              <thead>
+              <tr class="docs-api-method-returns-header-row">
+                <th colspan="2" class="docs-api-method-returns-header-cell">Returns</th>
+              </tr>
+              </thead>
+              <tr>
+                <td class="docs-api-method-returns-type-cell">
+                  <code class="docs-api-method-returns-type">boolean</code>
+                </td>
+                <td class="docs-api-method-returns-description-cell">
+                  <p class="docs-api-method-returns-description">Whether the chip is selected.
+                  </p>
+                </td>
+              </tr>
+            </table>
+
+            <table class="docs-api-method-table">
+              <thead>
+              <tr class="docs-api-method-name-row">
+                <th colspan="2" class="docs-api-method-name-cell">focus</th>
+              </tr>
+              </thead>
+              <tr class="docs-api-method-description-row">
+                <td colspan="2" class="docs-api-method-description-cell">Allows for programmatic focusing of the chip.
+                </td>
+              </tr>
+            </table>
+
+          </div>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

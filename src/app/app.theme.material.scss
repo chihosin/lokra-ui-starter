@@ -1,0 +1,1364 @@
+@import '~@angular/material/core/style/variables';
+@import '~@angular/material/toolbar/toolbar';
+@import "app.theme";
+
+//----------------------------------------------------------------------------------------------------------------------
+// Global
+//----------------------------------------------------------------------------------------------------------------------
+body {
+  max-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  * {
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    box-sizing: inherit;
+  }
+}
+
+lk-app {
+  position: absolute;
+  display: block;
+  max-height: 100%;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+  > md-toolbar {
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+  }
+}
+
+span.filler {
+  flex: 1 auto;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+//---------------------------------------------------------
+// Typography
+//---------------------------------------------------------
+h1, h2, h3, h4, h5, h6 {
+  overflow: hidden;
+}
+
+//---------------------------------------------------------
+// Image
+//---------------------------------------------------------
+img.avatar {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  border: 2px double rgba(155, 155, 155, 0.5);
+}
+
+//---------------------------------------------------------
+// Page
+//---------------------------------------------------------
+div.page-container {
+  position: static;
+}
+
+div.page-content {
+  padding: 8px;
+}
+
+div.page-content-fullscreen {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+}
+
+div.page-toolbar-content {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+div.page-toolbar-left-content {
+  width: 80%;
+}
+
+div.page-toolbar-right-content {
+  width: 20%;
+  right: 0;
+
+  div.info-content {
+    img.view {
+      width: 100%;
+    }
+  }
+}
+
+md-toolbar.page-footer {
+  font-size: 14px;
+}
+
+//---------------------------------------------------------
+// Top nav
+//---------------------------------------------------------
+md-toolbar.topnav-container {
+  position: fixed;
+  z-index: 4;
+  padding-right: 4px;
+  padding-left: 4px;
+
+  .topnav-menu-btn {
+    margin-top: -4px;
+  }
+  .topnav-avatar {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    border: 2px double rgba(255, 255, 255, 0.5);
+  }
+
+  .topnav-logo {
+    height: 32px;
+    padding: 0;
+    margin: 0 6px 0 0;
+    display: inline;
+  }
+  .topnav-title {
+    font-weight: 200;
+    padding: 0;
+    margin-top: -2px;
+    display: inline;
+    img {
+      display: inline;
+      height: 22px;
+      margin-top: -8px;
+      padding-right: 8px;
+    }
+  }
+  .topnav-search {
+    display: inline;
+    md2-autocomplete {
+      visibility: hidden;
+      width: 0;
+      transition: all .32s;
+      opacity: 0;
+    }
+    md2-autocomplete.show {
+      visibility: visible;
+      width: 280px;
+      opacity: 1;
+    }
+    .md2-autocomplete-trigger.is-focused {
+      border-bottom-width: 1px;
+    }
+    .md2-autocomplete-trigger svg {
+    }
+  }
+}
+
+//---------------------------------------------------------
+//* Side nav
+//---------------------------------------------------------
+md-sidenav-container {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  md-sidenav.mat-sidenav-opened.mat-sidenav-side, md-sidenav.mat-sidenav-side.mat-sidenav-opening {
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+  }
+  div.sidenav-container {
+    width: 280px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    md-list [md-subheader], md-nav-list [md-subheader] {
+      height: 24px;
+      padding: 4px 16px 4px 16px;
+    }
+
+    div.mat-list-item {
+      font-size: 14px;
+    }
+
+    div.mat-list-text {
+      a {
+        overflow: hidden;
+        text-overflow: clip;
+      }
+      i {
+        width: 28px;
+      }
+    }
+
+    .sidenav-menu-sub {
+      transition: all .32s;
+      opacity: 0;
+      visibility: hidden;
+      height: 0;
+    }
+
+    .sidenav-menu-sub.show {
+      visibility: visible;
+      opacity: 1;
+      height: 48px;
+    }
+
+    .sidenav-menu-sub-title {
+      padding-left: 48px;
+    }
+
+    md-nav-list {
+      padding-top: 0;
+      padding-bottom: 64px;
+    }
+  }
+  md-sidenav.sidenav-collapse {
+    min-width: 0;
+    div.sidenav-container {
+      transition: all .32s;
+      width: 48px;
+      div.mat-list-item-content{
+        padding: 0 13px;
+      }
+      div.mat-list-item {
+        padding-right: 0;
+      }
+      div.mat-list-text {
+        a {
+          text-overflow: clip;
+        }
+      }
+      .sidenav-collapse-item {
+        display: none;
+      }
+      span.label {
+        display: none;
+      }
+      md-list-item.sidenav-menu-sub {
+        display: none;
+      }
+    }
+  }
+  md-sidenav.sidenav-collapse:hover {
+    div.sidenav-container {
+      width: 280px;
+      div.mat-list-item {
+        padding-right: 16px;
+      }
+      .sidenav-collapse-item {
+        display: inline-block;
+      }
+      span.label {
+        display: inline-block;
+      }
+      md-list-item.sidenav-menu-sub {
+        display: block;
+      }
+    }
+  }
+  div.sidenav-bottom {
+    border-top: 1px solid;
+    position: absolute;
+    bottom: 0;
+    width: 280px;
+
+    .sidenav-bottom-item {
+      height: 64px;
+      padding: 12px 16px 16px;
+      width: 100%;
+    }
+  }
+}
+
+//---------------------------------------------------------
+//* Message panel
+//---------------------------------------------------------
+md-sidenav-container {
+  div.message-panel {
+    width: 320px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    div.time-panel {
+      text-align: center;
+      :nth-child(1) {
+        font-size: 24px;
+        font-weight: 300;
+        margin: 8px;
+      }
+      :nth-child(2) {
+        font-size: 72px;
+        font-weight: 500;
+        margin: 8px;
+      }
+      :nth-child(3) {
+        font-size: 24px;
+        font-weight: 300;
+        margin: 8px;
+      }
+    }
+  }
+}
+
+//---------------------------------------------------------
+// md-toolbar
+//---------------------------------------------------------
+md-toolbar {
+
+  .toolbar-filler {
+    flex: 1 1 auto;
+  }
+
+  md-toolbar-row {
+    h1.page-card-flexible-title {
+      padding-left: 48px;
+      font-size: 48px;
+      margin-top: -16px;
+      font-weight: 400;
+    }
+  }
+
+  .mat-toolbar-nav-with-fab {
+    padding-left: 86px;
+
+    button.mat-toolbar-nav-fab {
+      margin-left: -86px;
+      margin-top: 20px;
+      position: fixed;
+      z-index: 3;
+    }
+  }
+
+  .mat-toolbar-nav {
+    display: inline-block;
+
+    .mat-toolbar-nav-title {
+      padding: 0 2px;
+      font-size: 24px;
+      font-weight: 300;
+    }
+
+    .mat-toolbar-nav-icon {
+      margin-right: 32px;
+      margin-left: 2px;
+
+      i {
+        position: absolute;
+        margin-top: 8px;
+      }
+    }
+  }
+}
+
+//---------------------------------------------------------
+// md-tab
+//---------------------------------------------------------
+div.tab-body-content {
+  padding: 16px;
+}
+
+//---------------------------------------------------------
+// md-list
+//---------------------------------------------------------
+md-list.mat-list-with-fab {
+  padding: 0 16px;
+}
+
+.page-nav {
+  width: 100%;
+  padding: 16px;
+
+  md-list-item {
+    div.mat-list-item {
+      div.mat-list-text {
+        a {
+          i {
+            margin-right: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-nav-border {
+  border-right: 1px solid #CCCCCC;
+}
+
+//---------------------------------------------------------
+// md-card
+//---------------------------------------------------------
+md-card {
+  md-card-title {
+    .card-title-filler {
+      flex: 1 1 auto;
+    }
+    .card-title-menu {
+      cursor: pointer;
+      position: absolute;
+      right: 16px;
+      margin-top: -4px;
+    }
+    md-chip-list {
+      position: absolute;
+      right: 64px;
+    }
+  }
+}
+
+md-card.page-card {
+  margin: 8px;
+  md-card-header {
+    md-card-title, md-card-subtitle {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+md-card.page-card-flexible {
+  margin-top: -64px;
+}
+
+md-card.page-card-flexible-tabs, div.page-card-flexible-tabs {
+  margin-top: -48px;
+  padding: 0;
+  md-card-actions {
+    padding-left: 32px;
+  }
+}
+
+md-card.card-content-full {
+  padding: 24px 0 0 0;
+  .card-title-filler {
+    flex: 1 1 auto;
+  }
+  md-card-title, md-card-subtitle, md-card-header, md-card-actions, md-card-footer {
+    padding: 0 24px 0 24px;
+  }
+}
+
+md-card.card-content-tabs {
+  padding-top: 0;
+}
+
+md-card.page-card-padding-bottom {
+  padding-bottom: 24px;
+  md-card-actions {
+    margin-bottom: 0;
+    padding: 8px 24px;
+  }
+}
+
+//---------------------------------------------------------
+// md-input
+//---------------------------------------------------------
+md-input-container {
+  width: 100%;
+}
+
+//---------------------------------------------------------
+//* md-input
+//---------------------------------------------------------
+span.mat-button-wrapper {
+  span.notify {
+    position: absolute;
+    border-radius: 50%;
+    border-color: transparent;
+    padding: 1.3px;
+    width: 16px;
+    height: 16px;
+    background-color: red;
+    color: white;
+    vertical-align: baseline;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 1.4;
+    display: inline;
+    right: 0;
+  }
+}
+
+.label, .badge {
+  background-color: gray;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 25px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+//---------------------------------------------------------
+//* md-menu
+//---------------------------------------------------------
+div.mat-menu-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.menu-card {
+  width: 280px;
+
+  a.menu-block-btn {
+    display: inline-block;
+    text-align: center;
+    padding: 8px 4px;
+    margin: 12px;
+    cursor: pointer;
+    width: 66px;
+    height: 78px;
+    img {
+      height: 34px;
+      width: 34px;
+    }
+    span {
+      line-height: 3;
+      font-weight: 400;
+      display: block;
+      font-size: 12px;
+    }
+  }
+  a.menu-block-btn:hover {
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+
+  a.menu-block-bottom-btn {
+    cursor: pointer;
+    height: 32px;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+  }
+}
+
+//---------------------------------------------------------
+//* card-form
+//---------------------------------------------------------
+i.card-form-input-icon, md-icon.card-form-input-icon {
+  padding-top: 16px;
+  margin-right: 8px;
+}
+
+div.card-form-input {
+  width: 100%;
+  padding: 0 16px 0 0;
+
+  section.card-form-section {
+    padding-top: 8px;
+    padding-right: 8px;
+    div.mat-radio-label-content {
+      padding-right: 8px;
+      font-size: 14px;
+    }
+    div.mat-radio-container {
+      width: 16px;
+      height: 16px;
+    }
+    .mat-radio-inner-circle, .mat-radio-outer-circle {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  .mat-checkbox-label {
+    font-size: 14px;
+  }
+  .mat-checkbox-inner-container {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Responsive
+//----------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------
+// Toolbar
+//---------------------------------------------------------
+@mixin toolbar-responsive-height($height) {
+
+  div.page-container {
+    padding-top: $height;
+  }
+
+  div.sidenav-container {
+    padding-top: $height;
+  }
+
+  div.message-panel {
+    padding-top: $height;
+  }
+
+}
+
+@include toolbar-responsive-height($mat-toolbar-height-desktop);
+
+@media ($mat-xsmall) and (orientation: portrait) {
+  @include toolbar-responsive-height($mat-toolbar-height-mobile-portrait);
+}
+
+@media ($mat-small) and (orientation: landscape) {
+  @include toolbar-responsive-height($mat-toolbar-height-mobile-landscape);
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Widget
+//----------------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------
+//* info-tile
+//---------------------------------------------------------
+md-card.widget-tile {
+  height: 84px;
+  margin: 8px;
+  padding: 0;
+  div.widget-tile-icon-body {
+    div.widget-tile-content {
+      position: absolute;
+      padding: 16px;
+      top: 0;
+      left: 0;
+      h3, p {
+        text-align: left;
+        line-height: 1;
+        padding-top: 0;
+        margin-bottom: 4px;
+        margin-top: 0;
+        font-weight: bold;
+      }
+      p {
+        font-weight: 400;
+      }
+    }
+    div.widget-tile-icon {
+      height: 64px;
+      width: 72px;
+      overflow: hidden;
+      right: 0;
+      position: absolute;
+      bottom: 0;
+      i {
+        font-size: 86px;
+      }
+    }
+  }
+  div.widget-tile-chart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    padding: 16px;
+  }
+  div.widget-tile-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 16px;
+    text-align: right;
+
+    .widget-tile-title {
+      display: block;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .widget-tile-counter {
+      display: block;
+      font-size: 24px;
+      font-weight: 300;
+      i {
+        font-size: 28px;
+      }
+      span {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+//* Extra
+//----------------------------------------------------------------------------------------------------------------------
+
+md-card.widget-weather {
+  md-card-title {
+    text-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+    color: white;
+    p {
+      font-size: 14px;
+      margin-bottom: 0;
+      opacity: 0.6;
+    }
+  }
+  md-card-content {
+    background-size: cover;
+    height: 280px;
+    div.weather-background {
+      position: absolute;
+    }
+    div.weather-main {
+      text-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+      color: white;
+      i {
+        font-size: 64px;
+        display: inline-table;
+      }
+      span {
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+        display: block;
+        font-size: 12px;
+        padding-top: 2px;
+      }
+      p {
+        display: inline-table;
+        font-size: 48px;
+        margin: 0 16px;
+        font-weight: 400;
+      }
+      padding: 8px;
+      width: 100%;
+      height: 160px;
+      text-align: center;
+    }
+    div.weather-forecast {
+      width: 100%;
+      div.weather-forecast-info {
+        background-color: rgba(0, 0, 0, 0.12);
+        text-align: center;
+        text-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+        color: white;
+        p {
+          font-size: 16px;
+          height: 18px;
+          margin: 12px 0;
+          font-weight: 400;
+          span {
+            padding: 0 4px;
+            font-size: 12px;
+          }
+        }
+        i {
+          padding: 4px 0;
+          font-size: 28px;
+        }
+      }
+    }
+  }
+}
+
+md-card {
+  md-card-subtitle {
+    .counter-group {
+      display: inline-flex;
+      .counter {
+        padding-right: 24px;
+        .value {
+          font-size: 24px;
+        }
+        .desc {
+          text-transform: uppercase;
+          font-size: 12px;
+          color: #9d9d9d;
+        }
+      }
+    }
+  }
+  div.counter-group-bottom {
+    display: inline-flex;
+    position: relative;
+    padding: 16px 0;
+    text-align: center;
+    width: 100%;
+    .counter-label {
+      text-align: right;
+      width: 50%;
+      font-size: 14px;
+      p {
+        margin-right: -6px;
+        margin-bottom: 0;
+        i {
+          margin-left: 6px;
+        }
+      }
+    }
+    .counter-value {
+      text-align: left;
+      width: 50%;
+      font-size: 14px;
+      p {
+        font-weight: bold;
+        margin-bottom: 0;
+        padding-left: 14px;
+      }
+    }
+  }
+  table.table-card {
+    thead {
+      tr {
+        th:nth-child(1) {
+          padding-left: 24px;
+        }
+      }
+    }
+    tbody {
+      tr {
+        td:nth-child(1) {
+          padding-left: 24px;
+        }
+      }
+    }
+  }
+  textarea {
+    padding: 0 16px;
+    border: none;
+    resize: none;
+    width: 100%;
+    background-color: transparent;
+  }
+  div.bottom-block {
+    width: 100%;
+    div.bottom-content {
+      text-align: center;
+      height: 64px;
+      padding: 8px 0;
+    }
+    p {
+      margin: 0;
+      font-weight: 400;
+      font-size: 18px;
+    }
+    span {
+      margin-bottom: 0;
+      opacity: 0.6;
+      font-size: 12px;
+    }
+  }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Docs
+//----------------------------------------------------------------------------------------------------------------------
+.docs-guide-content {
+  h1 {
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 5px;
+  }
+
+  h3, h2 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: 80px;
+  }
+
+  h4 {
+    margin-top: 40px;
+  }
+
+  h5 {
+    font-size: 16px;
+  }
+
+  .mat-tab-body-wrapper h2 {
+    margin-top: 0;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-radius: 2px;
+    border-spacing: 0;
+    margin: 0 0 32px 0;
+    width: 100%;
+  }
+
+  table tbody th {
+    max-width: 100px;
+    padding: 13px 32px;
+    text-align: left;
+  }
+
+  td {
+    font-weight: 400;
+    padding: 8px 30px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  th {
+    font-size: 16px;
+    font-weight: 400;
+    padding: 13px 32px;
+    text-align: left;
+  }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Theme mixin
+//----------------------------------------------------------------------------------------------------------------------
+@mixin quill-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .ql-toolbar {
+    background-color: map-get($background, card);
+  }
+  .ql-snow .ql-stroke {
+    stroke: map-get($foreground, secondary-text);
+  }
+  .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
+    background-color: map-get($background, card);
+  }
+  .ql-snow.ql-toolbar button svg, .ql-snow .ql-toolbar button svg {
+    stroke: map-get($foreground, secondary-text);
+  }
+  .ql-snow .ql-picker {
+    color: map-get($foreground, secondary-text);
+  }
+}
+
+@mixin md2-datepicker-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .md2-datepicker-input {
+    md2-datepicker.ng-invalid.ng-touched:not(.md2-datepicker-disabled) & {
+      color: mat-color($warn);
+      border-bottom: 1px solid mat-color($warn);
+    }
+  }
+  .md2-datepicker-placeholder {
+    md2-datepicker:focus & {
+      color: mat-color($primary);
+    }
+  }
+  .md2-datepicker-header {
+    background: mat-color($primary);
+  }
+  .md2-years {
+    .md2-year {
+      &.selected {
+        color: mat-color($primary);
+      }
+    }
+  }
+  .md2-calendar-day {
+    &.today {
+      color: mat-color($primary);
+    }
+    &.selected,
+    &.selected:hover {
+      background: mat-color($primary);
+    }
+  }
+  .md2-clock-hour,
+  .md2-clock-minute {
+    &:hover {
+      background: lighten(mat-color($primary), 25);
+    }
+  }
+  .md2-clock-hand {
+    line {
+      stroke: mat-color($primary);
+    }
+  }
+  .md2-clock-bg {
+    fill: lighten(mat-color($primary), 25);
+  }
+  .md2-clock-fg {
+    fill: mat-color($primary);
+  }
+  .md2-clock-center {
+    fill: mat-color($primary);
+  }
+}
+
+@mixin topnav-theme($theme) {
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  md-toolbar.topnav-container {
+    .topnav-search {
+      display: inline;
+      .md2-autocomplete-trigger.is-focused {
+        border-bottom-color: white;
+      }
+      .md2-autocomplete-trigger svg {
+        background-color: transparent;
+      }
+    }
+  }
+
+}
+
+@mixin sidenav-theme($theme) {
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  md-list-item.active {
+    background-color: map-get($background, disabled-button);
+  }
+
+  div.sidenav-container {
+    div.sidenav-bottom {
+      background-color: map-get($background, background);
+      border-color: map-get($background, disabled-button);
+    }
+  }
+
+}
+
+@mixin menu-theme($theme) {
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .menu-card {
+    a.menu-block-bottom-btn {
+      background-color: map-get($background, disabled-button);
+      color: map-get($foreground, text);
+    }
+  }
+
+}
+
+@mixin info-tile-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  div.widget-tile-icon-body {
+    div.widget-tile-icon {
+      i {
+        color: map-get($foreground, divider);
+      }
+    }
+  }
+  div.widget-tile-icon-body {
+    div.widget-tile-content {
+      h3, p {
+        color: map-get($foreground, icons);
+      }
+    }
+  }
+}
+
+@mixin menu-block-btn-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  a.menu-block-btn:hover {
+    background-color: mat-color($background, disabled-button);
+  }
+  a.menu-block-btn {
+    span {
+      color: mat-color($foreground, text);;
+    }
+  }
+}
+
+@mixin text-color($theme) {
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  md-card {
+    md-card-subtitle {
+      color: map-get($foreground, text);
+      h4 {
+        color: map-get($foreground, text);
+        small {
+          color: map-get($foreground, text);
+        }
+      }
+      .counter-group {
+        .counter {
+          .value {
+            color: map-get($foreground, text);
+          }
+          .desc {
+            color: map-get($foreground, text);
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin bg-color($theme) {
+
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .bg-primary {
+    background-color: mat-color($primary);
+  }
+
+  .bg-accent {
+    background-color: mat-color($accent);
+  }
+
+  .bg-warn {
+    background-color: mat-color($warn);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: map-get($foreground, hint-text);
+  }
+
+}
+
+@mixin docs-site-typography-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .docs-guide-content {
+    h1 {
+      color: mat-color($primary, 800);
+      background: rgba(mat-color($foreground, secondary-text), .03);
+    }
+
+    h3, h2, h4, h5, p, ol, li {
+      color: mat-color($foreground, secondary-text);
+    }
+
+    a {
+      color: mat-color($primary);
+    }
+
+    table {
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24), 0 0 2px rgba(0, 0, 0, 0.12);
+    }
+
+    table tbody th {
+      border: 1px solid rgba(mat-color($foreground, secondary-text), .03);
+    }
+
+    td {
+      color: mat-color($foreground, secondary-text);
+      border: 1px solid rgba(mat-color($foreground, secondary-text), .03);
+    }
+
+    th {
+      color: mat-color($foreground, secondary-text);
+      background: rgba(mat-color($foreground, secondary-text), .03);
+    }
+  }
+}
+
+@mixin datatable-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .datatable.material {
+    background: mat-color($background, background);
+  }
+  .datatable.material.striped .datatable-row-odd {
+    background: mat-color($background, disabled-button);
+  }
+  .datatable.material.single-selection .datatable-body-row.active,
+  .datatable.material.single-selection .datatable-body-row.active .datatable-row-group, .datatable.material.multi-selection .datatable-body-row.active,
+  .datatable.material.multi-selection .datatable-body-row.active .datatable-row-group, .datatable.material.multi-click-selection .datatable-body-row.active,
+  .datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {
+    background-color: mat-color($primary);
+    color: mat-color($foreground, text);
+  }
+  .datatable.material.single-selection .datatable-body-row.active:hover,
+  .datatable.material.single-selection .datatable-body-row.active:hover .datatable-row-group, .datatable.material.multi-selection .datatable-body-row.active:hover,
+  .datatable.material.multi-selection .datatable-body-row.active:hover .datatable-row-group, .datatable.material.multi-click-selection .datatable-body-row.active:hover,
+  .datatable.material.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
+    background-color: mat-color($primary);
+    color: mat-color($foreground, text);
+  }
+  .datatable.material.single-selection .datatable-body-row.active:focus,
+  .datatable.material.single-selection .datatable-body-row.active:focus .datatable-row-group, .datatable.material.multi-selection .datatable-body-row.active:focus,
+  .datatable.material.multi-selection .datatable-body-row.active:focus .datatable-row-group, .datatable.material.multi-click-selection .datatable-body-row.active:focus,
+  .datatable.material.multi-click-selection .datatable-body-row.active:focus .datatable-row-group {
+    background-color: mat-color($primary);
+    color: mat-color($foreground, text);
+  }
+  .datatable.material:not(.cell-selection) .datatable-body-row:hover,
+  .datatable.material:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+    background-color: mat-color($background, disabled-button);
+  }
+  .datatable.material:not(.cell-selection) .datatable-body-row:focus,
+  .datatable.material:not(.cell-selection) .datatable-body-row:focus .datatable-row-group {
+    background-color: mat-color($background, disabled-button);
+  }
+  .datatable.material.cell-selection .datatable-body-cell:hover,
+  .datatable.material.cell-selection .datatable-body-cell:hover .datatable-row-group {
+    background-color: mat-color($background, disabled-button);
+  }
+  .datatable.material.cell-selection .datatable-body-cell:focus,
+  .datatable.material.cell-selection .datatable-body-cell:focus .datatable-row-group {
+    background-color: mat-color($background, disabled-button);
+  }
+  .datatable.material.cell-selection .datatable-body-cell.active,
+  .datatable.material.cell-selection .datatable-body-cell.active .datatable-row-group {
+    background-color: mat-color($primary);
+    color: mat-color($foreground, text);
+  }
+  .datatable.material.cell-selection .datatable-body-cell.active:hover,
+  .datatable.material.cell-selection .datatable-body-cell.active:hover .datatable-row-group {
+    background-color: mat-color($primary);
+    color: mat-color($foreground, text);
+  }
+  .datatable.material.cell-selection .datatable-body-cell.active:focus,
+  .datatable.material.cell-selection .datatable-body-cell.active:focus .datatable-row-group {
+    background-color: mat-color($primary);
+    color: mat-color($foreground, text);
+  }
+  .datatable.material .datatable-header .datatable-row-left,
+  .datatable.material .datatable-body .datatable-row-left {
+    background-color: mat-color($foreground, text);
+  }
+  .datatable.material .datatable-header .datatable-row-right,
+  .datatable.material .datatable-header .datatable-header-cell.longpress {
+    color: mat-color($accent);
+  }
+  .datatable.material .datatable-body .datatable-row-detail {
+    background: mat-color($background, background);
+  }
+  .datatable.material .datatable-body .progress-linear .container {
+    background-color: mat-color($background, background);
+  }
+  .datatable.material .datatable-footer .datatable-pager a:hover {
+    color: mat-color($background, disabled-button);
+    background-color: mat-color($background, background);
+  }
+  .datatable-checkbox input[type='checkbox']:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1rem;
+    height: 1rem;
+    background: mat-color($background, background);;
+    cursor: pointer;
+  }
+}
+
+@mixin fullcalendar-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .fc-unthemed td.fc-today {
+    background: mat-color($primary, 0.3);
+  }
+
+  .fc-event, .fc-event-dot {
+    border-color: mat-color($primary, 0.8);
+    background: mat-color($primary, 0.6);
+  }
+}
+
+@mixin bootstrap-fixed-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  .breadcrumb > li > a {
+    color: mat-color($primary);
+  }
+  .pager li > a, .pager li > span {
+    background-color: map-get($background, card);
+    border: 1px solid map-get($foreground, divider);
+    color: mat-color($primary);
+  }
+  .table tbody tr td.cell-detail .cell-detail-description {
+    color: map-get($foreground, secondary-text);
+  }
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Mixin light theme
+//----------------------------------------------------------------------------------------------------------------------
+body.light {
+  $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
+  @include angular-material-theme($theme);
+  @include quill-theme($theme);
+  @include md2-datepicker-theme($theme);
+  @include menu-theme($theme);
+  @include docs-site-typography-theme($theme);
+  @include bg-color($theme);
+  @include text-color($theme);
+  @include sidenav-theme($theme);
+  @include topnav-theme($theme);
+  @include info-tile-theme($theme);
+  @include bootstrap-fixed-theme($theme);
+  @include datatable-theme($theme);
+  @include fullcalendar-theme($theme);
+  @include menu-block-btn-theme($theme);
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+// Mixin dark theme
+//----------------------------------------------------------------------------------------------------------------------
+body.dark {
+  $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
+  @include angular-material-theme($theme);
+  @include quill-theme($theme);
+  @include md2-datepicker-theme($theme);
+  @include menu-theme($theme);
+  @include docs-site-typography-theme($theme);
+  @include bg-color($theme);
+  @include text-color($theme);
+  @include sidenav-theme($theme);
+  @include topnav-theme($theme);
+  @include info-tile-theme($theme);
+  @include bootstrap-fixed-theme($theme);
+  @include datatable-theme($theme);
+  @include fullcalendar-theme($theme);
+  @include menu-block-btn-theme($theme);
+}

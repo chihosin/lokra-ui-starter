@@ -1,0 +1,42 @@
+<md-toolbar color="primary">
+  <md-toolbar-row>
+    <h1 class="page-card-flexible-title">Wizard</h1>
+  </md-toolbar-row>
+  <md-toolbar-row></md-toolbar-row>
+</md-toolbar>
+<md-card class="page-card page-card-flexible-tabs" fxFlexOffset="15" fxFlex="70">
+  <md-card-content>
+    <md-tab-group selectedIndex="{{selectIndex}}">
+      <md-tab disabled label="Step 1">
+        <div class="tab-body-content">
+          <h4>
+            <small>Please input your phone number</small>
+          </h4>
+          <md-input-container>
+            <input mdInput placeholder="Phone number" type="tel" [(ngModel)]="phone" name="phone" required>
+          </md-input-container>
+        </div>
+      </md-tab>
+      <md-tab disabled label="Step 2">
+        <div class="tab-body-content">
+          <h4>
+            <small>Please input your mail address</small>
+          </h4>
+          <md-input-container>
+            <input mdInput placeholder="E-Mail" type="email" [(ngModel)]="email" name="email" required>
+          </md-input-container>
+        </div>
+      </md-tab>
+      <md-tab disabled label="Step 3">
+        <div class="tab-body-content">
+          <h4>Success sign in.</h4>
+        </div>
+      </md-tab>
+    </md-tab-group>
+  </md-card-content>
+  <md-card-actions>
+    <button md-raised-button [disabled]="selectIndex <= 0" (click)="selectIndex = selectIndex - 1">PREV</button>
+    <button md-raised-button [disabled]="selectIndex >= 2" (click)="selectIndex = selectIndex + 1">NEXT</button>
+  </md-card-actions>
+  <md-card-footer></md-card-footer>
+</md-card>

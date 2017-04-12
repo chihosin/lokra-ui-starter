@@ -1,0 +1,242 @@
+<md-tab-group>
+  <md-tab label="Example">
+    <div class="page-content">
+      <md-card>
+        <md-card-title>Clappr Video</md-card-title>
+        <md-card-subtitle>Default html5 media player</md-card-subtitle>
+        <md-card-content>
+          <lk-media-clappr [options]="options"></lk-media-clappr>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="Overview">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>Clppr</code>
+          <a class="badge" href="https://github.com/clappr/clappr/wiki">Official
+            Documentation</a>
+        </md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>Clappr is an extensible, open source, plugin oriented, html5-first media player for web and mobile. It
+              can play, among others formats: hls, dash, ogg, webm, mp4, rtmp either live or video on demand.</p>
+
+            <p>One of its strongest features is the ability to extend it with plugins, there are at least two main ways
+              of doing this:</p>
+
+            <ul>
+              <li>extending its <a href="http://clappr.github.io/modules/base.html">components</a> with inline
+                javascript
+              </li>
+              <li>creating an external plugin</li>
+            </ul>
+
+            <p>But before we start to create these plugins, we should understand the basics <a
+              href="http://blog.flavioribeiro.com/clappr-an-extensible-media-player-for-the-web/">behind Clappr's
+              architecture</a>. It was designed around these main components: </p>
+
+            <ul>
+              <li>
+                <a href="https://github.com/clappr/clappr/blob/master/src/components/player.js">Player</a> - the public
+                api and entry point for the clients.
+              </li>
+              <li>
+                <a href="https://github.com/clappr/clappr/blob/master/src/components/core/core.js">Core</a> - it is
+                really the player's core, almost all <strong>components are created and managed</strong> here. Usually
+                the player will talk with other components through core.
+              </li>
+              <li>
+                <a href="https://github.com/clappr/clappr/blob/master/src/components/media_control/media_control.js">MediaControl</a>
+                - it controls all the user interaction between ui and the <em>playback</em>, it relies only on <em>playback
+                abstraction</em> therefore this component should work in any playback (hls, dash, rtmp, mp4...)
+              </li>
+              <li>
+                <a
+                  href="https://github.com/clappr/clappr/blob/master/src/components/container/container.js">Container</a>
+                - a wrapper around the playback, sometimes it can be seen as just as a delegator, but you can use it to
+                build some plugins that can be agnostic of playback's kind.
+              </li>
+              <li>
+                <a href="https://github.com/clappr/clappr/blob/master/src/base/playback.js">Playback</a> - an
+                abstraction that actually plays the media, it might use: video tag, MSE and flash to achieve this.
+              </li>
+            </ul>
+
+            <p><img
+              src="https://camo.githubusercontent.com/8e6d3044e64671d6a838d29b946637849ed2ff3b/687474703a2f2f7332382e706f7374696d672e6f72672f6b6c656d3578747a312f53637265656e5f53686f745f323031355f31305f31365f61745f395f33365f32335f414d2e706e67"
+              alt="alt" data-canonical-src="http://s28.postimg.org/klem5xtz1/Screen_Shot_2015_10_16_at_9_36_23_AM.png">
+            </p>
+
+            <p>And you can create plugins around these abstractions, here's the kinds of plugins you can do:</p>
+
+            <ul>
+              <li>
+                <strong>CorePlugin</strong> - you can access/modify all the components of the player (ex: getting user
+                statistics)
+              </li>
+              <li>
+                <strong>UICorePlugin</strong> - the same as <strong>CorePlugin</strong>, but rendering user interface
+                elements, like <a href="https://github.com/clappr/clappr-chromecast-plugin">Chromecast</a> and <a
+                href="https://github.com/tjenkinson/clappr-thumbnails-plugin">Thumbnails</a>
+              </li>
+              <li>
+                <strong>ContainerPlugin</strong> - you access/modify a playback, controlling it (ex: <a
+                href="https://github.com/clappr/clappr-speech-control-plugin">speech control</a>) or changing its
+                behavior.
+              </li>
+              <li>
+                <strong>UIContainerPlugin</strong> - the same as <strong>ContainerPlugin</strong>, but with user
+                interface elements (ex: banners, <a href="https://github.com/clappr/watermark">watermark</a>)
+              </li>
+              <li>
+                <strong>Playback</strong> - although it's more of module than a plugin, you can provide a playback for
+                (ex: <a href="https://github.com/thiagopnts/video-360">360 degrees video</a>, <a
+                href="https://github.com/clappr/dash-shaka-playback">Dash</a>)
+              </li>
+              <li>
+                <strong>MediaControl</strong> - you can provide your own controls for the player.
+              </li>
+            </ul>
+
+            <p>To summarize Clappr is aiming to:</p>
+
+            <ul>
+              <li>
+                <strong>keep open to extensibility:</strong> you can create an entire plugin in a different repository,
+                you can disable it, you can create a new playback that is able to work with the old media control and
+                existent plugins.
+              </li>
+              <li>
+                <strong>use mainly events to communicate with components:</strong> which makes your program less
+                coupling in your plugin level... you don't need to call a function, you can listen to events and trigger
+                events.
+              </li>
+              <li>
+                <strong>have a minimal footprint:</strong> You can add the plugins you need, for instance you don't need
+                to load <a href="https://github.com/clappr/clappr-chromecast-plugin">chromecast</a> when you don't need
+                it.
+              </li>
+            </ul>
+
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+  <md-tab label="API Reference">
+    <div class="page-content">
+      <md-card class="page-card">
+        <md-card-title><code>Clppr</code></md-card-title>
+        <md-card-content>
+          <div class="docs-guide-content">
+            <p>All parameters listed below shall be added on <code>Clappr.Player</code> object instantiation.
+            </p>
+            <table>
+              <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Discussion</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td><code>autoPlay</code></td>
+                <td>Boolean</td>
+                <td></td>
+                <td>
+                  <code>true</code> if video should automatically play after page load
+                </td>
+              </tr>
+              <tr>
+                <td><code>autoPlayVisible</code></td>
+                <td>Boolean</td>
+                <td></td>
+                <td>
+                  <code>partial</code> if video should play automatically when it is partially appearing on the screen.
+                  <code>full</code> to auto play only when it is full visible
+                </td>
+              </tr>
+              <tr>
+                <td><code>chromeless</code></td>
+                <td>Boolean</td>
+                <td><code>false</code></td>
+                <td>
+                  <code>true</code> if you want the player to act in chromeless mode.
+                </td>
+              </tr>
+              <tr>
+                <td><code>height</code></td>
+                <td>Integer</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td><code>hideMediaControl</code></td>
+                <td>Boolean</td>
+                <td><code>true</code></td>
+                <td>
+                  <code>false</code> to disable media control auto hide
+                </td>
+              </tr>
+              <tr>
+                <td><code>hideVolumeBar</code></td>
+                <td>Boolean</td>
+                <td><code>false</code></td>
+                <td>
+                  <code>true</code> to hide volume bars
+                </td>
+              </tr>
+              <tr>
+                <td><code>mediacontrol</code></td>
+                <td>Object</td>
+                <td></td>
+                <td>you can customize control bar colors adding the <code>mediacontrol</code> hash, eg: <code>mediacontrol:
+                  seekbar: "#E113D3", buttons: "#66B2FF"</code>
+                </td>
+              </tr>
+              <tr>
+                <td><code>mute</code></td>
+                <td>Boolean</td>
+                <td><code>false</code></td>
+                <td>
+                  <code>true</code> if you want to start player with no sound
+                </td>
+              </tr>
+              <tr>
+                <td><code>persistConfig</code></td>
+                <td>Boolean</td>
+                <td><code>true</code></td>
+                <td>
+                  <code>false</code> if you don't want to persist player's volume through your videos, by <strong>default
+                  it saves</strong>. These configuration are being saved at user's browser (<a
+                  href="http://diveintohtml5.info/storage.html">through localStorage</a>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>preload</code></td>
+                <td>String</td>
+                <td></td>
+                <td>In case you're loading a on demand video (mp4), it's possible to define the way the video will be
+                  preloaded according to <a href="http://www.stevesouders.com/blog/2013/04/12/html5-video-preload/">preload</a>
+                  attribute options. Add <code>preload: &lt;type&gt;</code> on embed parameters. By default, Clappr will
+                  try to download only video metadata (<code>preload: 'metadata'</code>).
+                </td>
+              </tr>
+              <tr>
+                <td><code>width</code></td>
+                <td>Integer</td>
+                <td></td>
+                <td></td>
+              </tr>
+              </tbody>
+            </table>
+            <p>You can listen to several <a href="https://github.com/clappr/clappr/blob/master/doc/API_EVENTS.md">events from Clappr</a>.</p>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </md-tab>
+</md-tab-group>

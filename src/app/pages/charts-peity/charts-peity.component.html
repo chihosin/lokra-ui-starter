@@ -1,0 +1,96 @@
+<div class="page-content">
+  <md-card class="page-card">
+    <md-card-title>Peity Chart
+      <a class="badge" href="http://benpickles.github.io/peity/">Official Documentation</a>
+    </md-card-title>
+    <md-card-subtitle>Peity (sounds like deity) is a jQuery plugin that converts an element's content into a' mini pie
+      donut line or bar chart and is compatible with any browser that supports': Chrome, Firefox, IE9+, Opera, Safari.
+    </md-card-subtitle>
+    <md-card-content>
+      <section class="bs">
+        <table class="table table-hover">
+          <tr>
+            <td>Pie Charts</td>
+            <td>
+              <lk-chart-peity [type]="'pie'" [data]="[1,5]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'pie'" [data]="[226,360]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'pie'" [data]="[0.52,1.561]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'pie'" [data]="[1,4]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'pie'" [data]="[226,134]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'pie'" [data]="[0.52,1.041]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'pie'" [data]="[1,2,3,2,2]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+            </td>
+          </tr>
+          <tr>
+            <td>Donut Charts</td>
+            <td>
+              <lk-chart-peity [type]="'donut'" [data]="[1,5]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'donut'" [data]="[226,360]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'donut'" [data]="[0.52,1.561]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'donut'" [data]="[1,4]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'donut'" [data]="[226,134]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'donut'" [data]="[0.52,1.041]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'donut'" [data]="[1,2,3,2,2]"
+                              [options]="{fill: ['#46be8a','#79dcb1','#b1f8d9'],radius: 11}">
+              </lk-chart-peity>
+            </td>
+          </tr>
+          <tr>
+            <td>Line Charts</td>
+            <td>
+              <lk-chart-peity [type]="'line'" [data]="[5,3,9,6,5,9,7,3,5,2]"
+                              [options]="{fill: ['#79dcb1'],stroke: '#46be8a',strokeWidth: 1}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'line'" [data]="[5,3,2,-1,-3,-2,2,3,5,2]"
+                              [options]="{fill: ['#79dcb1'],stroke: '#46be8a',strokeWidth: 1}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'line'" [data]="[0,-3,-6,-4,-5,-4,-7,-3,-5,-2]"
+                              [options]="{fill: ['#79dcb1'],stroke: '#46be8a',strokeWidth: 1}">
+              </lk-chart-peity>
+            </td>
+          </tr>
+          <tr>
+            <td>Bar Charts</td>
+            <td>
+              <lk-chart-peity [type]="'bar'" [data]="[5,3,9,6,5,9,7,3,5,2]"
+                              [options]="{fill: ['#79dcb1'],height: 22,width: 44}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'bar'" [data]="[5,3,2,-1,-3,-2,2,3,5,2]"
+                              [options]="{fill: ['#79dcb1'],height: 22,width: 44}">
+              </lk-chart-peity>
+              <lk-chart-peity [type]="'bar'" [data]="[0,-3,-6,-4,-5,-4,-7,-3,-5,-2]"
+                              [options]="{fill: ['#79dcb1'],height: 22,width: 44}">
+              </lk-chart-peity>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </md-card-content>
+  </md-card>
+</div>
