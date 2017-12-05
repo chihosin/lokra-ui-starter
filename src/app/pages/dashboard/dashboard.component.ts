@@ -1,6 +1,6 @@
 import { Component, OnInit, ElementRef, AfterViewInit, OnDestroy } from '@angular/core';
 import { AppService } from '../../app.service';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { DialogThemeComponent } from '../../shared/dialog/dialog-theme/dialog-theme.component';
 import ChartData = Chart.ChartData;
 
@@ -101,7 +101,7 @@ export class DashboardComponent implements OnInit, AfterViewInit, OnDestroy {
   storageChart = ChartJSDountMock.donutChart;
   parjectChart = ChartJsTableLineMock;
 
-  constructor(private appService: AppService, privateelementRef: ElementRef, private dialog: MdDialog,) {
+  constructor(private appService: AppService, privateelementRef: ElementRef, private dialog: MatDialog,) {
     appService.getState().topnavTitle = 'Dashboard';
     appService.getState().pageFooter = true;
     setInterval(() => {

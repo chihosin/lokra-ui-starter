@@ -1,47 +1,47 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Snack Bar
-          </md-card-title>
-          <md-card-subtitle>
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Snack Bar
+          </mat-card-title>
+          <mat-card-subtitle>
             For displaying snack-bar notifications
-          </md-card-subtitle>
-          <md-card-content>
+          </mat-card-subtitle>
+          <mat-card-content>
 
-            <md-input-container>
-              <input mdInput value="What is the color?" placeholder="Message" #message>
-            </md-input-container>
+            <mat-input-container>
+              <input matInput value="What is the color?" placeholder="Message" #message>
+            </mat-input-container>
 
-            <md-input-container>
-              <input mdInput value="Yellow" placeholder="Action" #action>
-            </md-input-container>
-            <md-input-container>
-              <input mdInput type="number" placeholder="Duration" [(ngModel)]="time">
-            </md-input-container>
+            <mat-input-container>
+              <input matInput value="Yellow" placeholder="Action" #action>
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="number" placeholder="Duration" [(ngModel)]="time">
+            </mat-input-container>
             <br>
-            <button md-button (click)="openSnackBar(message.value, action.value)">Show Snack-bar</button>
+            <button mat-button (click)="openSnackBar(message.value, action.value)">Show Snack-bar</button>
             <br>
-            <button md-button (click)="openNotify()">Launch Notify</button>
-            <button md-button (click)="closeNotify()">Dismissed</button>
+            <button mat-button (click)="openNotify()">Launch Notify</button>
+            <button mat-button (click)="closeNotify()">Dismissed</button>
 
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>Notifications</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>Notifications</code>
           <a class="badge" href="https://material.angular.io/components/component/snack-bar">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>
-              MdSnackBar is a service for displaying snack-bar notifications.
+              matSnackBar is a service for displaying snack-bar notifications.
             </p>
             <h3>Opening a snack-bar</h3>
             <p>
@@ -58,8 +58,8 @@ let snackBarRef &#61; snackBar.open('Message archived', 'Undo');
 let snackBarRef &#61; snackbar.openFromComponent(MessageArchivedComponent);
             </pre>
             <p>
-              In either case, an MdSnackBarRef is returned. This can be used to dismiss the snack-bar or to recieve
-              notification of when the snack-bar is dismissed. For simple messages with an action, the MdSnackBarRef
+              In either case, an matSnackBarRef is returned. This can be used to dismiss the snack-bar or to recieve
+              notification of when the snack-bar is dismissed. For simple messages with an action, the matSnackBarRef
               exposes an observable for when the action is triggered.
             </p>
             <pre>
@@ -76,7 +76,7 @@ snackBarRef.dismiss();
             </pre>
             <h3>Dismissal</h3>
             <p>
-              A snack-bar can be dismissed manually by calling the dismiss method on the MdSnackBarRef returned from the
+              A snack-bar can be dismissed manually by calling the dismiss method on the matSnackBarRef returned from the
               call to open.
             </p>
             <p>
@@ -93,19 +93,19 @@ snackbar.open('Message archived', 'Undo', &#123;
             </pre>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>Notifications</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>Notifications</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2 class="docs-api-h2">Services</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdSnackBar</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matSnackBar</h3>
             <p class="docs-api-class-description">Service to dispatch Material Design snack bar messages.
             </p>
 
@@ -143,7 +143,7 @@ snackbar.open('Message archived', 'Undo', &#123;
                 <td class="docs-api-method-parameter-cell">
                   <p class="docs-api-method-parameter-name">
                     config<span class="docs-api-method-parameter-optional-marker">?</span></p>
-                  <code class="docs-api-method-parameter-type">MdSnackBarConfig</code>
+                  <code class="docs-api-method-parameter-type">matSnackBarConfig</code>
                 </td>
                 <td class="docs-api-method-parameter-description-cell">
                   <p class="docs-api-method-parameter-description">Extra configuration for the snack bar.
@@ -155,7 +155,7 @@ snackbar.open('Message archived', 'Undo', &#123;
               </tr>
               <tr>
                 <td class="docs-api-method-returns-type-cell">
-                  <code class="docs-api-method-returns-type">MdSnackBarRef&lt;T&gt;</code>
+                  <code class="docs-api-method-returns-type">matSnackBarRef&lt;T&gt;</code>
                 </td>
                 <td class="docs-api-method-returns-description-cell">
 
@@ -205,7 +205,7 @@ snackbar.open('Message archived', 'Undo', &#123;
                 <td class="docs-api-method-parameter-cell">
                   <p class="docs-api-method-parameter-name">
                     config<span class="docs-api-method-parameter-optional-marker">?</span></p>
-                  <code class="docs-api-method-parameter-type">MdSnackBarConfig</code>
+                  <code class="docs-api-method-parameter-type">matSnackBarConfig</code>
                 </td>
                 <td class="docs-api-method-parameter-description-cell">
                   <p class="docs-api-method-parameter-description">Additional configuration options for the snackbar.
@@ -217,7 +217,7 @@ snackbar.open('Message archived', 'Undo', &#123;
               </tr>
               <tr>
                 <td class="docs-api-method-returns-type-cell">
-                  <code class="docs-api-method-returns-type">MdSnackBarRef&lt;SimpleSnackBar&gt;</code>
+                  <code class="docs-api-method-returns-type">matSnackBarRef&lt;SimpleSnackBar&gt;</code>
                 </td>
                 <td class="docs-api-method-returns-description-cell">
 
@@ -228,7 +228,7 @@ snackbar.open('Message archived', 'Undo', &#123;
 
             <h2>Additional classes</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdSnackBarConfig</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matSnackBarConfig</h3>
             <p class="docs-api-class-description">Configuration used when opening a snack-bar.
             </p>
 
@@ -245,7 +245,7 @@ snackbar.open('Message archived', 'Undo', &#123;
                 </p>
 
                 </td>
-                <td class="docs-api-property-description">The politeness level for the MdAriaLiveAnnouncer announcement.
+                <td class="docs-api-property-description">The politeness level for the matAriaLiveAnnouncer announcement.
                 </td>
               </tr>
 
@@ -256,7 +256,7 @@ snackbar.open('Message archived', 'Undo', &#123;
                 </p>
 
                 </td>
-                <td class="docs-api-property-description">Message to be announced by the MdAriaLiveAnnouncer
+                <td class="docs-api-property-description">Message to be announced by the matAriaLiveAnnouncer
                 </td>
               </tr>
 
@@ -288,7 +288,7 @@ snackbar.open('Message archived', 'Undo', &#123;
             </table>
 
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdSnackBarRef</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matSnackBarRef</h3>
             <p class="docs-api-class-description">Reference to a snack bar dispatched from the snack bar service.
             </p>
 
@@ -405,8 +405,8 @@ snackbar.open('Message archived', 'Undo', &#123;
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

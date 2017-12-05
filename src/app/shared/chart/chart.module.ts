@@ -4,7 +4,6 @@ import { ChartPeityComponent } from './chart-peity/chart-peity.component';
 import { ChartC3Component } from './chart-c3/chart-c3.component';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -13,7 +12,6 @@ import { MaterialModule } from '@angular/material';
   ],
   imports: [
     CommonModule,
-    MaterialModule,
     FlexLayoutModule
   ],
   exports: [

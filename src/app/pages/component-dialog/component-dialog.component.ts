@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
-import { MdDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { DialogExampleComponent } from '../../shared/dialog/dialog-example/dialog-example.component';
 
 @Component({
@@ -14,7 +14,7 @@ export class ComponentDialogComponent implements OnInit {
 
   selectedOption: string;
 
-  constructor(private appService: AppService, private dialog: MdDialog) {
+  constructor(private appService: AppService, private dialog: MatDialog) {
     appService.getState().topnavTitle = 'Dialog';
   }
 

@@ -1,82 +1,82 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Menu</md-card-title>
-          <md-card-subtitle>Default material menu</md-card-subtitle>
-          <md-card-content>
-            <md-card class="example-md-menu">
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Menu</mat-card-title>
+          <mat-card-subtitle>Default material menu</mat-card-subtitle>
+          <mat-card-content>
+            <mat-card class="example-mat-menu">
               <div class="example-menu-title">
                 <p>Basic menu</p>
               </div>
               <div class="example-menu-content">
-                <button md-button [mdMenuTriggerFor]="basic">Menu</button>
-                <md-menu #basic="mdMenu">
-                  <button md-menu-item>Item 1</button>
-                  <button md-menu-item>Item 2</button>
-                  <button md-menu-item>Item 3</button>
-                </md-menu>
+                <button mat-button [matMenuTriggerFor]="basic">Menu</button>
+                <mat-menu #basic="matMenu">
+                  <button mat-menu-item>Item 1</button>
+                  <button mat-menu-item>Item 2</button>
+                  <button mat-menu-item>Item 3</button>
+                </mat-menu>
               </div>
 
-            </md-card>
+            </mat-card>
 
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
+        <mat-card fxFlex class="page-card">
 
-          <md-card-content>
-            <md-card class="example-md-menu">
+          <mat-card-content>
+            <mat-card class="example-mat-menu">
               <div class="example-menu-title">
                 <p>Food</p>
 
-                <md-menu #food="mdMenu">
-                  <button md-menu-item> Pizza </button>
-                  <button md-menu-item> Steak </button>
-                </md-menu>
+                <mat-menu #food="matMenu">
+                  <button mat-menu-item> Pizza </button>
+                  <button mat-menu-item> Steak </button>
+                </mat-menu>
 
-                <button md-icon-button [mdMenuTriggerFor]="food" class="example-md-button">
-                  <md-icon>more_vert</md-icon>
+                <button mat-icon-button [matMenuTriggerFor]="food" class="example-mat-button">
+                  <mat-icon>more_vert</mat-icon>
                 </button>
               </div>
               <div class="example-menu-content">
                 <p>This is a Menu</p>
               </div>
 
-            </md-card>
+            </mat-card>
             <br>
 
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
+        <mat-card fxFlex class="page-card">
 
-          <md-card-content>
+          <mat-card-content>
 
-            <md-card class="example-md-menu">
+            <mat-card class="example-mat-menu">
               <div class="example-menu-title">
                 <p>Home</p>
-                <button md-icon-button [mdMenuTriggerFor]="menu"  class="example-md-button">
-                  <md-icon>more_vert</md-icon>
+                <button mat-icon-button [matMenuTriggerFor]="menu"  class="example-mat-button">
+                  <mat-icon>more_vert</mat-icon>
                 </button>
-                <md-menu #menu="mdMenu">
-                  <button md-menu-item>
-                    <md-icon>home</md-icon>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>
+                    <mat-icon>home</mat-icon>
                     <span>Home</span>
                   </button>
-                  <button md-menu-item>
-                    <md-icon>refresh</md-icon>
+                  <button mat-menu-item>
+                    <mat-icon>refresh</mat-icon>
                     <span>Refresh</span>
                   </button>
-                  <button md-menu-item>
-                    <md-icon>feedback</md-icon>
+                  <button mat-menu-item>
+                    <mat-icon>feedback</mat-icon>
                     <span>Feedback</span>
                   </button>
 
-                </md-menu>
+                </mat-menu>
               </div>
               <div class="example-menu-content">
                 <p>
@@ -84,51 +84,51 @@
                 </p>
               </div>
 
-            </md-card>
+            </mat-card>
 
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
 
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdMenuModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matMenuModule</code>
           <a class="badge" href="https://material.angular.io/components/component/menu">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>
-              <code>&lt;md-menu&gt;</code> is a floating panel containing list of options.
+              <code>&lt;mat-menu&gt;</code> is a floating panel containing list of options.
             </p>
             <p>
-              By itself, the <code>&lt;md-menu&gt;</code> element does not render anything.
-              The menu is attached to and opened via application of the mdMenuTriggerFor directive:
+              By itself, the <code>&lt;mat-menu&gt;</code> element does not render anything.
+              The menu is attached to and opened via application of the matMenuTriggerFor directive:
             </p>
             <pre>
-<code>&lt;md-menu &#35;appMenu="mdMenu"&gt;</code>
-  <code>&lt;button md-menu-item&gt;</code> Settings <code>&lt;/button&gt;</code>
-  <code>&lt;button md-menu-item&gt;</code> Help <code>&lt;/button&gt;</code>
-<code>&lt;/md-menu&gt;</code>
+<code>&lt;mat-menu &#35;appMenu="matMenu"&gt;</code>
+  <code>&lt;button mat-menu-item&gt;</code> Settings <code>&lt;/button&gt;</code>
+  <code>&lt;button mat-menu-item&gt;</code> Help <code>&lt;/button&gt;</code>
+<code>&lt;/mat-menu&gt;</code>
 
-<code>&lt;button md-icon-button &#91;mdMenuTriggerFor&#93;="appMenu"&gt;</code>
-   <code>&lt;md-icon&gt;</code>more_vert<code>&lt;/md-icon&gt;</code>
+<code>&lt;button mat-icon-button &#91;matMenuTriggerFor&#93;="appMenu"&gt;</code>
+   <code>&lt;mat-icon&gt;</code>more_vert<code>&lt;/mat-icon&gt;</code>
 <code>&lt;/button&gt;</code>
             </pre>
             <h3>Toggling the menu programmatically</h3>
             <p>
               The menu exposes an API to open/close programmatically.
-              Please note that in this case, an mdMenuTriggerFor directive is still necessary
+              Please note that in this case, an matMenuTriggerFor directive is still necessary
               to attach the menu to a trigger element in the DOM.
 
             </p>
             <pre>
               <code>
 class MyComponent &#123;
-  @ViewChild(MdMenuTrigger) trigger: MdMenuTrigger;
+  @ViewChild(matMenuTrigger) trigger: matMenuTrigger;
 
   someMethod() &#123;
     this.trigger.openMenu();
@@ -138,24 +138,24 @@ class MyComponent &#123;
             </pre>
             <h3>Icons</h3>
             <p>
-              Menus support displaying md-icon elements before the menu item text.
+              Menus support displaying mat-icon elements before the menu item text.
             </p>
             <p>my-comp.html</p>
             <pre>
-<code>&lt;md-menu #menu="mdMenu"&gt;</code>
-  <code>&lt;button md-menu-item&gt;</code>
-    <code>&lt;md-icon&gt;</code> dialpad <code>&lt;/md-icon&gt;</code>
+<code>&lt;mat-menu #menu="matMenu"&gt;</code>
+  <code>&lt;button mat-menu-item&gt;</code>
+    <code>&lt;mat-icon&gt;</code> dialpad <code>&lt;/mat-icon&gt;</code>
     <code>&lt;span&gt;</code> Redial <code>&lt;/span&gt;</code>
   <code>&lt;/button&gt;</code>
-  <code>&lt;button md-menu-item disabled&gt;</code>
-    <code>&lt;md-icon&gt;</code> voicemail <code>&lt;/md-icon&gt;</code>
+  <code>&lt;button mat-menu-item disabled&gt;</code>
+    <code>&lt;mat-icon&gt;</code> voicemail <code>&lt;/mat-icon&gt;</code>
     <code>&lt;span&gt;</code> Check voicemail <code>&lt;/span&gt;</code>
   <code>&lt;/button&gt;</code>
-  <code>&lt;button md-menu-item&gt;</code>
-    <code>&lt;md-icon&gt;</code> notifications_off <code>&lt;/md-icon&gt;</code>
+  <code>&lt;button mat-menu-item&gt;</code>
+    <code>&lt;mat-icon&gt;</code> notifications_off <code>&lt;/mat-icon&gt;</code>
     <code>&lt;span&gt;</code> Disable alerts <code>&lt;/span&gt;</code>
   <code>&lt;/button&gt;</code>
-<code>&lt;/md-menu&gt;</code>
+<code>&lt;/mat-menu&gt;</code>
             </pre>
             <h3>Customizing menu position</h3>
             <p>
@@ -171,28 +171,28 @@ class MyComponent &#123;
             </ul>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdMenuModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matMenuModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdChipList</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matChipList</h3>
             <p class="docs-api-class-description">A material design chips
               component (named ChipList for it&#39;s similarity to the List component).
 
               Example:
 
-              &lt;md-chip-list&gt;
-              &lt;md-chip&gt;Chip 1&lt;md-chip&gt;
-              &lt;md-chip&gt;Chip 2&lt;md-chip&gt;
-              &lt;/md-chip-list&gt;
+              &lt;mat-chip-list&gt;
+              &lt;mat-chip&gt;Chip 1&lt;mat-chip&gt;
+              &lt;mat-chip&gt;Chip 2&lt;mat-chip&gt;
+              &lt;/mat-chip-list&gt;
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -250,9 +250,9 @@ class MyComponent &#123;
             </table>
 
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdChip</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matChip</h3>
             <p class="docs-api-class-description">Material design styled Chip component.
-              Used inside the MdChipList component.
+              Used inside the matChipList component.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -410,8 +410,8 @@ class MyComponent &#123;
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

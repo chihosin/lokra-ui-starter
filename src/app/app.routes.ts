@@ -49,7 +49,6 @@ import { PagesSignupComponent } from './pages/pages-signup/pages-signup.componen
 import { AppsCalendarComponent } from './pages/apps-calendar/apps-calendar.component';
 import { AppsExplorerComponent } from './pages/apps-explorer/apps-explorer.component';
 import { AppsMailComponent } from './pages/apps-mail/apps-mail.component';
-import { MapsVectorExampleComponent } from './pages/maps-vector/maps-vector.component';
 import { DashboardEdgeComponent } from './pages/dashboard-edge/dashboard-edge.component';
 
 /**
@@ -189,10 +188,6 @@ export const ROUTES: Routes = [
   {
     path: 'maps-google',
     component: MapsGoogleComponent
-  },
-  {
-    path: 'maps-vector',
-    component: MapsVectorExampleComponent
   },
   {
     path: 'forms-validation',

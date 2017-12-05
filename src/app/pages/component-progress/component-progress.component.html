@@ -1,61 +1,61 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Progress bar
-          </md-card-title>
-          <md-card-subtitle>Default material progress bar
-          </md-card-subtitle>
-          <md-card-content>
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Progress bar
+          </mat-card-title>
+          <mat-card-subtitle>Default material progress bar
+          </mat-card-subtitle>
+          <mat-card-content>
             <h4>
               <small>Determinate</small>
             </h4>
-            <md-progress-bar mode="determinate" [value]="70"></md-progress-bar>
+            <mat-progress-bar mode="determinate" [value]="70"></mat-progress-bar>
             <h4>
               <small>Indeterminate</small>
             </h4>
-            <md-progress-bar mode="indeterminate"></md-progress-bar>
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
             <h4>
               <small>Buffer</small>
             </h4>
-            <md-progress-bar mode="buffer" [value]="50" [bufferValue]="70"></md-progress-bar>
+            <mat-progress-bar mode="buffer" [value]="50" [bufferValue]="70"></mat-progress-bar>
             <h4>
               <small>Query</small>
             </h4>
-            <md-progress-bar mode="query"></md-progress-bar>
-          </md-card-content>
-        </md-card>
+            <mat-progress-bar mode="query"></mat-progress-bar>
+          </mat-card-content>
+        </mat-card>
       </div>
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Progress spinner</md-card-title>
-          <md-card-subtitle>Default material progress spinner, see
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Progress spinner</mat-card-title>
+          <mat-card-subtitle>Default material progress spinner, see
             <a href="https://material.angular.io/components/component/progress-spinner">Official Documentation</a>
-          </md-card-subtitle>
-          <md-card-content>
+          </mat-card-subtitle>
+          <mat-card-content>
             <h4>
               <small>Determinate & Indeterminate</small>
             </h4>
-            <div class="example-md-progress">
-              <md-progress-spinner mode="determinate" [value]="70" style="display: inline-block"></md-progress-spinner>
-              <md-progress-spinner mode="indeterminate" style="display: inline-block"></md-progress-spinner>
+            <div class="example-mat-progress">
+              <mat-progress-spinner mode="determinate" [value]="70" style="display: inline-block"></mat-progress-spinner>
+              <mat-progress-spinner mode="indeterminate" style="display: inline-block"></mat-progress-spinner>
             </div>
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdProgressBarModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matProgressBarModule</code>
           <a class="badge" href="https://material.angular.io/components/component/progress-bar">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
-            <p><code>&lt;md-progress-bar&gt;</code> is a horizontal progress-bar for indicating progress and activity.
+            <p><code>&lt;mat-progress-bar&gt;</code> is a horizontal progress-bar for indicating progress and activity.
             </p>
             <div material-docs-example="button-overview"></div>
             <h3 id="progress-bar-mode">Progress mode</h3>
@@ -104,22 +104,22 @@
               By default, progress-bars use the theme's primary color.
               This can be changed to <code>accent</code> or <code>warn</code>.</p>
           </div>
-        </md-card-content>
-      </md-card>
-      <md-card class="page-card">
-        <md-card-title><code>MdProgressSpinnerModule</code>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="page-card">
+        <mat-card-title><code>matProgressSpinnerModule</code>
           <a class="badge" href="https://material.angular.io/components/component/progress-spinner">Official
             Documentation</a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
-            <p><code>&lt;md-progress-spinner&gt;</code> and <code>&lt;md-spinner&gt;</code>
+            <p><code>&lt;mat-progress-spinner&gt;</code> and <code>&lt;mat-spinner&gt;</code>
               are a circular indicators of progress and activity.
             </p>
             <h3 id="progress-sinner-mode">Progress mode</h3>
             <p>The progress-spinner supports two modes, <code>determinate</code> and <code>indeterminate</code>.
-              The <code>&lt;md-spinner&gt;</code> component is an alias for
-              <code>&lt;md-progress-spinner mode="indeterminate"&gt;</code>
+              The <code>&lt;mat-spinner&gt;</code> component is an alias for
+              <code>&lt;mat-progress-spinner mode="indeterminate"&gt;</code>
             </p>
 
             <table>
@@ -153,20 +153,20 @@
               or <code>warn</code>.
             </p>
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdProgressBarModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matProgressBarModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdProgressBar</h3>
-            <p class="docs-api-class-description">&lt;md-progress-bar&gt; component.
+            <h3 class="docs-api-h3 docs-api-class-name">matProgressBar</h3>
+            <p class="docs-api-class-description">&lt;mat-progress-bar&gt; component.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -232,17 +232,17 @@
 
           </div>
 
-        </md-card-content>
-      </md-card>
-      <md-card class="page-card">
-        <md-card-title><code>MdProgressSpinnerModule</code></md-card-title>
-        <md-card-content>
+        </mat-card-content>
+      </mat-card>
+      <mat-card class="page-card">
+        <mat-card-title><code>matProgressSpinnerModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
 
             <h3>Directives</h3>
 
-            <h4>MdProgressCircle</h4>
-            <p> &lt;md-progress-spinner&gt; component.
+            <h4>matProgressCircle</h4>
+            <p> &lt;mat-progress-spinner&gt; component.
             </p>
             <h5> Properties </h5>
             <table>
@@ -277,8 +277,8 @@
             </table>
 
 
-            <h4>MdProgressSpinner</h4>
-            <p> &lt;md-progress-spinner&gt; component.
+            <h4>matProgressSpinner</h4>
+            <p> &lt;mat-progress-spinner&gt; component.
             </p>
             <h5> Properties </h5>
             <table>
@@ -311,19 +311,19 @@
 
 
             </table>
-            <h4>MdSpinner</h4>
-            <p> &lt;md-spinner&gt; component.
+            <h4>matSpinner</h4>
+            <p> &lt;mat-spinner&gt; component.
 
               This is a component definition to be used as a convenience reference to create an
-              indeterminate &lt;md-progress-circle&gt; instance.
+              indeterminate &lt;mat-progress-circle&gt; instance.
             </p>
 
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
 
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

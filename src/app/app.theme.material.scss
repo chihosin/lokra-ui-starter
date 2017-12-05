@@ -1,6 +1,7 @@
-@import '~@angular/material/core/style/variables';
-@import '~@angular/material/toolbar/toolbar';
 @import "app.theme";
+$mat-toolbar-height-desktop : 64px !default;
+$mat-toolbar-height-mobile-portrait: 56px !default;
+$mat-toolbar-height-mobile-landscape: 48px !default;
 
 //----------------------------------------------------------------------------------------------------------------------
 // Global
@@ -27,7 +28,7 @@ lk-app {
   padding: 0;
   overflow: hidden;
 
-  > md-toolbar {
+  > mat-toolbar {
     box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
   }
 }
@@ -98,14 +99,14 @@ div.page-toolbar-right-content {
   }
 }
 
-md-toolbar.page-footer {
+mat-toolbar.page-footer {
   font-size: 14px;
 }
 
 //---------------------------------------------------------
 // Top nav
 //---------------------------------------------------------
-md-toolbar.topnav-container {
+mat-toolbar.topnav-container {
   position: fixed;
   z-index: 4;
   padding-right: 4px;
@@ -141,21 +142,21 @@ md-toolbar.topnav-container {
   }
   .topnav-search {
     display: inline;
-    md2-autocomplete {
+    mat2-autocomplete {
       visibility: hidden;
       width: 0;
       transition: all .32s;
       opacity: 0;
     }
-    md2-autocomplete.show {
+    mat2-autocomplete.show {
       visibility: visible;
       width: 280px;
       opacity: 1;
     }
-    .md2-autocomplete-trigger.is-focused {
+    .mat2-autocomplete-trigger.is-focused {
       border-bottom-width: 1px;
     }
-    .md2-autocomplete-trigger svg {
+    .mat2-autocomplete-trigger svg {
     }
   }
 }
@@ -163,12 +164,12 @@ md-toolbar.topnav-container {
 //---------------------------------------------------------
 //* Side nav
 //---------------------------------------------------------
-md-sidenav-container {
+mat-sidenav-container {
   width: 100%;
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  md-sidenav.mat-sidenav-opened.mat-sidenav-side, md-sidenav.mat-sidenav-side.mat-sidenav-opening {
+  mat-sidenav.mat-sidenav-opened.mat-sidenav-side, mat-sidenav.mat-sidenav-side.mat-sidenav-opening {
     box-shadow: 0 2px 2px -1px rgba(0, 0, 0, .1), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
   }
   div.sidenav-container {
@@ -176,7 +177,7 @@ md-sidenav-container {
     overflow-y: auto;
     overflow-x: hidden;
 
-    md-list [md-subheader], md-nav-list [md-subheader] {
+    mat-list [mat-subheader], mat-nav-list [mat-subheader] {
       height: 24px;
       padding: 4px 16px 4px 16px;
     }
@@ -212,12 +213,12 @@ md-sidenav-container {
       padding-left: 48px;
     }
 
-    md-nav-list {
+    mat-nav-list {
       padding-top: 0;
       padding-bottom: 64px;
     }
   }
-  md-sidenav.sidenav-collapse {
+  mat-sidenav.sidenav-collapse {
     min-width: 0;
     div.sidenav-container {
       transition: all .32s;
@@ -239,12 +240,12 @@ md-sidenav-container {
       span.label {
         display: none;
       }
-      md-list-item.sidenav-menu-sub {
+      mat-list-item.sidenav-menu-sub {
         display: none;
       }
     }
   }
-  md-sidenav.sidenav-collapse:hover {
+  mat-sidenav.sidenav-collapse:hover {
     div.sidenav-container {
       width: 280px;
       div.mat-list-item {
@@ -256,7 +257,7 @@ md-sidenav-container {
       span.label {
         display: inline-block;
       }
-      md-list-item.sidenav-menu-sub {
+      mat-list-item.sidenav-menu-sub {
         display: block;
       }
     }
@@ -278,7 +279,7 @@ md-sidenav-container {
 //---------------------------------------------------------
 //* Message panel
 //---------------------------------------------------------
-md-sidenav-container {
+mat-sidenav-container {
   div.message-panel {
     width: 320px;
     overflow-y: auto;
@@ -306,15 +307,15 @@ md-sidenav-container {
 }
 
 //---------------------------------------------------------
-// md-toolbar
+// mat-toolbar
 //---------------------------------------------------------
-md-toolbar {
+mat-toolbar {
 
   .toolbar-filler {
     flex: 1 1 auto;
   }
 
-  md-toolbar-row {
+  mat-toolbar-row {
     h1.page-card-flexible-title {
       padding-left: 48px;
       font-size: 48px;
@@ -356,16 +357,16 @@ md-toolbar {
 }
 
 //---------------------------------------------------------
-// md-tab
+// mat-tab
 //---------------------------------------------------------
 div.tab-body-content {
   padding: 16px;
 }
 
 //---------------------------------------------------------
-// md-list
+// mat-list
 //---------------------------------------------------------
-md-list.mat-list-with-fab {
+mat-list.mat-list-with-fab {
   padding: 0 16px;
 }
 
@@ -373,7 +374,7 @@ md-list.mat-list-with-fab {
   width: 100%;
   padding: 16px;
 
-  md-list-item {
+  mat-list-item {
     div.mat-list-item {
       div.mat-list-text {
         a {
@@ -391,10 +392,10 @@ md-list.mat-list-with-fab {
 }
 
 //---------------------------------------------------------
-// md-card
+// mat-card
 //---------------------------------------------------------
-md-card {
-  md-card-title {
+mat-card {
+  mat-card-title {
     .card-title-filler {
       flex: 1 1 auto;
     }
@@ -404,65 +405,65 @@ md-card {
       right: 16px;
       margin-top: -4px;
     }
-    md-chip-list {
+    mat-chip-list {
       position: absolute;
       right: 64px;
     }
   }
 }
 
-md-card.page-card {
+mat-card.page-card {
   margin: 8px;
-  md-card-header {
-    md-card-title, md-card-subtitle {
+  mat-card-header {
+    mat-card-title, mat-card-subtitle {
       margin-bottom: 8px;
     }
   }
 }
 
-md-card.page-card-flexible {
+mat-card.page-card-flexible {
   margin-top: -64px;
 }
 
-md-card.page-card-flexible-tabs, div.page-card-flexible-tabs {
+mat-card.page-card-flexible-tabs, div.page-card-flexible-tabs {
   margin-top: -48px;
   padding: 0;
-  md-card-actions {
+  mat-card-actions {
     padding-left: 32px;
   }
 }
 
-md-card.card-content-full {
+mat-card.card-content-full {
   padding: 24px 0 0 0;
   .card-title-filler {
     flex: 1 1 auto;
   }
-  md-card-title, md-card-subtitle, md-card-header, md-card-actions, md-card-footer {
+  mat-card-title, mat-card-subtitle, mat-card-header, mat-card-actions, mat-card-footer {
     padding: 0 24px 0 24px;
   }
 }
 
-md-card.card-content-tabs {
+mat-card.card-content-tabs {
   padding-top: 0;
 }
 
-md-card.page-card-padding-bottom {
+mat-card.page-card-padding-bottom {
   padding-bottom: 24px;
-  md-card-actions {
+  mat-card-actions {
     margin-bottom: 0;
     padding: 8px 24px;
   }
 }
 
 //---------------------------------------------------------
-// md-input
+// mat-input
 //---------------------------------------------------------
-md-input-container {
+mat-input-container {
   width: 100%;
 }
 
 //---------------------------------------------------------
-//* md-input
+//* mat-input
 //---------------------------------------------------------
 span.mat-button-wrapper {
   span.notify {
@@ -496,7 +497,7 @@ span.mat-button-wrapper {
 }
 
 //---------------------------------------------------------
-//* md-menu
+//* mat-menu
 //---------------------------------------------------------
 div.mat-menu-content {
   padding-top: 0;
@@ -544,7 +545,7 @@ div.mat-menu-content {
 //---------------------------------------------------------
 //* card-form
 //---------------------------------------------------------
-i.card-form-input-icon, md-icon.card-form-input-icon {
+i.card-form-input-icon, mat-icon.card-form-input-icon {
   padding-top: 16px;
   margin-right: 8px;
 }
@@ -616,7 +617,7 @@ div.card-form-input {
 //---------------------------------------------------------
 //* info-tile
 //---------------------------------------------------------
-md-card.widget-tile {
+mat-card.widget-tile {
   height: 84px;
   margin: 8px;
   padding: 0;
@@ -689,8 +690,8 @@ md-card.widget-tile {
 //* Extra
 //----------------------------------------------------------------------------------------------------------------------
 
-md-card.widget-weather {
-  md-card-title {
+mat-card.widget-weather {
+  mat-card-title {
     text-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
     color: white;
     p {
@@ -699,7 +700,7 @@ md-card.widget-weather {
       opacity: 0.6;
     }
   }
-  md-card-content {
+  mat-card-content {
     background-size: cover;
     height: 280px;
     div.weather-background {
@@ -755,8 +756,8 @@ md-card.widget-weather {
   }
 }
 
-md-card {
-  md-card-subtitle {
+mat-card {
+  mat-card-subtitle {
     .counter-group {
       display: inline-flex;
       .counter {
@@ -941,35 +942,35 @@ md-card {
   }
 }
 
-@mixin md2-datepicker-theme($theme) {
+@mixin mat2-datepicker-theme($theme) {
   $primary: map-get($theme, primary);
   $accent: map-get($theme, accent);
   $warn: map-get($theme, warn);
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
 
-  .md2-datepicker-input {
-    md2-datepicker.ng-invalid.ng-touched:not(.md2-datepicker-disabled) & {
+  .mat2-datepicker-input {
+    mat2-datepicker.ng-invalid.ng-touched:not(.mat2-datepicker-disabled) & {
       color: mat-color($warn);
       border-bottom: 1px solid mat-color($warn);
     }
   }
-  .md2-datepicker-placeholder {
-    md2-datepicker:focus & {
+  .mat2-datepicker-placeholder {
+    mat2-datepicker:focus & {
       color: mat-color($primary);
     }
   }
-  .md2-datepicker-header {
+  .mat2-datepicker-header {
     background: mat-color($primary);
   }
-  .md2-years {
-    .md2-year {
+  .mat2-years {
+    .mat2-year {
       &.selected {
         color: mat-color($primary);
       }
     }
   }
-  .md2-calendar-day {
+  .mat2-calendar-day {
     &.today {
       color: mat-color($primary);
     }
@@ -978,24 +979,24 @@ md-card {
       background: mat-color($primary);
     }
   }
-  .md2-clock-hour,
-  .md2-clock-minute {
+  .mat2-clock-hour,
+  .mat2-clock-minute {
     &:hover {
       background: lighten(mat-color($primary), 25);
     }
   }
-  .md2-clock-hand {
+  .mat2-clock-hand {
     line {
       stroke: mat-color($primary);
     }
   }
-  .md2-clock-bg {
+  .mat2-clock-bg {
     fill: lighten(mat-color($primary), 25);
   }
-  .md2-clock-fg {
+  .mat2-clock-fg {
     fill: mat-color($primary);
   }
-  .md2-clock-center {
+  .mat2-clock-center {
     fill: mat-color($primary);
   }
 }
@@ -1007,13 +1008,13 @@ md-card {
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
 
-  md-toolbar.topnav-container {
+  mat-toolbar.topnav-container {
     .topnav-search {
       display: inline;
-      .md2-autocomplete-trigger.is-focused {
+      .mat2-autocomplete-trigger.is-focused {
         border-bottom-color: white;
       }
-      .md2-autocomplete-trigger svg {
+      .mat2-autocomplete-trigger svg {
         background-color: transparent;
       }
     }
@@ -1028,7 +1029,7 @@ md-card {
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
 
-  md-list-item.active {
+  mat-list-item.active {
     background-color: map-get($background, disabled-button);
   }
 
@@ -1100,8 +1101,8 @@ md-card {
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
 
-  md-card {
-    md-card-subtitle {
+  mat-card {
+    mat-card-subtitle {
       color: map-get($foreground, text);
       h4 {
         color: map-get($foreground, text);
@@ -1328,7 +1329,7 @@ body.light {
   $theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
   @include angular-material-theme($theme);
   @include quill-theme($theme);
-  @include md2-datepicker-theme($theme);
+  @include mat2-datepicker-theme($theme);
   @include menu-theme($theme);
   @include docs-site-typography-theme($theme);
   @include bg-color($theme);
@@ -1349,7 +1350,7 @@ body.dark {
   $theme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
   @include angular-material-theme($theme);
   @include quill-theme($theme);
-  @include md2-datepicker-theme($theme);
+  @include mat2-datepicker-theme($theme);
   @include menu-theme($theme);
   @include docs-site-typography-theme($theme);
   @include bg-color($theme);

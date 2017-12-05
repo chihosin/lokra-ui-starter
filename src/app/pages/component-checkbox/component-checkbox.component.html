@@ -1,63 +1,63 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-content>
-            <md-card-title>Checkbox</md-card-title>
-            <md-card-subtitle>Default material checkbox</md-card-subtitle>
+        <mat-card fxFlex class="page-card">
+          <mat-card-content>
+            <mat-card-title>Checkbox</mat-card-title>
+            <mat-card-subtitle>Default material checkbox</mat-card-subtitle>
             <section class="example-section">
-              <md-checkbox
+              <mat-checkbox
                 class="example-margin"
                 [checked]="checked"
                 [indeterminate]="indeterminate"
                 [align]="align"
                 [disabled]="disabled">
                 this is a checkbox
-              </md-checkbox>
+              </mat-checkbox>
             </section>
             <section></section>
             <section class="example-section">
               <label class="example-margin">Align:</label>
-              <md-radio-group [(ngModel)]="align">
-                <md-radio-button class="example-margin" value="start">Start</md-radio-button>
-                <md-radio-button class="example-margin" value="end">End</md-radio-button>
-              </md-radio-group>
+              <mat-radio-group [(ngModel)]="align">
+                <mat-radio-button class="example-margin" value="start">Start</mat-radio-button>
+                <mat-radio-button class="example-margin" value="end">End</mat-radio-button>
+              </mat-radio-group>
             </section>
 
             <section class="example-section">
-              <md-checkbox class="example-margin" [(ngModel)]="checked">Checked</md-checkbox>
-              <md-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</md-checkbox>
-              <md-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</md-checkbox>
+              <mat-checkbox class="example-margin" [(ngModel)]="checked">Checked</mat-checkbox>
+              <mat-checkbox class="example-margin" [(ngModel)]="indeterminate">Indeterminate</mat-checkbox>
+              <mat-checkbox class="example-margin" [(ngModel)]="disabled">Disabled</mat-checkbox>
             </section>
 
             <section class="example-section">
               <label class="example-margin">Color:</label>
-              <md-checkbox class="example-margin" [checked]="true" [color]="'primary'">Primary</md-checkbox>
-              <md-checkbox class="example-margin" [checked]="true" [color]="'accent'">Accent</md-checkbox>
-              <md-checkbox class="example-margin" [checked]="true" [color]="'warn'">Warn</md-checkbox>
+              <mat-checkbox class="example-margin" [checked]="true" [color]="'primary'">Primary</mat-checkbox>
+              <mat-checkbox class="example-margin" [checked]="true" [color]="'accent'">Accent</mat-checkbox>
+              <mat-checkbox class="example-margin" [checked]="true" [color]="'warn'">Warn</mat-checkbox>
             </section>
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
 
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdCheckboxModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matCheckboxModule</code>
           <a class="badge" href="https://material.angular.io/components/component/checkbox">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
-            <p><code>&lt;md-checkbox&gt;</code> provides the same functionality as a native
+            <p><code>&lt;mat-checkbox&gt;</code> provides the same functionality as a native
               <code>&lt;input type="checkbox"&gt;</code> enhanced with Material Design styling and animations.
             </p>
             <h3>Checkbox label</h3>
             <p>
-              The checkbox label is provided as the content to the <code>&lt;md-checkbox&gt;</code> element.
+              The checkbox label is provided as the content to the <code>&lt;mat-checkbox&gt;</code> element.
               The label can be positioned before or after the checkbox by setting
               the labelPosition property to <code>before</code> or <code>after</code>.
             </p>
@@ -66,11 +66,11 @@
               or <code>aria-labelledby</code> to specify an appropriate label.
             </p>
             <h3>Use with @angular/forms</h3>
-            <p><code>&lt;md-checkbox&gt;</code> is compatible with @angular/forms and supports
+            <p><code>&lt;mat-checkbox&gt;</code> is compatible with @angular/forms and supports
               both FormsModule and ReactiveFormsModule.
             </p>
             <h3>Indeterminate state</h3>
-            <p><code>&lt;md-checkbox&gt;</code> supports an indeterminate state,
+            <p><code>&lt;mat-checkbox&gt;</code> supports an indeterminate state,
               similar to the native <code>&lt;input type="checkbox"&gt;</code>.
               While the indeterminate property of the checkbox is true, it will render as indeterminate regardless of
               the checked value. Any interaction with the checkbox by
@@ -78,28 +78,28 @@
             </p>
             <h3>Theming</h3>
             <p>
-              The color of a <code>&lt;md-checkbox&gt;</code> can be changed by using the color property.
+              The color of a <code>&lt;mat-checkbox&gt;</code> can be changed by using the color property.
               By default, checkboxes use the theme's accent color. This can be changed to <code>primary</code>
               or <code>warn</code>.
             </p>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdCheckboxModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matCheckboxModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdCheckbox</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matCheckbox</h3>
             <p class="docs-api-class-description">A material design checkbox component. Supports all of
               the functionality of an HTML5 checkbox,and exposes a similar API.
-              A MdCheckbox can be either checked, unchecked, indeterminate, or
+              A matCheckbox can be either checked, unchecked, indeterminate, or
               disabled. Note that all additional accessibility attributes are taken care of by the component,
               so there is no need to provide them yourself. However, if you want to omit a label and still
               have the checkbox be accessible, you may supply an [aria-label] input.
@@ -166,7 +166,7 @@
                     inputId
                   </p>
                 </td>
-                <td class="docs-api-property-description">ID of the native input element inside `&lt;md-checkbox&gt;`
+                <td class="docs-api-property-description">ID of the native input element inside `&lt;mat-checkbox&gt;`
                 </td>
               </tr>
               <tr class="docs-api-properties-row">
@@ -303,8 +303,8 @@
                 </td>
               </tr></table>
             <h2>Additional classes</h2>
-            <h3 class="docs-api-h3 docs-api-class-name">MdCheckboxChange</h3>
-            <p class="docs-api-class-description">Change event object emitted by MdCheckbox.
+            <h3 class="docs-api-h3 docs-api-class-name">matCheckboxChange</h3>
+            <p class="docs-api-class-description">Change event object emitted by matCheckbox.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -333,8 +333,8 @@
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

@@ -1,43 +1,43 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Tooltip</md-card-title>
-          <md-card-subtitle>Default material tooltip</md-card-subtitle>
-          <md-card-content>
-            <div class="example-tooltip-host" mdTooltip="{{tooltip}}" [mdTooltipPosition]="position">
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Tooltip</mat-card-title>
+          <mat-card-subtitle>Default material tooltip</mat-card-subtitle>
+          <mat-card-content>
+            <div class="example-tooltip-host" matTooltip="{{tooltip}}" [matTooltipPosition]="position">
               <span>Show tooltip</span>
             </div>
 
             <br>
-            <md-select class="example-select" placeholder="Position" [(ngModel)]="position">
+            <mat-select class="example-select" placeholder="Position" [(ngModel)]="position">
 
-              <md-option value="before">Before</md-option>
-              <md-option value="after">After</md-option>
-              <md-option value="above">Above</md-option>
-              <md-option value="below">Below</md-option>
-              <md-option value="left">Left</md-option>
-              <md-option value="right">Right</md-option>
-            </md-select>
+              <mat-option value="before">Before</mat-option>
+              <mat-option value="after">After</mat-option>
+              <mat-option value="above">Above</mat-option>
+              <mat-option value="below">Below</mat-option>
+              <mat-option value="left">Left</mat-option>
+              <mat-option value="right">Right</mat-option>
+            </mat-select>
             <br>
 
-            <md-input-container class="example-select">
-              <input mdInput  placeholder="Message" [(ngModel)]="tooltip">
-            </md-input-container>
-          </md-card-content>
-        </md-card>
+            <mat-input-container class="example-select">
+              <input matInput  placeholder="Message" [(ngModel)]="tooltip">
+            </mat-input-container>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdTooltipModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matTooltipModule</code>
           <a class="badge" href="https://material.angular.io/components/component/tooltip">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>
               The Angular Material tooltip provides a text label that is displayed with the user hovers over or
@@ -45,7 +45,7 @@
             </p>
             <h3>Positioning</h3>
             <p>
-              The tooltip will be displayed below the element but this can be configured using the mdTooltipPosition
+              The tooltip will be displayed below the element but this can be configured using the matTooltipPosition
               input. The tooltip can be displayed above, below, left, or right of the element. By default the position
               will be below. If the tooltip should switch left/right positions in an RTL layout direction, then the
               positions before and after should be used instead of left and right, respectively.
@@ -89,7 +89,7 @@
             <p>
               The tooltip is immediately shown when the user's mouse hovers over the element and immediately hides when
               the user's mouse leaves. A delay in showing or hiding the tooltip can be added through the inputs
-              mdTooltipShowDelay and mdTooltipHideDelay.
+              matTooltipShowDelay and matTooltipHideDelay.
             </p>
             <p>
               On mobile, the tooltip is displayed when the user longpresses the element and hides after a delay of
@@ -101,19 +101,19 @@
             </p>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdTooltipModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matTooltipModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdTooltip</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matTooltip</h3>
             <p class="docs-api-class-description">Directive that attaches a material design tooltip to the host element.
               Animates the showing and
               hiding of a tooltip provided position (defaults to below the element).
@@ -130,7 +130,7 @@
 
               <tr class="docs-api-properties-row">
                 <td class="docs-api-properties-name-cell">
-                  <div class="docs-api-input-marker">@Input(<span class="docs-api-input-alias">&#39;mdTooltipPosition&#39;</span>)
+                  <div class="docs-api-input-marker">@Input(<span class="docs-api-input-alias">&#39;matTooltipPosition&#39;</span>)
                   </div>
                   <p class="docs-api-property-name">
                     position
@@ -145,7 +145,7 @@
 
               <tr class="docs-api-properties-row">
                 <td class="docs-api-properties-name-cell">
-                  <div class="docs-api-input-marker">@Input(<span class="docs-api-input-alias">&#39;mdTooltipShowDelay&#39;</span>)
+                  <div class="docs-api-input-marker">@Input(<span class="docs-api-input-alias">&#39;matTooltipShowDelay&#39;</span>)
                   </div>
                   <p class="docs-api-property-name">
                     showDelay
@@ -160,7 +160,7 @@
 
               <tr class="docs-api-properties-row">
                 <td class="docs-api-properties-name-cell">
-                  <div class="docs-api-input-marker">@Input(<span class="docs-api-input-alias">&#39;mdTooltipHideDelay&#39;</span>)
+                  <div class="docs-api-input-marker">@Input(<span class="docs-api-input-alias">&#39;matTooltipHideDelay&#39;</span>)
                   </div>
                   <p class="docs-api-property-name">
                     hideDelay
@@ -176,7 +176,7 @@
               <tr class="docs-api-properties-row">
                 <td class="docs-api-properties-name-cell">
                   <div class="docs-api-input-marker">@Input(<span
-                    class="docs-api-input-alias">&#39;mdTooltip&#39;</span>)
+                    class="docs-api-input-alias">&#39;matTooltip&#39;</span>)
                   </div>
                   <p class="docs-api-property-name">
                     message
@@ -264,8 +264,8 @@
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

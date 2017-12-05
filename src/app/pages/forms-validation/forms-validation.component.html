@@ -1,98 +1,98 @@
-<md-tab-group>
-  <md-tab label="Overview">
+<mat-tab-group>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title>Validation Forms</md-card-title>
-        <md-card-subtitle>Basic forms elements with validation</md-card-subtitle>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title>Validation Forms</mat-card-title>
+        <mat-card-subtitle>Basic forms elements with validation</mat-card-subtitle>
+        <mat-card-content>
           <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
             <div class="card-form-input" fxflex>
-              <md-input-container>
-                <input mdInput placeholder="First name" type="text"
+              <mat-input-container>
+                <input matInput placeholder="First name" type="text"
                        [(ngModel)]="forms.firstName" name="firstName" #firstName="ngModel" required>
-              </md-input-container>
+              </mat-input-container>
               <p class="text-danger" *ngIf="firstName.errors?.required">You must include a first name.</p>
             </div>
             <div class="card-form-input" fxflex>
-              <md-input-container>
-                <input mdInput placeholder="Last name" type="text"
+              <mat-input-container>
+                <input matInput placeholder="Last name" type="text"
                        [(ngModel)]="forms.lastName" name="lastName" #lastName="ngModel" required>
-              </md-input-container>
+              </mat-input-container>
               <p class="text-danger" *ngIf="lastName.errors?.required">You must include a last name.</p>
             </div>
           </div>
           <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
             <div class="card-form-input" fxflex>
               <section class="card-form-section">
-                <md-radio-group>
-                  <md-radio-button value="man">
+                <mat-radio-group>
+                  <mat-radio-button value="man">
                     Man
-                  </md-radio-button>
-                  <md-radio-button value="woman">
+                  </mat-radio-button>
+                  <mat-radio-button value="woman">
                     Woman
-                  </md-radio-button>
-                  <md-radio-button value="none">
+                  </mat-radio-button>
+                  <mat-radio-button value="none">
                     None
-                  </md-radio-button>
-                </md-radio-group>
+                  </mat-radio-button>
+                </mat-radio-group>
               </section>
             </div>
           </div>
           <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
             <div class="card-form-input" fxflex>
-              <md-input-container>
-                <input mdInput placeholder="Password" type="password"
+              <mat-input-container>
+                <input matInput placeholder="Password" type="password"
                        [(ngModel)]="forms.password" name="password" #password="ngModel" [rangeLength]="[8, 32]"
                        required>
-              </md-input-container>
+              </mat-input-container>
               <p class="text-danger" *ngIf="password.errors?.rangeLength">The password length is 8 to 32.</p>
               <p class="text-danger" *ngIf="password?.errors?.required">You must include a password.</p>
             </div>
           </div>
           <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
             <div class="card-form-input" fxflex>
-              <md-input-container>
-                <input mdInput placeholder="Certain password" type="password"
+              <mat-input-container>
+                <input matInput placeholder="Certain password" type="password"
                        [(ngModel)]="forms.certainPassword" name="certainPassword" #certainPassword="ngModel" required
                        [equalTo]="password">
-              </md-input-container>
+              </mat-input-container>
               <p class="text-danger" *ngIf="certainPassword?.errors?.required">You must include a certain password.</p>
               <p class="text-danger" *ngIf="certainPassword?.errors?.equalTo">Passwords do not math.</p>
             </div>
           </div>
           <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex="50">
             <div class="card-form-input" fxflex>
-              <md2-datepicker type="date"
+              <mat2-datepicker type="date"
                               placeholder="Birthday"
                               format="YYYY/MM/DD">
-              </md2-datepicker>
+              </mat2-datepicker>
             </div>
           </div>
           <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-            <md-icon class="card-form-input-icon" fxflex>language</md-icon>
+            <mat-icon class="card-form-input-icon" fxflex>language</mat-icon>
             <div class="card-form-input" fxflex>
-              <md-input-container>
-                <input mdInput placeholder="Web site" type="text"
+              <mat-input-container>
+                <input matInput placeholder="Web site" type="text"
                        [(ngModel)]="forms.url" name="url" #url="ngModel" url>
-              </md-input-container>
+              </mat-input-container>
               <p class="text-danger" *ngIf="url?.errors?.url">You must include a web site url.</p>
             </div>
           </div>
           <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-            <md-icon class="card-form-input-icon" fxflex>label_outline</md-icon>
+            <mat-icon class="card-form-input-icon" fxflex>label_outline</mat-icon>
             <div class="card-form-input" fxflex="30" fxLayout="column">
-              <md-input-container>
-                <input mdInput placeholder="code" type="text"
+              <mat-input-container>
+                <input matInput placeholder="code" type="text"
                        [(ngModel)]="forms.code" name="code" #code="ngModel" digits>
-              </md-input-container>
+              </mat-input-container>
               <p class="text-danger" *ngIf="code?.errors?.digits">You must include a code in digits.</p>
             </div>
-            <md-icon class="card-form-input-icon" fxflex>home</md-icon>
+            <mat-icon class="card-form-input-icon" fxflex>home</mat-icon>
             <div class="card-form-input" fxflex="70" fxLayout="column">
-              <md-input-container>
-                <input mdInput placeholder="Address" type="text"
+              <mat-input-container>
+                <input matInput placeholder="Address" type="text"
                        [(ngModel)]="forms.addr" name="addr" #addr="ngModel">
-              </md-input-container>
+              </mat-input-container>
             </div>
           </div>
           <br>
@@ -102,26 +102,26 @@
           <br>
           <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
             <div class="card-form-input" fxflex="30" fxLayout="column">
-              <md-checkbox>Notify new products message</md-checkbox>
-              <md-checkbox>Accept agreement</md-checkbox>
+              <mat-checkbox>Notify new products message</mat-checkbox>
+              <mat-checkbox>Accept agreement</mat-checkbox>
             </div>
           </div>
-        </md-card-content>
-        <md-card-actions>
-          <button md-raised-button disabled>SUBMIT</button>
-        </md-card-actions>
-      </md-card>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button disabled>SUBMIT</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="Validation">
+  </mat-tab>
+  <mat-tab label="Validation">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title>
+      <mat-card class="page-card">
+        <mat-card-title>
           Ng2 Validation
           <a class="badge" href="https://github.com/yuyang041060120/ng2-validation">Official Documentation</a>
-        </md-card-title>
-        <md-card-subtitle>Angular2 custom validation, inspired by jQuery validation</md-card-subtitle>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-subtitle>Angular2 custom validation, inspired by jQuery validation</mat-card-subtitle>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>angular2 built-in validators</h2>
             <ul>
@@ -153,9 +153,9 @@
               <li>equalTo</li>
             </ul>
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>
 

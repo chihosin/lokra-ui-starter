@@ -1,81 +1,81 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Chips</md-card-title>
-          <md-card-content>
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Chips</mat-card-title>
+          <mat-card-content>
             <section class="example-section">
-              <md-chip-list class="md-chip-list-stacked">
-                <md-chip class="chip-short" *ngFor="let chipColor of availableColors"
+              <mat-chip-list class="mat-chip-list-stacked">
+                <mat-chip class="chip-short" *ngFor="let chipColor of availableColors"
                          selected="true"
                          color="{{chipColor.color}}">
                   {{chipColor.name}}
-                </md-chip>
-              </md-chip-list>
+                </mat-chip>
+              </mat-chip-list>
             </section>
 
             <section>
-              <md-chip-list class="md-chip-list-stacked">
-                <md-chip *ngFor="let chipColor of availableColors"
+              <mat-chip-list class="mat-chip-list-stacked">
+                <mat-chip *ngFor="let chipColor of availableColors"
                          selected="true"
                          color="{{chipColor.color}}">
                   {{chipColor.name}}
-                </md-chip>
-              </md-chip-list>
+                </mat-chip>
+              </mat-chip-list>
             </section>
 
             <section class="example-section">
-              <md-chip-list>
-                <md-chip>Default</md-chip>
-                <md-chip color="primary" selected="true">Primary</md-chip>
-                <md-chip color="accent" selected="true">Accent</md-chip>
-                <md-chip color="warn" selected="true">Warn</md-chip>
+              <mat-chip-list>
+                <mat-chip>Default</mat-chip>
+                <mat-chip color="primary" selected="true">Primary</mat-chip>
+                <mat-chip color="accent" selected="true">Accent</mat-chip>
+                <mat-chip color="warn" selected="true">Warn</mat-chip>
 
-              </md-chip-list>
+              </mat-chip-list>
             </section>
 
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdChipsModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matChipsModule</code>
           <a class="badge" href="https://material.angular.io/components/component/chips">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>
-              <code>&lt;md-chip-list&gt;</code> displays a list of values as individual, keyboard accessible, chips.
+              <code>&lt;mat-chip-list&gt;</code> displays a list of values as individual, keyboard accessible, chips.
             </p>
             <p>
               Note: chips are still early in their development and more features are being actively worked on.
             </p>
             <pre>
-  <code>&lt;md-chip-list&gt;</code>
-    <code>&lt;md-chip&gt;</code>Papadum<code>&lt;/md-chip&gt;</code>
-    <code>&lt;md-chip&gt;</code>Naan<code>&lt;/md-chip&gt;</code>
-    <code>&lt;md-chip&gt;</code>Dal<code>&lt;/md-chip&gt;</code>
-  <code>&lt;/md-chip-list&gt;</code>
+  <code>&lt;mat-chip-list&gt;</code>
+    <code>&lt;mat-chip&gt;</code>Papadum<code>&lt;/mat-chip&gt;</code>
+    <code>&lt;mat-chip&gt;</code>Naan<code>&lt;/mat-chip&gt;</code>
+    <code>&lt;mat-chip&gt;</code>Dal<code>&lt;/mat-chip&gt;</code>
+  <code>&lt;/mat-chip-list&gt;</code>
 </pre>
             <h3>Unstyled chips</h3>
             <p>
-              By default, <code>&lt;md-chip</code> has Material Design styles applied. For a chip with no styles
+              By default, <code>&lt;mat-chip</code> has Material Design styles applied. For a chip with no styles
               applied,
-              use <code>&lt;md-basic-chip&gt;</code>. You can then customize the chip appearance by adding your own CSS.
+              use <code>&lt;mat-basic-chip&gt;</code>. You can then customize the chip appearance by adding your own CSS.
             </p>
             <p>
-              Hint: <code>&lt;md-basic-chip&gt;</code> receives the md-basic-chip CSS class in addition to the md-chip
+              Hint: <code>&lt;mat-basic-chip&gt;</code> receives the mat-basic-chip CSS class in addition to the mat-chip
               class.
             </p>
             <h3>Selection</h3>
             <p>
               Chips can be selected via the selected property.
-              Selection can be disabled by setting selectable to false on the <code>&lt;md-chip-list&gt;</code>.
+              Selection can be disabled by setting selectable to false on the <code>&lt;mat-chip-list&gt;</code>.
             </p>
             <p>
               Selection emits the (select) output while deselecting emits the (deselect) output.
@@ -94,34 +94,34 @@
             </p>
             <h3>Theming</h3>
             <p>
-              The selected color of an <code>&lt;md-chip&gt;</code> can be changed by using the color property.
+              The selected color of an <code>&lt;mat-chip&gt;</code> can be changed by using the color property.
               By default, chips use a neutral background color based on the current theme (light or dark).
               This can be changed to <code>primary</code>, <code>accent</code>, or <code>warn</code>.
             </p>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdChipsModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matChipsModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdChipList</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matChipList</h3>
             <p class="docs-api-class-description">A material design chips component (named ChipList for
               it&#39;s similarity to the List component).
 
               Example:
 
-              &lt;md-chip-list&gt;
-              &lt;md-chip&gt;Chip 1&lt;md-chip&gt;
-              &lt;md-chip&gt;Chip 2&lt;md-chip&gt;
-              &lt;/md-chip-list&gt;
+              &lt;mat-chip-list&gt;
+              &lt;mat-chip&gt;Chip 1&lt;mat-chip&gt;
+              &lt;mat-chip&gt;Chip 2&lt;mat-chip&gt;
+              &lt;/mat-chip-list&gt;
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -179,9 +179,9 @@
             </table>
 
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdChip</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matChip</h3>
             <p class="docs-api-class-description">Material design styled Chip component.
-              Used inside the MdChipList component.
+              Used inside the matChipList component.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -338,8 +338,8 @@
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>
