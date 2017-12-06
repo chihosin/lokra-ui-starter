@@ -71,26 +71,26 @@
     ></lk-info-tile>
   </div>
   <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" fxFlex>
-    <md-card class="page-card card-content-full" fxFlex="70" fxFlexAlign="start">
-      <md-card-title>
+    <mat-card class="page-card card-content-full" fxFlex="70" fxFlexAlign="start">
+      <mat-card-title>
         <span>Visitors</span>
         <span class="card-title-filler"></span>
-        <md-chip-list>
-          <md-chip>Week</md-chip>
-          <md-chip>Month</md-chip>
-          <md-chip color="accent" selected="true">Year</md-chip>
-          <md-chip>Today</md-chip>
-        </md-chip-list>
-        <a class="card-title-menu" md-ripple [md-menu-trigger-for]="cardTitleMenu">
+        <mat-chip-list>
+          <mat-chip>Week</mat-chip>
+          <mat-chip>Month</mat-chip>
+          <mat-chip color="accent" selected="true">Year</mat-chip>
+          <mat-chip>Today</mat-chip>
+        </mat-chip-list>
+        <a class="card-title-menu" mat-ripple [mat-menu-trigger-for]="cardTitleMenu">
           <i class="material-icons">more_vert</i>
         </a>
-        <md-menu #cardTitleMenu="mdMenu">
-          <button md-menu-item>Item</button>
-          <button md-menu-item>Item</button>
-          <button md-menu-item>Item</button>
-        </md-menu>
-      </md-card-title>
-      <md-card-subtitle>
+        <mat-menu #cardTitleMenu="matMenu">
+          <button mat-menu-item>Item</button>
+          <button mat-menu-item>Item</button>
+          <button mat-menu-item>Item</button>
+        </mat-menu>
+      </mat-card-title>
+      <mat-card-subtitle>
         <div class="counter-group">
           <div class="counter">
             <div class="value">25.3K</div>
@@ -101,32 +101,32 @@
             <div class="desc"><i class="fa fa-circle" style="color: rgba(255,128,128,0.4);"></i> PV</div>
           </div>
         </div>
-      </md-card-subtitle>
+      </mat-card-subtitle>
       <lk-chart-js
         [type]="chartLineMock.type"
         [data]="chartLineMock.data"
         [options]="chartLineMock.options"
         [height]="280"
       ></lk-chart-js>
-    </md-card>
-    <md-card class="page-card card-content-full" fxFlex="30" fxFlexAlign="start">
-      <md-card-title class="text-center">
+    </mat-card>
+    <mat-card class="page-card card-content-full" fxFlex="30" fxFlexAlign="start">
+      <mat-card-title class="text-center">
         <span>Storage</span>
         <span class="card-title-filler"></span>
-        <a class="card-title-menu" md-ripple [md-menu-trigger-for]="cardTitleMenu">
+        <a class="card-title-menu" mat-ripple [mat-menu-trigger-for]="cardTitleMenu">
           <i class="material-icons">more_vert</i>
         </a>
-        <md-menu #cardTitleMenu="mdMenu">
-          <button md-menu-item>Item</button>
-          <button md-menu-item>Item</button>
-          <button md-menu-item>Item</button>
-        </md-menu>
-      </md-card-title>
-      <md-card-subtitle>
+        <mat-menu #cardTitleMenu="matMenu">
+          <button mat-menu-item>Item</button>
+          <button mat-menu-item>Item</button>
+          <button mat-menu-item>Item</button>
+        </mat-menu>
+      </mat-card-title>
+      <mat-card-subtitle>
         <h4 class="text-center">
           <small>LVM /dev/sda1</small>
         </h4>
-      </md-card-subtitle>
+      </mat-card-subtitle>
       <lk-chart-js
         [type]="chartDountMock.type"
         [data]="chartDountMock.data"
@@ -145,29 +145,29 @@
           <p>3.2 GB</p>
         </div>
       </div>
-    </md-card>
+    </mat-card>
   </div>
   <div fxLayout="row" fxLayout.xs="row" fxLayout.sm="row" fxFlex fxLayoutAlign="start">
     <div fxLayout="column" fxFlex="50" fxFlexAlign="start">
-      <md-card class="page-card card-content-full" fxFlex>
-        <md-card-title><span md-line>Lokra Studio</span>
+      <mat-card class="page-card card-content-full" fxFlex>
+        <mat-card-title><span mat-line>Lokra Studio</span>
           <span class="card-title-fillers"></span>
-          <button class="card-title-menu" md-icon-button>
-            <md-icon>location_searching</md-icon>
+          <button class="card-title-menu" mat-icon-button>
+            <mat-icon>location_searching</mat-icon>
           </button>
-        </md-card-title>
-        <md-card-subtitle>Tianhe SQ. Guangzhou GD, China</md-card-subtitle>
+        </mat-card-title>
+        <mat-card-subtitle>Tianhe SQ. Guangzhou GD, China</mat-card-subtitle>
         <sebm-google-map [latitude]="23.1221926" [longitude]="113.4048019" [zoom]="13" style="height: 320px">
         </sebm-google-map>
-      </md-card>
-      <md-card class="page-card card-content-full widget-table" fxFlex>
-        <md-card-title><span md-line>Project</span>
+      </mat-card>
+      <mat-card class="page-card card-content-full widget-table" fxFlex>
+        <mat-card-title><span mat-line>Project</span>
           <span class="card-title-fillers"></span>
-          <button class="card-title-menu" md-icon-button>
-            <md-icon>more_vert</md-icon>
+          <button class="card-title-menu" mat-icon-button>
+            <mat-icon>more_vert</mat-icon>
           </button>
-        </md-card-title>
-        <md-card-subtitle>Git milestone</md-card-subtitle>
+        </mat-card-title>
+        <mat-card-subtitle>Git milestone</mat-card-subtitle>
         <section class="bs">
           <table class="table table-striped table-hover table-card">
           <thead>
@@ -221,50 +221,50 @@
           </tbody>
         </table>
         </section>
-      </md-card>
-      <md-card class="page-card card-content-full page-card-padding-bottom" fxFlex>
+      </mat-card>
+      <mat-card class="page-card card-content-full page-card-padding-bottom" fxFlex>
         <textarea rows="4" placeholder="Say something..."></textarea>
-        <md-divider></md-divider>
-        <md-card-actions>
-          <button md-icon-button>
-            <md-icon>location_on</md-icon>
+        <mat-divider></mat-divider>
+        <mat-card-actions>
+          <button mat-icon-button>
+            <mat-icon>location_on</mat-icon>
           </button>
-          <button md-icon-button>
-            <md-icon>insert_photo</md-icon>
+          <button mat-icon-button>
+            <mat-icon>insert_photo</mat-icon>
           </button>
-          <button md-icon-button>
-            <md-icon>videocam</md-icon>
+          <button mat-icon-button>
+            <mat-icon>videocam</mat-icon>
           </button>
           <span class="filler"></span>
-          <button md-button class="pull-right">SEND</button>
-        </md-card-actions>
-      </md-card>
+          <button mat-button class="pull-right">SEND</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
     <div fxLayout="column" fxFlex="50" fxFlexAlign="start">
-      <md-card class="page-card" fxFlex>
-        <md-card-header>
-          <div md-card-avatar
+      <mat-card class="page-card" fxFlex>
+        <mat-card-header>
+          <div mat-card-avatar
                style="background-image: url('assets/img/avatar.jpg');
              background-size: cover;">
           </div>
-          <md-card-title>Chiho Sin</md-card-title>
-          <md-card-subtitle>Developer</md-card-subtitle>
-        </md-card-header>
-        <img md-card-image src="assets/img/gallery/img3.jpg">
-        <md-card-content>
+          <mat-card-title>Chiho Sin</mat-card-title>
+          <mat-card-subtitle>Developer</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="assets/img/gallery/img3.jpg">
+        <mat-card-content>
           <p>
             The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
             A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
             bred for hunting.
           </p>
-        </md-card-content>
-        <md-card-actions>
-          <button md-button>LIKE</button>
-          <button md-button>SHARE</button>
-        </md-card-actions>
-      </md-card>
-      <md-card class="page-card" fxFlex>
-        <img md-card-image src="assets/img/gallery/img2.jpg" height="280">
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+      <mat-card class="page-card" fxFlex>
+        <img mat-card-image src="assets/img/gallery/img2.jpg" height="280">
         <div class="bottom-block" fxLayout="row" fxFlex>
           <div class="bottom-content" fxFlex>
             <p>54</p>
@@ -279,23 +279,23 @@
             <span>WATCH</span>
           </div>
         </div>
-      </md-card>
+      </mat-card>
     </div>
   </div>
   <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" fxFlex>
-    <md-card class="page-card card-content-full" fxFlex>
-      <md-card-title>
+    <mat-card class="page-card card-content-full" fxFlex>
+      <mat-card-title>
         <span>Commit</span>
         <span class="card-title-filler"></span>
-        <a class="card-title-menu" md-ripple [md-menu-trigger-for]="cardTitleMenu">
+        <a class="card-title-menu" mat-ripple [mat-menu-trigger-for]="cardTitleMenu">
           <i class="material-icons">more_vert</i>
         </a>
-        <md-menu #cardTitleMenu="mdMenu">
-          <button md-menu-item>Item</button>
-          <button md-menu-item>Item</button>
-          <button md-menu-item>Item</button>
-        </md-menu>
-      </md-card-title>
+        <mat-menu #cardTitleMenu="matMenu">
+          <button mat-menu-item>Item</button>
+          <button mat-menu-item>Item</button>
+          <button mat-menu-item>Item</button>
+        </mat-menu>
+      </mat-card-title>
       <lk-chart-js
         [type]="chartLineMock.type"
         [data]="chartLineMock.data"
@@ -355,82 +355,82 @@
         </tbody>
       </table>
       </section>
-    </md-card>
-    <md-card class="page-card card-content-full card-content-tabs" fxFlexAlign="start" fxFlex>
-      <md-tab-group>
-        <md-tab label="Member">
-          <md-list>
-            <md-list-item>
-              <img md-list-avatar src="assets/img/avatar3.png" alt="...">
-              <h3 md-line> Tim Max <span class="pull-right"> <small>just now</small></span></h3>
-              <p md-line>
+    </mat-card>
+    <mat-card class="page-card card-content-full card-content-tabs" fxFlexAlign="start" fxFlex>
+      <mat-tab-group>
+        <mat-tab label="Member">
+          <mat-list>
+            <mat-list-item>
+              <img mat-list-avatar src="assets/img/avatar3.png" alt="...">
+              <h3 mat-line> Tim Max <span class="pull-right"> <small>just now</small></span></h3>
+              <p mat-line>
                 <span> <small>Make some fun tonight?</small></span>
               </p>
-            </md-list-item>
-            <md-list-item>
-              <img md-list-avatar src="assets/img/avatar.jpg" alt="...">
-              <h3 md-line> Chiho Sin <span class="pull-right"> <small>2 min ago</small></span></h3>
-              <p md-line>
+            </mat-list-item>
+            <mat-list-item>
+              <img mat-list-avatar src="assets/img/avatar.jpg" alt="...">
+              <h3 mat-line> Chiho Sin <span class="pull-right"> <small>2 min ago</small></span></h3>
+              <p mat-line>
                 <span> <small>Hello!</small></span>
               </p>
-            </md-list-item>
-            <md-list-item>
-              <img md-list-avatar src="assets/img/avatar1.png" alt="...">
-              <h3 md-line> Alex Chan <span class="pull-right"> <small>8 min ago</small></span></h3>
-              <p md-line>
+            </mat-list-item>
+            <mat-list-item>
+              <img mat-list-avatar src="assets/img/avatar1.png" alt="...">
+              <h3 mat-line> Alex Chan <span class="pull-right"> <small>8 min ago</small></span></h3>
+              <p mat-line>
                 <span> <small>I'm finish my job!</small></span>
               </p>
-            </md-list-item>
-          </md-list>
-        </md-tab>
-        <md-tab label="Progress">
-          <md-list>
-            <md-list-item>
-              <h3 md-line>Current Project</h3>
-              <p md-line>
+            </mat-list-item>
+          </mat-list>
+        </mat-tab>
+        <mat-tab label="Progress">
+          <mat-list>
+            <mat-list-item>
+              <h3 mat-line>Current Project</h3>
+              <p mat-line>
                 <small>60%</small>
               </p>
-              <p md-line>
-                <md-progress-bar
+              <p mat-line>
+                <mat-progress-bar
                   [mode]="'buffer'"
                   [value]="30"
                   [bufferValue]="60">
-                </md-progress-bar>
+                </mat-progress-bar>
               </p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>Sever Task</h3>
-              <p md-line>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>Sever Task</h3>
+              <p mat-line>
                 <small>70%</small>
               </p>
-              <p md-line>
-                <md-progress-bar
+              <p mat-line>
+                <mat-progress-bar
                   [mode]="'determinate'"
                   [value]="70">
-                </md-progress-bar>
+                </mat-progress-bar>
               </p>
-            </md-list-item>
-            <md-list-item>
-              <h3 md-line>Database Backup</h3>
-              <p md-line>
+            </mat-list-item>
+            <mat-list-item>
+              <h3 mat-line>Database Backup</h3>
+              <p mat-line>
                 <small>Waiting</small>
               </p>
-              <p md-line>
-                <md-progress-bar
+              <p mat-line>
+                <mat-progress-bar
                   [mode]="'indeterminate'">
-                </md-progress-bar>
+                </mat-progress-bar>
               </p>
-            </md-list-item>
-          </md-list>
-        </md-tab>
-      </md-tab-group>
-    </md-card>
+            </mat-list-item>
+          </mat-list>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card>
   </div>
   <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="row" fxFlex>
-    <md-card class="page-card card-content-full widget-weather"
+    <mat-card class="page-card card-content-full widget-weather"
              style="background-image: url(assets/img/gallery/img11.jpg);background-size: cover;"
              fxFlex>
-      <md-card-title>
+      <mat-card-title>
         New York
         <p>
           Thursday 12:00 PM
@@ -438,8 +438,8 @@
         <p>
           Partly Cloudy
         </p>
-      </md-card-title>
-      <md-card-content>
+      </mat-card-title>
+      <mat-card-content>
         <div class="weather-background">
           <div class="weather-background-mask"></div>
         </div>
@@ -493,7 +493,7 @@
             <p><span>8°C</span><span>7°C</span></p>
           </div>
         </div>
-      </md-card-content>
-    </md-card>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

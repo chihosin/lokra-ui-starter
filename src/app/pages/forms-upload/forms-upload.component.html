@@ -1,11 +1,11 @@
 <div class="page-content">
-  <md-card class="page-card">
-    <md-card-title>Forms Upload
+  <mat-card class="page-card">
+    <mat-card-title>Forms Upload
       <a class="badge" href="https://github.com/valor-software/ng2-file-upload">Official Documentation</a>
-    </md-card-title>
-    <md-card-content>
+    </mat-card-title>
+    <mat-card-content>
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-mat-3">
           <h3>Select files</h3>
           <div ng2FileDrop
                [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
@@ -26,7 +26,7 @@
           Single
           <input type="file" ng2FileSelect [uploader]="uploader"/>
         </div>
-        <div class="col-md-9" style="margin-bottom: 40px">
+        <div class="col-mat-9" style="margin-bottom: 40px">
 
           <h3>Upload queue</h3>
           <p>Queue length: {{ uploader?.queue?.length }}</p>
@@ -96,6 +96,6 @@
 
         </div>
       </div>
-    </md-card-content>
-  </md-card>
+    </mat-card-content>
+  </mat-card>
 </div>

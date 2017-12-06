@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   templateUrl: './dialog-example.component.html',
@@ -8,7 +8,7 @@ import { MdDialogRef } from '@angular/material';
   ]
 })
 export class DialogExampleComponent implements OnInit {
-  constructor(private dialogRef: MdDialogRef<DialogExampleComponent>) {
+  constructor(private dialogRef: MatDialogRef<DialogExampleComponent>) {
   }
 
   ngOnInit(): void {

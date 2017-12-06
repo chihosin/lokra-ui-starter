@@ -1,62 +1,62 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Grid list</md-card-title>
-          <md-card-subtitle>Default material grid list</md-card-subtitle>
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Grid list</mat-card-title>
+          <mat-card-subtitle>Default material grid list</mat-card-subtitle>
 
-          <md-card-content>
-            <md-grid-list cols="4" rowHeight="{{rowHeight}}" gutterSize="{{gutterSize}}">
-              <md-grid-tile
+          <mat-card-content>
+            <mat-grid-list cols="4" rowHeight="{{rowHeight}}" gutterSize="{{gutterSize}}">
+              <mat-grid-tile
                 *ngFor="let tile of tiles"
                 [colspan]="tile.cols"
                 [rowspan]="tile.rows"
                 [style.background]="tile.color">
-                <md-grid-tile-header>
+                <mat-grid-tile-header>
                   header
-                </md-grid-tile-header>
-                <md-grid-tile-footer>
+                </mat-grid-tile-header>
+                <mat-grid-tile-footer>
                   footer
-                </md-grid-tile-footer>
+                </mat-grid-tile-footer>
                 {{tile.text}}
-              </md-grid-tile>
-            </md-grid-list>
+              </mat-grid-tile>
+            </mat-grid-list>
             <br>
-            <md-grid-list cols="4" rowHeight="{{rowHeight}}" gutterSize="{{gutterSize}}">
-              <md-grid-tile
+            <mat-grid-list cols="4" rowHeight="{{rowHeight}}" gutterSize="{{gutterSize}}">
+              <mat-grid-tile
                 *ngFor="let tile of tiles"
                 [colspan]="tile.cols"
                 [rowspan]="tile.rows"
                 [style.background]="tile.color">
                 {{tile.text}}
-              </md-grid-tile>
-            </md-grid-list>
+              </mat-grid-tile>
+            </mat-grid-list>
             <br>
-            <md-input-container class="example-select">
-              <input mdInput  placeholder="RowHeight(px)" [(ngModel)]="rowHeight">
-            </md-input-container>
-            <md-input-container class="example-select">
-              <input mdInput  placeholder="GutterSize(px)" [(ngModel)]="gutterSize">
-            </md-input-container>
+            <mat-input-container class="example-select">
+              <input matInput  placeholder="RowHeight(px)" [(ngModel)]="rowHeight">
+            </mat-input-container>
+            <mat-input-container class="example-select">
+              <input matInput  placeholder="GutterSize(px)" [(ngModel)]="gutterSize">
+            </mat-input-container>
 
-          </md-card-content>
+          </mat-card-content>
 
-        </md-card>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdGridListModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matGridListModule</code>
           <a class="badge" href="https://material.angular.io/components/component/grid-list">Official Documentation</a>
 
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>
-              <code>md-grid-list</code> is a two-dimensional list view that arranges cells into grid-based layout. See
+              <code>mat-grid-list</code> is a two-dimensional list view that arranges cells into grid-based layout. See
               Material Design spec <a href="https://www.google.com/design/spec/components/grid-lists.html">here</a>.
             </p>
             <h3>Setting the number of columns</h3>
@@ -88,31 +88,31 @@
             </p>
             <h3>Adding tiles that span multiple rows or columns</h3>
             <p>
-              It is possible to set the rowspan and colspan of each md-grid-tile individually, using the rowspan and
+              It is possible to set the rowspan and colspan of each mat-grid-tile individually, using the rowspan and
               colspan properties. If not set, they both default to 1. The colspan must not exceed the number of cols in
-              the <code>md-grid-list</code>. There is no such restriction on the rowspan however, more rows will simply
+              the <code>mat-grid-list</code>. There is no such restriction on the rowspan however, more rows will simply
               be added for it the tile to fill.
             </p>
             <h3>Tile headers and footers</h3>
             <p>
-              A header and footer can be added to an <code>md-grid-tile</code> using the
-              <code>md-grid-tile-header</code> and <code>md-grid-tile-footer</code> elements respectively.
+              A header and footer can be added to an <code>mat-grid-tile</code> using the
+              <code>mat-grid-tile-header</code> and <code>mat-grid-tile-footer</code> elements respectively.
             </p>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdGridListModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matGridListModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdGridList</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matGridList</h3>
             <p class="docs-api-class-description"></p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -172,8 +172,8 @@
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

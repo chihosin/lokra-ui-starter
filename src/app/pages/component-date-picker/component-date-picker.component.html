@@ -1,88 +1,88 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Material Date Picker
-          </md-card-title>
-          <md-card-subtitle>Default material date picker
-          </md-card-subtitle>
-          <md-card-content>
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Material Date Picker
+          </mat-card-title>
+          <mat-card-subtitle>Default material date picker
+          </mat-card-subtitle>
+          <mat-card-content>
             <div class="example-date-picker-container">
               <h4>Date Picker</h4>
               <div>
-                <md2-datepicker type="date"
+                <mat-datepicker type="date"
                                 placeholder="Date"
                                 format="DD/MM/YYYY">
-                </md2-datepicker>
-                <md2-datepicker [(ngModel)]="date"
+                </mat-datepicker>
+                <mat-datepicker [(ngModel)]="date"
                                 type="date"
                                 placeholder="Date"
                                 format="DD/MM/YYYY"
                                 required>
-                </md2-datepicker>
+                </mat-datepicker>
               </div>
               <h4>Disabled</h4>
               <div>
-                <md2-datepicker [(ngModel)]="date"
+                <mat-datepicker [(ngModel)]="date"
                                 type="date"
                                 [disabled]="disabled"
                                 placeholder="Date"
                                 format="DD/MM/YYYY">
-                </md2-datepicker>
+                </mat-datepicker>
               </div>
               <h4>Min/Max Date</h4>
               <div>
-                <md2-datepicker [(ngModel)]="date"
+                <mat-datepicker [(ngModel)]="date"
                                 type="date"
                                 [min]="minDate"
                                 [max]="maxDate"
                                 placeholder="Date Time"
                                 format="DD/MM/YYYY">
-                </md2-datepicker>
+                </mat-datepicker>
               </div>
               <h4>Time Picker</h4>
               <div>
-                <md2-datepicker [(ngModel)]="time"
+                <mat-datepicker [(ngModel)]="time"
                                 type="time"
                                 placeholder="Time"
                                 format="HH:mm">
-                </md2-datepicker>
+                </mat-datepicker>
               </div>
               <h4>Date Time Picker</h4>
               <div>
-                <md2-datepicker [(ngModel)]="datetime"
+                <mat-datepicker [(ngModel)]="datetime"
                                 type="datetime"
                                 placeholder="Date Time"
                                 format="DD/MM/YYYY HH:mm">
-                </md2-datepicker>
+                </mat-datepicker>
               </div>
             </div>
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>Md2Datepicker</code>
-          <a class="badge" href="https://github.com/Promact/md2/tree/master/src/lib/datepicker">Official
+      <mat-card class="page-card">
+        <mat-card-title><code>matDatepicker</code>
+          <a class="badge" href="https://github.com/Promact/mat/tree/master/src/lib/datepicker">Official
             Documentation</a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>Datepicker allow the user to select date and time.</p>
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>Md2Datepicker</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matDatepicker</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h3>Properties</h3>
             <table>
@@ -170,8 +170,8 @@
             </table>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

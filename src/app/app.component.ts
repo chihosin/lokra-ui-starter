@@ -3,7 +3,7 @@ import { AppService } from './app.service';
 import { Router } from '@angular/router';
 import { MenuMock } from './shared/mockdata/menu';
 import { SearchMock } from './shared/mockdata/search';
-import { MdDialog, MdSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar } from '@angular/material';
 import { DialogThemeComponent } from './shared/dialog/dialog-theme/dialog-theme.component';
 import { TranslateService } from 'ng2-translate';
 
@@ -28,10 +28,10 @@ export class AppComponent implements OnInit {
   snackBarRef: any;
 
   constructor(private appService: AppService,
-              private dialog: MdDialog,
+              private dialog: MatDialog,
               private translate: TranslateService,
               private router: Router,
-              private snackBar: MdSnackBar) {
+              private snackBar: MatSnackBar) {
     // Change your page title here
     appService.getState().topnavTitle = 'Loading';
     translate.addLangs(['en', 'zh-cn']);

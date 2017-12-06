@@ -1,42 +1,42 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>
             Dialog
-          </md-card-title>
-          <md-card-subtitle>
+          </mat-card-title>
+          <mat-card-subtitle>
             Modal dialogs with Material Design styling and animations.
-          </md-card-subtitle>
-          <md-card-content>
-            <div class="example-md-dialog">
-              <button md-button (click)="openDialog()">Launch dialog</button>
+          </mat-card-subtitle>
+          <mat-card-content>
+            <div class="example-mat-dialog">
+              <button mat-button (click)="openDialog()">Launch dialog</button>
             </div>
             <br/>
-            <div class="example-md-dialog">
+            <div class="example-mat-dialog">
               <p><span class="label label-primary" *ngIf="selectedOption">{{selectedOption}}</span></p>
             </div>
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdDialogModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matDialogModule</code>
           <a class="badge" href="https://material.angular.io/components/component/dialog">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>
-              The MdDialog service can be used to open modal dialogs with Material Design styling and animations.
+              The matDialog service can be used to open modal dialogs with Material Design styling and animations.
             </p>
             <p>
               A dialog is opened by calling the open method with a component to be loaded and an optional config object.
-              The open method will return an instance of MdDialogRef:
+              The open method will return an instance of matDialogRef:
             </p>
             <pre><code>
 
@@ -47,7 +47,7 @@ let dialogRef = dialog.open(UserProfileComponent, &#123;
                 </code>
             </pre>
             <p>
-              The MdDialogRef provides a handle on the opened dialog. It can be used to close the dialog and to
+              The matDialogRef provides a handle on the opened dialog. It can be used to close the dialog and to
               recieve notification when the dialog has been closed.
             </p>
             <pre>
@@ -60,7 +60,7 @@ dialogRef.close('Pizza!');
               </code>
             </pre>
             <p>
-              Components created via MdDialog can inject MdDialogRef and use it to close the dialog
+              Components created via matDialog can inject matDialogRef and use it to close the dialog
               in which they are contained. When closing, an optional result value can be provided.
               This result value is forwarded as the result of the afterClosed promise.
             </p>
@@ -77,21 +77,21 @@ dialogRef.close('Pizza!');
               </thead>
               <tbody>
               <tr>
-                <td><code>&lt;md-dialog-title&gt;</code></td>
+                <td><code>&lt;mat-dialog-title&gt;</code></td>
                 <td><code>[Attr]</code> Dialog title, applied to a heading element (e.g., <code>&lt;h1&gt;</code>,
                   <code>&lt;h2&gt;</code>)
                 </td>
               </tr>
               <tr>
-                <td><code>&lt;md-dialog-content&gt;</code></td>
+                <td><code>&lt;mat-dialog-content&gt;</code></td>
                 <td>Primary scrollable content of the dialog</td>
               </tr>
               <tr>
-                <td><code>&lt;md-dialog-actions&gt;</code></td>
+                <td><code>&lt;mat-dialog-actions&gt;</code></td>
                 <td>Container for action buttons at the bottom of the dialog</td>
               </tr>
               <tr>
-                <td><code><code>&lt;md-dialog-close&gt;</code></code></td>
+                <td><code><code>&lt;mat-dialog-close&gt;</code></code></td>
                 <td><code>[Attr]</code> Added to a <code>&lt;button&gt;</code>,
                   makes the button close the dialog on click
                 </td>
@@ -101,23 +101,23 @@ dialogRef.close('Pizza!');
             </table>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdDialogModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matDialogModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
 
             <h2 class="docs-api-h2">
-              Module: <code>MdDialogModule</code>
+              Module: <code>matDialogModule</code>
             </h2>
             <h2 class="docs-api-h2">Services</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdDialog</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matDialog</h3>
             <p class="docs-api-class-description">Service to open Material Design modal dialogs.
             </p>
 
@@ -151,7 +151,7 @@ dialogRef.close('Pizza!');
                 <td class="docs-api-method-parameter-cell">
                   <p class="docs-api-method-parameter-name">
                     config<span class="docs-api-method-parameter-optional-marker">?</span></p>
-                  <code class="docs-api-method-parameter-type">MdDialogConfig</code>
+                  <code class="docs-api-method-parameter-type">matDialogConfig</code>
                 </td>
                 <td class="docs-api-method-parameter-description-cell">
                   <p class="docs-api-method-parameter-description">Extra configuration options.</p>
@@ -162,7 +162,7 @@ dialogRef.close('Pizza!');
               </tr>
               <tr>
                 <td class="docs-api-method-returns-type-cell">
-                  <code class="docs-api-method-returns-type">MdDialogRef&lt;T&gt;</code>
+                  <code class="docs-api-method-returns-type">matDialogRef&lt;T&gt;</code>
                 </td>
                 <td class="docs-api-method-returns-description-cell">
                   <p class="docs-api-method-returns-description">Reference to the newly-opened dialog.
@@ -185,7 +185,7 @@ dialogRef.close('Pizza!');
 
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdDialogClose</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matDialogClose</h3>
             <p class="docs-api-class-description">Button that will close the current dialog.
             </p>
 
@@ -219,24 +219,24 @@ dialogRef.close('Pizza!');
 
             </table>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdDialogTitle</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matDialogTitle</h3>
             <p class="docs-api-class-description">Title of a dialog element. Stays fixed to the top of
               the dialog when scrolling.
             </p>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdDialogContent</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matDialogContent</h3>
             <p class="docs-api-class-description">Scrollable content container of a dialog.
             </p>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdDialogActions</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matDialogActions</h3>
             <p class="docs-api-class-description">Container for the bottom action buttons in a dialog.
               Stays fixed to the bottom when scrolling.
             </p>
 
             <h2>Additional classes</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdDialogConfig</h3>
-            <p class="docs-api-class-description">Configuration for opening a modal dialog with the MdDialog service.
+            <h3 class="docs-api-h3 docs-api-class-name">matDialogConfig</h3>
+            <p class="docs-api-class-description">Configuration for opening a modal dialog with the matDialog service.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -306,8 +306,8 @@ dialogRef.close('Pizza!');
 
             </table>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdDialogRef</h3>
-            <p class="docs-api-class-description">Reference to a dialog opened via the MdDialog service.
+            <h3 class="docs-api-h3 docs-api-class-name">matDialogRef</h3>
+            <p class="docs-api-class-description">Reference to a dialog opened via the matDialog service.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -377,8 +377,8 @@ dialogRef.close('Pizza!');
             </table>
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

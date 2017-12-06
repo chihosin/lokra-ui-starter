@@ -1,41 +1,41 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Radio Button</md-card-title>
-          <md-card-subtitle>Default material radio button</md-card-subtitle>
-          <md-card-content>
-            <md-radio-group class="example-radio-group" [(ngModel)]="favoriteColor">
-              <md-radio-button class="example-radio-button" *ngFor="let color of colors" [value]="color">
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Radio Button</mat-card-title>
+          <mat-card-subtitle>Default material radio button</mat-card-subtitle>
+          <mat-card-content>
+            <mat-radio-group class="example-radio-group" [(ngModel)]="favoriteColor">
+              <mat-radio-button class="example-radio-button" *ngFor="let color of colors" [value]="color">
                 {{color}}
-              </md-radio-button>
-            </md-radio-group>
+              </mat-radio-button>
+            </mat-radio-group>
             <div class="example-selected-value">Your favorite color is: {{favoriteColor}}</div>
             <br>
-            <md-card-subtitle>White is selected by default</md-card-subtitle>
+            <mat-card-subtitle>White is selected by default</mat-card-subtitle>
 
-            <md-radio-group >
-              <md-radio-button value="1" [checked]="true">White</md-radio-button>
-              <md-radio-button value="2">Gray</md-radio-button>
-              <md-radio-button value="3" disabled>Black</md-radio-button>
+            <mat-radio-group >
+              <mat-radio-button value="1" [checked]="true">White</mat-radio-button>
+              <mat-radio-button value="2">Gray</mat-radio-button>
+              <mat-radio-button value="3" disabled>Black</mat-radio-button>
 
-            </md-radio-group>
-          </md-card-content>
-        </md-card>
+            </mat-radio-group>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdRadioModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matRadioModule</code>
           <a class="badge" href="https://material.angular.io/components/component/radio">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
-            <p><code>&lt;md-radio&gt;</code> provides the same functionality as a native
+            <p><code>&lt;mat-radio&gt;</code> provides the same functionality as a native
               <code>&lt;input type="radio"&gt;</code> enhanced with Material Design styling and animations.
             </p>
             <p>
@@ -43,7 +43,7 @@
             </p>
             <h3>Radio-button label</h3>
             <p>
-              The radio-button label is provided as the content to the <code>&lt;md-checkbox&gt;</code> element.
+              The radio-button label is provided as the content to the <code>&lt;mat-checkbox&gt;</code> element.
               The label can be positioned before or after the radio-button by setting
               the labelPosition property to <code>before</code> or <code>after</code>.
             </p>
@@ -53,7 +53,7 @@
             </p>
             <h3>Radio groups</h3>
             <p>
-              Radio-buttons should typically be placed inside of an <code>&lt;md-radio-group&gt;</code> unless
+              Radio-buttons should typically be placed inside of an <code>&lt;mat-radio-group&gt;</code> unless
               the DOM structure would make that impossible (e.g., radio buttons inside of table cells).
               The radio-group has a value property
               that reflects the currently selected radio-button inside of the group.
@@ -63,26 +63,26 @@
             </p>
             <h3>Use with @angular/forms</h3>
             <p>
-              <code>&lt;md-radio-group&gt;</code> is compatible with @angular/forms and
+              <code>&lt;mat-radio-group&gt;</code> is compatible with @angular/forms and
               supports both FormsModule and ReactiveFormsModule.
             </p>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdRadioModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matRadioModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdRadioGroup</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matRadioGroup</h3>
             <p class="docs-api-class-description">A group of radio buttons.
-              May contain one or more `&lt;md-radio-button&gt;` elements.
+              May contain one or more `&lt;mat-radio-button&gt;` elements.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -162,7 +162,7 @@
               </tr>
             </table>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdRadioButton</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matRadioButton</h3>
             <p class="docs-api-class-description">A radio-button. May be inside of
             </p>
 
@@ -256,7 +256,7 @@
                   inputId
                 </p>
                 </td>
-                <td class="docs-api-property-description">ID of the native input element inside `&lt;md-radio-button&gt;`
+                <td class="docs-api-property-description">ID of the native input element inside `&lt;mat-radio-button&gt;`
                 </td>
               </tr>
               <tr class="docs-api-properties-row">
@@ -324,8 +324,8 @@
 
             <h2>Additional classes</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdRadioChange</h3>
-            <p class="docs-api-class-description">Change event object emitted by MdRadio and MdRadioGroup.
+            <h3 class="docs-api-h3 docs-api-class-name">matRadioChange</h3>
+            <p class="docs-api-class-description">Change event object emitted by matRadio and matRadioGroup.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -353,8 +353,8 @@
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

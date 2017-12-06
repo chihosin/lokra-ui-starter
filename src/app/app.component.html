@@ -1,8 +1,8 @@
 <!--Top toolbar-->
-<md-toolbar *ngIf="!appService.getState().pageFullscreen" class="topnav-container" color="primary">
+<mat-toolbar *ngIf="!appService.getState().pageFullscreen" class="topnav-container" color="primary">
   <!--Side Nav Button-->
-  <a md-icon-button class="topnav-menu-btn" (click)="toggleSidenav()">
-    <md-icon>menu</md-icon>
+  <a mat-icon-button class="topnav-menu-btn" (click)="toggleSidenav()">
+    <mat-icon>menu</mat-icon>
   </a>
   <!--Application Title-->
   <span class="topnav-title">
@@ -12,34 +12,32 @@
   <span class="toolbar-filler"></span>
   <!--Apps Menu-->
   <span fxShow.sm="false" fxShow.xs="false">
-  <a md-icon-button
+  <a mat-icon-button
      (click)="toggleTopnavSearch()">
-    <md-icon>search</md-icon>
+    <mat-icon>search</mat-icon>
   </a>
   </span>
   <div class="topnav-search" fxShow.sm="false" fxShow.xs="false">
-    <md2-autocomplete
-      [class.show]="showTopnavSearch"
-      [items]="searchItems"
-      item-text="title"
-      item-value="link"
-      (blur)="alert('xxx')"
-      (change)="selectedSearchItem($event)"
-      [(ngModel)]="searchItem">
-    </md2-autocomplete>
+    <!--<mat-form-field>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    </mat-form-field>
+
+    <mat-autocomplete [class.show]="showTopnavSearch" [items]="searchItems" item-text="title" item-value="link" (blur)="alert('xxx')"
+      (change)="selectedSearchItem($event)" [(ngModel)]="searchItem">
+    </mat-autocomplete>-->
   </div>
   <span fxShow.sm="false" fxShow.xs="false">
-  <a md-icon-button (click)="toggleFullscreen()">
-    <md-icon>fullscreen</md-icon>
+  <a mat-icon-button (click)="toggleFullscreen()">
+    <mat-icon>fullscreen</mat-icon>
   </a>
   </span>
   <span fxShow.sm="false" fxShow.xs="false">
-  <a md-icon-button [md-menu-trigger-for]="topnavAppsMenu">
+  <a mat-icon-button [mat-menu-trigger-for]="topnavAppsMenu">
     <span class="notify">6</span>
-    <md-icon>apps</md-icon>
+  <mat-icon>apps</mat-icon>
   </a>
   </span>
-  <md-menu #topnavAppsMenu="mdMenu">
+  <mat-menu #topnavAppsMenu="matMenu">
     <div class="menu-card">
       <div>
         <a class="menu-block-btn"><img src="assets/img/icon-atom.png"><span>Atom</span></a>
@@ -53,129 +51,104 @@
       </div>
       <a class="menu-block-bottom-btn">More</a>
     </div>
-  </md-menu>
+  </mat-menu>
   <!--Notifications Menu-->
-  <a md-icon-button [md-menu-trigger-for]="topnavNotificationsMenu">
+  <a mat-icon-button [mat-menu-trigger-for]="topnavNotificationsMenu">
     <span class="notify">3</span>
-    <md-icon>notifications</md-icon>
+    <mat-icon>notifications</mat-icon>
   </a>
-  <md-menu #topnavNotificationsMenu="mdMenu">
+  <mat-menu #topnavNotificationsMenu="matMenu">
     <div class="menu-card">
-      <md-list>
-        <md-list-item>
-          <img md-list-avatar src="assets/img/avatar3.png" alt="...">
-          <h3 md-line> Tim Max <span class="pull-right"> <small>just now</small></span></h3>
-          <p md-line>
+      <mat-list>
+        <mat-list-item>
+          <img mat-list-avatar src="assets/img/avatar3.png" alt="...">
+          <h3 mat-line> Tim Max <span class="pull-right"> <small>just now</small></span></h3>
+          <p mat-line>
             <span> <small>Make some fun tonight?</small></span>
           </p>
-        </md-list-item>
-        <md-list-item>
-          <img md-list-avatar src="assets/img/avatar.jpg" alt="...">
-          <h3 md-line> Chiho Sin <span class="pull-right"> <small>2 min ago</small></span></h3>
-          <p md-line>
+        </mat-list-item>
+        <mat-list-item>
+          <img mat-list-avatar src="assets/img/avatar.jpg" alt="...">
+          <h3 mat-line> Chiho Sin <span class="pull-right"> <small>2 min ago</small></span></h3>
+          <p mat-line>
             <span> <small>Hello!</small></span>
           </p>
-        </md-list-item>
-        <md-list-item>
-          <img md-list-avatar src="assets/img/avatar1.png" alt="...">
-          <h3 md-line> Alex Chan <span class="pull-right"> <small>8 min ago</small></span></h3>
-          <p md-line>
+        </mat-list-item>
+        <mat-list-item>
+          <img mat-list-avatar src="assets/img/avatar1.png" alt="...">
+          <h3 mat-line> Alex Chan <span class="pull-right"> <small>8 min ago</small></span></h3>
+          <p mat-line>
             <span> <small>I'm finish my job!</small></span>
           </p>
-        </md-list-item>
-      </md-list>
+        </mat-list-item>
+      </mat-list>
       <a class="menu-block-bottom-btn">View all</a>
     </div>
-  </md-menu>
+  </mat-menu>
   <!--User Menu-->
-  <a md-icon-button [md-menu-trigger-for]="topnavUserMenu">
+  <a mat-icon-button [mat-menu-trigger-for]="topnavUserMenu">
     <img class="topnav-avatar" src="assets/img/avatar.jpg">
   </a>
-  <md-menu #topnavUserMenu="mdMenu">
-    <button md-menu-item>
-      <md-icon>person</md-icon>
+  <mat-menu #topnavUserMenu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
       <span>Profile</span></button>
-    <button md-menu-item>
-      <md-icon>settings</md-icon>
+    <button mat-menu-item>
+      <mat-icon>settings</mat-icon>
       <span>Setting</span></button>
-    <button md-menu-item>
-      <md-icon>lock_outline</md-icon>
+    <button mat-menu-item>
+      <mat-icon>lock_outline</mat-icon>
       <span>Lock</span></button>
-  </md-menu>
-  <a md-icon-button (click)="toggleMessagePanel()">
-    <md-icon>list</md-icon>
+  </mat-menu>
+  <a mat-icon-button (click)="toggleMessagePanel()">
+    <mat-icon>list</mat-icon>
   </a>
-</md-toolbar>
+</mat-toolbar>
 <!--Page container-->
-<md-sidenav-container>
+<mat-sidenav-container>
 
   <!--Side nva bar-->
-  <md-sidenav
-    [class.sidenav-collapse]="appService.getState().sidenavCollapse"
-    *ngIf="!appService.getState().pageFullscreen"
-    mode="{{appService.getState().sidenavMode}}"
-    opened="{{ appService.getState().sidenavOpen }}"
-    align="start"
-    (close)="closeSidenav()"
-    (open)="openSidenav()"
-    (mouseout)="toggleSidenavCollapse()">
+  <mat-sidenav [class.sidenav-collapse]="appService.getState().sidenavCollapse" *ngIf="!appService.getState().pageFullscreen"
+    mode="{{appService.getState().sidenavMode}}" opened="{{ appService.getState().sidenavOpen }}" align="start" (close)="closeSidenav()"
+    (open)="openSidenav()" (mouseout)="toggleSidenavCollapse()">
     <div class="sidenav-container">
-      <md-nav-list *ngIf="mainMenu">
+      <mat-nav-list *ngIf="mainMenu">
         <ng-template ngFor let-menuItem [ngForOf]="mainMenu">
           <ng-template [ngIf]="!menuItem.sub">
-            <md-list-item
-              (click)="toggleSidenavMenu(menuItem.name, false, false)"
-              routerLink="{{menuItem.link}}"
-              routerLinkActive="active">
-              <a md-line>
-                <i class="material-icons" aria-hidden="true" *ngIf="menuItem.mdIcon">{{menuItem.mdIcon}}</i>
-                <i class="fa fa-lg {{menuItem.faIcon}}" aria-hidden="true"
-                   *ngIf="menuItem.faIcon && !menuItem.mdIcon"></i>
-                &nbsp;&nbsp;<span class="sidenav-collapse-item">{{menuItem.title}}</span></a>
+            <mat-list-item (click)="toggleSidenavMenu(menuItem.name, false, false)" routerLink="{{menuItem.link}}" routerLinkActive="active">
+              <a mat-line>
+                <i class="material-icons" aria-hidden="true" *ngIf="menuItem.matIcon">{{menuItem.matIcon}}</i>
+                <i class="fa fa-lg {{menuItem.faIcon}}" aria-hidden="true" *ngIf="menuItem.faIcon && !menuItem.matIcon"></i>                &nbsp;&nbsp;
+                <span class="sidenav-collapse-item">{{menuItem.title}}</span></a>
               <span *ngIf="menuItem.notifyContent" class="{{menuItem.notifyClass}}">{{menuItem.notifyContent}}</span>
-            </md-list-item>
+            </mat-list-item>
           </ng-template>
           <ng-template [ngIf]="menuItem.sub">
-            <md-list-item
-              (click)="toggleSidenavMenu(menuItem.name, false, true)"
-              [class.active]="activeSubMenuName === menuItem.name">
-              <a md-line>
-                <i class="material-icons" aria-hidden="true" *ngIf="menuItem.mdIcon">{{menuItem.mdIcon}}</i>
-                <i class="fa fa-lg {{menuItem.faIcon}}" aria-hidden="true"
-                   *ngIf="menuItem.faIcon && !menuItem.mdIcon"></i>
-                &nbsp;&nbsp;<span class="sidenav-collapse-item">{{menuItem.title}}</span></a>
+            <mat-list-item (click)="toggleSidenavMenu(menuItem.name, false, true)" [class.active]="activeSubMenuName === menuItem.name">
+              <a mat-line>
+                <i class="material-icons" aria-hidden="true" *ngIf="menuItem.matIcon">{{menuItem.matIcon}}</i>
+                <i class="fa fa-lg {{menuItem.faIcon}}" aria-hidden="true" *ngIf="menuItem.faIcon && !menuItem.matIcon"></i>                &nbsp;&nbsp;
+                <span class="sidenav-collapse-item">{{menuItem.title}}</span></a>
               <span *ngIf="menuItem.notifyContent" class="{{menuItem.notifyClass}}">{{menuItem.notifyContent}}</span>
-              <i *ngIf="activeSubMenuName === menuItem.name"
-                 class="material-icons sidenav-collapse-item">expand_more</i>
-              <i *ngIf="activeSubMenuName !== menuItem.name"
-                 class="material-icons sidenav-collapse-item">chevron_right</i>
-            </md-list-item>
-            <md-list-item
-              class="sidenav-menu-sub"
-              *ngFor="let subMenuItem of menuItem.sub"
-              (click)="toggleSidenavMenu(subMenuItem.name, true, false )"
-              [class.show]="activeSubMenuName === menuItem.name"
-              routerLink="{{subMenuItem.link}}"
-              routerLinkActive="active">
-              <a md-line class="sidenav-menu-sub-title"><span class="sidenav-collapse-item">{{subMenuItem.title}}</span></a>
+              <i *ngIf="activeSubMenuName === menuItem.name" class="material-icons sidenav-collapse-item">expand_more</i>
+              <i *ngIf="activeSubMenuName !== menuItem.name" class="material-icons sidenav-collapse-item">chevron_right</i>
+            </mat-list-item>
+            <mat-list-item class="sidenav-menu-sub" *ngFor="let subMenuItem of menuItem.sub" (click)="toggleSidenavMenu(subMenuItem.name, true, false )"
+              [class.show]="activeSubMenuName === menuItem.name" routerLink="{{subMenuItem.link}}" routerLinkActive="active">
+              <a mat-line class="sidenav-menu-sub-title"><span class="sidenav-collapse-item">{{subMenuItem.title}}</span></a>
               <i class="material-icons sidenav-collapse-item">chevron_right</i>
-            </md-list-item>
+            </mat-list-item>
           </ng-template>
         </ng-template>
-      </md-nav-list>
+      </mat-nav-list>
     </div>
-  </md-sidenav>
+  </mat-sidenav>
 
-  <md-sidenav
-    *ngIf="!appService.getState().pageFullscreen"
-    mode="over"
-    opened="{{ appService.getState().messagePanelOpen }}"
-    align="end"
-    (close)="closeMessagePanel()"
-    (open)="openMessagePanel()">
+  <mat-sidenav *ngIf="!appService.getState().pageFullscreen" mode="over" opened="{{ appService.getState().messagePanelOpen }}"
+    align="end" (close)="closeMessagePanel()" (open)="openMessagePanel()">
     <div class="message-panel">
-      <md-tab-group>
-        <md-tab label="Today">
+      <mat-tab-group>
+        <mat-tab label="Today">
           <div class="page-content">
             <!--<h4>{{ date | date:'EEEE, HH:mm:ss' }}</h4>-->
             <div class="time-panel">
@@ -183,113 +156,113 @@
               <p>{{ date | date:'d' }}</p>
               <p>{{ date | date:'y' }}</p>
             </div>
-            <md-list>
-              <md-divider></md-divider>
-              <h3 md-subheader>Events</h3>
-              <md-list-item>
-                <md-icon md-list-avatar style="color: red">fiber_manual_record</md-icon>
-                <h4 md-line>Mail server shutdown</h4>
-                <p md-line>Just now</p>
-              </md-list-item>
-              <md-list-item>
-                <md-icon md-list-avatar style="color: yellow">fiber_manual_record</md-icon>
-                <h4 md-line>Redis caches flush</h4>
-                <p md-line>3 minute ago</p>
-              </md-list-item>
-              <md-list-item>
-                <md-icon md-list-avatar style="color: gray">fiber_manual_record</md-icon>
-                <h4 md-line>Create ETL tasks</h4>
-                <p md-line>1 hour ago</p>
-              </md-list-item>
-              <md-list-item>
-                <md-icon md-list-avatar style="color: green">fiber_manual_record</md-icon>
-                <h4 md-line>Eureka service startup</h4>
-                <p md-line>3 day ago</p>
-              </md-list-item>
-              <md-divider></md-divider>
-              <h3 md-subheader>Tasks</h3>
-              <md-list-item>
-                <md-icon md-list-avatar>restore</md-icon>
-                <h4 md-line>Database Backup</h4>
-                <p md-line>Processing</p>
-              </md-list-item>
-              <md-list-item>
-                <md-icon md-list-avatar>timeline</md-icon>
-                <h4 md-line>ETL Tasks</h4>
-                <p md-line>Waiting</p>
-              </md-list-item>
-              <md-list-item>
-                <md-icon md-list-avatar>sync</md-icon>
-                <h4 md-line>Cleanup caches</h4>
-                <p md-line>Finished</p>
-              </md-list-item>
-            </md-list>
+            <mat-list>
+              <mat-divider></mat-divider>
+              <h3 mat-subheader>Events</h3>
+              <mat-list-item>
+                <mat-icon mat-list-avatar style="color: red">fiber_manual_record</mat-icon>
+                <h4 mat-line>Mail server shutdown</h4>
+                <p mat-line>Just now</p>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon mat-list-avatar style="color: yellow">fiber_manual_record</mat-icon>
+                <h4 mat-line>Redis caches flush</h4>
+                <p mat-line>3 minute ago</p>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon mat-list-avatar style="color: gray">fiber_manual_record</mat-icon>
+                <h4 mat-line>Create ETL tasks</h4>
+                <p mat-line>1 hour ago</p>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon mat-list-avatar style="color: green">fiber_manual_record</mat-icon>
+                <h4 mat-line>Eureka service startup</h4>
+                <p mat-line>3 day ago</p>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <h3 mat-subheader>Tasks</h3>
+              <mat-list-item>
+                <mat-icon mat-list-avatar>restore</mat-icon>
+                <h4 mat-line>Database Backup</h4>
+                <p mat-line>Processing</p>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon mat-list-avatar>timeline</mat-icon>
+                <h4 mat-line>ETL Tasks</h4>
+                <p mat-line>Waiting</p>
+              </mat-list-item>
+              <mat-list-item>
+                <mat-icon mat-list-avatar>sync</mat-icon>
+                <h4 mat-line>Cleanup caches</h4>
+                <p mat-line>Finished</p>
+              </mat-list-item>
+            </mat-list>
           </div>
-        </md-tab>
-        <md-tab label="Messages">
+        </mat-tab>
+        <mat-tab label="Messages">
           <div class="page-content">
-            <md-list>
-              <h3 md-subheader>Friends</h3>
-              <md-list-item>
-                <img md-list-avatar src="assets/img/avatar3.png" alt="...">
-                <h3 md-line> Tim Max <span class="pull-right"> <small>just now</small></span></h3>
-                <p md-line>
+            <mat-list>
+              <h3 mat-subheader>Friends</h3>
+              <mat-list-item>
+                <img mat-list-avatar src="assets/img/avatar3.png" alt="...">
+                <h3 mat-line> Tim Max <span class="pull-right"> <small>just now</small></span></h3>
+                <p mat-line>
                   <span> <small>Make some fun tonight?</small></span>
                 </p>
-              </md-list-item>
-              <md-list-item>
-                <img md-list-avatar src="assets/img/avatar.jpg" alt="...">
-                <h3 md-line> Chiho Sin <span class="pull-right"> <small>2 min ago</small></span></h3>
-                <p md-line>
+              </mat-list-item>
+              <mat-list-item>
+                <img mat-list-avatar src="assets/img/avatar.jpg" alt="...">
+                <h3 mat-line> Chiho Sin <span class="pull-right"> <small>2 min ago</small></span></h3>
+                <p mat-line>
                   <span> <small>Hello!</small></span>
                 </p>
-              </md-list-item>
-              <md-list-item>
-                <img md-list-avatar src="assets/img/avatar1.png" alt="...">
-                <h3 md-line> Alex Chan <span class="pull-right"> <small>8 min ago</small></span></h3>
-                <p md-line>
+              </mat-list-item>
+              <mat-list-item>
+                <img mat-list-avatar src="assets/img/avatar1.png" alt="...">
+                <h3 mat-line> Alex Chan <span class="pull-right"> <small>8 min ago</small></span></h3>
+                <p mat-line>
                   <span> <small>I'm finish my job!</small></span>
                 </p>
-              </md-list-item>
-              <md-divider></md-divider>
-              <h3 md-subheader>Server monitor</h3>
-              <md-list-item>
-                <h3 md-line> CPU <span class="pull-right"> <small>32%</small></span></h3>
-                <p md-line>
-                  <md-progress-bar value="32" mode="determinate"></md-progress-bar>
+              </mat-list-item>
+              <mat-divider></mat-divider>
+              <h3 mat-subheader>Server monitor</h3>
+              <mat-list-item>
+                <h3 mat-line> CPU <span class="pull-right"> <small>32%</small></span></h3>
+                <p mat-line>
+                  <mat-progress-bar value="32" mode="determinate"></mat-progress-bar>
                 </p>
-              </md-list-item>
-              <md-list-item>
-                <h3 md-line> RAM <span class="pull-right"> <small>76%</small></span></h3>
-                <p md-line>
-                  <md-progress-bar value="76" mode="determinate" color="accent"></md-progress-bar>
+              </mat-list-item>
+              <mat-list-item>
+                <h3 mat-line> RAM <span class="pull-right"> <small>76%</small></span></h3>
+                <p mat-line>
+                  <mat-progress-bar value="76" mode="determinate" color="accent"></mat-progress-bar>
                 </p>
-              </md-list-item>
-              <md-list-item>
-                <h3 md-line> DISK <span class="pull-right"> <small>7%</small></span></h3>
-                <p md-line>
-                  <md-progress-bar value="7" mode="determinate" color="warn"></md-progress-bar>
+              </mat-list-item>
+              <mat-list-item>
+                <h3 mat-line> DISK <span class="pull-right"> <small>7%</small></span></h3>
+                <p mat-line>
+                  <mat-progress-bar value="7" mode="determinate" color="warn"></mat-progress-bar>
                 </p>
-              </md-list-item>
-            </md-list>
+              </mat-list-item>
+            </mat-list>
           </div>
-        </md-tab>
-      </md-tab-group>
+        </mat-tab>
+      </mat-tab-group>
     </div>
-  </md-sidenav>
+  </mat-sidenav>
 
   <!--Page content-->
   <div [class.page-container]="!appService.getState().pageFullscreen">
     <router-outlet></router-outlet>
     <!--Page footer-->
-    <md-toolbar class="page-footer" *ngIf="appService.getState().pageFooter">
+    <mat-toolbar class="page-footer" *ngIf="appService.getState().pageFooter">
       © 2016 Lokra Studio.
       <span class="filler"></span>
-      <button md-button>About</button>
-      <button md-button>Contact</button>
-    </md-toolbar>
+      <button mat-button>About</button>
+      <button mat-button>Contact</button>
+    </mat-toolbar>
   </div>
-</md-sidenav-container>
-<button md-fab color="warn" style="position: absolute;bottom: 16px;right: 16px;z-index: 5;" (click)="openThemeDialog()">
-  <md-icon>brush</md-icon>
+</mat-sidenav-container>
+<button mat-fab color="warn" style="position: absolute;bottom: 16px;right: 16px;z-index: 5;" (click)="openThemeDialog()">
+  <mat-icon>brush</mat-icon>
 </button>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from '../../app.service';
-import { MdSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'lk-component-notifications',
@@ -15,7 +15,7 @@ export class ComponentNotificationsComponent implements OnInit {
   time=1000;
 
 
-  constructor(private appService: AppService, public snackBar: MdSnackBar) {
+  constructor(private appService: AppService, public snackBar: MatSnackBar) {
     appService.getState().topnavTitle = 'Notifications';
   }
 

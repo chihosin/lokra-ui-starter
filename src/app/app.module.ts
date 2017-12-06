@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, Http } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
-import { MaterialModule, MdTabsModule } from '@angular/material';
 import { Md2Module } from 'md2/module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule, NoPreloading } from '@angular/router';
@@ -62,10 +61,8 @@ import { PagesSignupComponent } from './pages/pages-signup/pages-signup.componen
 import { AppsCalendarComponent } from './pages/apps-calendar/apps-calendar.component';
 import { AppsExplorerComponent } from './pages/apps-explorer/apps-explorer.component';
 import { AppsMailComponent } from './pages/apps-mail/apps-mail.component';
-import { MapsVectorExampleComponent } from './pages/maps-vector/maps-vector.component';
 import { IconMaterialComponent } from './pages/icon-material/icon-material.component';
 import { ScheduleModule } from './shared/schedule/schedule.module';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FileUploadModule } from 'ng2-file-upload';
 import { TreeModule } from 'angular2-tree-component';
 import { ChartModule } from './shared/chart/chart.module';
@@ -77,11 +74,81 @@ import { DashboardEdgeComponent } from './pages/dashboard-edge/dashboard-edge.co
 import { DialogThemeComponent } from './shared/dialog/dialog-theme/dialog-theme.component';
 import { TranslateStaticLoader, TranslateLoader, TranslateModule } from 'ng2-translate';
 import { QuillEditorComponent } from './shared/editor/quill-editor.component';
+import { MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
+} from '@angular/material';
+import { CdkTableModule } from "@angular/cdk/table";
 /**
  * Root Module
  *
  * App bootstrap here, add your component (Page) to var [declarations] for load.
  */
+@NgModule({
+  exports: [
+    CdkTableModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule,
+  ]
+})
+export class MaterialModule {}
 @NgModule({
   declarations: [
     // Page
@@ -117,7 +184,6 @@ import { QuillEditorComponent } from './shared/editor/quill-editor.component';
     IconMaterialComponent,
     IconFontawesomeComponent,
     MapsGoogleComponent,
-    MapsVectorExampleComponent,
     FormsValidationComponent,
     FormsWizardComponent,
     FormsAutocompleteComponent,
@@ -148,7 +214,6 @@ import { QuillEditorComponent } from './shared/editor/quill-editor.component';
     // Angular Imports
     BrowserModule,
     BrowserAnimationsModule,
-    MdTabsModule,
     FormsModule,
     HttpModule,
     // Lokra Imports
@@ -158,13 +223,10 @@ import { QuillEditorComponent } from './shared/editor/quill-editor.component';
     MediaModule,
     WidgetModule,
     // Extra Plugin Imports
-    NgxDatatableModule,
     // If you using lazy loading, var [preloadingStrategy] can change to PreloadAllModules or NoPreloading.
     RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: NoPreloading}),
     MaterialModule,
     FlexLayoutModule,
-    Md2Module,
-    NgxDatatableModule,
     FileUploadModule,
     CustomFormsModule,
     TreeModule,

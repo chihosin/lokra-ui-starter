@@ -1,13 +1,13 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Select</md-card-title>
-          <md-card-subtitle>Default material select</md-card-subtitle>
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Select</mat-card-title>
+          <mat-card-subtitle>Default material select</mat-card-subtitle>
 
-          <md-card-content>
-            <md-card class="example-md-menu">
+          <mat-card-content>
+            <mat-card class="example-mat-menu">
               <div class="example-menu-title">
                 <p>Basic select</p>
               </div>
@@ -17,60 +17,60 @@
                   <p [style.color]="selectedValue">this is a simple select</p>
                 </div>
 
-                <md-select placeholder="Color" [(ngModel)]="selectedValue"  name="color">
-                  <md-option *ngFor="let color of colors" [value]="color.value">
+                <mat-select placeholder="Color" [(ngModel)]="selectedValue"  name="color">
+                  <mat-option *ngFor="let color of colors" [value]="color.value">
                     {{color.viewValue}}
-                  </md-option>
-                </md-select>
+                  </mat-option>
+                </mat-select>
 
                 <p> Selected value: {{selectedValue}} </p>
 
-                <md-select placeholder="Disabled" disabled>
-                </md-select>
+                <mat-select placeholder="Disabled" disabled>
+                </mat-select>
               </div>
 
-            </md-card>
+            </mat-card>
 
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdSelectModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matSelectModule</code>
           <a class="badge" href="https://material.angular.io/components/component/select">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>
-              <code>&lt;md-select&gt;</code> is a form control for selecting a value from a set of options,
+              <code>&lt;mat-select&gt;</code> is a form control for selecting a value from a set of options,
               similar to the native <code>&lt;select&gt;</code> element.
             </p>
             <h3>Use with @angular/forms</h3>
             <p>
-              <code>&lt;md-select&gt;</code> is compatible with @angular/forms
+              <code>&lt;mat-select&gt;</code> is compatible with @angular/forms
               and supports both FormsModule and ReactiveFormsModule.
             </p>
 
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdSelectModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matSelectModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdOption</h3>
-            <p class="docs-api-class-description">Single option inside of a `&lt;md-select&gt;` element.
+            <h3 class="docs-api-h3 docs-api-class-name">matOption</h3>
+            <p class="docs-api-class-description">Single option inside of a `&lt;mat-select&gt;` element.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -185,7 +185,7 @@
                 </td>
               </tr></table>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdSelect</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matSelect</h3>
             <p class="docs-api-class-description"></p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -363,8 +363,8 @@
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

@@ -1,73 +1,73 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Slider</md-card-title>
-          <md-card-subtitle>Default material slider</md-card-subtitle>
-          <md-card-content>
-            <md-input-container>
-              <input mdInput type="number" placeholder="Value" [(ngModel)]="value">
-            </md-input-container>
-            <md-input-container>
-              <input mdInput type="number" placeholder="Min value" [(ngModel)]="min">
-            </md-input-container>
-            <md-input-container>
-              <input mdInput type="number" placeholder="Max value" [(ngModel)]="max">
-            </md-input-container>
-            <md-input-container>
-              <input mdInput type="number" placeholder="Step size" [(ngModel)]="step">
-            </md-input-container>
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Slider</mat-card-title>
+          <mat-card-subtitle>Default material slider</mat-card-subtitle>
+          <mat-card-content>
+            <mat-input-container>
+              <input matInput type="number" placeholder="Value" [(ngModel)]="value">
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="number" placeholder="Min value" [(ngModel)]="min">
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="number" placeholder="Max value" [(ngModel)]="max">
+            </mat-input-container>
+            <mat-input-container>
+              <input matInput type="number" placeholder="Step size" [(ngModel)]="step">
+            </mat-input-container>
             <br>
-            <md-slider
+            <mat-slider
               [max]="max"
               [min]="min"
               [step]="step"
               [thumb-label]="true"
               [value]="value">
-            </md-slider>
-            <md-card-subtitle>Set tick interval</md-card-subtitle>
-            <md-input-container>
-              <input mdInput type="number" placeholder="Tick interval" [(ngModel)]="tickInterval">
-            </md-input-container>
+            </mat-slider>
+            <mat-card-subtitle>Set tick interval</mat-card-subtitle>
+            <mat-input-container>
+              <input matInput type="number" placeholder="Tick interval" [(ngModel)]="tickInterval">
+            </mat-input-container>
             <br>
-            <md-slider
+            <mat-slider
               [invert]="true"
-              [tick-interval]="tickInterval"></md-slider>
+              [tick-interval]="tickInterval"></mat-slider>
             <br>
-            <md-card-subtitle>Disabled slider</md-card-subtitle>
-            <md-slider
-              [disabled]="true"></md-slider>
-            <md-card-subtitle>Invert slider</md-card-subtitle>
-            <md-slider
-              [invert]="true"></md-slider>
+            <mat-card-subtitle>Disabled slider</mat-card-subtitle>
+            <mat-slider
+              [disabled]="true"></mat-slider>
+            <mat-card-subtitle>Invert slider</mat-card-subtitle>
+            <mat-slider
+              [invert]="true"></mat-slider>
             <br>
-            <md-card-subtitle>Vertical slider</md-card-subtitle>
-            <md-slider
-              [vertical]="true"></md-slider>
-            <md-card-subtitle>Vertical invert slider</md-card-subtitle>
+            <mat-card-subtitle>Vertical slider</mat-card-subtitle>
+            <mat-slider
+              [vertical]="true"></mat-slider>
+            <mat-card-subtitle>Vertical invert slider</mat-card-subtitle>
             <br>
-            <md-slider
+            <mat-slider
               [vertical]="true"
               [invert]="true"
-              [tick-interval]="tickInterval"></md-slider>
+              [tick-interval]="tickInterval"></mat-slider>
 
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdSliderModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matSliderModule</code>
           <a class="badge" href="https://material.angular.io/components/component/slider">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>
-              <code>&lt;md-slider&gt;</code> allows for the selection of a value from a range via mouse, touch,
+              <code>&lt;mat-slider&gt;</code> allows for the selection of a value from a range via mouse, touch,
               or keyboard, similar to <code>&lt;input type="range"&gt;</code>.
             </p>
             <p>
@@ -81,7 +81,7 @@
               The initial value is set to the minimum value unless otherwise specified.
             </p>
             <p>
-              <code>&lt;md-slider min="1" max="5" step="0.5" value="1.5"&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider min="1" max="5" step="0.5" value="1.5"&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <h3>Orientation</h3>
             <p>
@@ -90,7 +90,7 @@
               and the maximum value on top.
             </p>
             <p>
-              <code>&lt;md-slider vertical&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider vertical&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <p>
               An invert attribute is also available which can be specified to flip the axis that the thumb moves along.
@@ -98,7 +98,7 @@
               while an inverted vertical slider will have the minimum value on top and the maximum value on bottom.
             </p>
             <p>
-              <code>&lt;md-slider invert&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider invert&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <h3>
               Thumb label
@@ -113,7 +113,7 @@
               only for sliders that are used to display a discrete value (such as a 1-5 rating).
             </p>
             <p>
-              <code>&lt;md-slider thumbLabel tickInterval="1"&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider thumbLabel tickInterval="1"&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <h3>Tick marks</h3>
             <p>
@@ -124,14 +124,14 @@
               which is the same as every 12 values.
             </p>
             <p>
-              <code>&lt;md-slider step="4" tickInterval="3"&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider step="4" tickInterval="3"&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <p>
               The tickInterval can also be set to auto which will automatically choose the number of
               steps such that there is at least 30px of space between ticks.
             </p>
             <p>
-              <code>&lt;md-slider tickInterval="auto"&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider tickInterval="auto"&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <p>
               The slider will always show a tick at the beginning and end of the track.
@@ -190,19 +190,19 @@
             </table>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdSliderModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matSliderModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdSlider</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matSlider</h3>
             <p class="docs-api-class-description">Allows users to select from a range of values by moving the slider
               thumb. It is similar in
               behavior to the native `&lt;input type=&quot;range&quot;&gt;` element.
@@ -486,8 +486,8 @@
 
             <h2>Additional classes</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdSliderChange</h3>
-            <p class="docs-api-class-description">A simple change event emitted by the MdSlider component.
+            <h3 class="docs-api-h3 docs-api-class-name">matSliderChange</h3>
+            <p class="docs-api-class-description">A simple change event emitted by the matSlider component.
             </p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -522,8 +522,8 @@
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>

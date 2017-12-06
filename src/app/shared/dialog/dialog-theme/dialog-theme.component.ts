@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 import { TranslateService } from 'ng2-translate';
 import { AppService } from '../../../app.service';
 
@@ -15,7 +15,7 @@ export class DialogThemeComponent implements OnInit {
   lang = 'en';
 
   constructor(private appService: AppService,
-              private dialogRef: MdDialogRef<DialogThemeComponent>,
+              private dialogRef: MatDialogRef<DialogThemeComponent>,
               private translate: TranslateService) {
     this.collapseSidenavChecked = appService.getState().sidenavCollapse;
   }

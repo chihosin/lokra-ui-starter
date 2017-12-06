@@ -1,67 +1,67 @@
-<md-tab-group>
-  <md-tab label="Example">
+<mat-tab-group>
+  <mat-tab label="Example">
     <div class="page-content">
       <div fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxFlex>
-        <md-card fxFlex class="page-card">
-          <md-card-title>Slide-toggle</md-card-title>
-          <md-card-subtitle>Default material slide-toggle</md-card-subtitle>
-          <md-card-content>
-            <md-card-subtitle>Color:</md-card-subtitle>
-            <md-slide-toggle
+        <mat-card fxFlex class="page-card">
+          <mat-card-title>Slide-toggle</mat-card-title>
+          <mat-card-subtitle>Default material slide-toggle</mat-card-subtitle>
+          <mat-card-content>
+            <mat-card-subtitle>Color:</mat-card-subtitle>
+            <mat-slide-toggle
               [color]="'primary'"
               [checked]="true">
               Primary
-            </md-slide-toggle>
-            <md-slide-toggle
+            </mat-slide-toggle>
+            <mat-slide-toggle
               [color]="'accent'"
               [checked]="true">
               Accent
-            </md-slide-toggle>
-            <md-slide-toggle
+            </mat-slide-toggle>
+            <mat-slide-toggle
               [color]="'warn'"
               [checked]="true">
               Warn
-            </md-slide-toggle>
-            <md-card-subtitle>Slide-toggle is required</md-card-subtitle>
-            <md-slide-toggle
+            </mat-slide-toggle>
+            <mat-card-subtitle>Slide-toggle is required</mat-card-subtitle>
+            <mat-slide-toggle
               [required]="true"
               [checked]="true">
               Slide me
-            </md-slide-toggle>
-            <md-card-subtitle>Disabled</md-card-subtitle>
-            <md-slide-toggle
+            </mat-slide-toggle>
+            <mat-card-subtitle>Disabled</mat-card-subtitle>
+            <mat-slide-toggle
               [disabled]="true"
               [checked]="true">
               Slide
-            </md-slide-toggle>
+            </mat-slide-toggle>
 
-          </md-card-content>
-        </md-card>
+          </mat-card-content>
+        </mat-card>
       </div>
     </div>
-  </md-tab>
-  <md-tab label="Overview">
+  </mat-tab>
+  <mat-tab label="Overview">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdSlideToggleModule</code>
+      <mat-card class="page-card">
+        <mat-card-title><code>matSlideToggleModule</code>
           <a class="badge" href="https://material.angular.io/components/component/slide-toggle">Official Documentation
           </a>
-        </md-card-title>
-        <md-card-content>
+        </mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <p>
-              <code>&lt;md-slide-toggle&gt;</code> is an on/off control that can be toggled via clicking or dragging.
+              <code>&lt;mat-slide-toggle&gt;</code> is an on/off control that can be toggled via clicking or dragging.
             </p>
             <p>
               The slide-toggle behaves similarly to a checkbox, though it does not support
-              an indeterminate state like <code>&lt;md-checkbox&gt;</code>.
+              an indeterminate state like <code>&lt;mat-checkbox&gt;</code>.
             </p>
             <p>
               Note: the sliding behavior for this component requires that HammerJS is loaded on the page.
             </p>
             <h3>Slide-toggle label</h3>
             <p>
-              The slide-toggle label is provided as the content to the <code>&lt;md-slide-toggle&gt;</code> element.
+              The slide-toggle label is provided as the content to the <code>&lt;mat-slide-toggle&gt;</code> element.
             </p>
             <p>
               If you don't want the label to appear next to the slide-toggle,
@@ -69,18 +69,18 @@
             </p>
             <h3>Use with @angular/forms</h3>
             <p>
-              <code>&lt;md-slide-toggle&gt;</code> is compatible with @angular/forms and supports both FormsModule
+              <code>&lt;mat-slide-toggle&gt;</code> is compatible with @angular/forms and supports both FormsModule
               and ReactiveFormsModule.
             </p>
             <h3>Theming</h3>
             <p>
-              The color of a <code>&lt;md-slide-toggle&gt;</code> can be changed by using the color property.
+              The color of a <code>&lt;mat-slide-toggle&gt;</code> can be changed by using the color property.
               By default, slide-toggles use the theme's accent color. This can be changed to 'primary' or 'warn'.
             </p>
 
 
             <p>
-              <code>&lt;md-slider&gt;</code> allows for the selection of a value from a range via mouse, touch,
+              <code>&lt;mat-slider&gt;</code> allows for the selection of a value from a range via mouse, touch,
               or keyboard, similar to <code>&lt;input type="range"&gt;</code>.
             </p>
             <p>
@@ -94,7 +94,7 @@
               The initial value is set to the minimum value unless otherwise specified.
             </p>
             <p>
-              <code>&lt;md-slider min="1" max="5" step="0.5" value="1.5"&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider min="1" max="5" step="0.5" value="1.5"&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <h3>Orientation</h3>
             <p>
@@ -103,7 +103,7 @@
               and the maximum value on top.
             </p>
             <p>
-              <code>&lt;md-slider vertical&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider vertical&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <p>
               An invert attribute is also available which can be specified to flip the axis that the thumb moves along.
@@ -111,7 +111,7 @@
               while an inverted vertical slider will have the minimum value on top and the maximum value on bottom.
             </p>
             <p>
-              <code>&lt;md-slider invert&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider invert&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <h3>
               Thumb label
@@ -126,7 +126,7 @@
               only for sliders that are used to display a discrete value (such as a 1-5 rating).
             </p>
             <p>
-              <code>&lt;md-slider thumbLabel tickInterval="1"&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider thumbLabel tickInterval="1"&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <h3>Tick marks</h3>
             <p>
@@ -137,14 +137,14 @@
               which is the same as every 12 values.
             </p>
             <p>
-              <code>&lt;md-slider step="4" tickInterval="3"&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider step="4" tickInterval="3"&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <p>
               The tickInterval can also be set to auto which will automatically choose the number of
               steps such that there is at least 30px of space between ticks.
             </p>
             <p>
-              <code>&lt;md-slider tickInterval="auto"&gt;</code><code>&lt;/md-slider&gt;</code>
+              <code>&lt;mat-slider tickInterval="auto"&gt;</code><code>&lt;/mat-slider&gt;</code>
             </p>
             <p>
               The slider will always show a tick at the beginning and end of the track.
@@ -203,19 +203,19 @@
             </table>
 
           </div>
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-  <md-tab label="API Reference">
+  </mat-tab>
+  <mat-tab label="API Reference">
     <div class="page-content">
-      <md-card class="page-card">
-        <md-card-title><code>MdSlideToggleModule</code></md-card-title>
-        <md-card-content>
+      <mat-card class="page-card">
+        <mat-card-title><code>matSlideToggleModule</code></mat-card-title>
+        <mat-card-content>
           <div class="docs-guide-content">
             <h2>Directives</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdSlideToggle</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matSlideToggle</h3>
             <p class="docs-api-class-description">Two-state control, which can be also called `switch`.
             </p>
 
@@ -410,7 +410,7 @@
 
             <h2>Additional classes</h2>
 
-            <h3 class="docs-api-h3 docs-api-class-name">MdSlideToggleChange</h3>
+            <h3 class="docs-api-h3 docs-api-class-name">matSlideToggleChange</h3>
             <p class="docs-api-class-description"></p>
 
             <h4 class="docs-api-h4 docs-api-method-header">Properties</h4>
@@ -445,8 +445,8 @@
 
           </div>
 
-        </md-card-content>
-      </md-card>
+        </mat-card-content>
+      </mat-card>
     </div>
-  </md-tab>
-</md-tab-group>
+  </mat-tab>
+</mat-tab-group>
