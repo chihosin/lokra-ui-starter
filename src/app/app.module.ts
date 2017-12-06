@@ -63,7 +63,6 @@ import { AppsExplorerComponent } from './pages/apps-explorer/apps-explorer.compo
 import { AppsMailComponent } from './pages/apps-mail/apps-mail.component';
 import { IconMaterialComponent } from './pages/icon-material/icon-material.component';
 import { ScheduleModule } from './shared/schedule/schedule.module';
-import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FileUploadModule } from 'ng2-file-upload';
 import { TreeModule } from 'angular2-tree-component';
 import { ChartModule } from './shared/chart/chart.module';
@@ -224,12 +223,10 @@ export class MaterialModule {}
     MediaModule,
     WidgetModule,
     // Extra Plugin Imports
-    NgxDatatableModule,
     // If you using lazy loading, var [preloadingStrategy] can change to PreloadAllModules or NoPreloading.
     RouterModule.forRoot(ROUTES, {useHash: true, preloadingStrategy: NoPreloading}),
     MaterialModule,
     FlexLayoutModule,
-    NgxDatatableModule,
     FileUploadModule,
     CustomFormsModule,
     TreeModule,

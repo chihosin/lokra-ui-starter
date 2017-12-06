@@ -18,15 +18,13 @@
   </a>
   </span>
   <div class="topnav-search" fxShow.sm="false" fxShow.xs="false">
-    <mat2-autocomplete
-      [class.show]="showTopnavSearch"
-      [items]="searchItems"
-      item-text="title"
-      item-value="link"
-      (blur)="alert('xxx')"
-      (change)="selectedSearchItem($event)"
-      [(ngModel)]="searchItem">
-    </mat2-autocomplete>
+    <!--<mat-form-field>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    </mat-form-field>
+
+    <mat-autocomplete [class.show]="showTopnavSearch" [items]="searchItems" item-text="title" item-value="link" (blur)="alert('xxx')"
+      (change)="selectedSearchItem($event)" [(ngModel)]="searchItem">
+    </mat-autocomplete>-->
   </div>
   <span fxShow.sm="false" fxShow.xs="false">
   <a mat-icon-button (click)="toggleFullscreen()">
@@ -36,7 +34,7 @@
   <span fxShow.sm="false" fxShow.xs="false">
   <a mat-icon-button [mat-menu-trigger-for]="topnavAppsMenu">
     <span class="notify">6</span>
-    <mat-icon>apps</mat-icon>
+  <mat-icon>apps</mat-icon>
   </a>
   </span>
   <mat-menu #topnavAppsMenu="matMenu">
@@ -110,53 +108,33 @@
 <mat-sidenav-container>
 
   <!--Side nva bar-->
-  <mat-sidenav
-    [class.sidenav-collapse]="appService.getState().sidenavCollapse"
-    *ngIf="!appService.getState().pageFullscreen"
-    mode="{{appService.getState().sidenavMode}}"
-    opened="{{ appService.getState().sidenavOpen }}"
-    align="start"
-    (close)="closeSidenav()"
-    (open)="openSidenav()"
-    (mouseout)="toggleSidenavCollapse()">
+  <mat-sidenav [class.sidenav-collapse]="appService.getState().sidenavCollapse" *ngIf="!appService.getState().pageFullscreen"
+    mode="{{appService.getState().sidenavMode}}" opened="{{ appService.getState().sidenavOpen }}" align="start" (close)="closeSidenav()"
+    (open)="openSidenav()" (mouseout)="toggleSidenavCollapse()">
     <div class="sidenav-container">
       <mat-nav-list *ngIf="mainMenu">
         <ng-template ngFor let-menuItem [ngForOf]="mainMenu">
           <ng-template [ngIf]="!menuItem.sub">
-            <mat-list-item
-              (click)="toggleSidenavMenu(menuItem.name, false, false)"
-              routerLink="{{menuItem.link}}"
-              routerLinkActive="active">
+            <mat-list-item (click)="toggleSidenavMenu(menuItem.name, false, false)" routerLink="{{menuItem.link}}" routerLinkActive="active">
               <a mat-line>
                 <i class="material-icons" aria-hidden="true" *ngIf="menuItem.matIcon">{{menuItem.matIcon}}</i>
-                <i class="fa fa-lg {{menuItem.faIcon}}" aria-hidden="true"
-                   *ngIf="menuItem.faIcon && !menuItem.matIcon"></i>
-                &nbsp;&nbsp;<span class="sidenav-collapse-item">{{menuItem.title}}</span></a>
+                <i class="fa fa-lg {{menuItem.faIcon}}" aria-hidden="true" *ngIf="menuItem.faIcon && !menuItem.matIcon"></i>                &nbsp;&nbsp;
+                <span class="sidenav-collapse-item">{{menuItem.title}}</span></a>
               <span *ngIf="menuItem.notifyContent" class="{{menuItem.notifyClass}}">{{menuItem.notifyContent}}</span>
             </mat-list-item>
           </ng-template>
           <ng-template [ngIf]="menuItem.sub">
-            <mat-list-item
-              (click)="toggleSidenavMenu(menuItem.name, false, true)"
-              [class.active]="activeSubMenuName === menuItem.name">
+            <mat-list-item (click)="toggleSidenavMenu(menuItem.name, false, true)" [class.active]="activeSubMenuName === menuItem.name">
               <a mat-line>
                 <i class="material-icons" aria-hidden="true" *ngIf="menuItem.matIcon">{{menuItem.matIcon}}</i>
-                <i class="fa fa-lg {{menuItem.faIcon}}" aria-hidden="true"
-                   *ngIf="menuItem.faIcon && !menuItem.matIcon"></i>
-                &nbsp;&nbsp;<span class="sidenav-collapse-item">{{menuItem.title}}</span></a>
+                <i class="fa fa-lg {{menuItem.faIcon}}" aria-hidden="true" *ngIf="menuItem.faIcon && !menuItem.matIcon"></i>                &nbsp;&nbsp;
+                <span class="sidenav-collapse-item">{{menuItem.title}}</span></a>
               <span *ngIf="menuItem.notifyContent" class="{{menuItem.notifyClass}}">{{menuItem.notifyContent}}</span>
-              <i *ngIf="activeSubMenuName === menuItem.name"
-                 class="material-icons sidenav-collapse-item">expand_more</i>
-              <i *ngIf="activeSubMenuName !== menuItem.name"
-                 class="material-icons sidenav-collapse-item">chevron_right</i>
+              <i *ngIf="activeSubMenuName === menuItem.name" class="material-icons sidenav-collapse-item">expand_more</i>
+              <i *ngIf="activeSubMenuName !== menuItem.name" class="material-icons sidenav-collapse-item">chevron_right</i>
             </mat-list-item>
-            <mat-list-item
-              class="sidenav-menu-sub"
-              *ngFor="let subMenuItem of menuItem.sub"
-              (click)="toggleSidenavMenu(subMenuItem.name, true, false )"
-              [class.show]="activeSubMenuName === menuItem.name"
-              routerLink="{{subMenuItem.link}}"
-              routerLinkActive="active">
+            <mat-list-item class="sidenav-menu-sub" *ngFor="let subMenuItem of menuItem.sub" (click)="toggleSidenavMenu(subMenuItem.name, true, false )"
+              [class.show]="activeSubMenuName === menuItem.name" routerLink="{{subMenuItem.link}}" routerLinkActive="active">
               <a mat-line class="sidenav-menu-sub-title"><span class="sidenav-collapse-item">{{subMenuItem.title}}</span></a>
               <i class="material-icons sidenav-collapse-item">chevron_right</i>
             </mat-list-item>
@@ -166,13 +144,8 @@
     </div>
   </mat-sidenav>
 
-  <mat-sidenav
-    *ngIf="!appService.getState().pageFullscreen"
-    mode="over"
-    opened="{{ appService.getState().messagePanelOpen }}"
-    align="end"
-    (close)="closeMessagePanel()"
-    (open)="openMessagePanel()">
+  <mat-sidenav *ngIf="!appService.getState().pageFullscreen" mode="over" opened="{{ appService.getState().messagePanelOpen }}"
+    align="end" (close)="closeMessagePanel()" (open)="openMessagePanel()">
     <div class="message-panel">
       <mat-tab-group>
         <mat-tab label="Today">
